@@ -56,7 +56,7 @@ type FuturesAggregate struct {
 	SessionEndDate  string  `json:"session_end_date,omitempty"`
 	SettlementPrice float64 `json:"settlement_price,omitempty"`
 	Ticker          string  `json:"ticker,omitempty"`
-	Transactions    int64   `json:"transaction_count,omitempty"`
+	Transactions    int64   `json:"transactions,omitempty"`
 	Volume          int64   `json:"volume,omitempty"`
 	WindowStart     Nanos   `json:"window_start,omitempty"`
 }
