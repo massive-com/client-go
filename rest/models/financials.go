@@ -27,11 +27,11 @@ type ListStockFinancialsParams struct {
 	//
 	// To get financials based on filings that happened in the year 2009 use the query params
 	// filing_date.gte=2009-01-01&filing_date.lt=2010-01-01.
-	FilingDateEQ  *Date `query:"filing_dividend_date"`
-	FilingDateLT  *Date `query:"filing_dividend_date.lt"`
-	FilingDateLTE *Date `query:"filing_dividend_date.lte"`
-	FilingDateGT  *Date `query:"filing_dividend_date.gt"`
-	FilingDateGTE *Date `query:"filing_dividend_date.gte"`
+	FilingDateEQ  *Date `query:"filing_date"`
+	FilingDateLT  *Date `query:"filing_date.lt"`
+	FilingDateLTE *Date `query:"filing_date.lte"`
+	FilingDateGT  *Date `query:"filing_date.gt"`
+	FilingDateGTE *Date `query:"filing_date.gte"`
 
 	// The period of report for the filing with financials data in YYYY-MM-DD format.
 	PeriodOfReportDateEQ  *Date `query:"period_of_report_date"`
