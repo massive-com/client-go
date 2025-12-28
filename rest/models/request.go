@@ -3,6 +3,7 @@ package models
 import (
 	"net/http"
 	"net/url"
+	"time"
 )
 
 // RequestOptions are used to configure client calls.
@@ -18,6 +19,9 @@ type RequestOptions struct {
 
 	// Trace enables request tracing
 	Trace bool
+
+	// Limiter used to rate limit requests
+	Limiter RateLimiter
 }
 
 // RequestOption changes the configuration of RequestOptions.
@@ -83,5 +87,16 @@ func EdgeUserAgent(userAgent string) RequestOption {
 func WithTrace(trace bool) RequestOption {
 	return func(o *RequestOptions) {
 		o.Trace = trace
+	}
+}
+
+type RateLimiter interface {
+	Take() time.Time
+}
+
+// WithRateLimiter sets Ratelimiter to limit request rate.
+func WithRateLimiter(limiter RateLimiter) RequestOption {
+	return func(o *RequestOptions) {
+		o.Limiter = limiter
 	}
 }
