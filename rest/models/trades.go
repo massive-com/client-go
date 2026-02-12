@@ -98,18 +98,19 @@ type GetLastCryptoTradeResponse struct {
 
 // Trade contains trade data for a specified ticker symbol.
 type Trade struct {
-	Conditions           []int32 `json:"conditions,omitempty"`
-	Correction           int     `json:"correction,omitempty"`
-	Exchange             int     `json:"exchange,omitempty"`
-	ID                   string  `json:"id,omitempty"`
-	ParticipantTimestamp Nanos   `json:"participant_timestamp,omitempty"`
-	Price                float64 `json:"price,omitempty"`
-	SequenceNumber       int64   `json:"sequence_number,omitempty"`
-	SipTimestamp         Nanos   `json:"sip_timestamp,omitempty"`
-	Size                 float64 `json:"size,omitempty"`
-	Tape                 int32   `json:"tape,omitempty"`
-	TrfID                int     `json:"trf_id,omitempty"`
-	TrfTimestamp         Nanos   `json:"trf_timestamp,omitempty"`
+	Conditions           []int32       `json:"conditions,omitempty"`
+	Correction           int           `json:"correction,omitempty"`
+	Exchange             int           `json:"exchange,omitempty"`
+	ID                   string        `json:"id,omitempty"`
+	ParticipantTimestamp Nanos         `json:"participant_timestamp,omitempty"`
+	Price                float64       `json:"price,omitempty"`
+	SequenceNumber       int64         `json:"sequence_number,omitempty"`
+	SipTimestamp         Nanos         `json:"sip_timestamp,omitempty"`
+	Size                 float64       `json:"size,omitempty"`
+	DecimalSize          DecimalVolume `json:"decimal_size,omitempty"`
+	Tape                 int32         `json:"tape,omitempty"`
+	TrfID                int           `json:"trf_id,omitempty"`
+	TrfTimestamp         Nanos         `json:"trf_timestamp,omitempty"`
 }
 
 // LastTrade is the most recent trade for a specified ticker.

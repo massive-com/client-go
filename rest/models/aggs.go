@@ -172,16 +172,17 @@ func (p GetDailyOpenCloseAggParams) WithAdjusted(q bool) *GetDailyOpenCloseAggPa
 // GetDailyOpenCloseAggResponse is the response for the GetDailyOpenCloseAgg method.
 type GetDailyOpenCloseAggResponse struct {
 	BaseResponse
-	Symbol     string  `json:"symbol,omitempty"`
-	From       string  `json:"from,omitempty"`
-	Open       float64 `json:"open,omitempty"`
-	High       float64 `json:"high,omitempty"`
-	Low        float64 `json:"low,omitempty"`
-	Close      float64 `json:"close,omitempty"`
-	Volume     float64 `json:"volume,omitempty"`
-	AfterHours float64 `json:"afterHours,omitempty"`
-	PreMarket  float64 `json:"preMarket,omitempty"`
-	OTC        bool    `json:"otc,omitempty"`
+	Symbol        string        `json:"symbol,omitempty"`
+	From          string        `json:"from,omitempty"`
+	Open          float64       `json:"open,omitempty"`
+	High          float64       `json:"high,omitempty"`
+	Low           float64       `json:"low,omitempty"`
+	Close         float64       `json:"close,omitempty"`
+	Volume        float64       `json:"volume,omitempty"`
+	DecimalVolume DecimalVolume `json:"decimal_volume,omitempty"`
+	AfterHours    float64       `json:"afterHours,omitempty"`
+	PreMarket     float64       `json:"preMarket,omitempty"`
+	OTC           bool          `json:"otc,omitempty"`
 }
 
 // GetPreviousCloseAggParams is the set of parameters for the GetPreviousCloseAgg method.

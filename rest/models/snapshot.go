@@ -491,8 +491,9 @@ type SnapshotLastMinute struct {
 	Transactions int64   `json:"transactions,omitempty"`
 	Open         float64 `json:"open,omitempty"`
 	Volume       float64 `json:"volume,omitempty"`
-	VWAP         float64 `json:"vwap,omitempty"`
-	LastUpdated  int64   `json:"last_updated,omitempty"`
+	//TODO: check if this need a decimal_volume
+	VWAP        float64 `json:"vwap,omitempty"`
+	LastUpdated int64   `json:"last_updated,omitempty"`
 }
 
 // SnapshotLastQuote contains all the information that might come back in the last_quote attribute of a SnapshotResponse.
@@ -509,15 +510,16 @@ type SnapshotLastQuote struct {
 
 // SnapshotLastTrade contains all the information that might come back in the last_trade attribute of a SnapshotResponse.
 type SnapshotLastTrade struct {
-	Timestamp            int64   `json:"sip_timestamp,omitempty"`
-	ParticipantTimestamp int64   `json:"participant_timestamp,omitempty"`
-	Conditions           []int32 `json:"conditions,omitempty"`
-	Price                float64 `json:"price,omitempty"`
-	Size                 uint32  `json:"size,omitempty"`
-	Exchange             int32   `json:"exchange,omitempty"`
-	Timeframe            string  `json:"timeframe,omitempty"`
-	ID                   string  `json:"id,omitempty"`
-	LastUpdated          int64   `json:"last_updated,omitempty"`
+	Timestamp            int64         `json:"sip_timestamp,omitempty"`
+	ParticipantTimestamp int64         `json:"participant_timestamp,omitempty"`
+	Conditions           []int32       `json:"conditions,omitempty"`
+	Price                float64       `json:"price,omitempty"`
+	Size                 uint32        `json:"size,omitempty"`
+	DecimalSize          DecimalVolume `json:"decimal_size,omitempty"`
+	Exchange             int32         `json:"exchange,omitempty"`
+	Timeframe            string        `json:"timeframe,omitempty"`
+	ID                   string        `json:"id,omitempty"`
+	LastUpdated          int64         `json:"last_updated,omitempty"`
 }
 
 // Session contains all the information that might come back in the Session attribute of a SnapshotResponseModel or SummaryResult.
@@ -536,9 +538,10 @@ type Session struct {
 	Open                        float64 `json:"open,omitempty"`
 	PreviousClose               float64 `json:"previous_close,omitempty"`
 	Volume                      float64 `json:"volume,omitempty"`
-	Price                       float64 `json:"price,omitempty"`
-	LastUpdated                 int64   `json:"last_updated,omitempty"`
-	VWAP                        float64 `json:"vwap,omitempty"`
+	//TODO: check if this need a decimal volume
+	Price       float64 `json:"price,omitempty"`
+	LastUpdated int64   `json:"last_updated,omitempty"`
+	VWAP        float64 `json:"vwap,omitempty"`
 }
 
 // Details contains all the information that might come back in the details attribute of a SnapshotResponse.

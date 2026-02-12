@@ -30,6 +30,7 @@ func TestListTrades(t *testing.T) {
 	"sequence_number": 1063,
 	"sip_timestamp": 1517562000016036600,
 	"size": 100,
+	"decimal_size": "100.0",
 	"tape": 3
 }`
 
@@ -45,6 +46,7 @@ func TestListTrades(t *testing.T) {
 	"sequence_number": 1064,
 	"sip_timestamp": 1517562000016038100,
 	"size": 100,
+	"decimal_size": "100.233456",
 	"tape": 3
 }`
 
