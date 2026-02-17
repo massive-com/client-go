@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -21,7 +20,7 @@ func TestDecimalVolume_Float64(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := tt.dv.Float64()
-			if !tt.wantErr(t, err, fmt.Sprintf("Float64()")) {
+			if !tt.wantErr(t, err, "Float64()") {
 				return
 			}
 			assert.Equalf(t, tt.want, got, "Float64()")
