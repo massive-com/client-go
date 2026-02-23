@@ -7,3 +7,8 @@ issues:
   exclude-files:
     - "rest/gen/.*\\.go$"
     - ".*\\.gen\\.go$"
+
+# make errcheck a bit more lenient on common generated patterns
+linters-settings:
+  errcheck:
+    ignore: 'json:Unmarshal'

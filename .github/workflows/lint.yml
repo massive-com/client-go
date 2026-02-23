@@ -8,6 +8,7 @@ on:
   pull_request:
 permissions:
   contents: read
+
 jobs:
   golangci:
     strategy:
@@ -20,11 +21,17 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go-version }}
+
       - uses: actions/checkout@v4
+
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
           version: v1.54
+
+      - name: verify go modules
+        run: go mod tidy && git diff --exit-code go.mod go.sum
+
       - name: gofmt
         run: |
           go fmt ./...
