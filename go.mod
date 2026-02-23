@@ -1,4 +1,4 @@
-module github.com/massive-com/client-go/v2
+module github.com/massive-com/client-go/v3
 
 go 1.21
 
