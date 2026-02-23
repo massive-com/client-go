@@ -1,0 +1,9 @@
+# .golangci.yml
+run:
+  timeout: 5m
+
+# Completely skip the auto-generated oapi-codegen client (standard practice)
+issues:
+  exclude-files:
+    - "rest/gen/.*\\.go$"
+    - ".*\\.gen\\.go$"
