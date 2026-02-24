@@ -45914,7 +45914,7 @@ type GetStocksFinancialsV1RatiosResponse struct {
 			MarketCap *float64 `json:"market_cap,omitempty"`
 
 			// Price Stock price used in ratio calculations, typically the closing price for the given date.
-			Price float64 `json:"price"`
+			Price *float64 `json:"price,omitempty"`
 
 			// PriceToBook Price-to-book ratio, calculated as stock price divided by book value per share, comparing market value to book value.
 			PriceToBook *float64 `json:"price_to_book,omitempty"`
@@ -59453,7 +59453,7 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 				MarketCap *float64 `json:"market_cap,omitempty"`
 
 				// Price Stock price used in ratio calculations, typically the closing price for the given date.
-				Price float64 `json:"price"`
+				Price *float64 `json:"price,omitempty"`
 
 				// PriceToBook Price-to-book ratio, calculated as stock price divided by book value per share, comparing market value to book value.
 				PriceToBook *float64 `json:"price_to_book,omitempty"`

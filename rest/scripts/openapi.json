@@ -21652,8 +21652,7 @@
                         },
                         "required": [
                           "ticker",
-                          "date",
-                          "price"
+                          "date"
                         ],
                         "type": "object"
                       },
