@@ -32,32 +32,37 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"os"
-
 	"github.com/massive-com/client-go/v3/rest"
 	"github.com/massive-com/client-go/v3/rest/gen"
 )
 
 func main() {
-	c := rest.NewWithOptions(os.Getenv("MASSIVE_API_KEY"),
+
+	c := rest.NewWithOptions("YOUR_API_KEY",
 		rest.WithTrace(false),
 		rest.WithPagination(true),
 	)
 	ctx := context.Background()
 
-	resp, err := c.GetStocksAggregatesWithResponse(ctx,
+	params := &gen.GetStocksAggregatesParams{
+		Adjusted: rest.Ptr(true),
+		Sort: "asc",
+		Limit: rest.Ptr(120),
+	}
+
+	resp, err := c.GetStocksAggregatesWithResponse(
+		ctx,
 		"AAPL",
 		1,
-		gen.GetStocksAggregatesParamsTimespan("day"),
-		"2025-11-03",
-		"2025-11-28",
-		nil,   // nil = use API defaults (recommended)
+		"day",
+		"2026-02-16",
+		"2026-02-20",
+		params,
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// prints status + full error body (e.g. "Unknown API Key")
 	if err := rest.CheckResponse(resp); err != nil {
 		log.Fatal(err)
 	}
