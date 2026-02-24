@@ -11,7 +11,7 @@ if (!fs.existsSync(tokenizedDir)) fs.mkdirSync(tokenizedDir, { recursive: true }
 // === Helpers ===
 const toPascalCase = (str) => {
   return str
-    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')   // split camelCase
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
     .split(/[-_ ]+/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join('');
@@ -39,11 +39,6 @@ const toSnakeCase = (str) =>
     .replace(/[-\/.]/g, '_')
     .toLowerCase();
 
-const isIntField = (param) => {
-  const type = param.schema?.type || 'string';
-  return type === 'integer' || type === 'number';
-};
-
 const isPaginated = (details) => {
   const successResp = details.responses?.['200'] || details.responses?.default;
   if (!successResp?.content?.['application/json']?.schema) return false;
@@ -56,16 +51,35 @@ const isEnumParam = (param) => {
   return Array.isArray(param.schema.enum) || !!param.schema.$ref;
 };
 
-// NEW helper: decides whether a TOKEN_ should be wrapped in quotes in the tokenized version
+const shouldUseTypedEnum = (param) => {
+  return !!param.schema?.$ref || param.schema?.default !== undefined;
+};
+
 const isStringParam = (param) => {
-  if (!param?.schema) return true; // most path params + unknown fields default to string
+  if (!param?.schema) return true;
   const schema = param.schema;
   const type = schema.type;
   if (type === 'string' || !type) return true;
   if (type === 'integer' || type === 'number' || type === 'boolean') return false;
-  // enums / $refs / arrays-of-strings are string-like
   return Array.isArray(schema.enum) || !!schema.$ref ||
          (schema.type === 'array' && schema.items?.type === 'string');
+};
+
+const getParamValue = (param, useTokens = false) => {
+  if (useTokens) {
+    const token = toPolygonToken(param.name);
+    return isStringParam(param) ? `"${token}"` : token;
+  }
+
+  let value = param.example ?? param.schema?.example ?? param.schema?.default;
+  if (value !== undefined) {
+    return typeof value === 'string' ? `"${value}"` : value;
+  }
+
+  const schemaType = param.schema?.type || 'string';
+  if (schemaType === 'boolean') return 'true';
+  if (schemaType === 'integer' || schemaType === 'number') return '100';
+  return `"${param.name}"`;
 };
 
 Object.entries(spec.paths).forEach(([route, methods]) => {
@@ -78,8 +92,11 @@ Object.entries(spec.paths).forEach(([route, methods]) => {
     const paramsType = goBaseName + 'Params';
     const fileName = toSnakeCase(operationId);
 
-    // Collect full path param objects (so we have .schema for type detection)
-    const pathParams = (details.parameters || []).filter(p => p.in === 'path');
+    const allParams = details.parameters || [];
+    const pathParams = allParams.filter(p => p.in === 'path');
+    const queryParams = allParams.filter(p => p.in === 'query');
+
+    const hasQueryParams = queryParams.length > 0;
 
     const generateSnippet = (dir, useTokens = false) => {
       const lines = [
@@ -89,68 +106,67 @@ Object.entries(spec.paths).forEach(([route, methods]) => {
         `	"context"`,
         `	"fmt"`,
         `	"log"`,
-        `	"massive-go-poc/rest"`,
-        `	"massive-go-poc/rest/gen"`,
-        `)`,
-        ``,
-        `func main() {`,
-        ``,
-        `	c := rest.NewWithOptions("YOUR_API_KEY", rest.WithTrace(false), rest.WithPagination(true))`,
-        `	ctx := context.Background()`,
-        ``,
-        //`	params := &gen.${paramsType}{`,
+        `	"github.com/massive-com/client-go/v3/rest"`,
       ];
 
+      if (hasQueryParams) {
+        lines.push(`	"github.com/massive-com/client-go/v3/rest/gen"`);
+      }
 
-            // === Build query param lines (extra indent for inline struct) ===
-      const paramLines = [];
-      if (details.parameters) {
-        details.parameters.forEach(param => {
-          if (param.in === 'query') {
-            const fieldName = toGoFieldName(param.name);
-            const schemaType = param.schema?.type || 'string';
+      lines.push(`)`);
+      lines.push(``);
+      lines.push(`func main() {`);
+      lines.push(``);
 
-            let value;
-            if (useTokens) {
-              const token = toPolygonToken(param.name);
-              value = isStringParam(param) ? `"${token}"` : token;
+      lines.push(`	c := rest.NewWithOptions("GLOBAL_TOKEN_API_KEY",`);
+      lines.push(`		rest.WithTrace(false),`);
+      lines.push(`		rest.WithPagination(true),`);
+      lines.push(`	)`);
+      lines.push(`	ctx := context.Background()`);
+      lines.push(``);
+
+      if (hasQueryParams) {
+        lines.push(`	params := &gen.${paramsType}{`);
+
+        const paramLines = [];
+        queryParams.forEach(param => {
+          const fieldName = toGoFieldName(param.name);
+          const value = getParamValue(param, useTokens);
+
+          let line;
+          if (isEnumParam(param)) {
+            if (shouldUseTypedEnum(param)) {
+              line = `		${fieldName}: rest.Ptr(gen.${paramsType}${fieldName}(${value})),`;
             } else {
-              if (schemaType === 'boolean') value = 'true';
-              else if (schemaType === 'integer' || schemaType === 'number') value = '100';
-              else value = param.example !== undefined 
-                ? (typeof param.example === 'string' ? `"${param.example}"` : param.example) 
-                : `"${param.name}"`;
+              line = `		${fieldName}: ${value},`;
             }
-
-            let line;
-            if (isEnumParam(param)) {
-              line = `			${fieldName}: rest.Ptr(gen.${paramsType}${fieldName}(${value})),`;
-            } else {
-              line = `			${fieldName}: rest.Ptr(${value}),`;
-            }
-            paramLines.push(line);
+          } else {
+            line = `		${fieldName}: rest.Ptr(${value}),`;
           }
+          paramLines.push(line);
         });
-      }
 
-      // === Multi-line call with inline params (exactly the style you wanted) ===
-      const pathArgs = pathParams.map(param => {
-        if (!useTokens) return `"${param.name}"`;
-        const token = toPolygonToken(param.name);
-        return isStringParam(param) ? `"${token}"` : token;
-      });
-
-      lines.push(`	resp, err := c.${goMethod}(ctx,`);
-
-      pathArgs.forEach(arg => {
-        lines.push(`		${arg},`);
-      });
-
-      lines.push(`		&gen.${paramsType}{`);
-      if (paramLines.length > 0) {
         lines.push(paramLines.join('\n'));
+        lines.push(`	}`);
+        lines.push(``);
       }
-      lines.push(`		},`);
+
+      // === UNIFORM MULTILINE CALL FOR EVERY ENDPOINT (fixes the syntax error) ===
+      // Every argument (including ctx) is now on its own line → perfect for token replacement
+      lines.push(`	resp, err := c.${goMethod}(`);
+      lines.push(`		ctx,`);
+
+      // Path parameters (if any)
+      pathParams.forEach(param => {
+        const value = getParamValue(param, useTokens);
+        lines.push(`		${value},`);
+      });
+
+      // Query params struct (if any)
+      if (hasQueryParams) {
+        lines.push(`		params,`);
+      }
+
       lines.push(`	)`);
 
       lines.push(`	if err != nil {`);
@@ -186,4 +202,4 @@ Object.entries(spec.paths).forEach(([route, methods]) => {
   });
 });
 
-console.log('🎉 All Go examples generated with string tokens properly quoted in the tokenized version!');
+console.log('🎉 All Go examples generated.');
