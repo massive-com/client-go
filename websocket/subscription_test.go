@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/massive-com/client-go/v2/websocket/models"
+	"github.com/massive-com/client-go/v3/websocket/models"
 	"github.com/stretchr/testify/assert"
 )
 

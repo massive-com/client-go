@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/massive-com/client-go/v2/websocket/models"
+	"github.com/massive-com/client-go/v3/websocket/models"
 	"golang.org/x/exp/maps"
 	"golang.org/x/exp/slices"
 )

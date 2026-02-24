@@ -20,43 +20,56 @@ Next, initialize a new module for dependency management. This creates a `go.mod`
 go mod init example
 ```
 
-Then, create a `main.go` file. For quick start, you can find over 100+ [example code snippets](https://github.com/massive-com/client-go/tree/master/rest/example) that demonstrate connecting to both the REST and WebSocket APIs. Here's an example that fetches the last trade for `AAPL`.
+Then, create a `main.go` file. For quick start, you can find over 100+ [example code snippets](https://github.com/massive-com/client-go/tree/master/rest/example) that demonstrate connecting to both the REST and WebSocket APIs.
+
+Here's a working example that fetches daily aggregates for AAPL (with full pagination and trace support):
 
 ```bash
 cat > main.go <<EOF
-// Stocks - Last Trade
-// https://massive.com/docs/stocks/get_v2_last_trade__stocksticker
-// https://github.com/massive-com/client-go/blob/master/rest/trades.go
 package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 
-	massive "github.com/massive-com/client-go/v2/rest"
-	"github.com/massive-com/client-go/v2/rest/models"
+	"github.com/massive-com/client-go/v3/rest"
+	"github.com/massive-com/client-go/v3/rest/gen"
 )
 
 func main() {
+	c := rest.NewWithOptions(os.Getenv("MASSIVE_API_KEY"),
+		rest.WithTrace(false),
+		rest.WithPagination(true),
+	)
+	ctx := context.Background()
 
-	// init client
-	c := massive.New(os.Getenv("MASSIVE_API_KEY"))
-
-	// set params
-	params := &models.GetLastTradeParams{
-		Ticker: "AAPL",
-	}
-
-	// make request
-	res, err := c.GetLastTrade(context.Background(), params)
+	resp, err := c.GetStocksAggregatesWithResponse(ctx,
+		"AAPL",
+		1,
+		gen.GetStocksAggregatesParamsTimespan("day"),
+		"2025-11-03",
+		"2025-11-28",
+		nil,   // nil = use API defaults (recommended)
+	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// do something with the result
-	log.Print(res)
+	// prints status + full error body (e.g. "Unknown API Key")
+	if err := rest.CheckResponse(resp); err != nil {
+		log.Fatal(err)
+	}
 
+	iter := rest.NewIteratorFromResponse(c, resp)
+	for iter.Next() {
+		item := iter.Item()
+		fmt.Printf("%+v\n", item)
+	}
+	if err := iter.Err(); err != nil {
+		log.Fatal(err)
+	}
 }
 EOF
 ```
@@ -86,15 +99,23 @@ To get started, you'll need to import two main packages.
 
 ```golang
 import (
-	massive "github.com/massive-com/client-go/v2/rest"
-	"github.com/massive-com/client-go/v2/rest/models"
+	"context"
+	"fmt"
+	"log"
+
+	"github.com/massive-com/client-go/v3/rest"
+	"github.com/massive-com/client-go/v3/rest/gen"
 )
 ```
 
 Next, create a new client with your [API key](https://massive.com/dashboard/signup).
 
-```golang
-c := massive.New("YOUR_API_KEY")
+```go
+c := rest.NewWithOptions("YOUR_API_KEY",
+	rest.WithTrace(false),      // set true for full request/response logging
+	rest.WithPagination(true),  // enables automatic pagination via iterator
+)
+ctx := context.Background()
 ```
 
 Or create a client with a custom HTTP client implementation.
@@ -106,107 +127,54 @@ c := massive.NewWithClient("YOUR_API_KEY", hc)
 
 ### Using the client
 
-After creating the client, making calls to the Massive API is simple.
+After creating the client, making calls to the Massive API is simple. Most endpoints now use the generated `*WithResponse` methods:
 
-```golang
-params := models.GetTickerDetailsParams{
-    Ticker: "AAPL",
-}.WithDate(models.Date(time.Date(2021, 7, 22, 0, 0, 0, 0, time.Local)))
-
-res, err := c.GetTickerDetails(context.Background(), params)
-if err != nil {
-    log.Fatal(err)
+```go
+// Example with custom params (note the Sort field requirement)
+params := &gen.GetStocksAggregatesParams{
+	Adjusted: rest.Ptr(true),
+	Sort:     "asc",
+	Limit:    rest.Ptr(120),
 }
-log.Print(res) // do something with the result
+
+resp, err := c.GetStocksAggregatesWithResponse(ctx,
+	"AAPL", 1, gen.GetStocksAggregatesParamsTimespan("day"),
+	"2025-11-03", "2025-11-28",
+	params,
+)
 ```
 
 ### Pagination
 
-Our list methods return iterators that handle pagination for you.
+Our client iterators that handle pagination for you, so when there are multiple pages of results, we'll follow and build the `next_url` page for you and stich the results together.
 
-```golang
-// create a new iterator
-params := models.ListTradesParams{Ticker: "AAPL"}.
-    WithTimestamp(models.GTE, models.Nanos(time.Date(2021, 7, 22, 0, 0, 0, 0, time.UTC))).
-    WithOrder(models.Asc)
-iter := c.ListTrades(context.Background(), params)
-
-// iter.Next() advances the iterator to the next value in the list
-for iter.Next() {
-    log.Print(iter.Item()) // do something with the current value
-}
-
-// if the loop breaks, it has either reached the end of the list or an error has occurred
-// you can check if something went wrong with iter.Err()
-if iter.Err() != nil {
-    log.Fatal(iter.Err())
-}
-```
-
-We also provide a builder method to make it easier to retrieve all trades and quotes for a specific day.
-
-```golang
-params := models.ListQuotesParams{Ticker: "AAPL"}.
-    WithDay(2021, 7, 22). // get all quotes for July 22, 2021
-    WithOrder(models.Asc)
-iter := c.ListQuotes(context.Background(), params)
-
-for iter.Next() {
-    log.Print(iter.Item())
-}
-if iter.Err() != nil {
-    log.Fatal(iter.Err())
-}
-```
-
-### Request options
-
-Advanced users may want to add additional headers or query params to a given request.
-
-```golang
-params := &models.GetGroupedDailyAggsParams{
-    Locale:     models.US,
-    MarketType: models.Stocks,
-    Date:       models.Date(time.Date(2021, 7, 22, 0, 0, 0, 0, time.Local)),
-}
-
-res, err := c.GetGroupedDailyAggs(context.Background(), params,
-    models.APIKey("YOUR_OTHER_API_KEY"),
-    models.Header("X-CUSTOM-HEADER", "VALUE"),
-    models.QueryParam("adjusted", strconv.FormatBool(true)))
-if err != nil {
-    log.Fatal(err)
-}
-log.Print(res) // do something with the result
+```go
+c := rest.NewWithOptions("YOUR_API_KEY",
+	rest.WithTrace(true),
+	rest.WithPagination(true), // turn this on
+)
 ```
 
 ### Debugging
 
-Sometimes you may find it useful to see the actual request and response details while working with the API. The client allows for this through its `models.WithTrace(true)` option.
-
-#### How to Enable Debug Mode
-
-You can activate the debug mode per request as follows by adding `models.WithTrace(true)` after the `params`:
+Debug/trace mode is now enabled at client creation time (much simpler!):
 
 ```go
-iter := c.ListAggs(context.Background(), params, models.WithTrace(true))
+c := rest.NewWithOptions("YOUR_API_KEY",
+	rest.WithTrace(true), // turn this on
+	rest.WithPagination(true),
+)
 ```
 
-#### What Does Debug Mode Do?
-
-When debug mode is enabled, the client will print out useful debugging information for each API request. This includes: the request URL, the headers sent in the request, and the headers received in the response.
-
-#### Example Output
-
-For instance, if you made a request for `TSLA` data for the date `2023-08-01`, you would see debug output similar to the following:
+When enabled you will see clean output for every request:
 
 ```
-Request URL: /v2/aggs/ticker/AAPL/range/1/day/1672531200000/1678320000000?adjusted=true&limit=50000&sort=desc
-Request Headers: map[Accept-Encoding:[gzip] Authorization:[REDACTED] User-Agent:[Massive.com GoClient/v1.14.1]]
-Response Headers: map[Content-Encoding:[gzip] Content-Length:[1639] Content-Type:[application/json] Date:[Tue, 05 Sep 2023 23:25:00 GMT] Server:[nginx/1.19.2] Strict-Transport-Security:[max-age=15724800; includeSubDomains] Vary:[Accept-Encoding] X-Request-Id:[ba3d3e9f42622bd16d05dafe01200f72]]
+Request URL: https://api.massive.com/v2/aggs/ticker/AAPL/range/1/day/2025-11-03/2025-11-28?adjusted=true&limit=120&sort=asc
+Request Headers: map[Authorization:[Bearer REDACTED] User-Agent:[massive-go-test]]
+Response Headers: map[Content-Type:[application/json] Date:[Mon, 23 Feb 2026 16:03:29 GMT] ...]
 ```
 
-This can be an invaluable tool for debugging issues or understanding how the client interacts with the API.
+This is extremely useful when troubleshooting query params, authentication, or rate limits.
 
 ## WebSocket Client
 
@@ -216,8 +184,8 @@ Import the WebSocket client and models packages to get started.
 
 ```golang
 import (
-    massivews "github.com/massive-com/client-go/v2/websocket"
-    "github.com/massive-com/client-go/v2/websocket/models"
+    massivews "github.com/massive-com/client-go/v3/websocket"
+    "github.com/massive-com/client-go/v3/websocket/models"
 )
 ```
 
@@ -278,25 +246,19 @@ for {
 
 See the [full example](./websocket/example/main.go) for more details on how to use this client effectively.
 
-## Release planning
-
-This client will attempt to follow the release cadence of our API. When endpoints are deprecated and newer versions are added, the client will maintain two methods in a backwards compatible way (e.g. `ListTrades` and `ListTradesV4(...)`). When deprecated endpoints are removed from the API, we'll rename the versioned method (e.g. `ListTradesV4(...)` -> `ListTrades(...)`), remove the old method, and release a new major version of the client. The goal is to give users ample time to upgrade to newer versions of our API _before_ we bump the major version of the client, and in general, we'll try to bundle breaking changes like this to avoid frequent major version bumps.
-
-There are a couple exceptions to this. When we find small breaking issues with this client library (e.g. incorrect response types), we may decide to release them under the same major version. These changes will be clearly outlined in the release notes. Also, methods that fall under the VX client are considered experimental and may be modified or deprecated as needed. We'll call out any breaking changes to VX endpoints in our release notes to make using them easier.
-
 ## Contributing
 
 If you found a bug or have an idea for a new feature, please first discuss it with us by [submitting a new issue](https://github.com/massive-com/client-go/issues/new/choose). We will respond to issues within at most 3 weeks. We're also open to volunteers if you want to submit a PR for any open issues but please discuss it with us beforehand. PRs that aren't linked to an existing issue or discussed with us ahead of time will generally be declined.
 
 -------------------------------------------------------------------------------
 
-[doc-img]: https://pkg.go.dev/badge/github.com/massive-com/client-go/v2
-[doc]: https://pkg.go.dev/github.com/massive-com/client-go/v2
-[rest-doc-img]: https://pkg.go.dev/badge/github.com/massive-com/client-go/v2/rest
-[rest-doc]: https://pkg.go.dev/github.com/massive-com/client-go/v2/rest
-[ws-doc-img]: https://pkg.go.dev/badge/github.com/massive-com/client-go/v2/websocket
-[ws-doc]: https://pkg.go.dev/github.com/massive-com/client-go/v2/websocket
-[build-img]: https://github.com/massive-com/client-go/v2/actions/workflows/test.yml/badge.svg
-[build]: https://github.com/massive-com/client-go/v2/actions
-[report-card-img]: https://goreportcard.com/badge/github.com/massive-com/client-go/v2
-[report-card]: https://goreportcard.com/report/github.com/massive-com/client-go/v2
+[doc-img]: https://pkg.go.dev/badge/github.com/massive-com/client-go/v3
+[doc]: https://pkg.go.dev/github.com/massive-com/client-go/v3
+[rest-doc-img]: https://pkg.go.dev/badge/github.com/massive-com/client-go/v3/rest
+[rest-doc]: https://pkg.go.dev/github.com/massive-com/client-go/v3/rest
+[ws-doc-img]: https://pkg.go.dev/badge/github.com/massive-com/client-go/v3/websocket
+[ws-doc]: https://pkg.go.dev/github.com/massive-com/client-go/v3/websocket
+[build-img]: https://github.com/massive-com/client-go/v3/actions/workflows/test.yml/badge.svg
+[build]: https://github.com/massive-com/client-go/v3/actions
+[report-card-img]: https://goreportcard.com/badge/github.com/massive-com/client-go/v3
+[report-card]: https://goreportcard.com/report/github.com/massive-com/client-go/v3
