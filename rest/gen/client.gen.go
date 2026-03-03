@@ -3488,6 +3488,84 @@ type GetStocksFilings10KVXSectionsParamsSection string
 // GetStocksFilings10KVXSectionsParamsSectionAnyOf defines parameters for GetStocksFilings10KVXSections.
 type GetStocksFilings10KVXSectionsParamsSectionAnyOf string
 
+// GetStocksFilings8KVXTextParams defines parameters for GetStocksFilings8KVXText.
+type GetStocksFilings8KVXTextParams struct {
+	// Cik SEC Central Index Key (10 digits, zero-padded).
+	Cik *string `form:"cik,omitempty" json:"cik,omitempty"`
+
+	// CikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	CikAnyOf *string `form:"cik.any_of,omitempty" json:"cik.any_of,omitempty"`
+
+	// CikGt Filter greater than the value.
+	CikGt *string `form:"cik.gt,omitempty" json:"cik.gt,omitempty"`
+
+	// CikGte Filter greater than or equal to the value.
+	CikGte *string `form:"cik.gte,omitempty" json:"cik.gte,omitempty"`
+
+	// CikLt Filter less than the value.
+	CikLt *string `form:"cik.lt,omitempty" json:"cik.lt,omitempty"`
+
+	// CikLte Filter less than or equal to the value.
+	CikLte *string `form:"cik.lte,omitempty" json:"cik.lte,omitempty"`
+
+	// Ticker Stock ticker symbol for the company.
+	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
+
+	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
+
+	// TickerGt Filter greater than the value.
+	TickerGt *string `form:"ticker.gt,omitempty" json:"ticker.gt,omitempty"`
+
+	// TickerGte Filter greater than or equal to the value.
+	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
+
+	// TickerLt Filter less than the value.
+	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
+
+	// TickerLte Filter less than or equal to the value.
+	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
+
+	// FormType SEC form type (e.g., '8-K', '8-K/A' for amendments).
+	FormType *string `form:"form_type,omitempty" json:"form_type,omitempty"`
+
+	// FormTypeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	FormTypeAnyOf *string `form:"form_type.any_of,omitempty" json:"form_type.any_of,omitempty"`
+
+	// FormTypeGt Filter greater than the value.
+	FormTypeGt *string `form:"form_type.gt,omitempty" json:"form_type.gt,omitempty"`
+
+	// FormTypeGte Filter greater than or equal to the value.
+	FormTypeGte *string `form:"form_type.gte,omitempty" json:"form_type.gte,omitempty"`
+
+	// FormTypeLt Filter less than the value.
+	FormTypeLt *string `form:"form_type.lt,omitempty" json:"form_type.lt,omitempty"`
+
+	// FormTypeLte Filter less than or equal to the value.
+	FormTypeLte *string `form:"form_type.lte,omitempty" json:"form_type.lte,omitempty"`
+
+	// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
+
+	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGt *string `form:"filing_date.gt,omitempty" json:"filing_date.gt,omitempty"`
+
+	// FilingDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGte *string `form:"filing_date.gte,omitempty" json:"filing_date.gte,omitempty"`
+
+	// FilingDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLt *string `form:"filing_date.lt,omitempty" json:"filing_date.lt,omitempty"`
+
+	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
 // GetStocksFilingsVXIndexParams defines parameters for GetStocksFilingsVXIndex.
 type GetStocksFilingsVXIndexParams struct {
 	// Cik SEC Central Index Key (CIK) identifying the filing entity.
@@ -4713,24 +4791,6 @@ type GetStocksV1ShortVolumeParams struct {
 
 	// ShortVolumeRatioLte Filter less than or equal to the value. Value must be a floating point number.
 	ShortVolumeRatioLte *float64 `form:"short_volume_ratio.lte,omitempty" json:"short_volume_ratio.lte,omitempty"`
-
-	// TotalVolume Total reported volume across all venues for the ticker on the given date. Value must be an integer.
-	TotalVolume *int64 `form:"total_volume,omitempty" json:"total_volume,omitempty"`
-
-	// TotalVolumeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list. Value must be an integer.
-	TotalVolumeAnyOf *string `form:"total_volume.any_of,omitempty" json:"total_volume.any_of,omitempty"`
-
-	// TotalVolumeGt Filter greater than the value. Value must be an integer.
-	TotalVolumeGt *int64 `form:"total_volume.gt,omitempty" json:"total_volume.gt,omitempty"`
-
-	// TotalVolumeGte Filter greater than or equal to the value. Value must be an integer.
-	TotalVolumeGte *int64 `form:"total_volume.gte,omitempty" json:"total_volume.gte,omitempty"`
-
-	// TotalVolumeLt Filter less than the value. Value must be an integer.
-	TotalVolumeLt *int64 `form:"total_volume.lt,omitempty" json:"total_volume.lt,omitempty"`
-
-	// TotalVolumeLte Filter less than or equal to the value. Value must be an integer.
-	TotalVolumeLte *int64 `form:"total_volume.lte,omitempty" json:"total_volume.lte,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
@@ -7501,6 +7561,9 @@ type ClientInterface interface {
 	// GetStocksFilings10KVXSections request
 	GetStocksFilings10KVXSections(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetStocksFilings8KVXText request
+	GetStocksFilings8KVXText(ctx context.Context, params *GetStocksFilings8KVXTextParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetStocksFilingsVXIndex request
 	GetStocksFilingsVXIndex(ctx context.Context, params *GetStocksFilingsVXIndexParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8197,6 +8260,18 @@ func (c *Client) GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1
 
 func (c *Client) GetStocksFilings10KVXSections(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetStocksFilings10KVXSectionsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksFilings8KVXText(ctx context.Context, params *GetStocksFilings8KVXTextParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksFilings8KVXTextRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -21519,6 +21594,439 @@ func NewGetStocksFilings10KVXSectionsRequest(server string, params *GetStocksFil
 	return req, nil
 }
 
+// NewGetStocksFilings8KVXTextRequest generates requests for GetStocksFilings8KVXText
+func NewGetStocksFilings8KVXTextRequest(server string, params *GetStocksFilings8KVXTextParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/filings/8-K/vX/text")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Cik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik", runtime.ParamLocationQuery, *params.Cik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.any_of", runtime.ParamLocationQuery, *params.CikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.gt", runtime.ParamLocationQuery, *params.CikGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.gte", runtime.ParamLocationQuery, *params.CikGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.lt", runtime.ParamLocationQuery, *params.CikLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.lte", runtime.ParamLocationQuery, *params.CikLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Ticker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gt", runtime.ParamLocationQuery, *params.TickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gte", runtime.ParamLocationQuery, *params.TickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lt", runtime.ParamLocationQuery, *params.TickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lte", runtime.ParamLocationQuery, *params.TickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type", runtime.ParamLocationQuery, *params.FormType); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormTypeAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type.any_of", runtime.ParamLocationQuery, *params.FormTypeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormTypeGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type.gt", runtime.ParamLocationQuery, *params.FormTypeGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormTypeGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type.gte", runtime.ParamLocationQuery, *params.FormTypeGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormTypeLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type.lt", runtime.ParamLocationQuery, *params.FormTypeLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormTypeLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type.lte", runtime.ParamLocationQuery, *params.FormTypeLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date", runtime.ParamLocationQuery, *params.FilingDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gt", runtime.ParamLocationQuery, *params.FilingDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gte", runtime.ParamLocationQuery, *params.FilingDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lt", runtime.ParamLocationQuery, *params.FilingDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetStocksFilingsVXIndexRequest generates requests for GetStocksFilingsVXIndex
 func NewGetStocksFilingsVXIndexRequest(server string, params *GetStocksFilingsVXIndexParams) (*http.Request, error) {
 	var err error
@@ -28194,102 +28702,6 @@ func NewGetStocksV1ShortVolumeRequest(server string, params *GetStocksV1ShortVol
 		if params.ShortVolumeRatioLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "short_volume_ratio.lte", runtime.ParamLocationQuery, *params.ShortVolumeRatioLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TotalVolume != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "total_volume", runtime.ParamLocationQuery, *params.TotalVolume); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TotalVolumeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "total_volume.any_of", runtime.ParamLocationQuery, *params.TotalVolumeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TotalVolumeGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "total_volume.gt", runtime.ParamLocationQuery, *params.TotalVolumeGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TotalVolumeGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "total_volume.gte", runtime.ParamLocationQuery, *params.TotalVolumeGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TotalVolumeLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "total_volume.lt", runtime.ParamLocationQuery, *params.TotalVolumeLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TotalVolumeLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "total_volume.lte", runtime.ParamLocationQuery, *params.TotalVolumeLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -41932,6 +42344,9 @@ type ClientWithResponsesInterface interface {
 	// GetStocksFilings10KVXSectionsWithResponse request
 	GetStocksFilings10KVXSectionsWithResponse(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*GetStocksFilings10KVXSectionsResponse, error)
 
+	// GetStocksFilings8KVXTextWithResponse request
+	GetStocksFilings8KVXTextWithResponse(ctx context.Context, params *GetStocksFilings8KVXTextParams, reqEditors ...RequestEditorFn) (*GetStocksFilings8KVXTextResponse, error)
+
 	// GetStocksFilingsVXIndexWithResponse request
 	GetStocksFilingsVXIndexWithResponse(ctx context.Context, params *GetStocksFilingsVXIndexParams, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXIndexResponse, error)
 
@@ -45278,6 +45693,73 @@ func (r GetStocksFilings10KVXSectionsResponse) StatusCode() int {
 	return 0
 }
 
+type GetStocksFilings8KVXTextResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// AccessionNumber SEC accession number uniquely identifying the filing (e.g., '0000004962-25-000002').
+			AccessionNumber *string `json:"accession_number,omitempty"`
+
+			// Cik SEC Central Index Key (10 digits, zero-padded).
+			Cik *string `json:"cik,omitempty"`
+
+			// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+			// FilingUrl SEC URL source for the full filing.
+			FilingUrl *string `json:"filing_url,omitempty"`
+
+			// FormType SEC form type (e.g., '8-K', '8-K/A' for amendments).
+			FormType *string `json:"form_type,omitempty"`
+
+			// ItemsText Parsed text content from the 8-K filing, including item numbers and descriptions.
+			ItemsText *string `json:"items_text,omitempty"`
+
+			// Ticker Stock ticker symbol for the company.
+			Ticker *string `json:"ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilings8KVXText200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilings8KVXText400Status `json:"status"`
+	}
+}
+type GetStocksFilings8KVXText200Status string
+type GetStocksFilings8KVXText400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksFilings8KVXTextResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksFilings8KVXTextResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetStocksFilingsVXIndexResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -46276,7 +46758,7 @@ type GetStocksV1ShortVolumeResponse struct {
 			Date string `json:"date"`
 
 			// ExemptVolume Portion of short volume that was marked as exempt from regulation SHO.
-			ExemptVolume *int64 `json:"exempt_volume,omitempty"`
+			ExemptVolume *float64 `json:"exempt_volume,omitempty"`
 
 			// NasdaqCarteretShortVolume Short volume reported from Nasdaq's Carteret facility, excluding exempt volume.
 			NasdaqCarteretShortVolume *int64 `json:"nasdaq_carteret_short_volume,omitempty"`
@@ -46291,7 +46773,7 @@ type GetStocksV1ShortVolumeResponse struct {
 			NasdaqChicagoShortVolumeExempt *int64 `json:"nasdaq_chicago_short_volume_exempt,omitempty"`
 
 			// NonExemptVolume Portion of short volume that was not exempt from regulation SHO (i.e., short_volume - exempt_volume).
-			NonExemptVolume *int64 `json:"non_exempt_volume,omitempty"`
+			NonExemptVolume *float64 `json:"non_exempt_volume,omitempty"`
 
 			// NyseShortVolume Short volume reported from NYSE facilities, excluding exempt volume.
 			NyseShortVolume *int64 `json:"nyse_short_volume,omitempty"`
@@ -46300,7 +46782,7 @@ type GetStocksV1ShortVolumeResponse struct {
 			NyseShortVolumeExempt *int64 `json:"nyse_short_volume_exempt,omitempty"`
 
 			// ShortVolume Total number of shares sold short across all venues for the ticker on the given date.
-			ShortVolume *int64 `json:"short_volume,omitempty"`
+			ShortVolume *float64 `json:"short_volume,omitempty"`
 
 			// ShortVolumeRatio The percentage of total volume that was sold short. Calculated as (short_volume / total_volume) * 100.
 			ShortVolumeRatio *float32 `json:"short_volume_ratio,omitempty"`
@@ -46309,7 +46791,7 @@ type GetStocksV1ShortVolumeResponse struct {
 			Ticker *string `json:"ticker,omitempty"`
 
 			// TotalVolume Total reported volume across all venues for the ticker on the given date.
-			TotalVolume *int64 `json:"total_volume,omitempty"`
+			TotalVolume *float64 `json:"total_volume,omitempty"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -54566,6 +55048,15 @@ func (c *ClientWithResponses) GetStocksFilings10KVXSectionsWithResponse(ctx cont
 	return ParseGetStocksFilings10KVXSectionsResponse(rsp)
 }
 
+// GetStocksFilings8KVXTextWithResponse request returning *GetStocksFilings8KVXTextResponse
+func (c *ClientWithResponses) GetStocksFilings8KVXTextWithResponse(ctx context.Context, params *GetStocksFilings8KVXTextParams, reqEditors ...RequestEditorFn) (*GetStocksFilings8KVXTextResponse, error) {
+	rsp, err := c.GetStocksFilings8KVXText(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksFilings8KVXTextResponse(rsp)
+}
+
 // GetStocksFilingsVXIndexWithResponse request returning *GetStocksFilingsVXIndexResponse
 func (c *ClientWithResponses) GetStocksFilingsVXIndexWithResponse(ctx context.Context, params *GetStocksFilingsVXIndexParams, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXIndexResponse, error) {
 	rsp, err := c.GetStocksFilingsVXIndex(ctx, params, reqEditors...)
@@ -58765,6 +59256,81 @@ func ParseGetStocksFilings10KVXSectionsResponse(rsp *http.Response) (*GetStocksF
 	return response, nil
 }
 
+// ParseGetStocksFilings8KVXTextResponse parses an HTTP response from a GetStocksFilings8KVXTextWithResponse call
+func ParseGetStocksFilings8KVXTextResponse(rsp *http.Response) (*GetStocksFilings8KVXTextResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksFilings8KVXTextResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// AccessionNumber SEC accession number uniquely identifying the filing (e.g., '0000004962-25-000002').
+				AccessionNumber *string `json:"accession_number,omitempty"`
+
+				// Cik SEC Central Index Key (10 digits, zero-padded).
+				Cik *string `json:"cik,omitempty"`
+
+				// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+				// FilingUrl SEC URL source for the full filing.
+				FilingUrl *string `json:"filing_url,omitempty"`
+
+				// FormType SEC form type (e.g., '8-K', '8-K/A' for amendments).
+				FormType *string `json:"form_type,omitempty"`
+
+				// ItemsText Parsed text content from the 8-K filing, including item numbers and descriptions.
+				ItemsText *string `json:"items_text,omitempty"`
+
+				// Ticker Stock ticker symbol for the company.
+				Ticker *string `json:"ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilings8KVXText200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilings8KVXText400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetStocksFilingsVXIndexResponse parses an HTTP response from a GetStocksFilingsVXIndexWithResponse call
 func ParseGetStocksFilingsVXIndexResponse(rsp *http.Response) (*GetStocksFilingsVXIndexResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -59855,7 +60421,7 @@ func ParseGetStocksV1ShortVolumeResponse(rsp *http.Response) (*GetStocksV1ShortV
 				Date string `json:"date"`
 
 				// ExemptVolume Portion of short volume that was marked as exempt from regulation SHO.
-				ExemptVolume *int64 `json:"exempt_volume,omitempty"`
+				ExemptVolume *float64 `json:"exempt_volume,omitempty"`
 
 				// NasdaqCarteretShortVolume Short volume reported from Nasdaq's Carteret facility, excluding exempt volume.
 				NasdaqCarteretShortVolume *int64 `json:"nasdaq_carteret_short_volume,omitempty"`
@@ -59870,7 +60436,7 @@ func ParseGetStocksV1ShortVolumeResponse(rsp *http.Response) (*GetStocksV1ShortV
 				NasdaqChicagoShortVolumeExempt *int64 `json:"nasdaq_chicago_short_volume_exempt,omitempty"`
 
 				// NonExemptVolume Portion of short volume that was not exempt from regulation SHO (i.e., short_volume - exempt_volume).
-				NonExemptVolume *int64 `json:"non_exempt_volume,omitempty"`
+				NonExemptVolume *float64 `json:"non_exempt_volume,omitempty"`
 
 				// NyseShortVolume Short volume reported from NYSE facilities, excluding exempt volume.
 				NyseShortVolume *int64 `json:"nyse_short_volume,omitempty"`
@@ -59879,7 +60445,7 @@ func ParseGetStocksV1ShortVolumeResponse(rsp *http.Response) (*GetStocksV1ShortV
 				NyseShortVolumeExempt *int64 `json:"nyse_short_volume_exempt,omitempty"`
 
 				// ShortVolume Total number of shares sold short across all venues for the ticker on the given date.
-				ShortVolume *int64 `json:"short_volume,omitempty"`
+				ShortVolume *float64 `json:"short_volume,omitempty"`
 
 				// ShortVolumeRatio The percentage of total volume that was sold short. Calculated as (short_volume / total_volume) * 100.
 				ShortVolumeRatio *float32 `json:"short_volume_ratio,omitempty"`
@@ -59888,7 +60454,7 @@ func ParseGetStocksV1ShortVolumeResponse(rsp *http.Response) (*GetStocksV1ShortV
 				Ticker *string `json:"ticker,omitempty"`
 
 				// TotalVolume Total reported volume across all venues for the ticker on the given date.
-				TotalVolume *int64 `json:"total_volume,omitempty"`
+				TotalVolume *float64 `json:"total_volume,omitempty"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
