@@ -3613,6 +3613,51 @@ type GetFuturesV1SchedulesParams struct {
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
+// GetFuturesV1SnapshotParams defines parameters for GetFuturesV1Snapshot.
+type GetFuturesV1SnapshotParams struct {
+	// ProductCode The code for the contracts' underlying product.
+	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
+
+	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
+
+	// ProductCodeGt Filter greater than the value.
+	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
+
+	// ProductCodeGte Filter greater than or equal to the value.
+	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
+
+	// ProductCodeLt Filter less than the value.
+	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
+
+	// ProductCodeLte Filter less than or equal to the value.
+	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
+
+	// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., ESZ24 for the December 2024 S&P 500 E-mini contract).
+	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
+
+	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
+
+	// TickerGt Filter greater than the value.
+	TickerGt *string `form:"ticker.gt,omitempty" json:"ticker.gt,omitempty"`
+
+	// TickerGte Filter greater than or equal to the value.
+	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
+
+	// TickerLt Filter less than the value.
+	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
+
+	// TickerLte Filter less than or equal to the value.
+	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'ticker' if not specified. The sort order defaults to 'asc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
 // GetFuturesV1TradesParams defines parameters for GetFuturesV1Trades.
 type GetFuturesV1TradesParams struct {
 	// Timestamp The time when the trade was generated at the exchange to nanosecond precision. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
@@ -4297,24 +4342,6 @@ type GetStocksFilingsVX13FParams struct {
 	// FilerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
 	FilerCikAnyOf *string `form:"filer_cik.any_of,omitempty" json:"filer_cik.any_of,omitempty"`
 
-	// AccessionNumber Unique SEC accession number for the filing (e.g., '0000950123-24-011775').
-	AccessionNumber *string `form:"accession_number,omitempty" json:"accession_number,omitempty"`
-
-	// AccessionNumberAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	AccessionNumberAnyOf *string `form:"accession_number.any_of,omitempty" json:"accession_number.any_of,omitempty"`
-
-	// AccessionNumberGt Filter greater than the value.
-	AccessionNumberGt *string `form:"accession_number.gt,omitempty" json:"accession_number.gt,omitempty"`
-
-	// AccessionNumberGte Filter greater than or equal to the value.
-	AccessionNumberGte *string `form:"accession_number.gte,omitempty" json:"accession_number.gte,omitempty"`
-
-	// AccessionNumberLt Filter less than the value.
-	AccessionNumberLt *string `form:"accession_number.lt,omitempty" json:"accession_number.lt,omitempty"`
-
-	// AccessionNumberLte Filter less than or equal to the value.
-	AccessionNumberLte *string `form:"accession_number.lte,omitempty" json:"accession_number.lte,omitempty"`
-
 	// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
 	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
 
@@ -4331,6 +4358,177 @@ type GetStocksFilingsVX13FParams struct {
 	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetStocksFilingsVXForm3Params defines parameters for GetStocksFilingsVXForm3.
+type GetStocksFilingsVXForm3Params struct {
+	// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+	IssuerCik *string `form:"issuer_cik,omitempty" json:"issuer_cik,omitempty"`
+
+	// IssuerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	IssuerCikAnyOf *string `form:"issuer_cik.any_of,omitempty" json:"issuer_cik.any_of,omitempty"`
+
+	// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded).
+	OwnerCik *string `form:"owner_cik,omitempty" json:"owner_cik,omitempty"`
+
+	// OwnerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	OwnerCikAnyOf *string `form:"owner_cik.any_of,omitempty" json:"owner_cik.any_of,omitempty"`
+
+	// Tickers Filter for arrays that contain the value.
+	Tickers *string `form:"tickers,omitempty" json:"tickers,omitempty"`
+
+	// TickersAllOf Filter for arrays that contain all of the values. Multiple values can be specified by using a comma separated list.
+	TickersAllOf *string `form:"tickers.all_of,omitempty" json:"tickers.all_of,omitempty"`
+
+	// TickersAnyOf Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.
+	TickersAnyOf *string `form:"tickers.any_of,omitempty" json:"tickers.any_of,omitempty"`
+
+	// FormType SEC form type ('3' for initial filing, '3/A' for amendments).
+	FormType *string `form:"form_type,omitempty" json:"form_type,omitempty"`
+
+	// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
+
+	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGt *string `form:"filing_date.gt,omitempty" json:"filing_date.gt,omitempty"`
+
+	// FilingDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGte *string `form:"filing_date.gte,omitempty" json:"filing_date.gte,omitempty"`
+
+	// FilingDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLt *string `form:"filing_date.lt,omitempty" json:"filing_date.lt,omitempty"`
+
+	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
+
+	// MaxTicker Filter equal to the value.
+	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
+
+	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
+
+	// MaxTickerGt Filter greater than the value.
+	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
+
+	// MaxTickerGte Filter greater than or equal to the value.
+	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
+
+	// MaxTickerLt Filter less than the value.
+	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
+
+	// MaxTickerLte Filter less than or equal to the value.
+	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
+
+	// MinTicker Filter equal to the value.
+	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
+
+	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
+
+	// MinTickerGt Filter greater than the value.
+	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
+
+	// MinTickerGte Filter greater than or equal to the value.
+	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
+
+	// MinTickerLt Filter less than the value.
+	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
+
+	// MinTickerLte Filter less than or equal to the value.
+	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetStocksFilingsVXForm4Params defines parameters for GetStocksFilingsVXForm4.
+type GetStocksFilingsVXForm4Params struct {
+	// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+	IssuerCik *string `form:"issuer_cik,omitempty" json:"issuer_cik,omitempty"`
+
+	// IssuerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	IssuerCikAnyOf *string `form:"issuer_cik.any_of,omitempty" json:"issuer_cik.any_of,omitempty"`
+
+	// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded).
+	OwnerCik *string `form:"owner_cik,omitempty" json:"owner_cik,omitempty"`
+
+	// OwnerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	OwnerCikAnyOf *string `form:"owner_cik.any_of,omitempty" json:"owner_cik.any_of,omitempty"`
+
+	// Tickers Filter for arrays that contain the value.
+	Tickers *string `form:"tickers,omitempty" json:"tickers,omitempty"`
+
+	// TickersAllOf Filter for arrays that contain all of the values. Multiple values can be specified by using a comma separated list.
+	TickersAllOf *string `form:"tickers.all_of,omitempty" json:"tickers.all_of,omitempty"`
+
+	// TickersAnyOf Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.
+	TickersAnyOf *string `form:"tickers.any_of,omitempty" json:"tickers.any_of,omitempty"`
+
+	// FormType SEC form type ('4' for standard filing, '4/A' for amendments).
+	FormType *string `form:"form_type,omitempty" json:"form_type,omitempty"`
+
+	// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
+
+	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGt *string `form:"filing_date.gt,omitempty" json:"filing_date.gt,omitempty"`
+
+	// FilingDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGte *string `form:"filing_date.gte,omitempty" json:"filing_date.gte,omitempty"`
+
+	// FilingDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLt *string `form:"filing_date.lt,omitempty" json:"filing_date.lt,omitempty"`
+
+	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
+
+	// TransactionCode SEC transaction code indicating the type of transaction (e.g., 'P' for purchase, 'S' for sale, 'A' for grant/award, 'M' for exercise/conversion).
+	TransactionCode *string `form:"transaction_code,omitempty" json:"transaction_code,omitempty"`
+
+	// MaxTicker Filter equal to the value.
+	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
+
+	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
+
+	// MaxTickerGt Filter greater than the value.
+	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
+
+	// MaxTickerGte Filter greater than or equal to the value.
+	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
+
+	// MaxTickerLt Filter less than the value.
+	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
+
+	// MaxTickerLte Filter less than or equal to the value.
+	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
+
+	// MinTicker Filter equal to the value.
+	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
+
+	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
+
+	// MinTickerGt Filter greater than the value.
+	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
+
+	// MinTickerGte Filter greater than or equal to the value.
+	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
+
+	// MinTickerLt Filter less than the value.
+	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
+
+	// MinTickerLte Filter less than or equal to the value.
+	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
@@ -8317,6 +8515,9 @@ type ClientInterface interface {
 	// GetFuturesV1Schedules request
 	GetFuturesV1Schedules(ctx context.Context, params *GetFuturesV1SchedulesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetFuturesV1Snapshot request
+	GetFuturesV1Snapshot(ctx context.Context, params *GetFuturesV1SnapshotParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetFuturesV1Trades request
 	GetFuturesV1Trades(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8358,6 +8559,12 @@ type ClientInterface interface {
 
 	// GetStocksFilingsVX13F request
 	GetStocksFilingsVX13F(ctx context.Context, params *GetStocksFilingsVX13FParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksFilingsVXForm3 request
+	GetStocksFilingsVXForm3(ctx context.Context, params *GetStocksFilingsVXForm3Params, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksFilingsVXForm4 request
+	GetStocksFilingsVXForm4(ctx context.Context, params *GetStocksFilingsVXForm4Params, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetStocksFilingsVXIndex request
 	GetStocksFilingsVXIndex(ctx context.Context, params *GetStocksFilingsVXIndexParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9005,6 +9212,18 @@ func (c *Client) GetFuturesV1Schedules(ctx context.Context, params *GetFuturesV1
 	return c.Client.Do(req)
 }
 
+func (c *Client) GetFuturesV1Snapshot(ctx context.Context, params *GetFuturesV1SnapshotParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetFuturesV1SnapshotRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) GetFuturesV1Trades(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetFuturesV1TradesRequest(c.Server, ticker, params)
 	if err != nil {
@@ -9163,6 +9382,30 @@ func (c *Client) GetStocksFilings8KVXText(ctx context.Context, params *GetStocks
 
 func (c *Client) GetStocksFilingsVX13F(ctx context.Context, params *GetStocksFilingsVX13FParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetStocksFilingsVX13FRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksFilingsVXForm3(ctx context.Context, params *GetStocksFilingsVXForm3Params, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksFilingsVXForm3Request(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksFilingsVXForm4(ctx context.Context, params *GetStocksFilingsVXForm4Params, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksFilingsVXForm4Request(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -21707,6 +21950,263 @@ func NewGetFuturesV1SchedulesRequest(server string, params *GetFuturesV1Schedule
 	return req, nil
 }
 
+// NewGetFuturesV1SnapshotRequest generates requests for GetFuturesV1Snapshot
+func NewGetFuturesV1SnapshotRequest(server string, params *GetFuturesV1SnapshotParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/futures/v1/snapshot")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.ProductCode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Ticker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gt", runtime.ParamLocationQuery, *params.TickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gte", runtime.ParamLocationQuery, *params.TickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lt", runtime.ParamLocationQuery, *params.TickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lte", runtime.ParamLocationQuery, *params.TickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetFuturesV1TradesRequest generates requests for GetFuturesV1Trades
 func NewGetFuturesV1TradesRequest(server string, ticker string, params *GetFuturesV1TradesParams) (*http.Request, error) {
 	var err error
@@ -25290,9 +25790,9 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 
 		}
 
-		if params.AccessionNumber != nil {
+		if params.FilingDate != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "accession_number", runtime.ParamLocationQuery, *params.AccessionNumber); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date", runtime.ParamLocationQuery, *params.FilingDate); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25306,9 +25806,9 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 
 		}
 
-		if params.AccessionNumberAnyOf != nil {
+		if params.FilingDateGt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "accession_number.any_of", runtime.ParamLocationQuery, *params.AccessionNumberAnyOf); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gt", runtime.ParamLocationQuery, *params.FilingDateGt); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25322,9 +25822,9 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 
 		}
 
-		if params.AccessionNumberGt != nil {
+		if params.FilingDateGte != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "accession_number.gt", runtime.ParamLocationQuery, *params.AccessionNumberGt); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gte", runtime.ParamLocationQuery, *params.FilingDateGte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25338,9 +25838,9 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 
 		}
 
-		if params.AccessionNumberGte != nil {
+		if params.FilingDateLt != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "accession_number.gte", runtime.ParamLocationQuery, *params.AccessionNumberGte); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lt", runtime.ParamLocationQuery, *params.FilingDateLt); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25354,9 +25854,9 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 
 		}
 
-		if params.AccessionNumberLt != nil {
+		if params.FilingDateLte != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "accession_number.lt", runtime.ParamLocationQuery, *params.AccessionNumberLt); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25370,9 +25870,186 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 
 		}
 
-		if params.AccessionNumberLte != nil {
+		if params.Limit != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "accession_number.lte", runtime.ParamLocationQuery, *params.AccessionNumberLte); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksFilingsVXForm3Request generates requests for GetStocksFilingsVXForm3
+func NewGetStocksFilingsVXForm3Request(server string, params *GetStocksFilingsVXForm3Params) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/filings/vX/form-3")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.IssuerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik", runtime.ParamLocationQuery, *params.IssuerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IssuerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik.any_of", runtime.ParamLocationQuery, *params.IssuerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OwnerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "owner_cik", runtime.ParamLocationQuery, *params.OwnerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OwnerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "owner_cik.any_of", runtime.ParamLocationQuery, *params.OwnerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Tickers != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers", runtime.ParamLocationQuery, *params.Tickers); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAllOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.all_of", runtime.ParamLocationQuery, *params.TickersAllOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.any_of", runtime.ParamLocationQuery, *params.TickersAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type", runtime.ParamLocationQuery, *params.FormType); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25453,6 +26130,679 @@ func NewGetStocksFilingsVX13FRequest(server string, params *GetStocksFilingsVX13
 		if params.FilingDateLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksFilingsVXForm4Request generates requests for GetStocksFilingsVXForm4
+func NewGetStocksFilingsVXForm4Request(server string, params *GetStocksFilingsVXForm4Params) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/filings/vX/form-4")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.IssuerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik", runtime.ParamLocationQuery, *params.IssuerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IssuerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik.any_of", runtime.ParamLocationQuery, *params.IssuerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OwnerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "owner_cik", runtime.ParamLocationQuery, *params.OwnerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OwnerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "owner_cik.any_of", runtime.ParamLocationQuery, *params.OwnerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Tickers != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers", runtime.ParamLocationQuery, *params.Tickers); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAllOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.all_of", runtime.ParamLocationQuery, *params.TickersAllOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.any_of", runtime.ParamLocationQuery, *params.TickersAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FormType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "form_type", runtime.ParamLocationQuery, *params.FormType); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date", runtime.ParamLocationQuery, *params.FilingDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gt", runtime.ParamLocationQuery, *params.FilingDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gte", runtime.ParamLocationQuery, *params.FilingDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lt", runtime.ParamLocationQuery, *params.FilingDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TransactionCode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_code", runtime.ParamLocationQuery, *params.TransactionCode); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MinTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -45811,6 +47161,9 @@ type ClientWithResponsesInterface interface {
 	// GetFuturesV1SchedulesWithResponse request
 	GetFuturesV1SchedulesWithResponse(ctx context.Context, params *GetFuturesV1SchedulesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1SchedulesResponse, error)
 
+	// GetFuturesV1SnapshotWithResponse request
+	GetFuturesV1SnapshotWithResponse(ctx context.Context, params *GetFuturesV1SnapshotParams, reqEditors ...RequestEditorFn) (*GetFuturesV1SnapshotResponse, error)
+
 	// GetFuturesV1TradesWithResponse request
 	GetFuturesV1TradesWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesResponse, error)
 
@@ -45852,6 +47205,12 @@ type ClientWithResponsesInterface interface {
 
 	// GetStocksFilingsVX13FWithResponse request
 	GetStocksFilingsVX13FWithResponse(ctx context.Context, params *GetStocksFilingsVX13FParams, reqEditors ...RequestEditorFn) (*GetStocksFilingsVX13FResponse, error)
+
+	// GetStocksFilingsVXForm3WithResponse request
+	GetStocksFilingsVXForm3WithResponse(ctx context.Context, params *GetStocksFilingsVXForm3Params, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXForm3Response, error)
+
+	// GetStocksFilingsVXForm4WithResponse request
+	GetStocksFilingsVXForm4WithResponse(ctx context.Context, params *GetStocksFilingsVXForm4Params, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXForm4Response, error)
 
 	// GetStocksFilingsVXIndexWithResponse request
 	GetStocksFilingsVXIndexWithResponse(ctx context.Context, params *GetStocksFilingsVXIndexParams, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXIndexResponse, error)
@@ -47040,7 +48399,7 @@ type GetConsumerSpendingEuV1MerchantAggregatesResponse struct {
 			Type *string `json:"type,omitempty"`
 
 			// UserCountry Country of consumer's residence (ISO codes). Available countries: UK, DE, FR, ES, IT, AT. Values outside these are mapped to 'unknown'.
-			UserCountry *string `json:"user_country,omitempty"`
+			UserCountry string `json:"user_country"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -47116,7 +48475,7 @@ type GetConsumerSpendingEuV1MerchantHierarchyResponse struct {
 			IndustryGroup *string `json:"industry_group,omitempty"`
 
 			// ListingStatus Whether the merchant is a publicly listed company or private. Possible values: public, private.
-			ListingStatus *string `json:"listing_status,omitempty"`
+			ListingStatus string `json:"listing_status"`
 
 			// LookupName Lowercase merchant tag used for joining with the merchant-aggregates endpoint name field (e.g., 'asda', 'amazon').
 			LookupName *string `json:"lookup_name,omitempty"`
@@ -47186,13 +48545,13 @@ type GetCryptoV1ExchangesResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Id Numeric identifier for the cryptocurrency exchange or trading platform.
-			Id *string `json:"id,omitempty"`
+			Id string `json:"id"`
 
 			// Name Full official name of the cryptocurrency exchange or digital asset trading platform.
-			Name *string `json:"name,omitempty"`
+			Name string `json:"name"`
 
 			// Type Type of crypto venue - 'exchange' for cryptocurrency exchanges and digital asset trading platforms.
-			Type *string `json:"type,omitempty"`
+			Type string `json:"type"`
 
 			// Url Official website URL of the cryptocurrency exchange.
 			Url *string `json:"url,omitempty"`
@@ -47401,7 +48760,7 @@ type GetEtfGlobalV1ConstituentsResponse struct {
 			ConstituentName *string `json:"constituent_name,omitempty"`
 
 			// ConstituentRank The rank of this constituent within the ETF for a given effective_date, ordered by weight (descending), market_value (descending), and constituent_ticker (ascending). A rank of 1 indicates the largest holding.
-			ConstituentRank *int64 `json:"constituent_rank,omitempty"`
+			ConstituentRank int64 `json:"constituent_rank"`
 
 			// ConstituentTicker The stock ticker symbol of the individual security held within the ETF.
 			ConstituentTicker *string `json:"constituent_ticker,omitempty"`
@@ -47661,7 +49020,7 @@ type GetEtfGlobalV1ProfilesResponse struct {
 			LeadMarketMaker *string `json:"lead_market_maker,omitempty"`
 
 			// LeverageStyle Indicates whether the ETF uses leverage to amplify returns ('leveraged'), or does not use leverage ('unleveraged').
-			LeverageStyle *string `json:"leverage_style,omitempty"`
+			LeverageStyle string `json:"leverage_style"`
 
 			// LeveredAmount The leverage multiplier applied by the ETF, where positive numbers indicate leveraged exposure and negative numbers indicate inverse exposure.
 			LeveredAmount *float64 `json:"levered_amount,omitempty"`
@@ -47670,7 +49029,7 @@ type GetEtfGlobalV1ProfilesResponse struct {
 			ListingExchange *string `json:"listing_exchange,omitempty"`
 
 			// ManagementClassification Defines whether an ETF is considered active under SEC rules, with managers making investment decisions, or passive, tracking an index.
-			ManagementClassification *string `json:"management_classification,omitempty"`
+			ManagementClassification string `json:"management_classification"`
 
 			// ManagementFee The annual fee charged by the fund manager for managing the ETF's portfolio and operations.
 			ManagementFee *float64 `json:"management_fee,omitempty"`
@@ -47706,7 +49065,7 @@ type GetEtfGlobalV1ProfilesResponse struct {
 			ProcessedDate *openapi_types.Date `json:"processed_date,omitempty"`
 
 			// ProductType Indicates whether the product is an Exchange-Traded Note ('etn') or an Exchange-Traded Fund ('etf').
-			ProductType *string `json:"product_type,omitempty"`
+			ProductType string `json:"product_type"`
 
 			// PutCallRatio Put/call ratio for options on the ETF.
 			PutCallRatio *float64 `json:"put_call_ratio,omitempty"`
@@ -47851,13 +49210,13 @@ type GetEtfGlobalV1TaxonomiesResponse struct {
 			LeverageReset *string `json:"leverage_reset,omitempty"`
 
 			// LeverageStyle Indicates whether the ETF uses leverage to amplify returns ('leveraged'), or does not use leverage ('unleveraged').
-			LeverageStyle *string `json:"leverage_style,omitempty"`
+			LeverageStyle string `json:"leverage_style"`
 
 			// LeveredAmount The leverage multiplier applied by the ETF, where positive numbers indicate leveraged exposure and negative numbers indicate inverse exposure.
 			LeveredAmount *float64 `json:"levered_amount,omitempty"`
 
 			// ManagementClassification Defines whether an ETF is considered active under SEC rules, with managers making investment decisions, or passive, tracking an index.
-			ManagementClassification *string `json:"management_classification,omitempty"`
+			ManagementClassification string `json:"management_classification"`
 
 			// ManagementStyle Indicates whether an ETF is managed actively or passively, and the level of transparency or replication method used.
 			ManagementStyle *string `json:"management_style,omitempty"`
@@ -47875,7 +49234,7 @@ type GetEtfGlobalV1TaxonomiesResponse struct {
 			ProcessedDate *openapi_types.Date `json:"processed_date,omitempty"`
 
 			// ProductType Indicates whether the product is an Exchange-Traded Note ('etn') or an Exchange-Traded Fund ('etf').
-			ProductType *string `json:"product_type,omitempty"`
+			ProductType string `json:"product_type"`
 
 			// RebalanceFrequency How frequently the ETF rebalances its holdings.
 			RebalanceFrequency *string `json:"rebalance_frequency,omitempty"`
@@ -48237,13 +49596,13 @@ type GetForexV1ExchangesResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Id Numeric identifier for the forex trading venue or institution.
-			Id *string `json:"id,omitempty"`
+			Id string `json:"id"`
 
 			// Name Full name of the foreign exchange trading venue, platform, or financial institution.
-			Name *string `json:"name,omitempty"`
+			Name string `json:"name"`
 
 			// Type Type of forex venue - 'exchange' for electronic trading platforms and institutional trading venues.
-			Type *string `json:"type,omitempty"`
+			Type string `json:"type"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -48354,10 +49713,10 @@ type GetFuturesV1ContractsResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-			Active *bool `json:"active,omitempty"`
+			Active bool `json:"active"`
 
 			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
-			Date *openapi_types.Date `json:"date,omitempty"`
+			Date openapi_types.Date `json:"date"`
 
 			// DaysToMaturity The number of calendar days between the 'date' and the contract's final settlement date.
 			DaysToMaturity *int64 `json:"days_to_maturity,omitempty"`
@@ -48454,7 +49813,7 @@ type GetFuturesV1ExchangesResponse struct {
 			Acronym *string `json:"acronym,omitempty"`
 
 			// Id Numeric identifier for the futures exchange or trading venue.
-			Id *string `json:"id,omitempty"`
+			Id string `json:"id"`
 
 			// Locale Geographic location code where the exchange operates.
 			Locale *string `json:"locale,omitempty"`
@@ -48463,13 +49822,13 @@ type GetFuturesV1ExchangesResponse struct {
 			Mic *string `json:"mic,omitempty"`
 
 			// Name Full official name of the futures exchange (e.g., 'Chicago Mercantile Exchange', 'New York Mercantile Exchange').
-			Name *string `json:"name,omitempty"`
+			Name string `json:"name"`
 
 			// OperatingMic Operating Market Identifier Code for the futures exchange.
 			OperatingMic *string `json:"operating_mic,omitempty"`
 
 			// Type Type of venue - 'exchange' for futures exchanges and derivatives trading platforms.
-			Type *string `json:"type,omitempty"`
+			Type string `json:"type"`
 
 			// Url Official website URL of the futures exchange organization.
 			Url *string `json:"url,omitempty"`
@@ -48700,22 +50059,22 @@ type GetFuturesV1QuotesResponse struct {
 			BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
 
 			// Channel The CME multicast channel this event was sourced from.
-			Channel *int32 `json:"channel,omitempty"`
+			Channel int32 `json:"channel"`
 
 			// ReportSequence The reporting sequence number.
-			ReportSequence *int64 `json:"report_sequence,omitempty"`
+			ReportSequence int64 `json:"report_sequence"`
 
 			// SequenceNumber The unique sequence number assigned to this quote by the exchange.
-			SequenceNumber *int64 `json:"sequence_number,omitempty"`
+			SequenceNumber int64 `json:"sequence_number"`
 
 			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 			SessionEndDate *string `json:"session_end_date,omitempty"`
 
 			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-			Ticker *string `json:"ticker,omitempty"`
+			Ticker string `json:"ticker"`
 
 			// Timestamp The time when the quote was generated at the exchange to nanosecond precision.
-			Timestamp *int64 `json:"timestamp,omitempty"`
+			Timestamp int64 `json:"timestamp"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -48815,6 +50174,148 @@ func (r GetFuturesV1SchedulesResponse) StatusCode() int {
 	return 0
 }
 
+type GetFuturesV1SnapshotResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			Details *struct {
+				ProductCode *string `json:"product_code,omitempty"`
+
+				// SettlementDate The day that this contract is settled.
+				SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
+				Ticker         *string             `json:"ticker,omitempty"`
+			} `json:"details,omitempty"`
+			LastMinute *struct {
+				// Close The price at the end of the minute bar.
+				Close *float64 `json:"close,omitempty"`
+
+				// High The highest price reached in the minute bar.
+				High *float64 `json:"high,omitempty"`
+
+				// LastUpdated The timestamp indicating the most recent update to the minute bar.
+				LastUpdated *int64 `json:"last_updated,omitempty"`
+
+				// Low The lowest price reached in the minute bar.
+				Low *float64 `json:"low,omitempty"`
+
+				// Open The opening price at the start of the minute bar.
+				Open *float64 `json:"open,omitempty"`
+
+				// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
+				Timeframe *string `json:"timeframe,omitempty"`
+
+				// Volume The number of contracts traded in the minute bar.
+				Volume *int64 `json:"volume,omitempty"`
+			} `json:"last_minute,omitempty"`
+			LastQuote *struct {
+				// Ask The lowest price a seller is willing to accept.
+				Ask *float64 `json:"ask,omitempty"`
+
+				// AskSize The number of contracts available at the ask price.
+				AskSize *int32 `json:"ask_size,omitempty"`
+
+				// AskTimestamp The time when the best ask price was last updated.
+				AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
+
+				// Bid The highest price a buyer is willing to pay.
+				Bid *float64 `json:"bid,omitempty"`
+
+				// BidSize The number of contracts available at the bid price.
+				BidSize *int32 `json:"bid_size,omitempty"`
+
+				// BidTimestamp The time when the best bid price was last updated.
+				BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
+
+				// LastUpdated The time when the quote was generated at the exchange to nanosecond precision.
+				LastUpdated *int64 `json:"last_updated,omitempty"`
+
+				// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
+				Timeframe *string `json:"timeframe,omitempty"`
+			} `json:"last_quote,omitempty"`
+			LastTrade *struct {
+				// LastUpdated The time when the trade was generated at the exchange to nanosecond precision.
+				LastUpdated *int64 `json:"last_updated,omitempty"`
+
+				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
+				Price *float64 `json:"price,omitempty"`
+
+				// Size The total number of contracts exchanged between buyers and sellers on a given trade.
+				Size *int64 `json:"size,omitempty"`
+
+				// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
+				Timeframe *string `json:"timeframe,omitempty"`
+			} `json:"last_trade,omitempty"`
+			Session *struct {
+				// Change The change in price during this session.
+				Change *float64 `json:"change,omitempty"`
+
+				// ChangePercent The percentage change in price during this session.
+				ChangePercent *float64 `json:"change_percent,omitempty"`
+
+				// Close The price at the end of the session.
+				Close *float64 `json:"close,omitempty"`
+
+				// High The highest price reached in the session.
+				High *float64 `json:"high,omitempty"`
+
+				// Low The lowest price reached in the session.
+				Low *float64 `json:"low,omitempty"`
+
+				// Open The opening price at the start of the session.
+				Open *float64 `json:"open,omitempty"`
+
+				// PreviousSettlement The settlement price of the previous session.
+				PreviousSettlement *float64 `json:"previous_settlement,omitempty"`
+
+				// SettlementPrice The final settlement price at the end of the session.
+				SettlementPrice *float64 `json:"settlement_price,omitempty"`
+
+				// Volume The number of contracts traded in the session.
+				Volume *int64 `json:"volume,omitempty"`
+			} `json:"session,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetFuturesV1Snapshot200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetFuturesV1Snapshot400Status `json:"status"`
+	}
+}
+type GetFuturesV1Snapshot200Status string
+type GetFuturesV1Snapshot400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetFuturesV1SnapshotResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetFuturesV1SnapshotResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetFuturesV1TradesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -48828,16 +50329,16 @@ type GetFuturesV1TradesResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Channel The CME multicast channel this event was sourced from.
-			Channel *int32 `json:"channel,omitempty"`
+			Channel int32 `json:"channel"`
 
 			// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
 			Price *float64 `json:"price,omitempty"`
 
 			// ReportSequence The reporting sequence number.
-			ReportSequence *int64 `json:"report_sequence,omitempty"`
+			ReportSequence int64 `json:"report_sequence"`
 
 			// SequenceNumber The unique sequence number assigned to this trade.
-			SequenceNumber *int64 `json:"sequence_number,omitempty"`
+			SequenceNumber int64 `json:"sequence_number"`
 
 			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 			SessionEndDate *string `json:"session_end_date,omitempty"`
@@ -48846,10 +50347,10 @@ type GetFuturesV1TradesResponse struct {
 			Size *int64 `json:"size,omitempty"`
 
 			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-			Ticker *string `json:"ticker,omitempty"`
+			Ticker string `json:"ticker"`
 
 			// Timestamp The time when the trade was generated at the exchange to nanosecond precision.
-			Timestamp *int64 `json:"timestamp,omitempty"`
+			Timestamp int64 `json:"timestamp"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -48960,10 +50461,10 @@ type GetFuturesVXContractsResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-			Active *bool `json:"active,omitempty"`
+			Active bool `json:"active"`
 
 			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
-			Date *openapi_types.Date `json:"date,omitempty"`
+			Date openapi_types.Date `json:"date"`
 
 			// DaysToMaturity The number of calendar days between the 'date' and the contract's final settlement date.
 			DaysToMaturity *int64 `json:"days_to_maturity,omitempty"`
@@ -49060,7 +50561,7 @@ type GetFuturesVXExchangesResponse struct {
 			Acronym *string `json:"acronym,omitempty"`
 
 			// Id Numeric identifier for the futures exchange or trading venue.
-			Id *string `json:"id,omitempty"`
+			Id string `json:"id"`
 
 			// Locale Geographic location code where the exchange operates.
 			Locale *string `json:"locale,omitempty"`
@@ -49069,13 +50570,13 @@ type GetFuturesVXExchangesResponse struct {
 			Mic *string `json:"mic,omitempty"`
 
 			// Name Full official name of the futures exchange (e.g., 'Chicago Mercantile Exchange', 'New York Mercantile Exchange').
-			Name *string `json:"name,omitempty"`
+			Name string `json:"name"`
 
 			// OperatingMic Operating Market Identifier Code for the futures exchange.
 			OperatingMic *string `json:"operating_mic,omitempty"`
 
 			// Type Type of venue - 'exchange' for futures exchanges and derivatives trading platforms.
-			Type *string `json:"type,omitempty"`
+			Type string `json:"type"`
 
 			// Url Official website URL of the futures exchange organization.
 			Url *string `json:"url,omitempty"`
@@ -49306,22 +50807,22 @@ type GetFuturesVXQuotesResponse struct {
 			BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
 
 			// Channel The CME multicast channel this event was sourced from.
-			Channel *int32 `json:"channel,omitempty"`
+			Channel int32 `json:"channel"`
 
 			// ReportSequence The reporting sequence number.
-			ReportSequence *int64 `json:"report_sequence,omitempty"`
+			ReportSequence int64 `json:"report_sequence"`
 
 			// SequenceNumber The unique sequence number assigned to this quote by the exchange.
-			SequenceNumber *int64 `json:"sequence_number,omitempty"`
+			SequenceNumber int64 `json:"sequence_number"`
 
 			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 			SessionEndDate *string `json:"session_end_date,omitempty"`
 
 			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-			Ticker *string `json:"ticker,omitempty"`
+			Ticker string `json:"ticker"`
 
 			// Timestamp The time when the quote was generated at the exchange to nanosecond precision.
-			Timestamp *int64 `json:"timestamp,omitempty"`
+			Timestamp int64 `json:"timestamp"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -49460,7 +50961,7 @@ type GetFuturesVXSnapshotResponse struct {
 				Timeframe *string `json:"timeframe,omitempty"`
 
 				// Volume The number of contracts traded in the minute bar.
-				Volume *float64 `json:"volume,omitempty"`
+				Volume *int64 `json:"volume,omitempty"`
 			} `json:"last_minute,omitempty"`
 			LastQuote *struct {
 				// Ask The lowest price a seller is willing to accept.
@@ -49526,7 +51027,7 @@ type GetFuturesVXSnapshotResponse struct {
 				SettlementPrice *float64 `json:"settlement_price,omitempty"`
 
 				// Volume The number of contracts traded in the session.
-				Volume *float64 `json:"volume,omitempty"`
+				Volume *int64 `json:"volume,omitempty"`
 			} `json:"session,omitempty"`
 		} `json:"results"`
 
@@ -49576,16 +51077,16 @@ type GetFuturesVXTradesResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Channel The CME multicast channel this event was sourced from.
-			Channel *int32 `json:"channel,omitempty"`
+			Channel int32 `json:"channel"`
 
 			// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
 			Price *float64 `json:"price,omitempty"`
 
 			// ReportSequence The reporting sequence number.
-			ReportSequence *int64 `json:"report_sequence,omitempty"`
+			ReportSequence int64 `json:"report_sequence"`
 
 			// SequenceNumber The unique sequence number assigned to this trade.
-			SequenceNumber *int64 `json:"sequence_number,omitempty"`
+			SequenceNumber int64 `json:"sequence_number"`
 
 			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 			SessionEndDate *string `json:"session_end_date,omitempty"`
@@ -49594,10 +51095,10 @@ type GetFuturesVXTradesResponse struct {
 			Size *int64 `json:"size,omitempty"`
 
 			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-			Ticker *string `json:"ticker,omitempty"`
+			Ticker string `json:"ticker"`
 
 			// Timestamp The time when the trade was generated at the exchange to nanosecond precision.
-			Timestamp *int64 `json:"timestamp,omitempty"`
+			Timestamp int64 `json:"timestamp"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -49649,7 +51150,7 @@ type GetOptionsV1ExchangesResponse struct {
 			Acronym *string `json:"acronym,omitempty"`
 
 			// Id Numeric identifier for the options trading venue or exchange.
-			Id *string `json:"id,omitempty"`
+			Id string `json:"id"`
 
 			// Locale Geographic location code.
 			Locale *string `json:"locale,omitempty"`
@@ -49658,7 +51159,7 @@ type GetOptionsV1ExchangesResponse struct {
 			Mic *string `json:"mic,omitempty"`
 
 			// Name Full official name of the options exchange or trading venue.
-			Name *string `json:"name,omitempty"`
+			Name string `json:"name"`
 
 			// OperatingMic Operating Market Identifier Code - identifies the parent organization or operating entity.
 			OperatingMic *string `json:"operating_mic,omitempty"`
@@ -49667,7 +51168,7 @@ type GetOptionsV1ExchangesResponse struct {
 			ParticipantId *string `json:"participant_id,omitempty"`
 
 			// Type Type of venue: 'exchange' for options exchanges, 'SIP' for Securities Information Processors like OPRA (Options Price Reporting Authority).
-			Type *string `json:"type,omitempty"`
+			Type string `json:"type"`
 
 			// Url Official website URL of the organization operating the options exchange.
 			Url *string `json:"url,omitempty"`
@@ -49900,9 +51401,6 @@ type GetStocksFilingsVX13FResponse struct {
 			// SharesOrPrincipalType Type of amount reported. Possible values: SH (shares), PRN (principal amount).
 			SharesOrPrincipalType *string `json:"shares_or_principal_type,omitempty"`
 
-			// Tickers A list of ticker symbols for the filing entity. Multiple symbols may indicate different share classes (e.g., BRK.A and BRK.B for Berkshire Hathaway).
-			Tickers *[]string `json:"tickers,omitempty"`
-
 			// TitleOfClass Description of the class of securities held (e.g., 'COM', 'CL A').
 			TitleOfClass *string `json:"title_of_class,omitempty"`
 
@@ -49943,6 +51441,311 @@ func (r GetStocksFilingsVX13FResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetStocksFilingsVX13FResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksFilingsVXForm3Response struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// AccessionNumber Unique SEC accession number for the filing (e.g., '0001209191-25-012345').
+			AccessionNumber *string `json:"accession_number,omitempty"`
+
+			// Aff10b5One Whether the transaction was made pursuant to a Rule 10b5-1 trading plan.
+			Aff10b5One *bool `json:"aff_10b5_one,omitempty"`
+
+			// DateOfOriginalSubmission Date of the original filing submission for amendment filings (3/A). Null for initial filings (formatted as YYYY-MM-DD).
+			DateOfOriginalSubmission *openapi_types.Date `json:"date_of_original_submission,omitempty"`
+
+			// DirectOrIndirect Whether ownership is direct ('D') or indirect ('I').
+			DirectOrIndirect *string `json:"direct_or_indirect,omitempty"`
+
+			// ExerciseDate Date exercisable for derivative securities (formatted as YYYY-MM-DD).
+			ExerciseDate *openapi_types.Date `json:"exercise_date,omitempty"`
+
+			// ExercisePrice Exercise or conversion price of derivative securities in USD.
+			ExercisePrice *float64 `json:"exercise_price,omitempty"`
+
+			// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+			// FilingUrl Direct URL to the filing on the SEC EDGAR website.
+			FilingUrl *string `json:"filing_url,omitempty"`
+
+			// Footnotes List of footnotes from the filing that are relevant to this row, each with an id and description.
+			Footnotes *[]struct {
+				Description *string `json:"description,omitempty"`
+				Id          *string `json:"id,omitempty"`
+			} `json:"footnotes,omitempty"`
+
+			// FormType SEC form type ('3' for initial filing, '3/A' for amendments).
+			FormType *string `json:"form_type,omitempty"`
+
+			// IsDirector Whether the reporting owner is a director of the issuer.
+			IsDirector *bool `json:"is_director,omitempty"`
+
+			// IsOfficer Whether the reporting owner is an officer of the issuer.
+			IsOfficer *bool `json:"is_officer,omitempty"`
+
+			// IsOther Whether the reporting owner has another relationship with the issuer.
+			IsOther *bool `json:"is_other,omitempty"`
+
+			// IsTenPercentOwner Whether the reporting owner holds 10% or more of a class of equity securities.
+			IsTenPercentOwner *bool `json:"is_ten_percent_owner,omitempty"`
+
+			// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+			IssuerCik *string `json:"issuer_cik,omitempty"`
+
+			// IssuerName Name of the issuer company as reported in the filing.
+			IssuerName *string `json:"issuer_name,omitempty"`
+
+			// NatureOfOwnership Nature of indirect ownership (e.g., 'By Trust', 'By Spouse').
+			NatureOfOwnership *string `json:"nature_of_ownership,omitempty"`
+
+			// NotSubjectToSection16 Whether the reporting owner is not subject to Section 16 of the Securities Exchange Act.
+			NotSubjectToSection16 *bool `json:"not_subject_to_section_16,omitempty"`
+
+			// OfficerTitle Title of the officer, if the reporting owner is an officer.
+			OfficerTitle *string `json:"officer_title,omitempty"`
+
+			// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded).
+			OwnerCik *string `json:"owner_cik,omitempty"`
+
+			// OwnerName Name of the reporting owner (individual or entity).
+			OwnerName *string `json:"owner_name,omitempty"`
+
+			// PeriodOfReport Date of the event triggering the filing (formatted as YYYY-MM-DD).
+			PeriodOfReport *openapi_types.Date `json:"period_of_report,omitempty"`
+
+			// Remarks Additional remarks included in the filing.
+			Remarks *string `json:"remarks,omitempty"`
+
+			// SecurityTitle Title or description of the security (e.g., 'Common Stock', 'Stock Option').
+			SecurityTitle *string `json:"security_title,omitempty"`
+
+			// SecurityType Type of security ('non-derivative' or 'derivative').
+			SecurityType *string `json:"security_type,omitempty"`
+
+			// SharesOwned Number of shares beneficially owned.
+			SharesOwned *float64 `json:"shares_owned,omitempty"`
+
+			// Tickers A list of ticker symbols for the issuer company. Multiple symbols may indicate different share classes.
+			Tickers *[]string `json:"tickers,omitempty"`
+
+			// UnderlyingSecurityShares Number of underlying shares for derivative holdings.
+			UnderlyingSecurityShares *float64 `json:"underlying_security_shares,omitempty"`
+
+			// UnderlyingSecurityTitle Title of the underlying security for derivative holdings.
+			UnderlyingSecurityTitle *string `json:"underlying_security_title,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilingsVXForm3200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilingsVXForm3400Status `json:"status"`
+	}
+}
+type GetStocksFilingsVXForm3200Status string
+type GetStocksFilingsVXForm3400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksFilingsVXForm3Response) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksFilingsVXForm3Response) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksFilingsVXForm4Response struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// AccessionNumber Unique SEC accession number for the filing (e.g., '0001209191-25-012345').
+			AccessionNumber *string `json:"accession_number,omitempty"`
+
+			// Aff10b5One Whether the transaction was made pursuant to a Rule 10b5-1 trading plan.
+			Aff10b5One *bool `json:"aff_10b5_one,omitempty"`
+
+			// DateOfOriginalSubmission Date of the original filing submission for amendment filings (4/A). Null for standard filings (formatted as YYYY-MM-DD).
+			DateOfOriginalSubmission *openapi_types.Date `json:"date_of_original_submission,omitempty"`
+
+			// DeemedExecutionDate Deemed execution date if different from transaction date (formatted as YYYY-MM-DD).
+			DeemedExecutionDate *openapi_types.Date `json:"deemed_execution_date,omitempty"`
+
+			// DirectOrIndirect Whether ownership is direct ('D') or indirect ('I').
+			DirectOrIndirect *string `json:"direct_or_indirect,omitempty"`
+
+			// EquitySwapInvolved Whether an equity swap was involved in the transaction.
+			EquitySwapInvolved *bool `json:"equity_swap_involved,omitempty"`
+
+			// ExerciseDate Date exercisable for derivative securities (formatted as YYYY-MM-DD).
+			ExerciseDate *openapi_types.Date `json:"exercise_date,omitempty"`
+
+			// ExercisePrice Exercise or conversion price of derivative securities in USD.
+			ExercisePrice *float64 `json:"exercise_price,omitempty"`
+
+			// ExpirationDate Expiration date for derivative securities (formatted as YYYY-MM-DD).
+			ExpirationDate *openapi_types.Date `json:"expiration_date,omitempty"`
+
+			// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+			// FilingUrl Direct URL to the filing on the SEC EDGAR website.
+			FilingUrl *string `json:"filing_url,omitempty"`
+
+			// Footnotes List of footnotes from the filing that are relevant to this row, each with an id and description.
+			Footnotes *[]struct {
+				Description *string `json:"description,omitempty"`
+				Id          *string `json:"id,omitempty"`
+			} `json:"footnotes,omitempty"`
+
+			// FormType SEC form type ('4' for standard filing, '4/A' for amendments).
+			FormType *string `json:"form_type,omitempty"`
+
+			// IsDirector Whether the reporting owner is a director of the issuer.
+			IsDirector *bool `json:"is_director,omitempty"`
+
+			// IsOfficer Whether the reporting owner is an officer of the issuer.
+			IsOfficer *bool `json:"is_officer,omitempty"`
+
+			// IsOther Whether the reporting owner has another relationship with the issuer.
+			IsOther *bool `json:"is_other,omitempty"`
+
+			// IsTenPercentOwner Whether the reporting owner holds 10% or more of a class of equity securities.
+			IsTenPercentOwner *bool `json:"is_ten_percent_owner,omitempty"`
+
+			// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+			IssuerCik *string `json:"issuer_cik,omitempty"`
+
+			// IssuerName Name of the issuer company as reported in the filing.
+			IssuerName *string `json:"issuer_name,omitempty"`
+
+			// NatureOfOwnership Nature of indirect ownership (e.g., 'By Trust', 'By Spouse').
+			NatureOfOwnership *string `json:"nature_of_ownership,omitempty"`
+
+			// NotSubjectToSection16 Whether the reporting owner is not subject to Section 16 of the Securities Exchange Act.
+			NotSubjectToSection16 *bool `json:"not_subject_to_section_16,omitempty"`
+
+			// OfficerTitle Title of the officer, if the reporting owner is an officer.
+			OfficerTitle *string `json:"officer_title,omitempty"`
+
+			// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded).
+			OwnerCik *string `json:"owner_cik,omitempty"`
+
+			// OwnerName Name of the reporting owner (individual or entity).
+			OwnerName *string `json:"owner_name,omitempty"`
+
+			// PeriodOfReport Date of the event triggering the filing (formatted as YYYY-MM-DD).
+			PeriodOfReport *openapi_types.Date `json:"period_of_report,omitempty"`
+
+			// RecordType Type of record in the filing (e.g., 'transaction', 'holding').
+			RecordType *string `json:"record_type,omitempty"`
+
+			// Remarks Additional remarks included in the filing.
+			Remarks *string `json:"remarks,omitempty"`
+
+			// SecurityTitle Title or description of the security (e.g., 'Common Stock', 'Stock Option').
+			SecurityTitle *string `json:"security_title,omitempty"`
+
+			// SecurityType Type of security ('non-derivative' or 'derivative').
+			SecurityType *string `json:"security_type,omitempty"`
+
+			// SharesOwnedFollowingTransaction Total shares beneficially owned after the transaction.
+			SharesOwnedFollowingTransaction *float64 `json:"shares_owned_following_transaction,omitempty"`
+
+			// Tickers A list of ticker symbols for the issuer company. Multiple symbols may indicate different share classes.
+			Tickers *[]string `json:"tickers,omitempty"`
+
+			// TransactionAcquiredDisposed Whether shares were acquired ('A') or disposed of ('D').
+			TransactionAcquiredDisposed *string `json:"transaction_acquired_disposed,omitempty"`
+
+			// TransactionCode SEC transaction code indicating the type of transaction (e.g., 'P' for purchase, 'S' for sale, 'A' for grant/award, 'M' for exercise/conversion).
+			TransactionCode *string `json:"transaction_code,omitempty"`
+
+			// TransactionDate Date of the transaction (formatted as YYYY-MM-DD).
+			TransactionDate *openapi_types.Date `json:"transaction_date,omitempty"`
+
+			// TransactionPricePerShare Price per share of the transaction in USD.
+			TransactionPricePerShare *float64 `json:"transaction_price_per_share,omitempty"`
+
+			// TransactionShares Number of shares involved in the transaction.
+			TransactionShares *float64 `json:"transaction_shares,omitempty"`
+
+			// TransactionTimeliness Timeliness of the filing: 'O' (on time) or 'L' (late).
+			TransactionTimeliness *string `json:"transaction_timeliness,omitempty"`
+
+			// TransactionValue Total value of the transaction in USD (transaction_shares x transaction_price_per_share). Null when shares or price is not reported.
+			TransactionValue *float64 `json:"transaction_value,omitempty"`
+
+			// UnderlyingSecurityShares Number of underlying shares for derivative transactions.
+			UnderlyingSecurityShares *float64 `json:"underlying_security_shares,omitempty"`
+
+			// UnderlyingSecurityTitle Title of the underlying security for derivative transactions.
+			UnderlyingSecurityTitle *string `json:"underlying_security_title,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilingsVXForm4200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilingsVXForm4400Status `json:"status"`
+	}
+}
+type GetStocksFilingsVXForm4200Status string
+type GetStocksFilingsVXForm4400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksFilingsVXForm4Response) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksFilingsVXForm4Response) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -50183,7 +51986,7 @@ type GetStocksFinancialsV1BalanceSheetsResponse struct {
 			Tickers *[]string `json:"tickers,omitempty"`
 
 			// Timeframe The reporting period type. Possible values include: quarterly, annual.
-			Timeframe *string `json:"timeframe,omitempty"`
+			Timeframe string `json:"timeframe"`
 
 			// TotalAssets Sum of all current and non-current assets representing everything the company owns or controls.
 			TotalAssets *float64 `json:"total_assets,omitempty"`
@@ -50558,7 +52361,7 @@ type GetStocksFinancialsV1RatiosResponse struct {
 			Current *float64 `json:"current,omitempty"`
 
 			// Date Date for which the ratios are calculated, representing the trading date with available price data.
-			Date *string `json:"date,omitempty"`
+			Date string `json:"date"`
 
 			// DebtToEquity Debt-to-equity ratio, calculated as total debt (current debt plus long-term debt) divided by total shareholders' equity, measuring financial leverage.
 			DebtToEquity *float64 `json:"debt_to_equity,omitempty"`
@@ -50612,7 +52415,7 @@ type GetStocksFinancialsV1RatiosResponse struct {
 			ReturnOnEquity *float64 `json:"return_on_equity,omitempty"`
 
 			// Ticker Stock ticker symbol for the company.
-			Ticker *string `json:"ticker,omitempty"`
+			Ticker string `json:"ticker"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -50670,7 +52473,7 @@ type GetStocksTaxonomiesVXRiskFactorsResponse struct {
 			SecondaryCategory *string `json:"secondary_category,omitempty"`
 
 			// Taxonomy Version identifier (e.g., '1.0', '1.1') for the taxonomy
-			Taxonomy *float64 `json:"taxonomy,omitempty"`
+			Taxonomy float64 `json:"taxonomy"`
 
 			// TertiaryCategory Most specific risk classification
 			TertiaryCategory *string `json:"tertiary_category,omitempty"`
@@ -50731,7 +52534,7 @@ type GetStocksV1DividendsResponse struct {
 			DeclarationDate *openapi_types.Date `json:"declaration_date,omitempty"`
 
 			// DistributionType Classification describing the nature of this dividend's recurrence pattern: recurring (paid on a regular schedule), special (one-time or commemorative), supplemental (extra beyond the regular schedule), irregular (unpredictable or non-recurring), unknown (cannot be classified from available data)
-			DistributionType *string `json:"distribution_type,omitempty"`
+			DistributionType string `json:"distribution_type"`
 
 			// ExDividendDate Date when the stock begins trading without the dividend value
 			ExDividendDate *openapi_types.Date `json:"ex_dividend_date,omitempty"`
@@ -50807,7 +52610,7 @@ type GetStocksV1ExchangesResponse struct {
 			Acronym *string `json:"acronym,omitempty"`
 
 			// Id Numeric identifier for the trading venue or exchange.
-			Id *string `json:"id,omitempty"`
+			Id string `json:"id"`
 
 			// Locale Geographic location code.
 			Locale *string `json:"locale,omitempty"`
@@ -50816,7 +52619,7 @@ type GetStocksV1ExchangesResponse struct {
 			Mic *string `json:"mic,omitempty"`
 
 			// Name Full official name of the exchange, trading venue, or reporting facility.
-			Name *string `json:"name,omitempty"`
+			Name string `json:"name"`
 
 			// OperatingMic Operating Market Identifier Code - identifies the specific operating entity or parent organization.
 			OperatingMic *string `json:"operating_mic,omitempty"`
@@ -50825,7 +52628,7 @@ type GetStocksV1ExchangesResponse struct {
 			ParticipantId *string `json:"participant_id,omitempty"`
 
 			// Type Type of trading venue: 'exchange' for stock exchanges, 'TRF' for Trade Reporting Facilities, 'SIP' for Securities Information Processors, 'ORF' for OTC Reporting Facility.
-			Type *string `json:"type,omitempty"`
+			Type string `json:"type"`
 
 			// Url Official website URL of the organization operating the venue.
 			Url *string `json:"url,omitempty"`
@@ -50877,13 +52680,13 @@ type GetStocksV1ShortInterestResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// AvgDailyVolume The average daily trading volume for the stock over a specified period, typically used to contextualize short interest.
-			AvgDailyVolume *int64 `json:"avg_daily_volume,omitempty"`
+			AvgDailyVolume int64 `json:"avg_daily_volume"`
 
 			// DaysToCover Calculated as short_interest divided by avg_daily_volume, representing the estimated number of days it would take to cover all short positions based on average trading volume.
-			DaysToCover *float64 `json:"days_to_cover,omitempty"`
+			DaysToCover float64 `json:"days_to_cover"`
 
 			// SettlementDate The date (formatted as YYYY-MM-DD) on which the short interest data is considered settled, typically based on exchange reporting schedules.
-			SettlementDate *string `json:"settlement_date,omitempty"`
+			SettlementDate string `json:"settlement_date"`
 
 			// ShortInterest The total number of shares that have been sold short but have not yet been covered or closed out.
 			ShortInterest *int64 `json:"short_interest,omitempty"`
@@ -50944,7 +52747,7 @@ type GetStocksV1ShortVolumeResponse struct {
 			AdfShortVolumeExempt *int64 `json:"adf_short_volume_exempt,omitempty"`
 
 			// Date The date of trade activity reported in the format YYYY-MM-DD
-			Date *string `json:"date,omitempty"`
+			Date string `json:"date"`
 
 			// ExemptVolume Portion of short volume that was marked as exempt from regulation SHO.
 			ExemptVolume *float64 `json:"exempt_volume,omitempty"`
@@ -51029,7 +52832,7 @@ type GetStocksV1SplitsResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// AdjustmentType Classification of the share-change event. Possible values include: forward_split (share count increases), reverse_split (share count decreases), stock_dividend (shares issued as a dividend)
-			AdjustmentType *string `json:"adjustment_type,omitempty"`
+			AdjustmentType string `json:"adjustment_type"`
 
 			// ExecutionDate Date when the stock split was applied and shares adjusted
 			ExecutionDate *openapi_types.Date `json:"execution_date,omitempty"`
@@ -58487,6 +60290,9 @@ type GetCryptoTradesResponse struct {
 			// Price The price of the trade in the base currency of the crypto pair.
 			Price float64 `json:"price"`
 
+			// ReceivedTimestamp The nanosecond accuracy timestamp of when the tick was received by Massive.
+			ReceivedTimestamp *int64 `json:"received_timestamp,omitempty"`
+
 			// Size The size of a trade (also known as volume).
 			Size float64 `json:"size"`
 		} `json:"results,omitempty"`
@@ -58540,6 +60346,9 @@ type GetOptionsTradesResponse struct {
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
 			Price float64 `json:"price"`
+
+			// SequenceNumber The sequence number represents the sequence in which message events happened. These are increasing and unique per ticker symbol, but will not always be consecutive (e.g. 1, 2, 6, 9, 10, 11).
+			SequenceNumber *int64 `json:"sequence_number,omitempty"`
 
 			// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 			SipTimestamp int64 `json:"sip_timestamp"`
@@ -59192,6 +61001,15 @@ func (c *ClientWithResponses) GetFuturesV1SchedulesWithResponse(ctx context.Cont
 	return ParseGetFuturesV1SchedulesResponse(rsp)
 }
 
+// GetFuturesV1SnapshotWithResponse request returning *GetFuturesV1SnapshotResponse
+func (c *ClientWithResponses) GetFuturesV1SnapshotWithResponse(ctx context.Context, params *GetFuturesV1SnapshotParams, reqEditors ...RequestEditorFn) (*GetFuturesV1SnapshotResponse, error) {
+	rsp, err := c.GetFuturesV1Snapshot(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetFuturesV1SnapshotResponse(rsp)
+}
+
 // GetFuturesV1TradesWithResponse request returning *GetFuturesV1TradesResponse
 func (c *ClientWithResponses) GetFuturesV1TradesWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesResponse, error) {
 	rsp, err := c.GetFuturesV1Trades(ctx, ticker, params, reqEditors...)
@@ -59316,6 +61134,24 @@ func (c *ClientWithResponses) GetStocksFilingsVX13FWithResponse(ctx context.Cont
 		return nil, err
 	}
 	return ParseGetStocksFilingsVX13FResponse(rsp)
+}
+
+// GetStocksFilingsVXForm3WithResponse request returning *GetStocksFilingsVXForm3Response
+func (c *ClientWithResponses) GetStocksFilingsVXForm3WithResponse(ctx context.Context, params *GetStocksFilingsVXForm3Params, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXForm3Response, error) {
+	rsp, err := c.GetStocksFilingsVXForm3(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksFilingsVXForm3Response(rsp)
+}
+
+// GetStocksFilingsVXForm4WithResponse request returning *GetStocksFilingsVXForm4Response
+func (c *ClientWithResponses) GetStocksFilingsVXForm4WithResponse(ctx context.Context, params *GetStocksFilingsVXForm4Params, reqEditors ...RequestEditorFn) (*GetStocksFilingsVXForm4Response, error) {
+	rsp, err := c.GetStocksFilingsVXForm4(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksFilingsVXForm4Response(rsp)
 }
 
 // GetStocksFilingsVXIndexWithResponse request returning *GetStocksFilingsVXIndexResponse
@@ -61182,7 +63018,7 @@ func ParseGetConsumerSpendingEuV1MerchantAggregatesResponse(rsp *http.Response) 
 				Type *string `json:"type,omitempty"`
 
 				// UserCountry Country of consumer's residence (ISO codes). Available countries: UK, DE, FR, ES, IT, AT. Values outside these are mapped to 'unknown'.
-				UserCountry *string `json:"user_country,omitempty"`
+				UserCountry string `json:"user_country"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -61266,7 +63102,7 @@ func ParseGetConsumerSpendingEuV1MerchantHierarchyResponse(rsp *http.Response) (
 				IndustryGroup *string `json:"industry_group,omitempty"`
 
 				// ListingStatus Whether the merchant is a publicly listed company or private. Possible values: public, private.
-				ListingStatus *string `json:"listing_status,omitempty"`
+				ListingStatus string `json:"listing_status"`
 
 				// LookupName Lowercase merchant tag used for joining with the merchant-aggregates endpoint name field (e.g., 'asda', 'amazon').
 				LookupName *string `json:"lookup_name,omitempty"`
@@ -61344,13 +63180,13 @@ func ParseGetCryptoV1ExchangesResponse(rsp *http.Response) (*GetCryptoV1Exchange
 			// Results The results for this request.
 			Results []struct {
 				// Id Numeric identifier for the cryptocurrency exchange or trading platform.
-				Id *string `json:"id,omitempty"`
+				Id string `json:"id"`
 
 				// Name Full official name of the cryptocurrency exchange or digital asset trading platform.
-				Name *string `json:"name,omitempty"`
+				Name string `json:"name"`
 
 				// Type Type of crypto venue - 'exchange' for cryptocurrency exchanges and digital asset trading platforms.
-				Type *string `json:"type,omitempty"`
+				Type string `json:"type"`
 
 				// Url Official website URL of the cryptocurrency exchange.
 				Url *string `json:"url,omitempty"`
@@ -61575,7 +63411,7 @@ func ParseGetEtfGlobalV1ConstituentsResponse(rsp *http.Response) (*GetEtfGlobalV
 				ConstituentName *string `json:"constituent_name,omitempty"`
 
 				// ConstituentRank The rank of this constituent within the ETF for a given effective_date, ordered by weight (descending), market_value (descending), and constituent_ticker (ascending). A rank of 1 indicates the largest holding.
-				ConstituentRank *int64 `json:"constituent_rank,omitempty"`
+				ConstituentRank int64 `json:"constituent_rank"`
 
 				// ConstituentTicker The stock ticker symbol of the individual security held within the ETF.
 				ConstituentTicker *string `json:"constituent_ticker,omitempty"`
@@ -61851,7 +63687,7 @@ func ParseGetEtfGlobalV1ProfilesResponse(rsp *http.Response) (*GetEtfGlobalV1Pro
 				LeadMarketMaker *string `json:"lead_market_maker,omitempty"`
 
 				// LeverageStyle Indicates whether the ETF uses leverage to amplify returns ('leveraged'), or does not use leverage ('unleveraged').
-				LeverageStyle *string `json:"leverage_style,omitempty"`
+				LeverageStyle string `json:"leverage_style"`
 
 				// LeveredAmount The leverage multiplier applied by the ETF, where positive numbers indicate leveraged exposure and negative numbers indicate inverse exposure.
 				LeveredAmount *float64 `json:"levered_amount,omitempty"`
@@ -61860,7 +63696,7 @@ func ParseGetEtfGlobalV1ProfilesResponse(rsp *http.Response) (*GetEtfGlobalV1Pro
 				ListingExchange *string `json:"listing_exchange,omitempty"`
 
 				// ManagementClassification Defines whether an ETF is considered active under SEC rules, with managers making investment decisions, or passive, tracking an index.
-				ManagementClassification *string `json:"management_classification,omitempty"`
+				ManagementClassification string `json:"management_classification"`
 
 				// ManagementFee The annual fee charged by the fund manager for managing the ETF's portfolio and operations.
 				ManagementFee *float64 `json:"management_fee,omitempty"`
@@ -61896,7 +63732,7 @@ func ParseGetEtfGlobalV1ProfilesResponse(rsp *http.Response) (*GetEtfGlobalV1Pro
 				ProcessedDate *openapi_types.Date `json:"processed_date,omitempty"`
 
 				// ProductType Indicates whether the product is an Exchange-Traded Note ('etn') or an Exchange-Traded Fund ('etf').
-				ProductType *string `json:"product_type,omitempty"`
+				ProductType string `json:"product_type"`
 
 				// PutCallRatio Put/call ratio for options on the ETF.
 				PutCallRatio *float64 `json:"put_call_ratio,omitempty"`
@@ -62049,13 +63885,13 @@ func ParseGetEtfGlobalV1TaxonomiesResponse(rsp *http.Response) (*GetEtfGlobalV1T
 				LeverageReset *string `json:"leverage_reset,omitempty"`
 
 				// LeverageStyle Indicates whether the ETF uses leverage to amplify returns ('leveraged'), or does not use leverage ('unleveraged').
-				LeverageStyle *string `json:"leverage_style,omitempty"`
+				LeverageStyle string `json:"leverage_style"`
 
 				// LeveredAmount The leverage multiplier applied by the ETF, where positive numbers indicate leveraged exposure and negative numbers indicate inverse exposure.
 				LeveredAmount *float64 `json:"levered_amount,omitempty"`
 
 				// ManagementClassification Defines whether an ETF is considered active under SEC rules, with managers making investment decisions, or passive, tracking an index.
-				ManagementClassification *string `json:"management_classification,omitempty"`
+				ManagementClassification string `json:"management_classification"`
 
 				// ManagementStyle Indicates whether an ETF is managed actively or passively, and the level of transparency or replication method used.
 				ManagementStyle *string `json:"management_style,omitempty"`
@@ -62073,7 +63909,7 @@ func ParseGetEtfGlobalV1TaxonomiesResponse(rsp *http.Response) (*GetEtfGlobalV1T
 				ProcessedDate *openapi_types.Date `json:"processed_date,omitempty"`
 
 				// ProductType Indicates whether the product is an Exchange-Traded Note ('etn') or an Exchange-Traded Fund ('etf').
-				ProductType *string `json:"product_type,omitempty"`
+				ProductType string `json:"product_type"`
 
 				// RebalanceFrequency How frequently the ETF rebalances its holdings.
 				RebalanceFrequency *string `json:"rebalance_frequency,omitempty"`
@@ -62475,13 +64311,13 @@ func ParseGetForexV1ExchangesResponse(rsp *http.Response) (*GetForexV1ExchangesR
 			// Results The results for this request.
 			Results []struct {
 				// Id Numeric identifier for the forex trading venue or institution.
-				Id *string `json:"id,omitempty"`
+				Id string `json:"id"`
 
 				// Name Full name of the foreign exchange trading venue, platform, or financial institution.
-				Name *string `json:"name,omitempty"`
+				Name string `json:"name"`
 
 				// Type Type of forex venue - 'exchange' for electronic trading platforms and institutional trading venues.
-				Type *string `json:"type,omitempty"`
+				Type string `json:"type"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -62604,10 +64440,10 @@ func ParseGetFuturesV1ContractsResponse(rsp *http.Response) (*GetFuturesV1Contra
 			// Results The results for this request.
 			Results []struct {
 				// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-				Active *bool `json:"active,omitempty"`
+				Active bool `json:"active"`
 
 				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
-				Date *openapi_types.Date `json:"date,omitempty"`
+				Date openapi_types.Date `json:"date"`
 
 				// DaysToMaturity The number of calendar days between the 'date' and the contract's final settlement date.
 				DaysToMaturity *int64 `json:"days_to_maturity,omitempty"`
@@ -62712,7 +64548,7 @@ func ParseGetFuturesV1ExchangesResponse(rsp *http.Response) (*GetFuturesV1Exchan
 				Acronym *string `json:"acronym,omitempty"`
 
 				// Id Numeric identifier for the futures exchange or trading venue.
-				Id *string `json:"id,omitempty"`
+				Id string `json:"id"`
 
 				// Locale Geographic location code where the exchange operates.
 				Locale *string `json:"locale,omitempty"`
@@ -62721,13 +64557,13 @@ func ParseGetFuturesV1ExchangesResponse(rsp *http.Response) (*GetFuturesV1Exchan
 				Mic *string `json:"mic,omitempty"`
 
 				// Name Full official name of the futures exchange (e.g., 'Chicago Mercantile Exchange', 'New York Mercantile Exchange').
-				Name *string `json:"name,omitempty"`
+				Name string `json:"name"`
 
 				// OperatingMic Operating Market Identifier Code for the futures exchange.
 				OperatingMic *string `json:"operating_mic,omitempty"`
 
 				// Type Type of venue - 'exchange' for futures exchanges and derivatives trading platforms.
-				Type *string `json:"type,omitempty"`
+				Type string `json:"type"`
 
 				// Url Official website URL of the futures exchange organization.
 				Url *string `json:"url,omitempty"`
@@ -62982,22 +64818,22 @@ func ParseGetFuturesV1QuotesResponse(rsp *http.Response) (*GetFuturesV1QuotesRes
 				BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
 
 				// Channel The CME multicast channel this event was sourced from.
-				Channel *int32 `json:"channel,omitempty"`
+				Channel int32 `json:"channel"`
 
 				// ReportSequence The reporting sequence number.
-				ReportSequence *int64 `json:"report_sequence,omitempty"`
+				ReportSequence int64 `json:"report_sequence"`
 
 				// SequenceNumber The unique sequence number assigned to this quote by the exchange.
-				SequenceNumber *int64 `json:"sequence_number,omitempty"`
+				SequenceNumber int64 `json:"sequence_number"`
 
 				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 				SessionEndDate *string `json:"session_end_date,omitempty"`
 
 				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-				Ticker *string `json:"ticker,omitempty"`
+				Ticker string `json:"ticker"`
 
 				// Timestamp The time when the quote was generated at the exchange to nanosecond precision.
-				Timestamp *int64 `json:"timestamp,omitempty"`
+				Timestamp int64 `json:"timestamp"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -63101,6 +64937,156 @@ func ParseGetFuturesV1SchedulesResponse(rsp *http.Response) (*GetFuturesV1Schedu
 	return response, nil
 }
 
+// ParseGetFuturesV1SnapshotResponse parses an HTTP response from a GetFuturesV1SnapshotWithResponse call
+func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1SnapshotResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetFuturesV1SnapshotResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				Details *struct {
+					ProductCode *string `json:"product_code,omitempty"`
+
+					// SettlementDate The day that this contract is settled.
+					SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
+					Ticker         *string             `json:"ticker,omitempty"`
+				} `json:"details,omitempty"`
+				LastMinute *struct {
+					// Close The price at the end of the minute bar.
+					Close *float64 `json:"close,omitempty"`
+
+					// High The highest price reached in the minute bar.
+					High *float64 `json:"high,omitempty"`
+
+					// LastUpdated The timestamp indicating the most recent update to the minute bar.
+					LastUpdated *int64 `json:"last_updated,omitempty"`
+
+					// Low The lowest price reached in the minute bar.
+					Low *float64 `json:"low,omitempty"`
+
+					// Open The opening price at the start of the minute bar.
+					Open *float64 `json:"open,omitempty"`
+
+					// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
+					Timeframe *string `json:"timeframe,omitempty"`
+
+					// Volume The number of contracts traded in the minute bar.
+					Volume *int64 `json:"volume,omitempty"`
+				} `json:"last_minute,omitempty"`
+				LastQuote *struct {
+					// Ask The lowest price a seller is willing to accept.
+					Ask *float64 `json:"ask,omitempty"`
+
+					// AskSize The number of contracts available at the ask price.
+					AskSize *int32 `json:"ask_size,omitempty"`
+
+					// AskTimestamp The time when the best ask price was last updated.
+					AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
+
+					// Bid The highest price a buyer is willing to pay.
+					Bid *float64 `json:"bid,omitempty"`
+
+					// BidSize The number of contracts available at the bid price.
+					BidSize *int32 `json:"bid_size,omitempty"`
+
+					// BidTimestamp The time when the best bid price was last updated.
+					BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
+
+					// LastUpdated The time when the quote was generated at the exchange to nanosecond precision.
+					LastUpdated *int64 `json:"last_updated,omitempty"`
+
+					// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
+					Timeframe *string `json:"timeframe,omitempty"`
+				} `json:"last_quote,omitempty"`
+				LastTrade *struct {
+					// LastUpdated The time when the trade was generated at the exchange to nanosecond precision.
+					LastUpdated *int64 `json:"last_updated,omitempty"`
+
+					// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
+					Price *float64 `json:"price,omitempty"`
+
+					// Size The total number of contracts exchanged between buyers and sellers on a given trade.
+					Size *int64 `json:"size,omitempty"`
+
+					// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
+					Timeframe *string `json:"timeframe,omitempty"`
+				} `json:"last_trade,omitempty"`
+				Session *struct {
+					// Change The change in price during this session.
+					Change *float64 `json:"change,omitempty"`
+
+					// ChangePercent The percentage change in price during this session.
+					ChangePercent *float64 `json:"change_percent,omitempty"`
+
+					// Close The price at the end of the session.
+					Close *float64 `json:"close,omitempty"`
+
+					// High The highest price reached in the session.
+					High *float64 `json:"high,omitempty"`
+
+					// Low The lowest price reached in the session.
+					Low *float64 `json:"low,omitempty"`
+
+					// Open The opening price at the start of the session.
+					Open *float64 `json:"open,omitempty"`
+
+					// PreviousSettlement The settlement price of the previous session.
+					PreviousSettlement *float64 `json:"previous_settlement,omitempty"`
+
+					// SettlementPrice The final settlement price at the end of the session.
+					SettlementPrice *float64 `json:"settlement_price,omitempty"`
+
+					// Volume The number of contracts traded in the session.
+					Volume *int64 `json:"volume,omitempty"`
+				} `json:"session,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetFuturesV1Snapshot200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetFuturesV1Snapshot400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetFuturesV1TradesResponse parses an HTTP response from a GetFuturesV1TradesWithResponse call
 func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -63126,16 +65112,16 @@ func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesRes
 			// Results The results for this request.
 			Results []struct {
 				// Channel The CME multicast channel this event was sourced from.
-				Channel *int32 `json:"channel,omitempty"`
+				Channel int32 `json:"channel"`
 
 				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
 				Price *float64 `json:"price,omitempty"`
 
 				// ReportSequence The reporting sequence number.
-				ReportSequence *int64 `json:"report_sequence,omitempty"`
+				ReportSequence int64 `json:"report_sequence"`
 
 				// SequenceNumber The unique sequence number assigned to this trade.
-				SequenceNumber *int64 `json:"sequence_number,omitempty"`
+				SequenceNumber int64 `json:"sequence_number"`
 
 				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 				SessionEndDate *string `json:"session_end_date,omitempty"`
@@ -63144,10 +65130,10 @@ func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesRes
 				Size *int64 `json:"size,omitempty"`
 
 				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-				Ticker *string `json:"ticker,omitempty"`
+				Ticker string `json:"ticker"`
 
 				// Timestamp The time when the trade was generated at the exchange to nanosecond precision.
-				Timestamp *int64 `json:"timestamp,omitempty"`
+				Timestamp int64 `json:"timestamp"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -63270,10 +65256,10 @@ func ParseGetFuturesVXContractsResponse(rsp *http.Response) (*GetFuturesVXContra
 			// Results The results for this request.
 			Results []struct {
 				// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-				Active *bool `json:"active,omitempty"`
+				Active bool `json:"active"`
 
 				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
-				Date *openapi_types.Date `json:"date,omitempty"`
+				Date openapi_types.Date `json:"date"`
 
 				// DaysToMaturity The number of calendar days between the 'date' and the contract's final settlement date.
 				DaysToMaturity *int64 `json:"days_to_maturity,omitempty"`
@@ -63378,7 +65364,7 @@ func ParseGetFuturesVXExchangesResponse(rsp *http.Response) (*GetFuturesVXExchan
 				Acronym *string `json:"acronym,omitempty"`
 
 				// Id Numeric identifier for the futures exchange or trading venue.
-				Id *string `json:"id,omitempty"`
+				Id string `json:"id"`
 
 				// Locale Geographic location code where the exchange operates.
 				Locale *string `json:"locale,omitempty"`
@@ -63387,13 +65373,13 @@ func ParseGetFuturesVXExchangesResponse(rsp *http.Response) (*GetFuturesVXExchan
 				Mic *string `json:"mic,omitempty"`
 
 				// Name Full official name of the futures exchange (e.g., 'Chicago Mercantile Exchange', 'New York Mercantile Exchange').
-				Name *string `json:"name,omitempty"`
+				Name string `json:"name"`
 
 				// OperatingMic Operating Market Identifier Code for the futures exchange.
 				OperatingMic *string `json:"operating_mic,omitempty"`
 
 				// Type Type of venue - 'exchange' for futures exchanges and derivatives trading platforms.
-				Type *string `json:"type,omitempty"`
+				Type string `json:"type"`
 
 				// Url Official website URL of the futures exchange organization.
 				Url *string `json:"url,omitempty"`
@@ -63648,22 +65634,22 @@ func ParseGetFuturesVXQuotesResponse(rsp *http.Response) (*GetFuturesVXQuotesRes
 				BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
 
 				// Channel The CME multicast channel this event was sourced from.
-				Channel *int32 `json:"channel,omitempty"`
+				Channel int32 `json:"channel"`
 
 				// ReportSequence The reporting sequence number.
-				ReportSequence *int64 `json:"report_sequence,omitempty"`
+				ReportSequence int64 `json:"report_sequence"`
 
 				// SequenceNumber The unique sequence number assigned to this quote by the exchange.
-				SequenceNumber *int64 `json:"sequence_number,omitempty"`
+				SequenceNumber int64 `json:"sequence_number"`
 
 				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 				SessionEndDate *string `json:"session_end_date,omitempty"`
 
 				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-				Ticker *string `json:"ticker,omitempty"`
+				Ticker string `json:"ticker"`
 
 				// Timestamp The time when the quote was generated at the exchange to nanosecond precision.
-				Timestamp *int64 `json:"timestamp,omitempty"`
+				Timestamp int64 `json:"timestamp"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -63818,7 +65804,7 @@ func ParseGetFuturesVXSnapshotResponse(rsp *http.Response) (*GetFuturesVXSnapsho
 					Timeframe *string `json:"timeframe,omitempty"`
 
 					// Volume The number of contracts traded in the minute bar.
-					Volume *float64 `json:"volume,omitempty"`
+					Volume *int64 `json:"volume,omitempty"`
 				} `json:"last_minute,omitempty"`
 				LastQuote *struct {
 					// Ask The lowest price a seller is willing to accept.
@@ -63884,7 +65870,7 @@ func ParseGetFuturesVXSnapshotResponse(rsp *http.Response) (*GetFuturesVXSnapsho
 					SettlementPrice *float64 `json:"settlement_price,omitempty"`
 
 					// Volume The number of contracts traded in the session.
-					Volume *float64 `json:"volume,omitempty"`
+					Volume *int64 `json:"volume,omitempty"`
 				} `json:"session,omitempty"`
 			} `json:"results"`
 
@@ -63942,16 +65928,16 @@ func ParseGetFuturesVXTradesResponse(rsp *http.Response) (*GetFuturesVXTradesRes
 			// Results The results for this request.
 			Results []struct {
 				// Channel The CME multicast channel this event was sourced from.
-				Channel *int32 `json:"channel,omitempty"`
+				Channel int32 `json:"channel"`
 
 				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
 				Price *float64 `json:"price,omitempty"`
 
 				// ReportSequence The reporting sequence number.
-				ReportSequence *int64 `json:"report_sequence,omitempty"`
+				ReportSequence int64 `json:"report_sequence"`
 
 				// SequenceNumber The unique sequence number assigned to this trade.
-				SequenceNumber *int64 `json:"sequence_number,omitempty"`
+				SequenceNumber int64 `json:"sequence_number"`
 
 				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 				SessionEndDate *string `json:"session_end_date,omitempty"`
@@ -63960,10 +65946,10 @@ func ParseGetFuturesVXTradesResponse(rsp *http.Response) (*GetFuturesVXTradesRes
 				Size *int64 `json:"size,omitempty"`
 
 				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-				Ticker *string `json:"ticker,omitempty"`
+				Ticker string `json:"ticker"`
 
 				// Timestamp The time when the trade was generated at the exchange to nanosecond precision.
-				Timestamp *int64 `json:"timestamp,omitempty"`
+				Timestamp int64 `json:"timestamp"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -64023,7 +66009,7 @@ func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1Exchan
 				Acronym *string `json:"acronym,omitempty"`
 
 				// Id Numeric identifier for the options trading venue or exchange.
-				Id *string `json:"id,omitempty"`
+				Id string `json:"id"`
 
 				// Locale Geographic location code.
 				Locale *string `json:"locale,omitempty"`
@@ -64032,7 +66018,7 @@ func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1Exchan
 				Mic *string `json:"mic,omitempty"`
 
 				// Name Full official name of the options exchange or trading venue.
-				Name *string `json:"name,omitempty"`
+				Name string `json:"name"`
 
 				// OperatingMic Operating Market Identifier Code - identifies the parent organization or operating entity.
 				OperatingMic *string `json:"operating_mic,omitempty"`
@@ -64041,7 +66027,7 @@ func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1Exchan
 				ParticipantId *string `json:"participant_id,omitempty"`
 
 				// Type Type of venue: 'exchange' for options exchanges, 'SIP' for Securities Information Processors like OPRA (Options Price Reporting Authority).
-				Type *string `json:"type,omitempty"`
+				Type string `json:"type"`
 
 				// Url Official website URL of the organization operating the options exchange.
 				Url *string `json:"url,omitempty"`
@@ -64298,9 +66284,6 @@ func ParseGetStocksFilingsVX13FResponse(rsp *http.Response) (*GetStocksFilingsVX
 				// SharesOrPrincipalType Type of amount reported. Possible values: SH (shares), PRN (principal amount).
 				SharesOrPrincipalType *string `json:"shares_or_principal_type,omitempty"`
 
-				// Tickers A list of ticker symbols for the filing entity. Multiple symbols may indicate different share classes (e.g., BRK.A and BRK.B for Berkshire Hathaway).
-				Tickers *[]string `json:"tickers,omitempty"`
-
 				// TitleOfClass Description of the class of securities held (e.g., 'COM', 'CL A').
 				TitleOfClass *string `json:"title_of_class,omitempty"`
 
@@ -64332,6 +66315,327 @@ func ParseGetStocksFilingsVX13FResponse(rsp *http.Response) (*GetStocksFilingsVX
 
 			// Status The status of this request's response.
 			Status GetStocksFilingsVX13F400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksFilingsVXForm3Response parses an HTTP response from a GetStocksFilingsVXForm3WithResponse call
+func ParseGetStocksFilingsVXForm3Response(rsp *http.Response) (*GetStocksFilingsVXForm3Response, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksFilingsVXForm3Response{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// AccessionNumber Unique SEC accession number for the filing (e.g., '0001209191-25-012345').
+				AccessionNumber *string `json:"accession_number,omitempty"`
+
+				// Aff10b5One Whether the transaction was made pursuant to a Rule 10b5-1 trading plan.
+				Aff10b5One *bool `json:"aff_10b5_one,omitempty"`
+
+				// DateOfOriginalSubmission Date of the original filing submission for amendment filings (3/A). Null for initial filings (formatted as YYYY-MM-DD).
+				DateOfOriginalSubmission *openapi_types.Date `json:"date_of_original_submission,omitempty"`
+
+				// DirectOrIndirect Whether ownership is direct ('D') or indirect ('I').
+				DirectOrIndirect *string `json:"direct_or_indirect,omitempty"`
+
+				// ExerciseDate Date exercisable for derivative securities (formatted as YYYY-MM-DD).
+				ExerciseDate *openapi_types.Date `json:"exercise_date,omitempty"`
+
+				// ExercisePrice Exercise or conversion price of derivative securities in USD.
+				ExercisePrice *float64 `json:"exercise_price,omitempty"`
+
+				// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+				// FilingUrl Direct URL to the filing on the SEC EDGAR website.
+				FilingUrl *string `json:"filing_url,omitempty"`
+
+				// Footnotes List of footnotes from the filing that are relevant to this row, each with an id and description.
+				Footnotes *[]struct {
+					Description *string `json:"description,omitempty"`
+					Id          *string `json:"id,omitempty"`
+				} `json:"footnotes,omitempty"`
+
+				// FormType SEC form type ('3' for initial filing, '3/A' for amendments).
+				FormType *string `json:"form_type,omitempty"`
+
+				// IsDirector Whether the reporting owner is a director of the issuer.
+				IsDirector *bool `json:"is_director,omitempty"`
+
+				// IsOfficer Whether the reporting owner is an officer of the issuer.
+				IsOfficer *bool `json:"is_officer,omitempty"`
+
+				// IsOther Whether the reporting owner has another relationship with the issuer.
+				IsOther *bool `json:"is_other,omitempty"`
+
+				// IsTenPercentOwner Whether the reporting owner holds 10% or more of a class of equity securities.
+				IsTenPercentOwner *bool `json:"is_ten_percent_owner,omitempty"`
+
+				// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+				IssuerCik *string `json:"issuer_cik,omitempty"`
+
+				// IssuerName Name of the issuer company as reported in the filing.
+				IssuerName *string `json:"issuer_name,omitempty"`
+
+				// NatureOfOwnership Nature of indirect ownership (e.g., 'By Trust', 'By Spouse').
+				NatureOfOwnership *string `json:"nature_of_ownership,omitempty"`
+
+				// NotSubjectToSection16 Whether the reporting owner is not subject to Section 16 of the Securities Exchange Act.
+				NotSubjectToSection16 *bool `json:"not_subject_to_section_16,omitempty"`
+
+				// OfficerTitle Title of the officer, if the reporting owner is an officer.
+				OfficerTitle *string `json:"officer_title,omitempty"`
+
+				// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded).
+				OwnerCik *string `json:"owner_cik,omitempty"`
+
+				// OwnerName Name of the reporting owner (individual or entity).
+				OwnerName *string `json:"owner_name,omitempty"`
+
+				// PeriodOfReport Date of the event triggering the filing (formatted as YYYY-MM-DD).
+				PeriodOfReport *openapi_types.Date `json:"period_of_report,omitempty"`
+
+				// Remarks Additional remarks included in the filing.
+				Remarks *string `json:"remarks,omitempty"`
+
+				// SecurityTitle Title or description of the security (e.g., 'Common Stock', 'Stock Option').
+				SecurityTitle *string `json:"security_title,omitempty"`
+
+				// SecurityType Type of security ('non-derivative' or 'derivative').
+				SecurityType *string `json:"security_type,omitempty"`
+
+				// SharesOwned Number of shares beneficially owned.
+				SharesOwned *float64 `json:"shares_owned,omitempty"`
+
+				// Tickers A list of ticker symbols for the issuer company. Multiple symbols may indicate different share classes.
+				Tickers *[]string `json:"tickers,omitempty"`
+
+				// UnderlyingSecurityShares Number of underlying shares for derivative holdings.
+				UnderlyingSecurityShares *float64 `json:"underlying_security_shares,omitempty"`
+
+				// UnderlyingSecurityTitle Title of the underlying security for derivative holdings.
+				UnderlyingSecurityTitle *string `json:"underlying_security_title,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilingsVXForm3200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilingsVXForm3400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksFilingsVXForm4Response parses an HTTP response from a GetStocksFilingsVXForm4WithResponse call
+func ParseGetStocksFilingsVXForm4Response(rsp *http.Response) (*GetStocksFilingsVXForm4Response, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksFilingsVXForm4Response{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// AccessionNumber Unique SEC accession number for the filing (e.g., '0001209191-25-012345').
+				AccessionNumber *string `json:"accession_number,omitempty"`
+
+				// Aff10b5One Whether the transaction was made pursuant to a Rule 10b5-1 trading plan.
+				Aff10b5One *bool `json:"aff_10b5_one,omitempty"`
+
+				// DateOfOriginalSubmission Date of the original filing submission for amendment filings (4/A). Null for standard filings (formatted as YYYY-MM-DD).
+				DateOfOriginalSubmission *openapi_types.Date `json:"date_of_original_submission,omitempty"`
+
+				// DeemedExecutionDate Deemed execution date if different from transaction date (formatted as YYYY-MM-DD).
+				DeemedExecutionDate *openapi_types.Date `json:"deemed_execution_date,omitempty"`
+
+				// DirectOrIndirect Whether ownership is direct ('D') or indirect ('I').
+				DirectOrIndirect *string `json:"direct_or_indirect,omitempty"`
+
+				// EquitySwapInvolved Whether an equity swap was involved in the transaction.
+				EquitySwapInvolved *bool `json:"equity_swap_involved,omitempty"`
+
+				// ExerciseDate Date exercisable for derivative securities (formatted as YYYY-MM-DD).
+				ExerciseDate *openapi_types.Date `json:"exercise_date,omitempty"`
+
+				// ExercisePrice Exercise or conversion price of derivative securities in USD.
+				ExercisePrice *float64 `json:"exercise_price,omitempty"`
+
+				// ExpirationDate Expiration date for derivative securities (formatted as YYYY-MM-DD).
+				ExpirationDate *openapi_types.Date `json:"expiration_date,omitempty"`
+
+				// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+				// FilingUrl Direct URL to the filing on the SEC EDGAR website.
+				FilingUrl *string `json:"filing_url,omitempty"`
+
+				// Footnotes List of footnotes from the filing that are relevant to this row, each with an id and description.
+				Footnotes *[]struct {
+					Description *string `json:"description,omitempty"`
+					Id          *string `json:"id,omitempty"`
+				} `json:"footnotes,omitempty"`
+
+				// FormType SEC form type ('4' for standard filing, '4/A' for amendments).
+				FormType *string `json:"form_type,omitempty"`
+
+				// IsDirector Whether the reporting owner is a director of the issuer.
+				IsDirector *bool `json:"is_director,omitempty"`
+
+				// IsOfficer Whether the reporting owner is an officer of the issuer.
+				IsOfficer *bool `json:"is_officer,omitempty"`
+
+				// IsOther Whether the reporting owner has another relationship with the issuer.
+				IsOther *bool `json:"is_other,omitempty"`
+
+				// IsTenPercentOwner Whether the reporting owner holds 10% or more of a class of equity securities.
+				IsTenPercentOwner *bool `json:"is_ten_percent_owner,omitempty"`
+
+				// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+				IssuerCik *string `json:"issuer_cik,omitempty"`
+
+				// IssuerName Name of the issuer company as reported in the filing.
+				IssuerName *string `json:"issuer_name,omitempty"`
+
+				// NatureOfOwnership Nature of indirect ownership (e.g., 'By Trust', 'By Spouse').
+				NatureOfOwnership *string `json:"nature_of_ownership,omitempty"`
+
+				// NotSubjectToSection16 Whether the reporting owner is not subject to Section 16 of the Securities Exchange Act.
+				NotSubjectToSection16 *bool `json:"not_subject_to_section_16,omitempty"`
+
+				// OfficerTitle Title of the officer, if the reporting owner is an officer.
+				OfficerTitle *string `json:"officer_title,omitempty"`
+
+				// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded).
+				OwnerCik *string `json:"owner_cik,omitempty"`
+
+				// OwnerName Name of the reporting owner (individual or entity).
+				OwnerName *string `json:"owner_name,omitempty"`
+
+				// PeriodOfReport Date of the event triggering the filing (formatted as YYYY-MM-DD).
+				PeriodOfReport *openapi_types.Date `json:"period_of_report,omitempty"`
+
+				// RecordType Type of record in the filing (e.g., 'transaction', 'holding').
+				RecordType *string `json:"record_type,omitempty"`
+
+				// Remarks Additional remarks included in the filing.
+				Remarks *string `json:"remarks,omitempty"`
+
+				// SecurityTitle Title or description of the security (e.g., 'Common Stock', 'Stock Option').
+				SecurityTitle *string `json:"security_title,omitempty"`
+
+				// SecurityType Type of security ('non-derivative' or 'derivative').
+				SecurityType *string `json:"security_type,omitempty"`
+
+				// SharesOwnedFollowingTransaction Total shares beneficially owned after the transaction.
+				SharesOwnedFollowingTransaction *float64 `json:"shares_owned_following_transaction,omitempty"`
+
+				// Tickers A list of ticker symbols for the issuer company. Multiple symbols may indicate different share classes.
+				Tickers *[]string `json:"tickers,omitempty"`
+
+				// TransactionAcquiredDisposed Whether shares were acquired ('A') or disposed of ('D').
+				TransactionAcquiredDisposed *string `json:"transaction_acquired_disposed,omitempty"`
+
+				// TransactionCode SEC transaction code indicating the type of transaction (e.g., 'P' for purchase, 'S' for sale, 'A' for grant/award, 'M' for exercise/conversion).
+				TransactionCode *string `json:"transaction_code,omitempty"`
+
+				// TransactionDate Date of the transaction (formatted as YYYY-MM-DD).
+				TransactionDate *openapi_types.Date `json:"transaction_date,omitempty"`
+
+				// TransactionPricePerShare Price per share of the transaction in USD.
+				TransactionPricePerShare *float64 `json:"transaction_price_per_share,omitempty"`
+
+				// TransactionShares Number of shares involved in the transaction.
+				TransactionShares *float64 `json:"transaction_shares,omitempty"`
+
+				// TransactionTimeliness Timeliness of the filing: 'O' (on time) or 'L' (late).
+				TransactionTimeliness *string `json:"transaction_timeliness,omitempty"`
+
+				// TransactionValue Total value of the transaction in USD (transaction_shares x transaction_price_per_share). Null when shares or price is not reported.
+				TransactionValue *float64 `json:"transaction_value,omitempty"`
+
+				// UnderlyingSecurityShares Number of underlying shares for derivative transactions.
+				UnderlyingSecurityShares *float64 `json:"underlying_security_shares,omitempty"`
+
+				// UnderlyingSecurityTitle Title of the underlying security for derivative transactions.
+				UnderlyingSecurityTitle *string `json:"underlying_security_title,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilingsVXForm4200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilingsVXForm4400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -64605,7 +66909,7 @@ func ParseGetStocksFinancialsV1BalanceSheetsResponse(rsp *http.Response) (*GetSt
 				Tickers *[]string `json:"tickers,omitempty"`
 
 				// Timeframe The reporting period type. Possible values include: quarterly, annual.
-				Timeframe *string `json:"timeframe,omitempty"`
+				Timeframe string `json:"timeframe"`
 
 				// TotalAssets Sum of all current and non-current assets representing everything the company owns or controls.
 				TotalAssets *float64 `json:"total_assets,omitempty"`
@@ -65004,7 +67308,7 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 				Current *float64 `json:"current,omitempty"`
 
 				// Date Date for which the ratios are calculated, representing the trading date with available price data.
-				Date *string `json:"date,omitempty"`
+				Date string `json:"date"`
 
 				// DebtToEquity Debt-to-equity ratio, calculated as total debt (current debt plus long-term debt) divided by total shareholders' equity, measuring financial leverage.
 				DebtToEquity *float64 `json:"debt_to_equity,omitempty"`
@@ -65058,7 +67362,7 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 				ReturnOnEquity *float64 `json:"return_on_equity,omitempty"`
 
 				// Ticker Stock ticker symbol for the company.
-				Ticker *string `json:"ticker,omitempty"`
+				Ticker string `json:"ticker"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -65124,7 +67428,7 @@ func ParseGetStocksTaxonomiesVXRiskFactorsResponse(rsp *http.Response) (*GetStoc
 				SecondaryCategory *string `json:"secondary_category,omitempty"`
 
 				// Taxonomy Version identifier (e.g., '1.0', '1.1') for the taxonomy
-				Taxonomy *float64 `json:"taxonomy,omitempty"`
+				Taxonomy float64 `json:"taxonomy"`
 
 				// TertiaryCategory Most specific risk classification
 				TertiaryCategory *string `json:"tertiary_category,omitempty"`
@@ -65193,7 +67497,7 @@ func ParseGetStocksV1DividendsResponse(rsp *http.Response) (*GetStocksV1Dividend
 				DeclarationDate *openapi_types.Date `json:"declaration_date,omitempty"`
 
 				// DistributionType Classification describing the nature of this dividend's recurrence pattern: recurring (paid on a regular schedule), special (one-time or commemorative), supplemental (extra beyond the regular schedule), irregular (unpredictable or non-recurring), unknown (cannot be classified from available data)
-				DistributionType *string `json:"distribution_type,omitempty"`
+				DistributionType string `json:"distribution_type"`
 
 				// ExDividendDate Date when the stock begins trading without the dividend value
 				ExDividendDate *openapi_types.Date `json:"ex_dividend_date,omitempty"`
@@ -65277,7 +67581,7 @@ func ParseGetStocksV1ExchangesResponse(rsp *http.Response) (*GetStocksV1Exchange
 				Acronym *string `json:"acronym,omitempty"`
 
 				// Id Numeric identifier for the trading venue or exchange.
-				Id *string `json:"id,omitempty"`
+				Id string `json:"id"`
 
 				// Locale Geographic location code.
 				Locale *string `json:"locale,omitempty"`
@@ -65286,7 +67590,7 @@ func ParseGetStocksV1ExchangesResponse(rsp *http.Response) (*GetStocksV1Exchange
 				Mic *string `json:"mic,omitempty"`
 
 				// Name Full official name of the exchange, trading venue, or reporting facility.
-				Name *string `json:"name,omitempty"`
+				Name string `json:"name"`
 
 				// OperatingMic Operating Market Identifier Code - identifies the specific operating entity or parent organization.
 				OperatingMic *string `json:"operating_mic,omitempty"`
@@ -65295,7 +67599,7 @@ func ParseGetStocksV1ExchangesResponse(rsp *http.Response) (*GetStocksV1Exchange
 				ParticipantId *string `json:"participant_id,omitempty"`
 
 				// Type Type of trading venue: 'exchange' for stock exchanges, 'TRF' for Trade Reporting Facilities, 'SIP' for Securities Information Processors, 'ORF' for OTC Reporting Facility.
-				Type *string `json:"type,omitempty"`
+				Type string `json:"type"`
 
 				// Url Official website URL of the organization operating the venue.
 				Url *string `json:"url,omitempty"`
@@ -65355,13 +67659,13 @@ func ParseGetStocksV1ShortInterestResponse(rsp *http.Response) (*GetStocksV1Shor
 			// Results The results for this request.
 			Results []struct {
 				// AvgDailyVolume The average daily trading volume for the stock over a specified period, typically used to contextualize short interest.
-				AvgDailyVolume *int64 `json:"avg_daily_volume,omitempty"`
+				AvgDailyVolume int64 `json:"avg_daily_volume"`
 
 				// DaysToCover Calculated as short_interest divided by avg_daily_volume, representing the estimated number of days it would take to cover all short positions based on average trading volume.
-				DaysToCover *float64 `json:"days_to_cover,omitempty"`
+				DaysToCover float64 `json:"days_to_cover"`
 
 				// SettlementDate The date (formatted as YYYY-MM-DD) on which the short interest data is considered settled, typically based on exchange reporting schedules.
-				SettlementDate *string `json:"settlement_date,omitempty"`
+				SettlementDate string `json:"settlement_date"`
 
 				// ShortInterest The total number of shares that have been sold short but have not yet been covered or closed out.
 				ShortInterest *int64 `json:"short_interest,omitempty"`
@@ -65430,7 +67734,7 @@ func ParseGetStocksV1ShortVolumeResponse(rsp *http.Response) (*GetStocksV1ShortV
 				AdfShortVolumeExempt *int64 `json:"adf_short_volume_exempt,omitempty"`
 
 				// Date The date of trade activity reported in the format YYYY-MM-DD
-				Date *string `json:"date,omitempty"`
+				Date string `json:"date"`
 
 				// ExemptVolume Portion of short volume that was marked as exempt from regulation SHO.
 				ExemptVolume *float64 `json:"exempt_volume,omitempty"`
@@ -65523,7 +67827,7 @@ func ParseGetStocksV1SplitsResponse(rsp *http.Response) (*GetStocksV1SplitsRespo
 			// Results The results for this request.
 			Results []struct {
 				// AdjustmentType Classification of the share-change event. Possible values include: forward_split (share count increases), reverse_split (share count decreases), stock_dividend (shares issued as a dividend)
-				AdjustmentType *string `json:"adjustment_type,omitempty"`
+				AdjustmentType string `json:"adjustment_type"`
 
 				// ExecutionDate Date when the stock split was applied and shares adjusted
 				ExecutionDate *openapi_types.Date `json:"execution_date,omitempty"`
@@ -73506,6 +75810,9 @@ func ParseGetCryptoTradesResponse(rsp *http.Response) (*GetCryptoTradesResponse,
 				// Price The price of the trade in the base currency of the crypto pair.
 				Price float64 `json:"price"`
 
+				// ReceivedTimestamp The nanosecond accuracy timestamp of when the tick was received by Massive.
+				ReceivedTimestamp *int64 `json:"received_timestamp,omitempty"`
+
 				// Size The size of a trade (also known as volume).
 				Size float64 `json:"size"`
 			} `json:"results,omitempty"`
@@ -73566,6 +75873,9 @@ func ParseGetOptionsTradesResponse(rsp *http.Response) (*GetOptionsTradesRespons
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
 				Price float64 `json:"price"`
+
+				// SequenceNumber The sequence number represents the sequence in which message events happened. These are increasing and unique per ticker symbol, but will not always be consecutive (e.g. 1, 2, 6, 9, 10, 11).
+				SequenceNumber *int64 `json:"sequence_number,omitempty"`
 
 				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 				SipTimestamp int64 `json:"sip_timestamp"`
