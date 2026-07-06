@@ -11,27 +11,18 @@ permissions:
 jobs:
   test:
     strategy:
+      # Don't let one cell's failure cancel the others -- otherwise a single
+      # failing OS/version hides the status of every other combination.
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        go-version: [1.22.x, 1.23.x, 1.24.x]
-        exclude:
-          # Go 1.22's linker produces a -race test binary without an LC_UUID
-          # load command on the current macOS runners, which dyld refuses to
-          # load (golang/go#61229). Fixed in Go 1.23+, so keep macOS coverage
-          # there; 1.22 is still covered on Linux and Windows.
-          - os: macos-latest
-            go-version: 1.22.x
+        go-version: [1.23.x, 1.24.x]
     name: go-test
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go-version }}
-          # Disable the build cache: a stale/mismatched Go build cache on the
-          # macOS runners can produce a -race test binary without an LC_UUID
-          # load command, which macOS dyld refuses to load (golang/go#61229).
-          cache: false
       - uses: actions/checkout@v4
       - name: go-test
         run: go test -race -v ./...
