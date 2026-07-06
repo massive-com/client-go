@@ -11,6 +11,7 @@ permissions:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         go-version: [1.22.x, 1.23.x, 1.24.x]
@@ -20,6 +21,10 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go-version }}
+          # Disable the build cache: a stale/mismatched Go build cache on the
+          # macOS runners can produce a -race test binary without an LC_UUID
+          # load command, which macOS dyld refuses to load (golang/go#61229).
+          cache: false
       - uses: actions/checkout@v4
       - name: go-test
         run: go test -race -v ./...
