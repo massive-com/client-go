@@ -85,8 +85,8 @@ const (
 
 // Defines values for AggregatesV1ParamsSort.
 const (
-	AggregatesV1ParamsSortWindowStartAsc  AggregatesV1ParamsSort = "window_start.asc"
-	AggregatesV1ParamsSortWindowStartDesc AggregatesV1ParamsSort = "window_start.desc"
+	WindowStartAsc  AggregatesV1ParamsSort = "window_start.asc"
+	WindowStartDesc AggregatesV1ParamsSort = "window_start.desc"
 )
 
 // Defines values for GetFuturesV1ContractsParamsType.
@@ -275,198 +275,6 @@ const (
 	GetFuturesV1ProductsParamsTypeAnyOfSingle GetFuturesV1ProductsParamsTypeAnyOf = "single"
 )
 
-// Defines values for GetFuturesAggregatesParamsSort.
-const (
-	GetFuturesAggregatesParamsSortWindowStartAsc  GetFuturesAggregatesParamsSort = "window_start.asc"
-	GetFuturesAggregatesParamsSortWindowStartDesc GetFuturesAggregatesParamsSort = "window_start.desc"
-)
-
-// Defines values for GetFuturesVXContractsParamsType.
-const (
-	GetFuturesVXContractsParamsTypeCombo  GetFuturesVXContractsParamsType = "combo"
-	GetFuturesVXContractsParamsTypeSingle GetFuturesVXContractsParamsType = "single"
-)
-
-// Defines values for GetFuturesVXContractsParamsTypeAnyOf.
-const (
-	GetFuturesVXContractsParamsTypeAnyOfCombo  GetFuturesVXContractsParamsTypeAnyOf = "combo"
-	GetFuturesVXContractsParamsTypeAnyOfSingle GetFuturesVXContractsParamsTypeAnyOf = "single"
-)
-
-// Defines values for GetFuturesVXProductsParamsSector.
-const (
-	GetFuturesVXProductsParamsSectorAsia              GetFuturesVXProductsParamsSector = "asia"
-	GetFuturesVXProductsParamsSectorBase              GetFuturesVXProductsParamsSector = "base"
-	GetFuturesVXProductsParamsSectorBiofuels          GetFuturesVXProductsParamsSector = "biofuels"
-	GetFuturesVXProductsParamsSectorCoal              GetFuturesVXProductsParamsSector = "coal"
-	GetFuturesVXProductsParamsSectorCrossRates        GetFuturesVXProductsParamsSector = "cross_rates"
-	GetFuturesVXProductsParamsSectorCrudeOil          GetFuturesVXProductsParamsSector = "crude_oil"
-	GetFuturesVXProductsParamsSectorCustomIndex       GetFuturesVXProductsParamsSector = "custom_index"
-	GetFuturesVXProductsParamsSectorDairy             GetFuturesVXProductsParamsSector = "dairy"
-	GetFuturesVXProductsParamsSectorDjUbsCi           GetFuturesVXProductsParamsSector = "dj_ubs_ci"
-	GetFuturesVXProductsParamsSectorElectricity       GetFuturesVXProductsParamsSector = "electricity"
-	GetFuturesVXProductsParamsSectorEmissions         GetFuturesVXProductsParamsSector = "emissions"
-	GetFuturesVXProductsParamsSectorEurope            GetFuturesVXProductsParamsSector = "europe"
-	GetFuturesVXProductsParamsSectorFertilizer        GetFuturesVXProductsParamsSector = "fertilizer"
-	GetFuturesVXProductsParamsSectorForestry          GetFuturesVXProductsParamsSector = "forestry"
-	GetFuturesVXProductsParamsSectorGrainsAndOilseeds GetFuturesVXProductsParamsSector = "grains_and_oilseeds"
-	GetFuturesVXProductsParamsSectorIntlIndex         GetFuturesVXProductsParamsSector = "intl_index"
-	GetFuturesVXProductsParamsSectorLiqNatGasLng      GetFuturesVXProductsParamsSector = "liq_nat_gas_lng"
-	GetFuturesVXProductsParamsSectorLivestock         GetFuturesVXProductsParamsSector = "livestock"
-	GetFuturesVXProductsParamsSectorLongTermGov       GetFuturesVXProductsParamsSector = "long_term_gov"
-	GetFuturesVXProductsParamsSectorLongTermNonGov    GetFuturesVXProductsParamsSector = "long_term_non_gov"
-	GetFuturesVXProductsParamsSectorMajors            GetFuturesVXProductsParamsSector = "majors"
-	GetFuturesVXProductsParamsSectorMinors            GetFuturesVXProductsParamsSector = "minors"
-	GetFuturesVXProductsParamsSectorNatGas            GetFuturesVXProductsParamsSector = "nat_gas"
-	GetFuturesVXProductsParamsSectorNatGasLiqPetro    GetFuturesVXProductsParamsSector = "nat_gas_liq_petro"
-	GetFuturesVXProductsParamsSectorPrecious          GetFuturesVXProductsParamsSector = "precious"
-	GetFuturesVXProductsParamsSectorRefinedProducts   GetFuturesVXProductsParamsSector = "refined_products"
-	GetFuturesVXProductsParamsSectorSAndPGsci         GetFuturesVXProductsParamsSector = "s_and_p_gsci"
-	GetFuturesVXProductsParamsSectorSelSectorIndex    GetFuturesVXProductsParamsSector = "sel_sector_index"
-	GetFuturesVXProductsParamsSectorShortTermGov      GetFuturesVXProductsParamsSector = "short_term_gov"
-	GetFuturesVXProductsParamsSectorShortTermNonGov   GetFuturesVXProductsParamsSector = "short_term_non_gov"
-	GetFuturesVXProductsParamsSectorSofts             GetFuturesVXProductsParamsSector = "softs"
-	GetFuturesVXProductsParamsSectorUs                GetFuturesVXProductsParamsSector = "us"
-	GetFuturesVXProductsParamsSectorUsIndex           GetFuturesVXProductsParamsSector = "us_index"
-	GetFuturesVXProductsParamsSectorWetBulk           GetFuturesVXProductsParamsSector = "wet_bulk"
-)
-
-// Defines values for GetFuturesVXProductsParamsSectorAnyOf.
-const (
-	GetFuturesVXProductsParamsSectorAnyOfAsia              GetFuturesVXProductsParamsSectorAnyOf = "asia"
-	GetFuturesVXProductsParamsSectorAnyOfBase              GetFuturesVXProductsParamsSectorAnyOf = "base"
-	GetFuturesVXProductsParamsSectorAnyOfBiofuels          GetFuturesVXProductsParamsSectorAnyOf = "biofuels"
-	GetFuturesVXProductsParamsSectorAnyOfCoal              GetFuturesVXProductsParamsSectorAnyOf = "coal"
-	GetFuturesVXProductsParamsSectorAnyOfCrossRates        GetFuturesVXProductsParamsSectorAnyOf = "cross_rates"
-	GetFuturesVXProductsParamsSectorAnyOfCrudeOil          GetFuturesVXProductsParamsSectorAnyOf = "crude_oil"
-	GetFuturesVXProductsParamsSectorAnyOfCustomIndex       GetFuturesVXProductsParamsSectorAnyOf = "custom_index"
-	GetFuturesVXProductsParamsSectorAnyOfDairy             GetFuturesVXProductsParamsSectorAnyOf = "dairy"
-	GetFuturesVXProductsParamsSectorAnyOfDjUbsCi           GetFuturesVXProductsParamsSectorAnyOf = "dj_ubs_ci"
-	GetFuturesVXProductsParamsSectorAnyOfElectricity       GetFuturesVXProductsParamsSectorAnyOf = "electricity"
-	GetFuturesVXProductsParamsSectorAnyOfEmissions         GetFuturesVXProductsParamsSectorAnyOf = "emissions"
-	GetFuturesVXProductsParamsSectorAnyOfEurope            GetFuturesVXProductsParamsSectorAnyOf = "europe"
-	GetFuturesVXProductsParamsSectorAnyOfFertilizer        GetFuturesVXProductsParamsSectorAnyOf = "fertilizer"
-	GetFuturesVXProductsParamsSectorAnyOfForestry          GetFuturesVXProductsParamsSectorAnyOf = "forestry"
-	GetFuturesVXProductsParamsSectorAnyOfGrainsAndOilseeds GetFuturesVXProductsParamsSectorAnyOf = "grains_and_oilseeds"
-	GetFuturesVXProductsParamsSectorAnyOfIntlIndex         GetFuturesVXProductsParamsSectorAnyOf = "intl_index"
-	GetFuturesVXProductsParamsSectorAnyOfLiqNatGasLng      GetFuturesVXProductsParamsSectorAnyOf = "liq_nat_gas_lng"
-	GetFuturesVXProductsParamsSectorAnyOfLivestock         GetFuturesVXProductsParamsSectorAnyOf = "livestock"
-	GetFuturesVXProductsParamsSectorAnyOfLongTermGov       GetFuturesVXProductsParamsSectorAnyOf = "long_term_gov"
-	GetFuturesVXProductsParamsSectorAnyOfLongTermNonGov    GetFuturesVXProductsParamsSectorAnyOf = "long_term_non_gov"
-	GetFuturesVXProductsParamsSectorAnyOfMajors            GetFuturesVXProductsParamsSectorAnyOf = "majors"
-	GetFuturesVXProductsParamsSectorAnyOfMinors            GetFuturesVXProductsParamsSectorAnyOf = "minors"
-	GetFuturesVXProductsParamsSectorAnyOfNatGas            GetFuturesVXProductsParamsSectorAnyOf = "nat_gas"
-	GetFuturesVXProductsParamsSectorAnyOfNatGasLiqPetro    GetFuturesVXProductsParamsSectorAnyOf = "nat_gas_liq_petro"
-	GetFuturesVXProductsParamsSectorAnyOfPrecious          GetFuturesVXProductsParamsSectorAnyOf = "precious"
-	GetFuturesVXProductsParamsSectorAnyOfRefinedProducts   GetFuturesVXProductsParamsSectorAnyOf = "refined_products"
-	GetFuturesVXProductsParamsSectorAnyOfSAndPGsci         GetFuturesVXProductsParamsSectorAnyOf = "s_and_p_gsci"
-	GetFuturesVXProductsParamsSectorAnyOfSelSectorIndex    GetFuturesVXProductsParamsSectorAnyOf = "sel_sector_index"
-	GetFuturesVXProductsParamsSectorAnyOfShortTermGov      GetFuturesVXProductsParamsSectorAnyOf = "short_term_gov"
-	GetFuturesVXProductsParamsSectorAnyOfShortTermNonGov   GetFuturesVXProductsParamsSectorAnyOf = "short_term_non_gov"
-	GetFuturesVXProductsParamsSectorAnyOfSofts             GetFuturesVXProductsParamsSectorAnyOf = "softs"
-	GetFuturesVXProductsParamsSectorAnyOfUs                GetFuturesVXProductsParamsSectorAnyOf = "us"
-	GetFuturesVXProductsParamsSectorAnyOfUsIndex           GetFuturesVXProductsParamsSectorAnyOf = "us_index"
-	GetFuturesVXProductsParamsSectorAnyOfWetBulk           GetFuturesVXProductsParamsSectorAnyOf = "wet_bulk"
-)
-
-// Defines values for GetFuturesVXProductsParamsSubSector.
-const (
-	GetFuturesVXProductsParamsSubSectorAsian             GetFuturesVXProductsParamsSubSector = "asian"
-	GetFuturesVXProductsParamsSubSectorCanadian          GetFuturesVXProductsParamsSubSector = "canadian"
-	GetFuturesVXProductsParamsSubSectorCat               GetFuturesVXProductsParamsSubSector = "cat"
-	GetFuturesVXProductsParamsSubSectorCoolingDegreeDays GetFuturesVXProductsParamsSubSector = "cooling_degree_days"
-	GetFuturesVXProductsParamsSubSectorErcot             GetFuturesVXProductsParamsSubSector = "ercot"
-	GetFuturesVXProductsParamsSubSectorEuropean          GetFuturesVXProductsParamsSubSector = "european"
-	GetFuturesVXProductsParamsSubSectorGulf              GetFuturesVXProductsParamsSubSector = "gulf"
-	GetFuturesVXProductsParamsSubSectorHeatingDegreeDays GetFuturesVXProductsParamsSubSector = "heating_degree_days"
-	GetFuturesVXProductsParamsSubSectorIsoNe             GetFuturesVXProductsParamsSubSector = "iso_ne"
-	GetFuturesVXProductsParamsSubSectorLargeCapIndex     GetFuturesVXProductsParamsSubSector = "large_cap_index"
-	GetFuturesVXProductsParamsSubSectorMidCapIndex       GetFuturesVXProductsParamsSubSector = "mid_cap_index"
-	GetFuturesVXProductsParamsSubSectorMiso              GetFuturesVXProductsParamsSubSector = "miso"
-	GetFuturesVXProductsParamsSubSectorNorthAmerican     GetFuturesVXProductsParamsSubSector = "north_american"
-	GetFuturesVXProductsParamsSubSectorNyiso             GetFuturesVXProductsParamsSubSector = "nyiso"
-	GetFuturesVXProductsParamsSubSectorPjm               GetFuturesVXProductsParamsSubSector = "pjm"
-	GetFuturesVXProductsParamsSubSectorSmallCapIndex     GetFuturesVXProductsParamsSubSector = "small_cap_index"
-	GetFuturesVXProductsParamsSubSectorWest              GetFuturesVXProductsParamsSubSector = "west"
-	GetFuturesVXProductsParamsSubSectorWesternPower      GetFuturesVXProductsParamsSubSector = "western_power"
-)
-
-// Defines values for GetFuturesVXProductsParamsSubSectorAnyOf.
-const (
-	GetFuturesVXProductsParamsSubSectorAnyOfAsian             GetFuturesVXProductsParamsSubSectorAnyOf = "asian"
-	GetFuturesVXProductsParamsSubSectorAnyOfCanadian          GetFuturesVXProductsParamsSubSectorAnyOf = "canadian"
-	GetFuturesVXProductsParamsSubSectorAnyOfCat               GetFuturesVXProductsParamsSubSectorAnyOf = "cat"
-	GetFuturesVXProductsParamsSubSectorAnyOfCoolingDegreeDays GetFuturesVXProductsParamsSubSectorAnyOf = "cooling_degree_days"
-	GetFuturesVXProductsParamsSubSectorAnyOfErcot             GetFuturesVXProductsParamsSubSectorAnyOf = "ercot"
-	GetFuturesVXProductsParamsSubSectorAnyOfEuropean          GetFuturesVXProductsParamsSubSectorAnyOf = "european"
-	GetFuturesVXProductsParamsSubSectorAnyOfGulf              GetFuturesVXProductsParamsSubSectorAnyOf = "gulf"
-	GetFuturesVXProductsParamsSubSectorAnyOfHeatingDegreeDays GetFuturesVXProductsParamsSubSectorAnyOf = "heating_degree_days"
-	GetFuturesVXProductsParamsSubSectorAnyOfIsoNe             GetFuturesVXProductsParamsSubSectorAnyOf = "iso_ne"
-	GetFuturesVXProductsParamsSubSectorAnyOfLargeCapIndex     GetFuturesVXProductsParamsSubSectorAnyOf = "large_cap_index"
-	GetFuturesVXProductsParamsSubSectorAnyOfMidCapIndex       GetFuturesVXProductsParamsSubSectorAnyOf = "mid_cap_index"
-	GetFuturesVXProductsParamsSubSectorAnyOfMiso              GetFuturesVXProductsParamsSubSectorAnyOf = "miso"
-	GetFuturesVXProductsParamsSubSectorAnyOfNorthAmerican     GetFuturesVXProductsParamsSubSectorAnyOf = "north_american"
-	GetFuturesVXProductsParamsSubSectorAnyOfNyiso             GetFuturesVXProductsParamsSubSectorAnyOf = "nyiso"
-	GetFuturesVXProductsParamsSubSectorAnyOfPjm               GetFuturesVXProductsParamsSubSectorAnyOf = "pjm"
-	GetFuturesVXProductsParamsSubSectorAnyOfSmallCapIndex     GetFuturesVXProductsParamsSubSectorAnyOf = "small_cap_index"
-	GetFuturesVXProductsParamsSubSectorAnyOfWest              GetFuturesVXProductsParamsSubSectorAnyOf = "west"
-	GetFuturesVXProductsParamsSubSectorAnyOfWesternPower      GetFuturesVXProductsParamsSubSectorAnyOf = "western_power"
-)
-
-// Defines values for GetFuturesVXProductsParamsAssetClass.
-const (
-	GetFuturesVXProductsParamsAssetClassAltInvestment GetFuturesVXProductsParamsAssetClass = "alt_investment"
-	GetFuturesVXProductsParamsAssetClassCommodity     GetFuturesVXProductsParamsAssetClass = "commodity"
-	GetFuturesVXProductsParamsAssetClassFinancials    GetFuturesVXProductsParamsAssetClass = "financials"
-)
-
-// Defines values for GetFuturesVXProductsParamsAssetClassAnyOf.
-const (
-	GetFuturesVXProductsParamsAssetClassAnyOfAltInvestment GetFuturesVXProductsParamsAssetClassAnyOf = "alt_investment"
-	GetFuturesVXProductsParamsAssetClassAnyOfCommodity     GetFuturesVXProductsParamsAssetClassAnyOf = "commodity"
-	GetFuturesVXProductsParamsAssetClassAnyOfFinancials    GetFuturesVXProductsParamsAssetClassAnyOf = "financials"
-)
-
-// Defines values for GetFuturesVXProductsParamsAssetSubClass.
-const (
-	GetFuturesVXProductsParamsAssetSubClassAgricultural    GetFuturesVXProductsParamsAssetSubClass = "agricultural"
-	GetFuturesVXProductsParamsAssetSubClassCommodityIndex  GetFuturesVXProductsParamsAssetSubClass = "commodity_index"
-	GetFuturesVXProductsParamsAssetSubClassEnergy          GetFuturesVXProductsParamsAssetSubClass = "energy"
-	GetFuturesVXProductsParamsAssetSubClassEquity          GetFuturesVXProductsParamsAssetSubClass = "equity"
-	GetFuturesVXProductsParamsAssetSubClassForeignExchange GetFuturesVXProductsParamsAssetSubClass = "foreign_exchange"
-	GetFuturesVXProductsParamsAssetSubClassFreight         GetFuturesVXProductsParamsAssetSubClass = "freight"
-	GetFuturesVXProductsParamsAssetSubClassHousing         GetFuturesVXProductsParamsAssetSubClass = "housing"
-	GetFuturesVXProductsParamsAssetSubClassInterestRate    GetFuturesVXProductsParamsAssetSubClass = "interest_rate"
-	GetFuturesVXProductsParamsAssetSubClassMetals          GetFuturesVXProductsParamsAssetSubClass = "metals"
-	GetFuturesVXProductsParamsAssetSubClassWeather         GetFuturesVXProductsParamsAssetSubClass = "weather"
-)
-
-// Defines values for GetFuturesVXProductsParamsAssetSubClassAnyOf.
-const (
-	GetFuturesVXProductsParamsAssetSubClassAnyOfAgricultural    GetFuturesVXProductsParamsAssetSubClassAnyOf = "agricultural"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfCommodityIndex  GetFuturesVXProductsParamsAssetSubClassAnyOf = "commodity_index"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfEnergy          GetFuturesVXProductsParamsAssetSubClassAnyOf = "energy"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfEquity          GetFuturesVXProductsParamsAssetSubClassAnyOf = "equity"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfForeignExchange GetFuturesVXProductsParamsAssetSubClassAnyOf = "foreign_exchange"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfFreight         GetFuturesVXProductsParamsAssetSubClassAnyOf = "freight"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfHousing         GetFuturesVXProductsParamsAssetSubClassAnyOf = "housing"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfInterestRate    GetFuturesVXProductsParamsAssetSubClassAnyOf = "interest_rate"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfMetals          GetFuturesVXProductsParamsAssetSubClassAnyOf = "metals"
-	GetFuturesVXProductsParamsAssetSubClassAnyOfWeather         GetFuturesVXProductsParamsAssetSubClassAnyOf = "weather"
-)
-
-// Defines values for GetFuturesVXProductsParamsType.
-const (
-	GetFuturesVXProductsParamsTypeCombo  GetFuturesVXProductsParamsType = "combo"
-	GetFuturesVXProductsParamsTypeSingle GetFuturesVXProductsParamsType = "single"
-)
-
-// Defines values for GetFuturesVXProductsParamsTypeAnyOf.
-const (
-	GetFuturesVXProductsParamsTypeAnyOfCombo  GetFuturesVXProductsParamsTypeAnyOf = "combo"
-	GetFuturesVXProductsParamsTypeAnyOfSingle GetFuturesVXProductsParamsTypeAnyOf = "single"
-)
-
 // Defines values for GetStocksFilings10KVXSectionsParamsSection.
 const (
 	GetStocksFilings10KVXSectionsParamsSectionBusiness    GetStocksFilings10KVXSectionsParamsSection = "business"
@@ -477,6 +285,18 @@ const (
 const (
 	GetStocksFilings10KVXSectionsParamsSectionAnyOfBusiness    GetStocksFilings10KVXSectionsParamsSectionAnyOf = "business"
 	GetStocksFilings10KVXSectionsParamsSectionAnyOfRiskFactors GetStocksFilings10KVXSectionsParamsSectionAnyOf = "risk_factors"
+)
+
+// Defines values for GetStocksFilings10KVX0SectionsParamsSection.
+const (
+	GetStocksFilings10KVX0SectionsParamsSectionBusiness    GetStocksFilings10KVX0SectionsParamsSection = "business"
+	GetStocksFilings10KVX0SectionsParamsSectionRiskFactors GetStocksFilings10KVX0SectionsParamsSection = "risk_factors"
+)
+
+// Defines values for GetStocksFilings10KVX0SectionsParamsSectionAnyOf.
+const (
+	GetStocksFilings10KVX0SectionsParamsSectionAnyOfBusiness    GetStocksFilings10KVX0SectionsParamsSectionAnyOf = "business"
+	GetStocksFilings10KVX0SectionsParamsSectionAnyOfRiskFactors GetStocksFilings10KVX0SectionsParamsSectionAnyOf = "risk_factors"
 )
 
 // Defines values for GetStocksV1DividendsParamsDistributionType.
@@ -1592,7 +1412,7 @@ type GetBenzingaV1AnalystInsightsParams struct {
 	// RatingActionLte Filter less than or equal to the value.
 	RatingActionLte *string `form:"rating_action.lte,omitempty" json:"rating_action.lte,omitempty"`
 
-	// BenzingaFirmId The identifer used by Benzinga for the firm record.
+	// BenzingaFirmId The identifier used by Benzinga for the firm record.
 	BenzingaFirmId *string `form:"benzinga_firm_id,omitempty" json:"benzinga_firm_id,omitempty"`
 
 	// BenzingaFirmIdAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
@@ -1776,8 +1596,8 @@ type GetBenzingaV1BullsBearsSayParams struct {
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
-// GetBenzingaV1ConsensusRatingsParams defines parameters for GetBenzingaV1ConsensusRatings.
-type GetBenzingaV1ConsensusRatingsParams struct {
+// GetBenzingaV1ConsensusRatingsTickerParams defines parameters for GetBenzingaV1ConsensusRatingsTicker.
+type GetBenzingaV1ConsensusRatingsTickerParams struct {
 	// Date The date range to aggregate analyst ratings over. For example, date.gte=2024-10-01 and date.lt=2025-01-01 for ratings published in Q4 2024. By default, all ratings are aggregated regardless of date.
 	Date *string `form:"date,omitempty" json:"date,omitempty"`
 
@@ -1973,7 +1793,7 @@ type GetBenzingaV1EarningsParams struct {
 
 // GetBenzingaV1FirmsParams defines parameters for GetBenzingaV1Firms.
 type GetBenzingaV1FirmsParams struct {
-	// BenzingaId The identifer used by Benzinga for this record.
+	// BenzingaId The identifier used by Benzinga for this record.
 	BenzingaId *string `form:"benzinga_id,omitempty" json:"benzinga_id,omitempty"`
 
 	// BenzingaIdAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
@@ -2072,22 +1892,22 @@ type GetBenzingaV1GuidanceParams struct {
 	// ImportanceLte Filter less than or equal to the value. Value must be an integer.
 	ImportanceLte *int64 `form:"importance.lte,omitempty" json:"importance.lte,omitempty"`
 
-	// LastUpdated The timestamp (formatted as an ISO 8601 timestamp) when the record was last updated in the system.
+	// LastUpdated The timestamp (formatted as an ISO 8601 timestamp) when the record was last updated in the system. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	LastUpdated *string `form:"last_updated,omitempty" json:"last_updated,omitempty"`
 
-	// LastUpdatedAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	// LastUpdatedAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	LastUpdatedAnyOf *string `form:"last_updated.any_of,omitempty" json:"last_updated.any_of,omitempty"`
 
-	// LastUpdatedGt Filter greater than the value.
+	// LastUpdatedGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	LastUpdatedGt *string `form:"last_updated.gt,omitempty" json:"last_updated.gt,omitempty"`
 
-	// LastUpdatedGte Filter greater than or equal to the value.
+	// LastUpdatedGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	LastUpdatedGte *string `form:"last_updated.gte,omitempty" json:"last_updated.gte,omitempty"`
 
-	// LastUpdatedLt Filter less than the value.
+	// LastUpdatedLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	LastUpdatedLt *string `form:"last_updated.lt,omitempty" json:"last_updated.lt,omitempty"`
 
-	// LastUpdatedLte Filter less than or equal to the value.
+	// LastUpdatedLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	LastUpdatedLte *string `form:"last_updated.lte,omitempty" json:"last_updated.lte,omitempty"`
 
 	// FiscalYear The fiscal year corresponding to the period for which the guidance is issued. Value must be an integer.
@@ -2237,7 +2057,7 @@ type GetBenzingaV1RatingsParams struct {
 	// PriceTargetActionLte Filter less than or equal to the value.
 	PriceTargetActionLte *string `form:"price_target_action.lte,omitempty" json:"price_target_action.lte,omitempty"`
 
-	// BenzingaId The identifer used by Benzinga for this record.
+	// BenzingaId The identifier used by Benzinga for this record.
 	BenzingaId *string `form:"benzinga_id,omitempty" json:"benzinga_id,omitempty"`
 
 	// BenzingaIdAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
@@ -2255,7 +2075,7 @@ type GetBenzingaV1RatingsParams struct {
 	// BenzingaIdLte Filter less than or equal to the value.
 	BenzingaIdLte *string `form:"benzinga_id.lte,omitempty" json:"benzinga_id.lte,omitempty"`
 
-	// BenzingaAnalystId The identifer used by Benzinga for this analyst.
+	// BenzingaAnalystId The identifier used by Benzinga for this analyst.
 	BenzingaAnalystId *string `form:"benzinga_analyst_id,omitempty" json:"benzinga_analyst_id,omitempty"`
 
 	// BenzingaAnalystIdAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
@@ -2273,7 +2093,7 @@ type GetBenzingaV1RatingsParams struct {
 	// BenzingaAnalystIdLte Filter less than or equal to the value.
 	BenzingaAnalystIdLte *string `form:"benzinga_analyst_id.lte,omitempty" json:"benzinga_analyst_id.lte,omitempty"`
 
-	// BenzingaFirmId The identifer used by Benzinga for this firm.
+	// BenzingaFirmId The identifier used by Benzinga for this firm.
 	BenzingaFirmId *string `form:"benzinga_firm_id,omitempty" json:"benzinga_firm_id,omitempty"`
 
 	// BenzingaFirmIdAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
@@ -3526,8 +3346,8 @@ type GetFuturesV1ProductsParamsType string
 // GetFuturesV1ProductsParamsTypeAnyOf defines parameters for GetFuturesV1Products.
 type GetFuturesV1ProductsParamsTypeAnyOf string
 
-// GetFuturesV1QuotesParams defines parameters for GetFuturesV1Quotes.
-type GetFuturesV1QuotesParams struct {
+// GetFuturesV1QuotesTickerParams defines parameters for GetFuturesV1QuotesTicker.
+type GetFuturesV1QuotesTickerParams struct {
 	// Timestamp The time when the quote was generated at the exchange to nanosecond precision. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
 
@@ -3658,486 +3478,8 @@ type GetFuturesV1SnapshotParams struct {
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
-// GetFuturesV1TradesParams defines parameters for GetFuturesV1Trades.
-type GetFuturesV1TradesParams struct {
-	// Timestamp The time when the trade was generated at the exchange to nanosecond precision. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
-
-	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
-
-	// TimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampGte *string `form:"timestamp.gte,omitempty" json:"timestamp.gte,omitempty"`
-
-	// TimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampLt *string `form:"timestamp.lt,omitempty" json:"timestamp.lt,omitempty"`
-
-	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
-
-	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '49999'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesAggregatesParams defines parameters for GetFuturesAggregates.
-type GetFuturesAggregatesParams struct {
-	// Resolution The size of each aggregate candle, specified as a number followed by a unit: `sec`, `min`, `hour`, `session`, `week`, `month`, `quarter`, or `year`.
-	//
-	// Each unit has a maximum multiplier. For instance, minute candles go up to `59min` — after that, use `1hour`. Requesting an unsupported size returns a `400 Bad Request`.
-	Resolution *string `form:"resolution,omitempty" json:"resolution,omitempty"`
-
-	// WindowStart Filter by the start time of each candle. Accepts a `YYYY-MM-DD` date or a nanosecond Unix timestamp. The value is snapped to the start of the matching candle interval.
-	//
-	// When omitted, the API returns the most recent candles up to `limit`.
-	//
-	// Use comparison suffixes to query a range:
-	// - `window_start.gte` — greater than or equal to
-	// - `window_start.gt` — greater than
-	// - `window_start.lte` — less than or equal to
-	// - `window_start.lt` — less than
-	//
-	// **Examples**
-	// - Most recent minute candles: `/vX/aggs/ESU5?resolution=1min&limit=5`
-	// - Single daily candle: `/vX/aggs/ESU5?resolution=1session&window_start=2025-08-05`
-	// - Date range: `/vX/aggs/ESU5?resolution=1session&window_start.gte=2025-07-01&window_start.lte=2025-07-31`
-	// - After a timestamp: `/vX/aggs/ESU5?resolution=1sec&window_start.gt=1751409877000000000&limit=1000`
-	WindowStart *string `form:"window_start,omitempty" json:"window_start,omitempty"`
-
-	// Limit The number of results to return per page (default=1000, maximum=50000, minimum=1).
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// WindowStartGte Range by window_start.
-	WindowStartGte *string `form:"window_start.gte,omitempty" json:"window_start.gte,omitempty"`
-
-	// WindowStartGt Range by window_start.
-	WindowStartGt *string `form:"window_start.gt,omitempty" json:"window_start.gt,omitempty"`
-
-	// WindowStartLte Range by window_start.
-	WindowStartLte *string `form:"window_start.lte,omitempty" json:"window_start.lte,omitempty"`
-
-	// WindowStartLt Range by window_start.
-	WindowStartLt *string `form:"window_start.lt,omitempty" json:"window_start.lt,omitempty"`
-
-	// Sort Sort results by field and direction using dotted notation (e.g., 'ticker.asc', 'name.desc').
-	Sort *GetFuturesAggregatesParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesAggregatesParamsSort defines parameters for GetFuturesAggregates.
-type GetFuturesAggregatesParamsSort string
-
-// GetFuturesVXContractsParams defines parameters for GetFuturesVXContracts.
-type GetFuturesVXContractsParams struct {
-	// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day. Value must be formatted 'yyyy-mm-dd'.
-	Date *string `form:"date,omitempty" json:"date,omitempty"`
-
-	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
-	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
-
-	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
-
-	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
-	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
-
-	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
-
-	// ProductCode The identifier for the contract's product.
-	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
-
-	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
-
-	// ProductCodeGt Filter greater than the value.
-	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
-
-	// ProductCodeGte Filter greater than or equal to the value.
-	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
-
-	// ProductCodeLt Filter less than the value.
-	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
-
-	// ProductCodeLte Filter less than or equal to the value.
-	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
-
-	// Ticker The ticker for the contract.
-	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
-
-	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
-
-	// TickerGt Filter greater than the value.
-	TickerGt *string `form:"ticker.gt,omitempty" json:"ticker.gt,omitempty"`
-
-	// TickerGte Filter greater than or equal to the value.
-	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
-
-	// TickerLt Filter less than the value.
-	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
-
-	// TickerLte Filter less than or equal to the value.
-	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
-
-	// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-	Active *bool `form:"active,omitempty" json:"active,omitempty"`
-
-	// Type The type of contract, one of 'single' or 'combo'. Leaving this filter blank will query for contracts where type is 'single', 'combo' or empty. This field only exists on contracts as of 2025-03-12 and later. It will be null when date < 2025-03-12.
-	Type *GetFuturesVXContractsParamsType `form:"type,omitempty" json:"type,omitempty"`
-
-	// TypeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	TypeAnyOf *GetFuturesVXContractsParamsTypeAnyOf `form:"type.any_of,omitempty" json:"type.any_of,omitempty"`
-
-	// FirstTradeDate The first day on which the contract was tradeable. Value must be formatted 'yyyy-mm-dd'.
-	FirstTradeDate *string `form:"first_trade_date,omitempty" json:"first_trade_date,omitempty"`
-
-	// FirstTradeDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
-	FirstTradeDateGt *string `form:"first_trade_date.gt,omitempty" json:"first_trade_date.gt,omitempty"`
-
-	// FirstTradeDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	FirstTradeDateGte *string `form:"first_trade_date.gte,omitempty" json:"first_trade_date.gte,omitempty"`
-
-	// FirstTradeDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
-	FirstTradeDateLt *string `form:"first_trade_date.lt,omitempty" json:"first_trade_date.lt,omitempty"`
-
-	// FirstTradeDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	FirstTradeDateLte *string `form:"first_trade_date.lte,omitempty" json:"first_trade_date.lte,omitempty"`
-
-	// LastTradeDate The last day on which the contract was tradeable. Value must be formatted 'yyyy-mm-dd'.
-	LastTradeDate *string `form:"last_trade_date,omitempty" json:"last_trade_date,omitempty"`
-
-	// LastTradeDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
-	LastTradeDateGt *string `form:"last_trade_date.gt,omitempty" json:"last_trade_date.gt,omitempty"`
-
-	// LastTradeDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	LastTradeDateGte *string `form:"last_trade_date.gte,omitempty" json:"last_trade_date.gte,omitempty"`
-
-	// LastTradeDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
-	LastTradeDateLt *string `form:"last_trade_date.lt,omitempty" json:"last_trade_date.lt,omitempty"`
-
-	// LastTradeDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	LastTradeDateLte *string `form:"last_trade_date.lte,omitempty" json:"last_trade_date.lte,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'product_code' if not specified. The sort order defaults to 'asc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesVXContractsParamsType defines parameters for GetFuturesVXContracts.
-type GetFuturesVXContractsParamsType string
-
-// GetFuturesVXContractsParamsTypeAnyOf defines parameters for GetFuturesVXContracts.
-type GetFuturesVXContractsParamsTypeAnyOf string
-
-// GetFuturesVXExchangesParams defines parameters for GetFuturesVXExchanges.
-type GetFuturesVXExchangesParams struct {
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-}
-
-// GetFuturesVXMarketStatusParams defines parameters for GetFuturesVXMarketStatus.
-type GetFuturesVXMarketStatusParams struct {
-	// ProductCode The product code of the futures contracts for which you want statuses.
-	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
-
-	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
-
-	// ProductCodeGt Filter greater than the value.
-	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
-
-	// ProductCodeGte Filter greater than or equal to the value.
-	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
-
-	// ProductCodeLt Filter less than the value.
-	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
-
-	// ProductCodeLte Filter less than or equal to the value.
-	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '99'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-}
-
-// GetFuturesVXProductsParams defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParams struct {
-	// Name The full name of the product.
-	Name *string `form:"name,omitempty" json:"name,omitempty"`
-
-	// NameAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	NameAnyOf *string `form:"name.any_of,omitempty" json:"name.any_of,omitempty"`
-
-	// NameGt Filter greater than the value.
-	NameGt *string `form:"name.gt,omitempty" json:"name.gt,omitempty"`
-
-	// NameGte Filter greater than or equal to the value.
-	NameGte *string `form:"name.gte,omitempty" json:"name.gte,omitempty"`
-
-	// NameLt Filter less than the value.
-	NameLt *string `form:"name.lt,omitempty" json:"name.lt,omitempty"`
-
-	// NameLte Filter less than or equal to the value.
-	NameLte *string `form:"name.lte,omitempty" json:"name.lte,omitempty"`
-
-	// ProductCode The identifier for the product.
-	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
-
-	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
-
-	// ProductCodeGt Filter greater than the value.
-	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
-
-	// ProductCodeGte Filter greater than or equal to the value.
-	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
-
-	// ProductCodeLt Filter less than the value.
-	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
-
-	// ProductCodeLte Filter less than or equal to the value.
-	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
-
-	// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day. Value must be formatted 'yyyy-mm-dd'.
-	Date *string `form:"date,omitempty" json:"date,omitempty"`
-
-	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
-	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
-
-	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
-
-	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
-	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
-
-	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
-
-	// TradingVenue The trading venue (MIC) for the exchange on which this product's contracts trade.
-	TradingVenue *string `form:"trading_venue,omitempty" json:"trading_venue,omitempty"`
-
-	// TradingVenueAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	TradingVenueAnyOf *string `form:"trading_venue.any_of,omitempty" json:"trading_venue.any_of,omitempty"`
-
-	// TradingVenueGt Filter greater than the value.
-	TradingVenueGt *string `form:"trading_venue.gt,omitempty" json:"trading_venue.gt,omitempty"`
-
-	// TradingVenueGte Filter greater than or equal to the value.
-	TradingVenueGte *string `form:"trading_venue.gte,omitempty" json:"trading_venue.gte,omitempty"`
-
-	// TradingVenueLt Filter less than the value.
-	TradingVenueLt *string `form:"trading_venue.lt,omitempty" json:"trading_venue.lt,omitempty"`
-
-	// TradingVenueLte Filter less than or equal to the value.
-	TradingVenueLte *string `form:"trading_venue.lte,omitempty" json:"trading_venue.lte,omitempty"`
-
-	// Sector The sector to which the product belongs.
-	Sector *GetFuturesVXProductsParamsSector `form:"sector,omitempty" json:"sector,omitempty"`
-
-	// SectorAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	SectorAnyOf *GetFuturesVXProductsParamsSectorAnyOf `form:"sector.any_of,omitempty" json:"sector.any_of,omitempty"`
-
-	// SubSector The sub-sector to which the product belongs.
-	SubSector *GetFuturesVXProductsParamsSubSector `form:"sub_sector,omitempty" json:"sub_sector,omitempty"`
-
-	// SubSectorAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	SubSectorAnyOf *GetFuturesVXProductsParamsSubSectorAnyOf `form:"sub_sector.any_of,omitempty" json:"sub_sector.any_of,omitempty"`
-
-	// AssetClass The asset class to which the product belongs.
-	AssetClass *GetFuturesVXProductsParamsAssetClass `form:"asset_class,omitempty" json:"asset_class,omitempty"`
-
-	// AssetClassAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	AssetClassAnyOf *GetFuturesVXProductsParamsAssetClassAnyOf `form:"asset_class.any_of,omitempty" json:"asset_class.any_of,omitempty"`
-
-	// AssetSubClass The asset sub-class to which the product belongs.
-	AssetSubClass *GetFuturesVXProductsParamsAssetSubClass `form:"asset_sub_class,omitempty" json:"asset_sub_class,omitempty"`
-
-	// AssetSubClassAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	AssetSubClassAnyOf *GetFuturesVXProductsParamsAssetSubClassAnyOf `form:"asset_sub_class.any_of,omitempty" json:"asset_sub_class.any_of,omitempty"`
-
-	// Type The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.
-	Type *GetFuturesVXProductsParamsType `form:"type,omitempty" json:"type,omitempty"`
-
-	// TypeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	TypeAnyOf *GetFuturesVXProductsParamsTypeAnyOf `form:"type.any_of,omitempty" json:"type.any_of,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'asc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesVXProductsParamsSector defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsSector string
-
-// GetFuturesVXProductsParamsSectorAnyOf defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsSectorAnyOf string
-
-// GetFuturesVXProductsParamsSubSector defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsSubSector string
-
-// GetFuturesVXProductsParamsSubSectorAnyOf defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsSubSectorAnyOf string
-
-// GetFuturesVXProductsParamsAssetClass defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsAssetClass string
-
-// GetFuturesVXProductsParamsAssetClassAnyOf defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsAssetClassAnyOf string
-
-// GetFuturesVXProductsParamsAssetSubClass defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsAssetSubClass string
-
-// GetFuturesVXProductsParamsAssetSubClassAnyOf defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsAssetSubClassAnyOf string
-
-// GetFuturesVXProductsParamsType defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsType string
-
-// GetFuturesVXProductsParamsTypeAnyOf defines parameters for GetFuturesVXProducts.
-type GetFuturesVXProductsParamsTypeAnyOf string
-
-// GetFuturesVXQuotesParams defines parameters for GetFuturesVXQuotes.
-type GetFuturesVXQuotesParams struct {
-	// Timestamp The time when the quote was generated at the exchange to nanosecond precision. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
-
-	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
-
-	// TimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampGte *string `form:"timestamp.gte,omitempty" json:"timestamp.gte,omitempty"`
-
-	// TimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampLt *string `form:"timestamp.lt,omitempty" json:"timestamp.lt,omitempty"`
-
-	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
-	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
-
-	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '49999'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesVXSchedulesParams defines parameters for GetFuturesVXSchedules.
-type GetFuturesVXSchedulesParams struct {
-	// ProductCode The product code of the futures contract.
-	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
-
-	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
-
-	// ProductCodeGt Filter greater than the value.
-	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
-
-	// ProductCodeGte Filter greater than or equal to the value.
-	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
-
-	// ProductCodeLt Filter less than the value.
-	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
-
-	// ProductCodeLte Filter less than or equal to the value.
-	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
-
-	// SessionEndDate The session end date for the schedules (also known as the trading date). This field is optional and can be used to filter results by a specific session end date. If left blank, schedules for all dates will be returned. Note that trading sessions end at 5 PM Central Time, so a session ending at 5 PM CT on January 1st would have a session_end_date of 2025-01-01. Value must be formatted 'yyyy-mm-dd'.
-	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
-
-	// SessionEndDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
-	SessionEndDateGt *string `form:"session_end_date.gt,omitempty" json:"session_end_date.gt,omitempty"`
-
-	// SessionEndDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	SessionEndDateGte *string `form:"session_end_date.gte,omitempty" json:"session_end_date.gte,omitempty"`
-
-	// SessionEndDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
-	SessionEndDateLt *string `form:"session_end_date.lt,omitempty" json:"session_end_date.lt,omitempty"`
-
-	// SessionEndDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	SessionEndDateLte *string `form:"session_end_date.lte,omitempty" json:"session_end_date.lte,omitempty"`
-
-	// TradingVenue The trading venue (MIC) for the exchange on which this schedule's product trades.
-	TradingVenue *string `form:"trading_venue,omitempty" json:"trading_venue,omitempty"`
-
-	// TradingVenueAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	TradingVenueAnyOf *string `form:"trading_venue.any_of,omitempty" json:"trading_venue.any_of,omitempty"`
-
-	// TradingVenueGt Filter greater than the value.
-	TradingVenueGt *string `form:"trading_venue.gt,omitempty" json:"trading_venue.gt,omitempty"`
-
-	// TradingVenueGte Filter greater than or equal to the value.
-	TradingVenueGte *string `form:"trading_venue.gte,omitempty" json:"trading_venue.gte,omitempty"`
-
-	// TradingVenueLt Filter less than the value.
-	TradingVenueLt *string `form:"trading_venue.lt,omitempty" json:"trading_venue.lt,omitempty"`
-
-	// TradingVenueLte Filter less than or equal to the value.
-	TradingVenueLte *string `form:"trading_venue.lte,omitempty" json:"trading_venue.lte,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '1000'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'product_code' if not specified. The sort order defaults to 'asc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesVXSnapshotParams defines parameters for GetFuturesVXSnapshot.
-type GetFuturesVXSnapshotParams struct {
-	// ProductCode The code for the contracts' underlying product.
-	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
-
-	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
-
-	// ProductCodeGt Filter greater than the value.
-	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
-
-	// ProductCodeGte Filter greater than or equal to the value.
-	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
-
-	// ProductCodeLt Filter less than the value.
-	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
-
-	// ProductCodeLte Filter less than or equal to the value.
-	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
-
-	// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., ESZ24 for the December 2024 S&P 500 E-mini contract).
-	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
-
-	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
-
-	// TickerGt Filter greater than the value.
-	TickerGt *string `form:"ticker.gt,omitempty" json:"ticker.gt,omitempty"`
-
-	// TickerGte Filter greater than or equal to the value.
-	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
-
-	// TickerLt Filter less than the value.
-	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
-
-	// TickerLte Filter less than or equal to the value.
-	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'ticker' if not specified. The sort order defaults to 'asc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetFuturesVXTradesParams defines parameters for GetFuturesVXTrades.
-type GetFuturesVXTradesParams struct {
+// GetFuturesV1TradesTickerParams defines parameters for GetFuturesV1TradesTicker.
+type GetFuturesV1TradesTickerParams struct {
 	// Timestamp The time when the trade was generated at the exchange to nanosecond precision. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
 
@@ -4167,6 +3509,78 @@ type GetFuturesVXTradesParams struct {
 type GetOptionsV1ExchangesParams struct {
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+}
+
+// GetOptionsV3QuotesTickerParams defines parameters for GetOptionsV3QuotesTicker.
+type GetOptionsV3QuotesTickerParams struct {
+	// Timestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this quote from the exchange which produced it. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
+
+	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
+
+	// TimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGte *string `form:"timestamp.gte,omitempty" json:"timestamp.gte,omitempty"`
+
+	// TimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLt *string `form:"timestamp.lt,omitempty" json:"timestamp.lt,omitempty"`
+
+	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '49999'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsV3TradesTickerParams defines parameters for GetOptionsV3TradesTicker.
+type GetOptionsV3TradesTickerParams struct {
+	// Timestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
+
+	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
+
+	// TimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGte *string `form:"timestamp.gte,omitempty" json:"timestamp.gte,omitempty"`
+
+	// TimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLt *string `form:"timestamp.lt,omitempty" json:"timestamp.lt,omitempty"`
+
+	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '49999'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetStocksDevTradesTickerParams defines parameters for GetStocksDevTradesTicker.
+type GetStocksDevTradesTickerParams struct {
+	// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	SipTimestamp *string `form:"sip_timestamp,omitempty" json:"sip_timestamp,omitempty"`
+
+	// SipTimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	SipTimestampGt *string `form:"sip_timestamp.gt,omitempty" json:"sip_timestamp.gt,omitempty"`
+
+	// SipTimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	SipTimestampGte *string `form:"sip_timestamp.gte,omitempty" json:"sip_timestamp.gte,omitempty"`
+
+	// SipTimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	SipTimestampLt *string `form:"sip_timestamp.lt,omitempty" json:"sip_timestamp.lt,omitempty"`
+
+	// SipTimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	SipTimestampLte *string `form:"sip_timestamp.lte,omitempty" json:"sip_timestamp.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '49999'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'sip_timestamp' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
 // GetStocksFilings10KVXSectionsParams defines parameters for GetStocksFilings10KVXSections.
@@ -4255,6 +3669,138 @@ type GetStocksFilings10KVXSectionsParamsSection string
 
 // GetStocksFilings10KVXSectionsParamsSectionAnyOf defines parameters for GetStocksFilings10KVXSections.
 type GetStocksFilings10KVXSectionsParamsSectionAnyOf string
+
+// GetStocksFilings10KVX0SectionsParams defines parameters for GetStocksFilings10KVX0Sections.
+type GetStocksFilings10KVX0SectionsParams struct {
+	// Cik SEC Central Index Key (10 digits, zero-padded).
+	Cik *string `form:"cik,omitempty" json:"cik,omitempty"`
+
+	// CikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	CikAnyOf *string `form:"cik.any_of,omitempty" json:"cik.any_of,omitempty"`
+
+	// CikGt Filter greater than the value.
+	CikGt *string `form:"cik.gt,omitempty" json:"cik.gt,omitempty"`
+
+	// CikGte Filter greater than or equal to the value.
+	CikGte *string `form:"cik.gte,omitempty" json:"cik.gte,omitempty"`
+
+	// CikLt Filter less than the value.
+	CikLt *string `form:"cik.lt,omitempty" json:"cik.lt,omitempty"`
+
+	// CikLte Filter less than or equal to the value.
+	CikLte *string `form:"cik.lte,omitempty" json:"cik.lte,omitempty"`
+
+	// Ticker Stock ticker symbol for the company.
+	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
+
+	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
+
+	// TickerGt Filter greater than the value.
+	TickerGt *string `form:"ticker.gt,omitempty" json:"ticker.gt,omitempty"`
+
+	// TickerGte Filter greater than or equal to the value.
+	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
+
+	// TickerLt Filter less than the value.
+	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
+
+	// TickerLte Filter less than or equal to the value.
+	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
+
+	// Section Standardized section identifier from the filing (e.g. 'business', 'risk_factors', etc.).
+	Section *GetStocksFilings10KVX0SectionsParamsSection `form:"section,omitempty" json:"section,omitempty"`
+
+	// SectionAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	SectionAnyOf *GetStocksFilings10KVX0SectionsParamsSectionAnyOf `form:"section.any_of,omitempty" json:"section.any_of,omitempty"`
+
+	// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
+
+	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGt *string `form:"filing_date.gt,omitempty" json:"filing_date.gt,omitempty"`
+
+	// FilingDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateGte *string `form:"filing_date.gte,omitempty" json:"filing_date.gte,omitempty"`
+
+	// FilingDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLt *string `form:"filing_date.lt,omitempty" json:"filing_date.lt,omitempty"`
+
+	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
+
+	// PeriodEnd Period end date that the filing relates to (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	PeriodEnd *string `form:"period_end,omitempty" json:"period_end,omitempty"`
+
+	// PeriodEndGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	PeriodEndGt *string `form:"period_end.gt,omitempty" json:"period_end.gt,omitempty"`
+
+	// PeriodEndGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	PeriodEndGte *string `form:"period_end.gte,omitempty" json:"period_end.gte,omitempty"`
+
+	// PeriodEndLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	PeriodEndLt *string `form:"period_end.lt,omitempty" json:"period_end.lt,omitempty"`
+
+	// PeriodEndLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	PeriodEndLte *string `form:"period_end.lte,omitempty" json:"period_end.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '99'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'period_end' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetStocksFilings10KVX0SectionsParamsSection defines parameters for GetStocksFilings10KVX0Sections.
+type GetStocksFilings10KVX0SectionsParamsSection string
+
+// GetStocksFilings10KVX0SectionsParamsSectionAnyOf defines parameters for GetStocksFilings10KVX0Sections.
+type GetStocksFilings10KVX0SectionsParamsSectionAnyOf string
+
+// GetStocksFilings8KVXDisclosuresParams defines parameters for GetStocksFilings8KVXDisclosures.
+type GetStocksFilings8KVXDisclosuresParams struct {
+	// Cik SEC Central Index Key of the filer (10 digits, zero-padded).
+	Cik *string `form:"cik,omitempty" json:"cik,omitempty"`
+
+	// CikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	CikAnyOf *string `form:"cik.any_of,omitempty" json:"cik.any_of,omitempty"`
+
+	// Tickers Filter for arrays that contain the value.
+	Tickers *string `form:"tickers,omitempty" json:"tickers,omitempty"`
+
+	// TickersAllOf Filter for arrays that contain all of the values. Multiple values can be specified by using a comma separated list.
+	TickersAllOf *string `form:"tickers.all_of,omitempty" json:"tickers.all_of,omitempty"`
+
+	// TickersAnyOf Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.
+	TickersAnyOf *string `form:"tickers.any_of,omitempty" json:"tickers.any_of,omitempty"`
+
+	// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
+
+	// FilingDateAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	FilingDateAnyOf *string `form:"filing_date.any_of,omitempty" json:"filing_date.any_of,omitempty"`
+
+	// FilingDateGt Filter greater than the value.
+	FilingDateGt *string `form:"filing_date.gt,omitempty" json:"filing_date.gt,omitempty"`
+
+	// FilingDateGte Filter greater than or equal to the value.
+	FilingDateGte *string `form:"filing_date.gte,omitempty" json:"filing_date.gte,omitempty"`
+
+	// FilingDateLt Filter less than the value.
+	FilingDateLt *string `form:"filing_date.lt,omitempty" json:"filing_date.lt,omitempty"`
+
+	// FilingDateLte Filter less than or equal to the value.
+	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
+
+	// TertiaryCategory Most specific disclosure category (e.g., 'quarterly_results'). Filtering on this column must use an exact match. See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+	TertiaryCategory *string `form:"tertiary_category,omitempty" json:"tertiary_category,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
 
 // GetStocksFilings8KVXTextParams defines parameters for GetStocksFilings8KVXText.
 type GetStocksFilings8KVXTextParams struct {
@@ -4405,42 +3951,6 @@ type GetStocksFilingsVXForm3Params struct {
 	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
 
-	// MaxTicker Filter equal to the value.
-	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
-
-	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
-
-	// MaxTickerGt Filter greater than the value.
-	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
-
-	// MaxTickerGte Filter greater than or equal to the value.
-	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
-
-	// MaxTickerLt Filter less than the value.
-	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
-
-	// MaxTickerLte Filter less than or equal to the value.
-	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
-
-	// MinTicker Filter equal to the value.
-	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
-
-	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
-
-	// MinTickerGt Filter greater than the value.
-	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
-
-	// MinTickerGte Filter greater than or equal to the value.
-	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
-
-	// MinTickerLt Filter less than the value.
-	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
-
-	// MinTickerLte Filter less than or equal to the value.
-	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
-
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
@@ -4491,42 +4001,6 @@ type GetStocksFilingsVXForm4Params struct {
 
 	// TransactionCode SEC transaction code indicating the type of transaction (e.g., 'P' for purchase, 'S' for sale, 'A' for grant/award, 'M' for exercise/conversion).
 	TransactionCode *string `form:"transaction_code,omitempty" json:"transaction_code,omitempty"`
-
-	// MaxTicker Filter equal to the value.
-	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
-
-	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
-
-	// MaxTickerGt Filter greater than the value.
-	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
-
-	// MaxTickerGte Filter greater than or equal to the value.
-	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
-
-	// MaxTickerLt Filter less than the value.
-	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
-
-	// MaxTickerLte Filter less than or equal to the value.
-	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
-
-	// MinTicker Filter equal to the value.
-	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
-
-	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
-
-	// MinTickerGt Filter greater than the value.
-	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
-
-	// MinTickerGte Filter greater than or equal to the value.
-	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
-
-	// MinTickerLt Filter less than the value.
-	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
-
-	// MinTickerLte Filter less than or equal to the value.
-	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
@@ -4606,7 +4080,7 @@ type GetStocksFilingsVXIndexParams struct {
 	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '10000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
@@ -4783,42 +4257,6 @@ type GetStocksFinancialsV1BalanceSheetsParams struct {
 	// TimeframeLte Filter less than or equal to the value.
 	TimeframeLte *string `form:"timeframe.lte,omitempty" json:"timeframe.lte,omitempty"`
 
-	// MaxTicker Filter equal to the value.
-	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
-
-	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
-
-	// MaxTickerGt Filter greater than the value.
-	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
-
-	// MaxTickerGte Filter greater than or equal to the value.
-	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
-
-	// MaxTickerLt Filter less than the value.
-	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
-
-	// MaxTickerLte Filter less than or equal to the value.
-	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
-
-	// MinTicker Filter equal to the value.
-	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
-
-	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
-
-	// MinTickerGt Filter greater than the value.
-	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
-
-	// MinTickerGte Filter greater than or equal to the value.
-	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
-
-	// MinTickerLt Filter less than the value.
-	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
-
-	// MinTickerLte Filter less than or equal to the value.
-	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
-
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
@@ -4933,42 +4371,6 @@ type GetStocksFinancialsV1CashFlowStatementsParams struct {
 	// TimeframeLte Filter less than or equal to the value.
 	TimeframeLte *string `form:"timeframe.lte,omitempty" json:"timeframe.lte,omitempty"`
 
-	// MaxTicker Filter equal to the value.
-	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
-
-	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
-
-	// MaxTickerGt Filter greater than the value.
-	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
-
-	// MaxTickerGte Filter greater than or equal to the value.
-	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
-
-	// MaxTickerLt Filter less than the value.
-	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
-
-	// MaxTickerLte Filter less than or equal to the value.
-	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
-
-	// MinTicker Filter equal to the value.
-	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
-
-	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
-
-	// MinTickerGt Filter greater than the value.
-	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
-
-	// MinTickerGte Filter greater than or equal to the value.
-	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
-
-	// MinTickerLt Filter less than the value.
-	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
-
-	// MinTickerLte Filter less than or equal to the value.
-	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
-
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
@@ -5082,42 +4484,6 @@ type GetStocksFinancialsV1IncomeStatementsParams struct {
 
 	// TimeframeLte Filter less than or equal to the value.
 	TimeframeLte *string `form:"timeframe.lte,omitempty" json:"timeframe.lte,omitempty"`
-
-	// MaxTicker Filter equal to the value.
-	MaxTicker *string `form:"max_ticker,omitempty" json:"max_ticker,omitempty"`
-
-	// MaxTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MaxTickerAnyOf *string `form:"max_ticker.any_of,omitempty" json:"max_ticker.any_of,omitempty"`
-
-	// MaxTickerGt Filter greater than the value.
-	MaxTickerGt *string `form:"max_ticker.gt,omitempty" json:"max_ticker.gt,omitempty"`
-
-	// MaxTickerGte Filter greater than or equal to the value.
-	MaxTickerGte *string `form:"max_ticker.gte,omitempty" json:"max_ticker.gte,omitempty"`
-
-	// MaxTickerLt Filter less than the value.
-	MaxTickerLt *string `form:"max_ticker.lt,omitempty" json:"max_ticker.lt,omitempty"`
-
-	// MaxTickerLte Filter less than or equal to the value.
-	MaxTickerLte *string `form:"max_ticker.lte,omitempty" json:"max_ticker.lte,omitempty"`
-
-	// MinTicker Filter equal to the value.
-	MinTicker *string `form:"min_ticker,omitempty" json:"min_ticker,omitempty"`
-
-	// MinTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	MinTickerAnyOf *string `form:"min_ticker.any_of,omitempty" json:"min_ticker.any_of,omitempty"`
-
-	// MinTickerGt Filter greater than the value.
-	MinTickerGt *string `form:"min_ticker.gt,omitempty" json:"min_ticker.gt,omitempty"`
-
-	// MinTickerGte Filter greater than or equal to the value.
-	MinTickerGte *string `form:"min_ticker.gte,omitempty" json:"min_ticker.gte,omitempty"`
-
-	// MinTickerLt Filter less than the value.
-	MinTickerLt *string `form:"min_ticker.lt,omitempty" json:"min_ticker.lt,omitempty"`
-
-	// MinTickerLte Filter less than or equal to the value.
-	MinTickerLte *string `form:"min_ticker.lte,omitempty" json:"min_ticker.lte,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
@@ -5468,6 +4834,87 @@ type GetStocksFinancialsV1RatiosParams struct {
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'ticker' if not specified. The sort order defaults to 'asc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetStocksTaxonomiesVXDisclosuresParams defines parameters for GetStocksTaxonomiesVXDisclosures.
+type GetStocksTaxonomiesVXDisclosuresParams struct {
+	// Taxonomy Taxonomy version that defines this classification (e.g., '1.0').
+	Taxonomy *string `form:"taxonomy,omitempty" json:"taxonomy,omitempty"`
+
+	// TaxonomyAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TaxonomyAnyOf *string `form:"taxonomy.any_of,omitempty" json:"taxonomy.any_of,omitempty"`
+
+	// TaxonomyGt Filter greater than the value.
+	TaxonomyGt *string `form:"taxonomy.gt,omitempty" json:"taxonomy.gt,omitempty"`
+
+	// TaxonomyGte Filter greater than or equal to the value.
+	TaxonomyGte *string `form:"taxonomy.gte,omitempty" json:"taxonomy.gte,omitempty"`
+
+	// TaxonomyLt Filter less than the value.
+	TaxonomyLt *string `form:"taxonomy.lt,omitempty" json:"taxonomy.lt,omitempty"`
+
+	// TaxonomyLte Filter less than or equal to the value.
+	TaxonomyLte *string `form:"taxonomy.lte,omitempty" json:"taxonomy.lte,omitempty"`
+
+	// PrimaryCategory Top-level disclosure category.
+	PrimaryCategory *string `form:"primary_category,omitempty" json:"primary_category,omitempty"`
+
+	// PrimaryCategoryAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	PrimaryCategoryAnyOf *string `form:"primary_category.any_of,omitempty" json:"primary_category.any_of,omitempty"`
+
+	// PrimaryCategoryGt Filter greater than the value.
+	PrimaryCategoryGt *string `form:"primary_category.gt,omitempty" json:"primary_category.gt,omitempty"`
+
+	// PrimaryCategoryGte Filter greater than or equal to the value.
+	PrimaryCategoryGte *string `form:"primary_category.gte,omitempty" json:"primary_category.gte,omitempty"`
+
+	// PrimaryCategoryLt Filter less than the value.
+	PrimaryCategoryLt *string `form:"primary_category.lt,omitempty" json:"primary_category.lt,omitempty"`
+
+	// PrimaryCategoryLte Filter less than or equal to the value.
+	PrimaryCategoryLte *string `form:"primary_category.lte,omitempty" json:"primary_category.lte,omitempty"`
+
+	// SecondaryCategory Mid-level disclosure category.
+	SecondaryCategory *string `form:"secondary_category,omitempty" json:"secondary_category,omitempty"`
+
+	// SecondaryCategoryAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	SecondaryCategoryAnyOf *string `form:"secondary_category.any_of,omitempty" json:"secondary_category.any_of,omitempty"`
+
+	// SecondaryCategoryGt Filter greater than the value.
+	SecondaryCategoryGt *string `form:"secondary_category.gt,omitempty" json:"secondary_category.gt,omitempty"`
+
+	// SecondaryCategoryGte Filter greater than or equal to the value.
+	SecondaryCategoryGte *string `form:"secondary_category.gte,omitempty" json:"secondary_category.gte,omitempty"`
+
+	// SecondaryCategoryLt Filter less than the value.
+	SecondaryCategoryLt *string `form:"secondary_category.lt,omitempty" json:"secondary_category.lt,omitempty"`
+
+	// SecondaryCategoryLte Filter less than or equal to the value.
+	SecondaryCategoryLte *string `form:"secondary_category.lte,omitempty" json:"secondary_category.lte,omitempty"`
+
+	// TertiaryCategory Most specific disclosure category.
+	TertiaryCategory *string `form:"tertiary_category,omitempty" json:"tertiary_category,omitempty"`
+
+	// TertiaryCategoryAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TertiaryCategoryAnyOf *string `form:"tertiary_category.any_of,omitempty" json:"tertiary_category.any_of,omitempty"`
+
+	// TertiaryCategoryGt Filter greater than the value.
+	TertiaryCategoryGt *string `form:"tertiary_category.gt,omitempty" json:"tertiary_category.gt,omitempty"`
+
+	// TertiaryCategoryGte Filter greater than or equal to the value.
+	TertiaryCategoryGte *string `form:"tertiary_category.gte,omitempty" json:"tertiary_category.gte,omitempty"`
+
+	// TertiaryCategoryLt Filter less than the value.
+	TertiaryCategoryLt *string `form:"tertiary_category.lt,omitempty" json:"tertiary_category.lt,omitempty"`
+
+	// TertiaryCategoryLte Filter less than or equal to the value.
+	TertiaryCategoryLte *string `form:"tertiary_category.lte,omitempty" json:"tertiary_category.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '200' if not specified. The maximum allowed limit is '999'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'taxonomy' if not specified. The sort order defaults to 'desc' if not specified.
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
@@ -8437,8 +7884,8 @@ type ClientInterface interface {
 	// GetBenzingaV1BullsBearsSay request
 	GetBenzingaV1BullsBearsSay(ctx context.Context, params *GetBenzingaV1BullsBearsSayParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetBenzingaV1ConsensusRatings request
-	GetBenzingaV1ConsensusRatings(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetBenzingaV1ConsensusRatingsTicker request
+	GetBenzingaV1ConsensusRatingsTicker(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetBenzingaV1Earnings request
 	GetBenzingaV1Earnings(ctx context.Context, params *GetBenzingaV1EarningsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8509,8 +7956,8 @@ type ClientInterface interface {
 	// GetFuturesV1Products request
 	GetFuturesV1Products(ctx context.Context, params *GetFuturesV1ProductsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetFuturesV1Quotes request
-	GetFuturesV1Quotes(ctx context.Context, ticker string, params *GetFuturesV1QuotesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetFuturesV1QuotesTicker request
+	GetFuturesV1QuotesTicker(ctx context.Context, ticker string, params *GetFuturesV1QuotesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetFuturesV1Schedules request
 	GetFuturesV1Schedules(ctx context.Context, params *GetFuturesV1SchedulesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8518,41 +7965,29 @@ type ClientInterface interface {
 	// GetFuturesV1Snapshot request
 	GetFuturesV1Snapshot(ctx context.Context, params *GetFuturesV1SnapshotParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetFuturesV1Trades request
-	GetFuturesV1Trades(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesAggregates request
-	GetFuturesAggregates(ctx context.Context, ticker string, params *GetFuturesAggregatesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXContracts request
-	GetFuturesVXContracts(ctx context.Context, params *GetFuturesVXContractsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXExchanges request
-	GetFuturesVXExchanges(ctx context.Context, params *GetFuturesVXExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXMarketStatus request
-	GetFuturesVXMarketStatus(ctx context.Context, params *GetFuturesVXMarketStatusParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXProducts request
-	GetFuturesVXProducts(ctx context.Context, params *GetFuturesVXProductsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXQuotes request
-	GetFuturesVXQuotes(ctx context.Context, ticker string, params *GetFuturesVXQuotesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXSchedules request
-	GetFuturesVXSchedules(ctx context.Context, params *GetFuturesVXSchedulesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXSnapshot request
-	GetFuturesVXSnapshot(ctx context.Context, params *GetFuturesVXSnapshotParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetFuturesVXTrades request
-	GetFuturesVXTrades(ctx context.Context, ticker string, params *GetFuturesVXTradesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetFuturesV1TradesTicker request
+	GetFuturesV1TradesTicker(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetOptionsV1Exchanges request
 	GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetOptionsV3QuotesTicker request
+	GetOptionsV3QuotesTicker(ctx context.Context, ticker string, params *GetOptionsV3QuotesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetOptionsV3TradesTicker request
+	GetOptionsV3TradesTicker(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksDevTradesTicker request
+	GetStocksDevTradesTicker(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetStocksFilings10KVXSections request
 	GetStocksFilings10KVXSections(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksFilings10KVX0Sections request
+	GetStocksFilings10KVX0Sections(ctx context.Context, params *GetStocksFilings10KVX0SectionsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksFilings8KVXDisclosures request
+	GetStocksFilings8KVXDisclosures(ctx context.Context, params *GetStocksFilings8KVXDisclosuresParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetStocksFilings8KVXText request
 	GetStocksFilings8KVXText(ctx context.Context, params *GetStocksFilings8KVXTextParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8583,6 +8018,9 @@ type ClientInterface interface {
 
 	// GetStocksFinancialsV1Ratios request
 	GetStocksFinancialsV1Ratios(ctx context.Context, params *GetStocksFinancialsV1RatiosParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksTaxonomiesVXDisclosures request
+	GetStocksTaxonomiesVXDisclosures(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetStocksTaxonomiesVXRiskFactors request
 	GetStocksTaxonomiesVXRiskFactors(ctx context.Context, params *GetStocksTaxonomiesVXRiskFactorsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8900,8 +8338,8 @@ func (c *Client) GetBenzingaV1BullsBearsSay(ctx context.Context, params *GetBenz
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetBenzingaV1ConsensusRatings(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetBenzingaV1ConsensusRatingsRequest(c.Server, ticker, params)
+func (c *Client) GetBenzingaV1ConsensusRatingsTicker(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetBenzingaV1ConsensusRatingsTickerRequest(c.Server, ticker, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9188,8 +8626,8 @@ func (c *Client) GetFuturesV1Products(ctx context.Context, params *GetFuturesV1P
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetFuturesV1Quotes(ctx context.Context, ticker string, params *GetFuturesV1QuotesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesV1QuotesRequest(c.Server, ticker, params)
+func (c *Client) GetFuturesV1QuotesTicker(ctx context.Context, ticker string, params *GetFuturesV1QuotesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetFuturesV1QuotesTickerRequest(c.Server, ticker, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9224,116 +8662,8 @@ func (c *Client) GetFuturesV1Snapshot(ctx context.Context, params *GetFuturesV1S
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetFuturesV1Trades(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesV1TradesRequest(c.Server, ticker, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesAggregates(ctx context.Context, ticker string, params *GetFuturesAggregatesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesAggregatesRequest(c.Server, ticker, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXContracts(ctx context.Context, params *GetFuturesVXContractsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXContractsRequest(c.Server, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXExchanges(ctx context.Context, params *GetFuturesVXExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXExchangesRequest(c.Server, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXMarketStatus(ctx context.Context, params *GetFuturesVXMarketStatusParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXMarketStatusRequest(c.Server, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXProducts(ctx context.Context, params *GetFuturesVXProductsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXProductsRequest(c.Server, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXQuotes(ctx context.Context, ticker string, params *GetFuturesVXQuotesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXQuotesRequest(c.Server, ticker, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXSchedules(ctx context.Context, params *GetFuturesVXSchedulesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXSchedulesRequest(c.Server, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXSnapshot(ctx context.Context, params *GetFuturesVXSnapshotParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXSnapshotRequest(c.Server, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetFuturesVXTrades(ctx context.Context, ticker string, params *GetFuturesVXTradesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetFuturesVXTradesRequest(c.Server, ticker, params)
+func (c *Client) GetFuturesV1TradesTicker(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetFuturesV1TradesTickerRequest(c.Server, ticker, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9356,8 +8686,68 @@ func (c *Client) GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1
 	return c.Client.Do(req)
 }
 
+func (c *Client) GetOptionsV3QuotesTicker(ctx context.Context, ticker string, params *GetOptionsV3QuotesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV3QuotesTickerRequest(c.Server, ticker, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV3TradesTicker(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV3TradesTickerRequest(c.Server, ticker, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksDevTradesTicker(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksDevTradesTickerRequest(c.Server, ticker, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) GetStocksFilings10KVXSections(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetStocksFilings10KVXSectionsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksFilings10KVX0Sections(ctx context.Context, params *GetStocksFilings10KVX0SectionsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksFilings10KVX0SectionsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksFilings8KVXDisclosures(ctx context.Context, params *GetStocksFilings8KVXDisclosuresParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksFilings8KVXDisclosuresRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9478,6 +8868,18 @@ func (c *Client) GetStocksFinancialsV1IncomeStatements(ctx context.Context, para
 
 func (c *Client) GetStocksFinancialsV1Ratios(ctx context.Context, params *GetStocksFinancialsV1RatiosParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetStocksFinancialsV1RatiosRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksTaxonomiesVXDisclosures(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksTaxonomiesVXDisclosuresRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -12111,8 +11513,8 @@ func NewGetBenzingaV1BullsBearsSayRequest(server string, params *GetBenzingaV1Bu
 	return req, nil
 }
 
-// NewGetBenzingaV1ConsensusRatingsRequest generates requests for GetBenzingaV1ConsensusRatings
-func NewGetBenzingaV1ConsensusRatingsRequest(server string, ticker string, params *GetBenzingaV1ConsensusRatingsParams) (*http.Request, error) {
+// NewGetBenzingaV1ConsensusRatingsTickerRequest generates requests for GetBenzingaV1ConsensusRatingsTicker
+func NewGetBenzingaV1ConsensusRatingsTickerRequest(server string, ticker string, params *GetBenzingaV1ConsensusRatingsTickerParams) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -21445,8 +20847,8 @@ func NewGetFuturesV1ProductsRequest(server string, params *GetFuturesV1ProductsP
 	return req, nil
 }
 
-// NewGetFuturesV1QuotesRequest generates requests for GetFuturesV1Quotes
-func NewGetFuturesV1QuotesRequest(server string, ticker string, params *GetFuturesV1QuotesParams) (*http.Request, error) {
+// NewGetFuturesV1QuotesTickerRequest generates requests for GetFuturesV1QuotesTicker
+func NewGetFuturesV1QuotesTickerRequest(server string, ticker string, params *GetFuturesV1QuotesTickerParams) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -22207,8 +21609,8 @@ func NewGetFuturesV1SnapshotRequest(server string, params *GetFuturesV1SnapshotP
 	return req, nil
 }
 
-// NewGetFuturesV1TradesRequest generates requests for GetFuturesV1Trades
-func NewGetFuturesV1TradesRequest(server string, ticker string, params *GetFuturesV1TradesParams) (*http.Request, error) {
+// NewGetFuturesV1TradesTickerRequest generates requests for GetFuturesV1TradesTicker
+func NewGetFuturesV1TradesTickerRequest(server string, ticker string, params *GetFuturesV1TradesTickerParams) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -22224,2436 +21626,6 @@ func NewGetFuturesV1TradesRequest(server string, ticker string, params *GetFutur
 	}
 
 	operationPath := fmt.Sprintf("/futures/v1/trades/%s", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Timestamp != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp", runtime.ParamLocationQuery, *params.Timestamp); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gte", runtime.ParamLocationQuery, *params.TimestampGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lt", runtime.ParamLocationQuery, *params.TimestampLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date", runtime.ParamLocationQuery, *params.SessionEndDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesAggregatesRequest generates requests for GetFuturesAggregates
-func NewGetFuturesAggregatesRequest(server string, ticker string, params *GetFuturesAggregatesParams) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "ticker", runtime.ParamLocationPath, ticker)
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/aggs/%s", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Resolution != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "resolution", runtime.ParamLocationQuery, *params.Resolution); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.WindowStart != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "window_start", runtime.ParamLocationQuery, *params.WindowStart); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.WindowStartGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "window_start.gte", runtime.ParamLocationQuery, *params.WindowStartGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.WindowStartGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "window_start.gt", runtime.ParamLocationQuery, *params.WindowStartGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.WindowStartLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "window_start.lte", runtime.ParamLocationQuery, *params.WindowStartLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.WindowStartLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "window_start.lt", runtime.ParamLocationQuery, *params.WindowStartLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXContractsRequest generates requests for GetFuturesVXContracts
-func NewGetFuturesVXContractsRequest(server string, params *GetFuturesVXContractsParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/contracts")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Date != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCode != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Ticker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gt", runtime.ParamLocationQuery, *params.TickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gte", runtime.ParamLocationQuery, *params.TickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lt", runtime.ParamLocationQuery, *params.TickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lte", runtime.ParamLocationQuery, *params.TickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Active != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "active", runtime.ParamLocationQuery, *params.Active); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Type != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TypeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type.any_of", runtime.ParamLocationQuery, *params.TypeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FirstTradeDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "first_trade_date", runtime.ParamLocationQuery, *params.FirstTradeDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FirstTradeDateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "first_trade_date.gt", runtime.ParamLocationQuery, *params.FirstTradeDateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FirstTradeDateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "first_trade_date.gte", runtime.ParamLocationQuery, *params.FirstTradeDateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FirstTradeDateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "first_trade_date.lt", runtime.ParamLocationQuery, *params.FirstTradeDateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FirstTradeDateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "first_trade_date.lte", runtime.ParamLocationQuery, *params.FirstTradeDateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.LastTradeDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_trade_date", runtime.ParamLocationQuery, *params.LastTradeDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.LastTradeDateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_trade_date.gt", runtime.ParamLocationQuery, *params.LastTradeDateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.LastTradeDateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_trade_date.gte", runtime.ParamLocationQuery, *params.LastTradeDateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.LastTradeDateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_trade_date.lt", runtime.ParamLocationQuery, *params.LastTradeDateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.LastTradeDateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_trade_date.lte", runtime.ParamLocationQuery, *params.LastTradeDateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXExchangesRequest generates requests for GetFuturesVXExchanges
-func NewGetFuturesVXExchangesRequest(server string, params *GetFuturesVXExchangesParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/exchanges")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXMarketStatusRequest generates requests for GetFuturesVXMarketStatus
-func NewGetFuturesVXMarketStatusRequest(server string, params *GetFuturesVXMarketStatusParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/market-status")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.ProductCode != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXProductsRequest generates requests for GetFuturesVXProducts
-func NewGetFuturesVXProductsRequest(server string, params *GetFuturesVXProductsParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/products")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Name != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name", runtime.ParamLocationQuery, *params.Name); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.NameAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.any_of", runtime.ParamLocationQuery, *params.NameAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.NameGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.gt", runtime.ParamLocationQuery, *params.NameGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.NameGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.gte", runtime.ParamLocationQuery, *params.NameGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.NameLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.lt", runtime.ParamLocationQuery, *params.NameLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.NameLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.lte", runtime.ParamLocationQuery, *params.NameLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCode != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Date != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenue != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue", runtime.ParamLocationQuery, *params.TradingVenue); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.any_of", runtime.ParamLocationQuery, *params.TradingVenueAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.gt", runtime.ParamLocationQuery, *params.TradingVenueGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.gte", runtime.ParamLocationQuery, *params.TradingVenueGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.lt", runtime.ParamLocationQuery, *params.TradingVenueLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.lte", runtime.ParamLocationQuery, *params.TradingVenueLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sector != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sector", runtime.ParamLocationQuery, *params.Sector); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SectorAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sector.any_of", runtime.ParamLocationQuery, *params.SectorAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SubSector != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sub_sector", runtime.ParamLocationQuery, *params.SubSector); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SubSectorAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sub_sector.any_of", runtime.ParamLocationQuery, *params.SubSectorAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.AssetClass != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_class", runtime.ParamLocationQuery, *params.AssetClass); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.AssetClassAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_class.any_of", runtime.ParamLocationQuery, *params.AssetClassAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.AssetSubClass != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_sub_class", runtime.ParamLocationQuery, *params.AssetSubClass); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.AssetSubClassAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_sub_class.any_of", runtime.ParamLocationQuery, *params.AssetSubClassAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Type != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TypeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type.any_of", runtime.ParamLocationQuery, *params.TypeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXQuotesRequest generates requests for GetFuturesVXQuotes
-func NewGetFuturesVXQuotesRequest(server string, ticker string, params *GetFuturesVXQuotesParams) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "ticker", runtime.ParamLocationPath, ticker)
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/quotes/%s", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Timestamp != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp", runtime.ParamLocationQuery, *params.Timestamp); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gte", runtime.ParamLocationQuery, *params.TimestampGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lt", runtime.ParamLocationQuery, *params.TimestampLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TimestampLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date", runtime.ParamLocationQuery, *params.SessionEndDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXSchedulesRequest generates requests for GetFuturesVXSchedules
-func NewGetFuturesVXSchedulesRequest(server string, params *GetFuturesVXSchedulesParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/schedules")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.ProductCode != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date", runtime.ParamLocationQuery, *params.SessionEndDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date.gt", runtime.ParamLocationQuery, *params.SessionEndDateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date.gte", runtime.ParamLocationQuery, *params.SessionEndDateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date.lt", runtime.ParamLocationQuery, *params.SessionEndDateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.SessionEndDateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date.lte", runtime.ParamLocationQuery, *params.SessionEndDateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenue != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue", runtime.ParamLocationQuery, *params.TradingVenue); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.any_of", runtime.ParamLocationQuery, *params.TradingVenueAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.gt", runtime.ParamLocationQuery, *params.TradingVenueGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.gte", runtime.ParamLocationQuery, *params.TradingVenueGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.lt", runtime.ParamLocationQuery, *params.TradingVenueLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TradingVenueLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.lte", runtime.ParamLocationQuery, *params.TradingVenueLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXSnapshotRequest generates requests for GetFuturesVXSnapshot
-func NewGetFuturesVXSnapshotRequest(server string, params *GetFuturesVXSnapshotParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/snapshot")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.ProductCode != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.ProductCodeLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Ticker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gt", runtime.ParamLocationQuery, *params.TickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gte", runtime.ParamLocationQuery, *params.TickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lt", runtime.ParamLocationQuery, *params.TickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.TickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lte", runtime.ParamLocationQuery, *params.TickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetFuturesVXTradesRequest generates requests for GetFuturesVXTrades
-func NewGetFuturesVXTradesRequest(server string, ticker string, params *GetFuturesVXTradesParams) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "ticker", runtime.ParamLocationPath, ticker)
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/futures/vX/trades/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -24830,6 +21802,462 @@ func NewGetOptionsV1ExchangesRequest(server string, params *GetOptionsV1Exchange
 		if params.Limit != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV3QuotesTickerRequest generates requests for GetOptionsV3QuotesTicker
+func NewGetOptionsV3QuotesTickerRequest(server string, ticker string, params *GetOptionsV3QuotesTickerParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "ticker", runtime.ParamLocationPath, ticker)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v3/quotes/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Timestamp != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp", runtime.ParamLocationQuery, *params.Timestamp); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gte", runtime.ParamLocationQuery, *params.TimestampGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lt", runtime.ParamLocationQuery, *params.TimestampLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV3TradesTickerRequest generates requests for GetOptionsV3TradesTicker
+func NewGetOptionsV3TradesTickerRequest(server string, ticker string, params *GetOptionsV3TradesTickerParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "ticker", runtime.ParamLocationPath, ticker)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v3/trades/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Timestamp != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp", runtime.ParamLocationQuery, *params.Timestamp); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gte", runtime.ParamLocationQuery, *params.TimestampGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lt", runtime.ParamLocationQuery, *params.TimestampLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksDevTradesTickerRequest generates requests for GetStocksDevTradesTicker
+func NewGetStocksDevTradesTickerRequest(server string, ticker string, params *GetStocksDevTradesTickerParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "ticker", runtime.ParamLocationPath, ticker)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/dev/trades/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.SipTimestamp != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sip_timestamp", runtime.ParamLocationQuery, *params.SipTimestamp); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SipTimestampGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sip_timestamp.gt", runtime.ParamLocationQuery, *params.SipTimestampGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SipTimestampGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sip_timestamp.gte", runtime.ParamLocationQuery, *params.SipTimestampGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SipTimestampLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sip_timestamp.lt", runtime.ParamLocationQuery, *params.SipTimestampLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SipTimestampLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sip_timestamp.lte", runtime.ParamLocationQuery, *params.SipTimestampLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -25247,6 +22675,712 @@ func NewGetStocksFilings10KVXSectionsRequest(server string, params *GetStocksFil
 		if params.PeriodEndLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_end.lte", runtime.ParamLocationQuery, *params.PeriodEndLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksFilings10KVX0SectionsRequest generates requests for GetStocksFilings10KVX0Sections
+func NewGetStocksFilings10KVX0SectionsRequest(server string, params *GetStocksFilings10KVX0SectionsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/filings/10-K/vX_0/sections")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Cik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik", runtime.ParamLocationQuery, *params.Cik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.any_of", runtime.ParamLocationQuery, *params.CikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.gt", runtime.ParamLocationQuery, *params.CikGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.gte", runtime.ParamLocationQuery, *params.CikGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.lt", runtime.ParamLocationQuery, *params.CikLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.lte", runtime.ParamLocationQuery, *params.CikLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Ticker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gt", runtime.ParamLocationQuery, *params.TickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gte", runtime.ParamLocationQuery, *params.TickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lt", runtime.ParamLocationQuery, *params.TickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lte", runtime.ParamLocationQuery, *params.TickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Section != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "section", runtime.ParamLocationQuery, *params.Section); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SectionAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "section.any_of", runtime.ParamLocationQuery, *params.SectionAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date", runtime.ParamLocationQuery, *params.FilingDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gt", runtime.ParamLocationQuery, *params.FilingDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gte", runtime.ParamLocationQuery, *params.FilingDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lt", runtime.ParamLocationQuery, *params.FilingDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PeriodEnd != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_end", runtime.ParamLocationQuery, *params.PeriodEnd); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PeriodEndGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_end.gt", runtime.ParamLocationQuery, *params.PeriodEndGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PeriodEndGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_end.gte", runtime.ParamLocationQuery, *params.PeriodEndGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PeriodEndLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_end.lt", runtime.ParamLocationQuery, *params.PeriodEndLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PeriodEndLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_end.lte", runtime.ParamLocationQuery, *params.PeriodEndLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksFilings8KVXDisclosuresRequest generates requests for GetStocksFilings8KVXDisclosures
+func NewGetStocksFilings8KVXDisclosuresRequest(server string, params *GetStocksFilings8KVXDisclosuresParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/filings/8-K/vX/disclosures")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Cik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik", runtime.ParamLocationQuery, *params.Cik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.CikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik.any_of", runtime.ParamLocationQuery, *params.CikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Tickers != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers", runtime.ParamLocationQuery, *params.Tickers); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAllOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.all_of", runtime.ParamLocationQuery, *params.TickersAllOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.any_of", runtime.ParamLocationQuery, *params.TickersAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date", runtime.ParamLocationQuery, *params.FilingDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.any_of", runtime.ParamLocationQuery, *params.FilingDateAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gt", runtime.ParamLocationQuery, *params.FilingDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gte", runtime.ParamLocationQuery, *params.FilingDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lt", runtime.ParamLocationQuery, *params.FilingDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.FilingDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategory != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category", runtime.ParamLocationQuery, *params.TertiaryCategory); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -26143,198 +24277,6 @@ func NewGetStocksFilingsVXForm3Request(server string, params *GetStocksFilingsVX
 
 		}
 
-		if params.MaxTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
 		if params.Limit != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
@@ -26611,198 +24553,6 @@ func NewGetStocksFilingsVXForm4Request(server string, params *GetStocksFilingsVX
 		if params.TransactionCode != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_code", runtime.ParamLocationQuery, *params.TransactionCode); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -28227,198 +25977,6 @@ func NewGetStocksFinancialsV1BalanceSheetsRequest(server string, params *GetStoc
 
 		}
 
-		if params.MaxTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
 		if params.Limit != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
@@ -29044,198 +26602,6 @@ func NewGetStocksFinancialsV1CashFlowStatementsRequest(server string, params *Ge
 
 		}
 
-		if params.MaxTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
 		if params.Limit != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
@@ -29848,198 +27214,6 @@ func NewGetStocksFinancialsV1IncomeStatementsRequest(server string, params *GetS
 		if params.TimeframeLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timeframe.lte", runtime.ParamLocationQuery, *params.TimeframeLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker", runtime.ParamLocationQuery, *params.MaxTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.any_of", runtime.ParamLocationQuery, *params.MaxTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gt", runtime.ParamLocationQuery, *params.MaxTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.gte", runtime.ParamLocationQuery, *params.MaxTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lt", runtime.ParamLocationQuery, *params.MaxTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MaxTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_ticker.lte", runtime.ParamLocationQuery, *params.MaxTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker", runtime.ParamLocationQuery, *params.MinTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.any_of", runtime.ParamLocationQuery, *params.MinTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gt", runtime.ParamLocationQuery, *params.MinTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.gte", runtime.ParamLocationQuery, *params.MinTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lt", runtime.ParamLocationQuery, *params.MinTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.MinTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_ticker.lte", runtime.ParamLocationQuery, *params.MinTickerLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -31897,6 +29071,455 @@ func NewGetStocksFinancialsV1RatiosRequest(server string, params *GetStocksFinan
 		if params.FreeCashFlowLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "free_cash_flow.lte", runtime.ParamLocationQuery, *params.FreeCashFlowLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksTaxonomiesVXDisclosuresRequest generates requests for GetStocksTaxonomiesVXDisclosures
+func NewGetStocksTaxonomiesVXDisclosuresRequest(server string, params *GetStocksTaxonomiesVXDisclosuresParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/taxonomies/vX/disclosures")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Taxonomy != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "taxonomy", runtime.ParamLocationQuery, *params.Taxonomy); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TaxonomyAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "taxonomy.any_of", runtime.ParamLocationQuery, *params.TaxonomyAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TaxonomyGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "taxonomy.gt", runtime.ParamLocationQuery, *params.TaxonomyGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TaxonomyGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "taxonomy.gte", runtime.ParamLocationQuery, *params.TaxonomyGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TaxonomyLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "taxonomy.lt", runtime.ParamLocationQuery, *params.TaxonomyLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TaxonomyLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "taxonomy.lte", runtime.ParamLocationQuery, *params.TaxonomyLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PrimaryCategory != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "primary_category", runtime.ParamLocationQuery, *params.PrimaryCategory); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PrimaryCategoryAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "primary_category.any_of", runtime.ParamLocationQuery, *params.PrimaryCategoryAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PrimaryCategoryGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "primary_category.gt", runtime.ParamLocationQuery, *params.PrimaryCategoryGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PrimaryCategoryGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "primary_category.gte", runtime.ParamLocationQuery, *params.PrimaryCategoryGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PrimaryCategoryLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "primary_category.lt", runtime.ParamLocationQuery, *params.PrimaryCategoryLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.PrimaryCategoryLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "primary_category.lte", runtime.ParamLocationQuery, *params.PrimaryCategoryLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SecondaryCategory != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "secondary_category", runtime.ParamLocationQuery, *params.SecondaryCategory); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SecondaryCategoryAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "secondary_category.any_of", runtime.ParamLocationQuery, *params.SecondaryCategoryAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SecondaryCategoryGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "secondary_category.gt", runtime.ParamLocationQuery, *params.SecondaryCategoryGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SecondaryCategoryGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "secondary_category.gte", runtime.ParamLocationQuery, *params.SecondaryCategoryGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SecondaryCategoryLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "secondary_category.lt", runtime.ParamLocationQuery, *params.SecondaryCategoryLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SecondaryCategoryLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "secondary_category.lte", runtime.ParamLocationQuery, *params.SecondaryCategoryLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategory != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category", runtime.ParamLocationQuery, *params.TertiaryCategory); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategoryAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category.any_of", runtime.ParamLocationQuery, *params.TertiaryCategoryAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategoryGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category.gt", runtime.ParamLocationQuery, *params.TertiaryCategoryGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategoryGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category.gte", runtime.ParamLocationQuery, *params.TertiaryCategoryGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategoryLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category.lt", runtime.ParamLocationQuery, *params.TertiaryCategoryLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TertiaryCategoryLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tertiary_category.lte", runtime.ParamLocationQuery, *params.TertiaryCategoryLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -47083,8 +44706,8 @@ type ClientWithResponsesInterface interface {
 	// GetBenzingaV1BullsBearsSayWithResponse request
 	GetBenzingaV1BullsBearsSayWithResponse(ctx context.Context, params *GetBenzingaV1BullsBearsSayParams, reqEditors ...RequestEditorFn) (*GetBenzingaV1BullsBearsSayResponse, error)
 
-	// GetBenzingaV1ConsensusRatingsWithResponse request
-	GetBenzingaV1ConsensusRatingsWithResponse(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsParams, reqEditors ...RequestEditorFn) (*GetBenzingaV1ConsensusRatingsResponse, error)
+	// GetBenzingaV1ConsensusRatingsTickerWithResponse request
+	GetBenzingaV1ConsensusRatingsTickerWithResponse(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsTickerParams, reqEditors ...RequestEditorFn) (*GetBenzingaV1ConsensusRatingsTickerResponse, error)
 
 	// GetBenzingaV1EarningsWithResponse request
 	GetBenzingaV1EarningsWithResponse(ctx context.Context, params *GetBenzingaV1EarningsParams, reqEditors ...RequestEditorFn) (*GetBenzingaV1EarningsResponse, error)
@@ -47155,8 +44778,8 @@ type ClientWithResponsesInterface interface {
 	// GetFuturesV1ProductsWithResponse request
 	GetFuturesV1ProductsWithResponse(ctx context.Context, params *GetFuturesV1ProductsParams, reqEditors ...RequestEditorFn) (*GetFuturesV1ProductsResponse, error)
 
-	// GetFuturesV1QuotesWithResponse request
-	GetFuturesV1QuotesWithResponse(ctx context.Context, ticker string, params *GetFuturesV1QuotesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1QuotesResponse, error)
+	// GetFuturesV1QuotesTickerWithResponse request
+	GetFuturesV1QuotesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1QuotesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1QuotesTickerResponse, error)
 
 	// GetFuturesV1SchedulesWithResponse request
 	GetFuturesV1SchedulesWithResponse(ctx context.Context, params *GetFuturesV1SchedulesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1SchedulesResponse, error)
@@ -47164,41 +44787,29 @@ type ClientWithResponsesInterface interface {
 	// GetFuturesV1SnapshotWithResponse request
 	GetFuturesV1SnapshotWithResponse(ctx context.Context, params *GetFuturesV1SnapshotParams, reqEditors ...RequestEditorFn) (*GetFuturesV1SnapshotResponse, error)
 
-	// GetFuturesV1TradesWithResponse request
-	GetFuturesV1TradesWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesResponse, error)
-
-	// GetFuturesAggregatesWithResponse request
-	GetFuturesAggregatesWithResponse(ctx context.Context, ticker string, params *GetFuturesAggregatesParams, reqEditors ...RequestEditorFn) (*GetFuturesAggregatesResponse, error)
-
-	// GetFuturesVXContractsWithResponse request
-	GetFuturesVXContractsWithResponse(ctx context.Context, params *GetFuturesVXContractsParams, reqEditors ...RequestEditorFn) (*GetFuturesVXContractsResponse, error)
-
-	// GetFuturesVXExchangesWithResponse request
-	GetFuturesVXExchangesWithResponse(ctx context.Context, params *GetFuturesVXExchangesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXExchangesResponse, error)
-
-	// GetFuturesVXMarketStatusWithResponse request
-	GetFuturesVXMarketStatusWithResponse(ctx context.Context, params *GetFuturesVXMarketStatusParams, reqEditors ...RequestEditorFn) (*GetFuturesVXMarketStatusResponse, error)
-
-	// GetFuturesVXProductsWithResponse request
-	GetFuturesVXProductsWithResponse(ctx context.Context, params *GetFuturesVXProductsParams, reqEditors ...RequestEditorFn) (*GetFuturesVXProductsResponse, error)
-
-	// GetFuturesVXQuotesWithResponse request
-	GetFuturesVXQuotesWithResponse(ctx context.Context, ticker string, params *GetFuturesVXQuotesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXQuotesResponse, error)
-
-	// GetFuturesVXSchedulesWithResponse request
-	GetFuturesVXSchedulesWithResponse(ctx context.Context, params *GetFuturesVXSchedulesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXSchedulesResponse, error)
-
-	// GetFuturesVXSnapshotWithResponse request
-	GetFuturesVXSnapshotWithResponse(ctx context.Context, params *GetFuturesVXSnapshotParams, reqEditors ...RequestEditorFn) (*GetFuturesVXSnapshotResponse, error)
-
-	// GetFuturesVXTradesWithResponse request
-	GetFuturesVXTradesWithResponse(ctx context.Context, ticker string, params *GetFuturesVXTradesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXTradesResponse, error)
+	// GetFuturesV1TradesTickerWithResponse request
+	GetFuturesV1TradesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesTickerResponse, error)
 
 	// GetOptionsV1ExchangesWithResponse request
 	GetOptionsV1ExchangesWithResponse(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1ExchangesResponse, error)
 
+	// GetOptionsV3QuotesTickerWithResponse request
+	GetOptionsV3QuotesTickerWithResponse(ctx context.Context, ticker string, params *GetOptionsV3QuotesTickerParams, reqEditors ...RequestEditorFn) (*GetOptionsV3QuotesTickerResponse, error)
+
+	// GetOptionsV3TradesTickerWithResponse request
+	GetOptionsV3TradesTickerWithResponse(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*GetOptionsV3TradesTickerResponse, error)
+
+	// GetStocksDevTradesTickerWithResponse request
+	GetStocksDevTradesTickerWithResponse(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*GetStocksDevTradesTickerResponse, error)
+
 	// GetStocksFilings10KVXSectionsWithResponse request
 	GetStocksFilings10KVXSectionsWithResponse(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*GetStocksFilings10KVXSectionsResponse, error)
+
+	// GetStocksFilings10KVX0SectionsWithResponse request
+	GetStocksFilings10KVX0SectionsWithResponse(ctx context.Context, params *GetStocksFilings10KVX0SectionsParams, reqEditors ...RequestEditorFn) (*GetStocksFilings10KVX0SectionsResponse, error)
+
+	// GetStocksFilings8KVXDisclosuresWithResponse request
+	GetStocksFilings8KVXDisclosuresWithResponse(ctx context.Context, params *GetStocksFilings8KVXDisclosuresParams, reqEditors ...RequestEditorFn) (*GetStocksFilings8KVXDisclosuresResponse, error)
 
 	// GetStocksFilings8KVXTextWithResponse request
 	GetStocksFilings8KVXTextWithResponse(ctx context.Context, params *GetStocksFilings8KVXTextParams, reqEditors ...RequestEditorFn) (*GetStocksFilings8KVXTextResponse, error)
@@ -47229,6 +44840,9 @@ type ClientWithResponsesInterface interface {
 
 	// GetStocksFinancialsV1RatiosWithResponse request
 	GetStocksFinancialsV1RatiosWithResponse(ctx context.Context, params *GetStocksFinancialsV1RatiosParams, reqEditors ...RequestEditorFn) (*GetStocksFinancialsV1RatiosResponse, error)
+
+	// GetStocksTaxonomiesVXDisclosuresWithResponse request
+	GetStocksTaxonomiesVXDisclosuresWithResponse(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*GetStocksTaxonomiesVXDisclosuresResponse, error)
 
 	// GetStocksTaxonomiesVXRiskFactorsWithResponse request
 	GetStocksTaxonomiesVXRiskFactorsWithResponse(ctx context.Context, params *GetStocksTaxonomiesVXRiskFactorsParams, reqEditors ...RequestEditorFn) (*GetStocksTaxonomiesVXRiskFactorsResponse, error)
@@ -47522,10 +45136,10 @@ type GetBenzingaV1AnalystInsightsResponse struct {
 
 		// Results The results for this request.
 		Results []struct {
-			// BenzingaFirmId The identifer used by Benzinga for the firm record.
+			// BenzingaFirmId The identifier used by Benzinga for the firm record.
 			BenzingaFirmId *string `json:"benzinga_firm_id,omitempty"`
 
-			// BenzingaId The identifer used by Benzinga for this record.
+			// BenzingaId The identifier used by Benzinga for this record.
 			BenzingaId *string `json:"benzinga_id,omitempty"`
 
 			// BenzingaRatingId The identifier used by Benzinga for the rating record.
@@ -47732,7 +45346,7 @@ func (r GetBenzingaV1BullsBearsSayResponse) StatusCode() int {
 	return 0
 }
 
-type GetBenzingaV1ConsensusRatingsResponse struct {
+type GetBenzingaV1ConsensusRatingsTickerResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *struct {
@@ -47785,7 +45399,7 @@ type GetBenzingaV1ConsensusRatingsResponse struct {
 		} `json:"results"`
 
 		// Status The status of this request's response.
-		Status GetBenzingaV1ConsensusRatings200Status `json:"status"`
+		Status GetBenzingaV1ConsensusRatingsTicker200Status `json:"status"`
 	}
 	JSON400 *struct {
 		// Error A message describing the source of the error.
@@ -47795,14 +45409,14 @@ type GetBenzingaV1ConsensusRatingsResponse struct {
 		RequestId string `json:"request_id"`
 
 		// Status The status of this request's response.
-		Status GetBenzingaV1ConsensusRatings400Status `json:"status"`
+		Status GetBenzingaV1ConsensusRatingsTicker400Status `json:"status"`
 	}
 }
-type GetBenzingaV1ConsensusRatings200Status string
-type GetBenzingaV1ConsensusRatings400Status string
+type GetBenzingaV1ConsensusRatingsTicker200Status string
+type GetBenzingaV1ConsensusRatingsTicker400Status string
 
 // Status returns HTTPResponse.Status
-func (r GetBenzingaV1ConsensusRatingsResponse) Status() string {
+func (r GetBenzingaV1ConsensusRatingsTickerResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -47810,7 +45424,7 @@ func (r GetBenzingaV1ConsensusRatingsResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetBenzingaV1ConsensusRatingsResponse) StatusCode() int {
+func (r GetBenzingaV1ConsensusRatingsTickerResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -47835,7 +45449,7 @@ type GetBenzingaV1EarningsResponse struct {
 			// ActualRevenue The actual revenue reported by the company for the given fiscal period.
 			ActualRevenue *float64 `json:"actual_revenue,omitempty"`
 
-			// BenzingaId The identifer used by Benzinga for this record.
+			// BenzingaId The identifier used by Benzinga for this record.
 			BenzingaId *string `json:"benzinga_id,omitempty"`
 
 			// CompanyName The name of the company releasing earnings.
@@ -47947,7 +45561,7 @@ type GetBenzingaV1FirmsResponse struct {
 
 		// Results The results for this request.
 		Results []struct {
-			// BenzingaId The identifer used by Benzinga for this record.
+			// BenzingaId The identifier used by Benzinga for this record.
 			BenzingaId *string `json:"benzinga_id,omitempty"`
 
 			// Currency Primary currency used by the financial firm, with some entries having null values.
@@ -48036,7 +45650,7 @@ type GetBenzingaV1GuidanceResponse struct {
 			Importance *int64 `json:"importance,omitempty"`
 
 			// LastUpdated The timestamp (formatted as an ISO 8601 timestamp) when the record was last updated in the system.
-			LastUpdated *string `json:"last_updated,omitempty"`
+			LastUpdated *time.Time `json:"last_updated,omitempty"`
 
 			// MaxEpsGuidance The highest EPS value the company expects for the fiscal period if a range was provided.
 			MaxEpsGuidance *float64 `json:"max_eps_guidance,omitempty"`
@@ -48132,16 +45746,16 @@ type GetBenzingaV1RatingsResponse struct {
 			// Analyst The name of the individual analyst who issued the rating.
 			Analyst *string `json:"analyst,omitempty"`
 
-			// BenzingaAnalystId The identifer used by Benzinga for this analyst.
+			// BenzingaAnalystId The identifier used by Benzinga for this analyst.
 			BenzingaAnalystId *string `json:"benzinga_analyst_id,omitempty"`
 
 			// BenzingaCalendarUrl A link to the Benzinga calendar page for this ticker
 			BenzingaCalendarUrl *string `json:"benzinga_calendar_url,omitempty"`
 
-			// BenzingaFirmId The identifer used by Benzinga for this firm.
+			// BenzingaFirmId The identifier used by Benzinga for this firm.
 			BenzingaFirmId *string `json:"benzinga_firm_id,omitempty"`
 
-			// BenzingaId The identifer used by Benzinga for this record.
+			// BenzingaId The identifier used by Benzinga for this record.
 			BenzingaId *string `json:"benzinga_id,omitempty"`
 
 			// BenzingaNewsUrl A link to the Benzinga articles page for this ticker
@@ -48247,7 +45861,7 @@ type GetBenzingaV2NewsResponse struct {
 			// Author The name of the journalist or entity that authored the news article.
 			Author string `json:"author"`
 
-			// BenzingaId The identifer used by Benzinga for this record.
+			// BenzingaId The identifier used by Benzinga for this record.
 			BenzingaId int64 `json:"benzinga_id"`
 
 			// Body The full text content of the news article.
@@ -49992,7 +47606,7 @@ type GetFuturesV1ProductsResponse struct {
 			UnitOfMeasure *string `json:"unit_of_measure,omitempty"`
 
 			// UnitOfMeasureQty The quantity of the unit of measure for this product.
-			UnitOfMeasureQty *float64 `json:"unit_of_measure_qty,omitempty"`
+			UnitOfMeasureQty *float32 `json:"unit_of_measure_qty,omitempty"`
 		} `json:"results"`
 
 		// Status The status of this request's response.
@@ -50028,7 +47642,7 @@ func (r GetFuturesV1ProductsResponse) StatusCode() int {
 	return 0
 }
 
-type GetFuturesV1QuotesResponse struct {
+type GetFuturesV1QuotesTickerResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *struct {
@@ -50078,7 +47692,7 @@ type GetFuturesV1QuotesResponse struct {
 		} `json:"results"`
 
 		// Status The status of this request's response.
-		Status GetFuturesV1Quotes200Status `json:"status"`
+		Status GetFuturesV1QuotesTicker200Status `json:"status"`
 	}
 	JSON400 *struct {
 		// Error A message describing the source of the error.
@@ -50088,14 +47702,14 @@ type GetFuturesV1QuotesResponse struct {
 		RequestId string `json:"request_id"`
 
 		// Status The status of this request's response.
-		Status GetFuturesV1Quotes400Status `json:"status"`
+		Status GetFuturesV1QuotesTicker400Status `json:"status"`
 	}
 }
-type GetFuturesV1Quotes200Status string
-type GetFuturesV1Quotes400Status string
+type GetFuturesV1QuotesTicker200Status string
+type GetFuturesV1QuotesTicker400Status string
 
 // Status returns HTTPResponse.Status
-func (r GetFuturesV1QuotesResponse) Status() string {
+func (r GetFuturesV1QuotesTickerResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -50103,7 +47717,7 @@ func (r GetFuturesV1QuotesResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesV1QuotesResponse) StatusCode() int {
+func (r GetFuturesV1QuotesTickerResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -50135,7 +47749,7 @@ type GetFuturesV1SchedulesResponse struct {
 			SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
 
 			// Timestamp The timestamp for the given market event.
-			Timestamp *string `json:"timestamp,omitempty"`
+			Timestamp *time.Time `json:"timestamp,omitempty"`
 
 			// TradingVenue The trading venue (MIC) for the exchange on which this schedule's product trades.
 			TradingVenue *string `json:"trading_venue,omitempty"`
@@ -50316,7 +47930,7 @@ func (r GetFuturesV1SnapshotResponse) StatusCode() int {
 	return 0
 }
 
-type GetFuturesV1TradesResponse struct {
+type GetFuturesV1TradesTickerResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *struct {
@@ -50354,7 +47968,7 @@ type GetFuturesV1TradesResponse struct {
 		} `json:"results"`
 
 		// Status The status of this request's response.
-		Status GetFuturesV1Trades200Status `json:"status"`
+		Status GetFuturesV1TradesTicker200Status `json:"status"`
 	}
 	JSON400 *struct {
 		// Error A message describing the source of the error.
@@ -50364,14 +47978,14 @@ type GetFuturesV1TradesResponse struct {
 		RequestId string `json:"request_id"`
 
 		// Status The status of this request's response.
-		Status GetFuturesV1Trades400Status `json:"status"`
+		Status GetFuturesV1TradesTicker400Status `json:"status"`
 	}
 }
-type GetFuturesV1Trades200Status string
-type GetFuturesV1Trades400Status string
+type GetFuturesV1TradesTicker200Status string
+type GetFuturesV1TradesTicker400Status string
 
 // Status returns HTTPResponse.Status
-func (r GetFuturesV1TradesResponse) Status() string {
+func (r GetFuturesV1TradesTickerResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -50379,755 +47993,7 @@ func (r GetFuturesV1TradesResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesV1TradesResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesAggregatesResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, the URL to the next page of results.
-		NextUrl *string `json:"next_url,omitempty"`
-		Results []struct {
-			// Close The last price within the timeframe.
-			Close float64 `json:"close"`
-
-			// DollarVolume The total dollar volume of the transactions that occurred within the timeframe.
-			DollarVolume float64 `json:"dollar_volume"`
-
-			// High The highest price within the timeframe.
-			High float64 `json:"high"`
-
-			// Low The lowest price within the timeframe.
-			Low float64 `json:"low"`
-
-			// Open The opening price within the timeframe.
-			Open float64 `json:"open"`
-
-			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-			SessionEndDate string `json:"session_end_date"`
-
-			// SettlementPrice The price the contract would have cost to settle for this session.
-			SettlementPrice *float64 `json:"settlement_price,omitempty"`
-
-			// Ticker The ticker for the contract.
-			Ticker string `json:"ticker"`
-
-			// Transactions The number of transactions that occurred within the timeframe.
-			Transactions int64 `json:"transactions"`
-
-			// Volume The number of contracts that traded within the timeframe.
-			Volume int64 `json:"volume"`
-
-			// WindowStart The timestamp of the beginning of the candlestick’s aggregation window.
-			WindowStart int64 `json:"window_start"`
-		} `json:"results"`
-
-		// Status The status of the response.
-		Status string `json:"status"`
-	}
-}
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesAggregatesResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesAggregatesResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXContractsResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-			Active bool `json:"active"`
-
-			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
-			Date openapi_types.Date `json:"date"`
-
-			// DaysToMaturity The number of calendar days between the 'date' and the contract's final settlement date.
-			DaysToMaturity *int64 `json:"days_to_maturity,omitempty"`
-
-			// FirstTradeDate The first day on which the contract was tradeable.
-			FirstTradeDate *openapi_types.Date `json:"first_trade_date,omitempty"`
-
-			// GroupCode An identifier used to identify logical groups of products. The group_code is only populated for contracts listed for trading on CME Globex.
-			GroupCode *string `json:"group_code,omitempty"`
-
-			// LastTradeDate The last day on which the contract was tradeable.
-			LastTradeDate *openapi_types.Date `json:"last_trade_date,omitempty"`
-
-			// MaxOrderQuantity The maximum order quantity.
-			MaxOrderQuantity *int64 `json:"max_order_quantity,omitempty"`
-
-			// MinOrderQuantity The minimum order quantity.
-			MinOrderQuantity *int64 `json:"min_order_quantity,omitempty"`
-
-			// Name The name of this contract.
-			Name *string `json:"name,omitempty"`
-
-			// ProductCode The identifier for the contract's product.
-			ProductCode *string `json:"product_code,omitempty"`
-
-			// SettlementDate The date on which this contract settles.
-			SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
-
-			// SettlementTickSize The tick size for settlement.
-			SettlementTickSize *float64 `json:"settlement_tick_size,omitempty"`
-
-			// SpreadTickSize The tick size for spreads.
-			SpreadTickSize *float64 `json:"spread_tick_size,omitempty"`
-
-			// Ticker The ticker for the contract.
-			Ticker *string `json:"ticker,omitempty"`
-
-			// TradeTickSize The tick size for trades.
-			TradeTickSize *float64 `json:"trade_tick_size,omitempty"`
-
-			// TradingVenue The trading venue (MIC) for the exchange on which this contract trades.
-			TradingVenue *string `json:"trading_venue,omitempty"`
-
-			// Type The type of contract, one of 'single' or 'combo'. Leaving this filter blank will query for contracts where type is 'single', 'combo' or empty. This field only exists on contracts as of 2025-03-12 and later. It will be null when date < 2025-03-12.
-			Type *string `json:"type,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXContracts200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXContracts400Status `json:"status"`
-	}
-}
-type GetFuturesVXContracts200Status string
-type GetFuturesVXContracts400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXContractsResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXContractsResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXExchangesResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// Acronym Well-known acronym for the exchange (e.g., 'CME', 'NYMEX', 'CBOT', 'COMEX').
-			Acronym *string `json:"acronym,omitempty"`
-
-			// Id Numeric identifier for the futures exchange or trading venue.
-			Id string `json:"id"`
-
-			// Locale Geographic location code where the exchange operates.
-			Locale *string `json:"locale,omitempty"`
-
-			// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code for the futures market.
-			Mic *string `json:"mic,omitempty"`
-
-			// Name Full official name of the futures exchange (e.g., 'Chicago Mercantile Exchange', 'New York Mercantile Exchange').
-			Name string `json:"name"`
-
-			// OperatingMic Operating Market Identifier Code for the futures exchange.
-			OperatingMic *string `json:"operating_mic,omitempty"`
-
-			// Type Type of venue - 'exchange' for futures exchanges and derivatives trading platforms.
-			Type string `json:"type"`
-
-			// Url Official website URL of the futures exchange organization.
-			Url *string `json:"url,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXExchanges200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXExchanges400Status `json:"status"`
-	}
-}
-type GetFuturesVXExchanges200Status string
-type GetFuturesVXExchanges400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXExchangesResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXExchangesResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXMarketStatusResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// MarketEvent The current status of the market for the product.
-			MarketEvent *string `json:"market_event,omitempty"`
-
-			// Name The name of the futures product.
-			Name *string `json:"name,omitempty"`
-
-			// ProductCode The product code of the futures contracts for which you want statuses.
-			ProductCode *string `json:"product_code,omitempty"`
-
-			// SessionEndDate The trading date for the current session.
-			SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
-
-			// Timestamp The timestamp for the given market event.
-			Timestamp *string `json:"timestamp,omitempty"`
-
-			// TradingVenue The trading venue (MIC) for the exchange on which the corresponding product trades.
-			TradingVenue *string `json:"trading_venue,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXMarketStatus200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXMarketStatus400Status `json:"status"`
-	}
-}
-type GetFuturesVXMarketStatus200Status string
-type GetFuturesVXMarketStatus400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXMarketStatusResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXMarketStatusResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXProductsResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// AssetClass The asset class to which the product belongs.
-			AssetClass *string `json:"asset_class,omitempty"`
-
-			// AssetSubClass The asset sub-class to which the product belongs.
-			AssetSubClass *string `json:"asset_sub_class,omitempty"`
-
-			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
-			Date openapi_types.Date `json:"date"`
-
-			// LastUpdated The date and time at which this product was last updated.
-			LastUpdated *time.Time `json:"last_updated,omitempty"`
-
-			// Name The full name of the product.
-			Name *string `json:"name,omitempty"`
-
-			// PriceQuotation The quoted price for this product.
-			PriceQuotation *string `json:"price_quotation,omitempty"`
-
-			// ProductCode The identifier for the product.
-			ProductCode *string `json:"product_code,omitempty"`
-
-			// Sector The sector to which the product belongs.
-			Sector *string `json:"sector,omitempty"`
-
-			// SettlementCurrencyCode The currency in which this product settles.
-			SettlementCurrencyCode *string `json:"settlement_currency_code,omitempty"`
-
-			// SettlementMethod The method of settlement for this product (Financially Settled or Deliverable).
-			SettlementMethod *string `json:"settlement_method,omitempty"`
-
-			// SettlementType The type of settlement for this product.
-			SettlementType *string `json:"settlement_type,omitempty"`
-
-			// SubSector The sub-sector to which the product belongs.
-			SubSector *string `json:"sub_sector,omitempty"`
-
-			// TradeCurrencyCode The currency in which this product's contracts trade.
-			TradeCurrencyCode *string `json:"trade_currency_code,omitempty"`
-
-			// TradingVenue The trading venue (MIC) for the exchange on which this product's contracts trade.
-			TradingVenue *string `json:"trading_venue,omitempty"`
-
-			// Type The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.
-			Type *string `json:"type,omitempty"`
-
-			// UnitOfMeasure The unit of measure for this product.
-			UnitOfMeasure *string `json:"unit_of_measure,omitempty"`
-
-			// UnitOfMeasureQty The quantity of the unit of measure for this product.
-			UnitOfMeasureQty *float64 `json:"unit_of_measure_qty,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXProducts200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXProducts400Status `json:"status"`
-	}
-}
-type GetFuturesVXProducts200Status string
-type GetFuturesVXProducts400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXProductsResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXProductsResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXQuotesResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// AskPrice The ask price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-			AskPrice *float64 `json:"ask_price,omitempty"`
-
-			// AskSize The quote size represents the number of futures contracts available at the given ask price.
-			AskSize *int32 `json:"ask_size,omitempty"`
-
-			// AskTimestamp The time when the ask price was submitted to the exchange.
-			AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
-
-			// BidPrice The bid price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-			BidPrice *float64 `json:"bid_price,omitempty"`
-
-			// BidSize The quote size represents the number of futures contracts available at the given bid price.
-			BidSize *int32 `json:"bid_size,omitempty"`
-
-			// BidTimestamp The time when the bid price was submitted to the exchange.
-			BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
-
-			// Channel The CME multicast channel this event was sourced from.
-			Channel int32 `json:"channel"`
-
-			// ReportSequence The reporting sequence number.
-			ReportSequence int64 `json:"report_sequence"`
-
-			// SequenceNumber The unique sequence number assigned to this quote by the exchange.
-			SequenceNumber int64 `json:"sequence_number"`
-
-			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-			SessionEndDate *string `json:"session_end_date,omitempty"`
-
-			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-			Ticker string `json:"ticker"`
-
-			// Timestamp The time when the quote was generated at the exchange to nanosecond precision.
-			Timestamp int64 `json:"timestamp"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXQuotes200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXQuotes400Status `json:"status"`
-	}
-}
-type GetFuturesVXQuotes200Status string
-type GetFuturesVXQuotes400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXQuotesResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXQuotesResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXSchedulesResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// Event The type of session on the given trading date.
-			Event *string `json:"event,omitempty"`
-
-			// ProductCode The product code of the futures contract.
-			ProductCode *string `json:"product_code,omitempty"`
-
-			// ProductName The name of the futures product to which this schedule applies.
-			ProductName *string `json:"product_name,omitempty"`
-
-			// SessionEndDate The session end date for the schedules (also known as the trading date). This field is optional and can be used to filter results by a specific session end date. If left blank, schedules for all dates will be returned. Note that trading sessions end at 5 PM Central Time, so a session ending at 5 PM CT on January 1st would have a session_end_date of 2025-01-01.
-			SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
-
-			// Timestamp The timestamp for the given market event.
-			Timestamp *string `json:"timestamp,omitempty"`
-
-			// TradingVenue The trading venue (MIC) for the exchange on which this schedule's product trades.
-			TradingVenue *string `json:"trading_venue,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXSchedules200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXSchedules400Status `json:"status"`
-	}
-}
-type GetFuturesVXSchedules200Status string
-type GetFuturesVXSchedules400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXSchedulesResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXSchedulesResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXSnapshotResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			Details *struct {
-				ProductCode *string `json:"product_code,omitempty"`
-
-				// SettlementDate The day that this contract is settled.
-				SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
-				Ticker         *string             `json:"ticker,omitempty"`
-			} `json:"details,omitempty"`
-			LastMinute *struct {
-				// Close The price at the end of the minute bar.
-				Close *float64 `json:"close,omitempty"`
-
-				// High The highest price reached in the minute bar.
-				High *float64 `json:"high,omitempty"`
-
-				// LastUpdated The timestamp indicating the most recent update to the minute bar.
-				LastUpdated *int64 `json:"last_updated,omitempty"`
-
-				// Low The lowest price reached in the minute bar.
-				Low *float64 `json:"low,omitempty"`
-
-				// Open The opening price at the start of the minute bar.
-				Open *float64 `json:"open,omitempty"`
-
-				// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
-				Timeframe *string `json:"timeframe,omitempty"`
-
-				// Volume The number of contracts traded in the minute bar.
-				Volume *int64 `json:"volume,omitempty"`
-			} `json:"last_minute,omitempty"`
-			LastQuote *struct {
-				// Ask The lowest price a seller is willing to accept.
-				Ask *float64 `json:"ask,omitempty"`
-
-				// AskSize The number of contracts available at the ask price.
-				AskSize *int32 `json:"ask_size,omitempty"`
-
-				// AskTimestamp The time when the best ask price was last updated.
-				AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
-
-				// Bid The highest price a buyer is willing to pay.
-				Bid *float64 `json:"bid,omitempty"`
-
-				// BidSize The number of contracts available at the bid price.
-				BidSize *int32 `json:"bid_size,omitempty"`
-
-				// BidTimestamp The time when the best bid price was last updated.
-				BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
-
-				// LastUpdated The time when the quote was generated at the exchange to nanosecond precision.
-				LastUpdated *int64 `json:"last_updated,omitempty"`
-
-				// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
-				Timeframe *string `json:"timeframe,omitempty"`
-			} `json:"last_quote,omitempty"`
-			LastTrade *struct {
-				// LastUpdated The time when the trade was generated at the exchange to nanosecond precision.
-				LastUpdated *int64 `json:"last_updated,omitempty"`
-
-				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
-
-				// Size The total number of contracts exchanged between buyers and sellers on a given trade.
-				Size *int64 `json:"size,omitempty"`
-
-				// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
-				Timeframe *string `json:"timeframe,omitempty"`
-			} `json:"last_trade,omitempty"`
-			Session *struct {
-				// Change The change in price during this session.
-				Change *float64 `json:"change,omitempty"`
-
-				// ChangePercent The percentage change in price during this session.
-				ChangePercent *float64 `json:"change_percent,omitempty"`
-
-				// Close The price at the end of the session.
-				Close *float64 `json:"close,omitempty"`
-
-				// High The highest price reached in the session.
-				High *float64 `json:"high,omitempty"`
-
-				// Low The lowest price reached in the session.
-				Low *float64 `json:"low,omitempty"`
-
-				// Open The opening price at the start of the session.
-				Open *float64 `json:"open,omitempty"`
-
-				// PreviousSettlement The settlement price of the previous session.
-				PreviousSettlement *float64 `json:"previous_settlement,omitempty"`
-
-				// SettlementPrice The final settlement price at the end of the session.
-				SettlementPrice *float64 `json:"settlement_price,omitempty"`
-
-				// Volume The number of contracts traded in the session.
-				Volume *int64 `json:"volume,omitempty"`
-			} `json:"session,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXSnapshot200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXSnapshot400Status `json:"status"`
-	}
-}
-type GetFuturesVXSnapshot200Status string
-type GetFuturesVXSnapshot400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXSnapshotResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXSnapshotResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetFuturesVXTradesResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// Channel The CME multicast channel this event was sourced from.
-			Channel int32 `json:"channel"`
-
-			// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-			Price *float64 `json:"price,omitempty"`
-
-			// ReportSequence The reporting sequence number.
-			ReportSequence int64 `json:"report_sequence"`
-
-			// SequenceNumber The unique sequence number assigned to this trade.
-			SequenceNumber int64 `json:"sequence_number"`
-
-			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-			SessionEndDate *string `json:"session_end_date,omitempty"`
-
-			// Size The total number of contracts exchanged between buyers and sellers on a given trade.
-			Size *int64 `json:"size,omitempty"`
-
-			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-			Ticker string `json:"ticker"`
-
-			// Timestamp The time when the trade was generated at the exchange to nanosecond precision.
-			Timestamp int64 `json:"timestamp"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXTrades200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetFuturesVXTrades400Status `json:"status"`
-	}
-}
-type GetFuturesVXTrades200Status string
-type GetFuturesVXTrades400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetFuturesVXTradesResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetFuturesVXTradesResponse) StatusCode() int {
+func (r GetFuturesV1TradesTickerResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -51207,6 +48073,247 @@ func (r GetOptionsV1ExchangesResponse) StatusCode() int {
 	return 0
 }
 
+type GetOptionsV3QuotesTickerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// AskExchange The exchange ID reporting the ask side of the quote.
+			AskExchange int32 `json:"ask_exchange"`
+
+			// AskPrice The ask price.
+			AskPrice float64 `json:"ask_price"`
+
+			// AskSize The size available at the ask price.
+			AskSize int64 `json:"ask_size"`
+
+			// BidExchange The exchange ID reporting the bid side of the quote.
+			BidExchange int32 `json:"bid_exchange"`
+
+			// BidPrice The bid price.
+			BidPrice float64 `json:"bid_price"`
+
+			// BidSize The size available at the bid price.
+			BidSize int64 `json:"bid_size"`
+
+			// SequenceNumber The sequence number represents the sequence in which quote events happened. These are increasing and unique per ticker symbol, but will not always be sequential. Values reset after each trading session/day.
+			SequenceNumber int64 `json:"sequence_number"`
+
+			// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this quote from the exchange which produced it.
+			SipTimestamp int64 `json:"sip_timestamp"`
+
+			// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+			Ticker string `json:"ticker"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV3QuotesTicker200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV3QuotesTicker400Status `json:"status"`
+	}
+}
+type GetOptionsV3QuotesTicker200Status string
+type GetOptionsV3QuotesTicker400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV3QuotesTickerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV3QuotesTickerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsV3TradesTickerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Conditions A list of condition codes.
+			Conditions []int32 `json:"conditions"`
+
+			// Exchange The exchange ID.
+			Exchange int32 `json:"exchange"`
+
+			// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
+			ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
+
+			// Price The price of the trade. This is the actual dollar value per whole contract of this trade.
+			Price float64 `json:"price"`
+
+			// SequenceNumber The sequence number represents the sequence in which trade events happened. These are increasing and unique per ticker symbol, but will not always be sequential. Values reset after each trading session/day.
+			SequenceNumber int64 `json:"sequence_number"`
+
+			// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
+			SipTimestamp int64 `json:"sip_timestamp"`
+
+			// Size The size of a trade (also known as volume).
+			Size int64 `json:"size"`
+
+			// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+			Ticker string `json:"ticker"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV3TradesTicker200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV3TradesTicker400Status `json:"status"`
+	}
+}
+type GetOptionsV3TradesTicker200Status string
+type GetOptionsV3TradesTicker400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV3TradesTickerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV3TradesTickerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksDevTradesTickerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Conditions A list of condition codes.
+			Conditions *[]int32 `json:"conditions,omitempty"`
+
+			// Correction The trade correction indicator.
+			Correction *int64 `json:"correction,omitempty"`
+
+			// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
+			Exchange *int32 `json:"exchange,omitempty"`
+
+			// Id The Trade ID which uniquely identifies a trade. These are unique per
+			// combination of ticker, exchange, and TRF. For example: A trade for AAPL
+			// executed on NYSE and a trade for AAPL executed on NASDAQ could potentially
+			// have the same Trade ID.
+			Id *string `json:"id,omitempty"`
+
+			// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
+			ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
+
+			// Price The price of the trade. This is the actual dollar value per whole share of
+			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
+			// total dollar value of $200.00.
+			Price float64 `json:"price"`
+
+			// SequenceNumber The sequence number represents the sequence in which trade events happened.
+			// These are increasing and unique per ticker symbol, but will not always be
+			// sequential (e.g., 1, 2, 6, 9, 10, 11). Values reset after each trading session/day.
+			SequenceNumber int64 `json:"sequence_number"`
+
+			// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
+			SipTimestamp int64 `json:"sip_timestamp"`
+
+			// Size The size of a trade (also known as volume).
+			Size int32 `json:"size"`
+
+			// SizeFraction The fractional size of a trade (also known as volume).
+			SizeFraction int64 `json:"size_fraction"`
+
+			// Tape There are 3 tapes which define which exchange the ticker is listed on. These are integers in our objects which represent the letter of the alphabet. Eg: 1 = A, 2 = B, 3 = C.
+			// * Tape A is NYSE listed securities
+			// * Tape B is NYSE ARCA / NYSE American
+			// * Tape C is NASDAQ
+			Tape *int32 `json:"tape,omitempty"`
+
+			// Ticker The ticker symbol.
+			Ticker string `json:"ticker"`
+
+			// TrfId The ID for the Trade Reporting Facility where the trade took place.
+			TrfId *int32 `json:"trf_id,omitempty"`
+
+			// TrfTimestamp The nanosecond accuracy TRF (Trade Reporting Facility) Unix Timestamp. This is the timestamp of when the trade reporting facility received this trade.
+			TrfTimestamp *int64 `json:"trf_timestamp,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksDevTradesTicker200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksDevTradesTicker400Status `json:"status"`
+	}
+}
+type GetStocksDevTradesTicker200Status string
+type GetStocksDevTradesTicker400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksDevTradesTickerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksDevTradesTickerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetStocksFilings10KVXSectionsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -51268,6 +48375,146 @@ func (r GetStocksFilings10KVXSectionsResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetStocksFilings10KVXSectionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksFilings10KVX0SectionsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Cik SEC Central Index Key (10 digits, zero-padded).
+			Cik *string `json:"cik,omitempty"`
+
+			// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+			// FilingUrl SEC URL source for the full filing.
+			FilingUrl *string `json:"filing_url,omitempty"`
+
+			// PeriodEnd Period end date that the filing relates to (formatted as YYYY-MM-DD).
+			PeriodEnd *openapi_types.Date `json:"period_end,omitempty"`
+
+			// Section Standardized section identifier from the filing (e.g. 'business', 'risk_factors', etc.).
+			Section *string `json:"section,omitempty"`
+
+			// Text Full raw text content of the section, including headers and formatting.
+			Text *string `json:"text,omitempty"`
+
+			// Ticker Stock ticker symbol for the company.
+			Ticker *string `json:"ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilings10KVX0Sections200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilings10KVX0Sections400Status `json:"status"`
+	}
+}
+type GetStocksFilings10KVX0Sections200Status string
+type GetStocksFilings10KVX0Sections400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksFilings10KVX0SectionsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksFilings10KVX0SectionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksFilings8KVXDisclosuresResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// AccessionNumber Unique SEC accession number for the filing (e.g., '0000320193-25-000010').
+			AccessionNumber *string `json:"accession_number,omitempty"`
+
+			// Cik SEC Central Index Key of the filer (10 digits, zero-padded).
+			Cik *string `json:"cik,omitempty"`
+
+			// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+			FilingDate *string `json:"filing_date,omitempty"`
+
+			// FilingUrl Direct URL to the full submission text file for the filing on SEC EDGAR.
+			FilingUrl *string `json:"filing_url,omitempty"`
+
+			// PrimaryCategory Top-level disclosure category (e.g., 'financial_results'). See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+			PrimaryCategory *string `json:"primary_category,omitempty"`
+
+			// SecondaryCategory Mid-level disclosure category (e.g., 'earnings_announcement'). See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+			SecondaryCategory *string `json:"secondary_category,omitempty"`
+
+			// SupportingText A verbatim excerpt from the filing text supporting the assigned categories.
+			SupportingText *string `json:"supporting_text,omitempty"`
+
+			// TertiaryCategory Most specific disclosure category (e.g., 'quarterly_results'). Filtering on this column must use an exact match. See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+			TertiaryCategory *string `json:"tertiary_category,omitempty"`
+
+			// Tickers A list of ticker symbols for the filing company. Multiple symbols may indicate different share classes; empty if no ticker is currently mapped to the filer.
+			Tickers *[]string `json:"tickers,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilings8KVXDisclosures200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksFilings8KVXDisclosures400Status `json:"status"`
+	}
+}
+type GetStocksFilings8KVXDisclosures200Status string
+type GetStocksFilings8KVXDisclosures400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksFilings8KVXDisclosuresResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksFilings8KVXDisclosuresResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -52388,7 +49635,7 @@ type GetStocksFinancialsV1RatiosResponse struct {
 			MarketCap *float64 `json:"market_cap,omitempty"`
 
 			// Price Stock price used in ratio calculations, typically the closing price for the given date.
-			Price *float64 `json:"price,omitempty"`
+			Price float64 `json:"price"`
 
 			// PriceToBook Price-to-book ratio, calculated as stock price divided by book value per share, comparing market value to book value.
 			PriceToBook *float64 `json:"price_to_book,omitempty"`
@@ -52445,6 +49692,67 @@ func (r GetStocksFinancialsV1RatiosResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetStocksFinancialsV1RatiosResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksTaxonomiesVXDisclosuresResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Description Detailed explanation of what the disclosure category covers, including typical examples.
+			Description *string `json:"description,omitempty"`
+
+			// PrimaryCategory Top-level disclosure category.
+			PrimaryCategory *string `json:"primary_category,omitempty"`
+
+			// SecondaryCategory Mid-level disclosure category.
+			SecondaryCategory *string `json:"secondary_category,omitempty"`
+
+			// Taxonomy Taxonomy version that defines this classification (e.g., '1.0').
+			Taxonomy string `json:"taxonomy"`
+
+			// TertiaryCategory Most specific disclosure category.
+			TertiaryCategory *string `json:"tertiary_category,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksTaxonomiesVXDisclosures200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksTaxonomiesVXDisclosures400Status `json:"status"`
+	}
+}
+type GetStocksTaxonomiesVXDisclosures200Status string
+type GetStocksTaxonomiesVXDisclosures400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksTaxonomiesVXDisclosuresResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksTaxonomiesVXDisclosuresResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -60767,13 +58075,13 @@ func (c *ClientWithResponses) GetBenzingaV1BullsBearsSayWithResponse(ctx context
 	return ParseGetBenzingaV1BullsBearsSayResponse(rsp)
 }
 
-// GetBenzingaV1ConsensusRatingsWithResponse request returning *GetBenzingaV1ConsensusRatingsResponse
-func (c *ClientWithResponses) GetBenzingaV1ConsensusRatingsWithResponse(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsParams, reqEditors ...RequestEditorFn) (*GetBenzingaV1ConsensusRatingsResponse, error) {
-	rsp, err := c.GetBenzingaV1ConsensusRatings(ctx, ticker, params, reqEditors...)
+// GetBenzingaV1ConsensusRatingsTickerWithResponse request returning *GetBenzingaV1ConsensusRatingsTickerResponse
+func (c *ClientWithResponses) GetBenzingaV1ConsensusRatingsTickerWithResponse(ctx context.Context, ticker string, params *GetBenzingaV1ConsensusRatingsTickerParams, reqEditors ...RequestEditorFn) (*GetBenzingaV1ConsensusRatingsTickerResponse, error) {
+	rsp, err := c.GetBenzingaV1ConsensusRatingsTicker(ctx, ticker, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetBenzingaV1ConsensusRatingsResponse(rsp)
+	return ParseGetBenzingaV1ConsensusRatingsTickerResponse(rsp)
 }
 
 // GetBenzingaV1EarningsWithResponse request returning *GetBenzingaV1EarningsResponse
@@ -60983,13 +58291,13 @@ func (c *ClientWithResponses) GetFuturesV1ProductsWithResponse(ctx context.Conte
 	return ParseGetFuturesV1ProductsResponse(rsp)
 }
 
-// GetFuturesV1QuotesWithResponse request returning *GetFuturesV1QuotesResponse
-func (c *ClientWithResponses) GetFuturesV1QuotesWithResponse(ctx context.Context, ticker string, params *GetFuturesV1QuotesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1QuotesResponse, error) {
-	rsp, err := c.GetFuturesV1Quotes(ctx, ticker, params, reqEditors...)
+// GetFuturesV1QuotesTickerWithResponse request returning *GetFuturesV1QuotesTickerResponse
+func (c *ClientWithResponses) GetFuturesV1QuotesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1QuotesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1QuotesTickerResponse, error) {
+	rsp, err := c.GetFuturesV1QuotesTicker(ctx, ticker, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetFuturesV1QuotesResponse(rsp)
+	return ParseGetFuturesV1QuotesTickerResponse(rsp)
 }
 
 // GetFuturesV1SchedulesWithResponse request returning *GetFuturesV1SchedulesResponse
@@ -61010,94 +58318,13 @@ func (c *ClientWithResponses) GetFuturesV1SnapshotWithResponse(ctx context.Conte
 	return ParseGetFuturesV1SnapshotResponse(rsp)
 }
 
-// GetFuturesV1TradesWithResponse request returning *GetFuturesV1TradesResponse
-func (c *ClientWithResponses) GetFuturesV1TradesWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesResponse, error) {
-	rsp, err := c.GetFuturesV1Trades(ctx, ticker, params, reqEditors...)
+// GetFuturesV1TradesTickerWithResponse request returning *GetFuturesV1TradesTickerResponse
+func (c *ClientWithResponses) GetFuturesV1TradesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesTickerResponse, error) {
+	rsp, err := c.GetFuturesV1TradesTicker(ctx, ticker, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetFuturesV1TradesResponse(rsp)
-}
-
-// GetFuturesAggregatesWithResponse request returning *GetFuturesAggregatesResponse
-func (c *ClientWithResponses) GetFuturesAggregatesWithResponse(ctx context.Context, ticker string, params *GetFuturesAggregatesParams, reqEditors ...RequestEditorFn) (*GetFuturesAggregatesResponse, error) {
-	rsp, err := c.GetFuturesAggregates(ctx, ticker, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesAggregatesResponse(rsp)
-}
-
-// GetFuturesVXContractsWithResponse request returning *GetFuturesVXContractsResponse
-func (c *ClientWithResponses) GetFuturesVXContractsWithResponse(ctx context.Context, params *GetFuturesVXContractsParams, reqEditors ...RequestEditorFn) (*GetFuturesVXContractsResponse, error) {
-	rsp, err := c.GetFuturesVXContracts(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXContractsResponse(rsp)
-}
-
-// GetFuturesVXExchangesWithResponse request returning *GetFuturesVXExchangesResponse
-func (c *ClientWithResponses) GetFuturesVXExchangesWithResponse(ctx context.Context, params *GetFuturesVXExchangesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXExchangesResponse, error) {
-	rsp, err := c.GetFuturesVXExchanges(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXExchangesResponse(rsp)
-}
-
-// GetFuturesVXMarketStatusWithResponse request returning *GetFuturesVXMarketStatusResponse
-func (c *ClientWithResponses) GetFuturesVXMarketStatusWithResponse(ctx context.Context, params *GetFuturesVXMarketStatusParams, reqEditors ...RequestEditorFn) (*GetFuturesVXMarketStatusResponse, error) {
-	rsp, err := c.GetFuturesVXMarketStatus(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXMarketStatusResponse(rsp)
-}
-
-// GetFuturesVXProductsWithResponse request returning *GetFuturesVXProductsResponse
-func (c *ClientWithResponses) GetFuturesVXProductsWithResponse(ctx context.Context, params *GetFuturesVXProductsParams, reqEditors ...RequestEditorFn) (*GetFuturesVXProductsResponse, error) {
-	rsp, err := c.GetFuturesVXProducts(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXProductsResponse(rsp)
-}
-
-// GetFuturesVXQuotesWithResponse request returning *GetFuturesVXQuotesResponse
-func (c *ClientWithResponses) GetFuturesVXQuotesWithResponse(ctx context.Context, ticker string, params *GetFuturesVXQuotesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXQuotesResponse, error) {
-	rsp, err := c.GetFuturesVXQuotes(ctx, ticker, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXQuotesResponse(rsp)
-}
-
-// GetFuturesVXSchedulesWithResponse request returning *GetFuturesVXSchedulesResponse
-func (c *ClientWithResponses) GetFuturesVXSchedulesWithResponse(ctx context.Context, params *GetFuturesVXSchedulesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXSchedulesResponse, error) {
-	rsp, err := c.GetFuturesVXSchedules(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXSchedulesResponse(rsp)
-}
-
-// GetFuturesVXSnapshotWithResponse request returning *GetFuturesVXSnapshotResponse
-func (c *ClientWithResponses) GetFuturesVXSnapshotWithResponse(ctx context.Context, params *GetFuturesVXSnapshotParams, reqEditors ...RequestEditorFn) (*GetFuturesVXSnapshotResponse, error) {
-	rsp, err := c.GetFuturesVXSnapshot(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXSnapshotResponse(rsp)
-}
-
-// GetFuturesVXTradesWithResponse request returning *GetFuturesVXTradesResponse
-func (c *ClientWithResponses) GetFuturesVXTradesWithResponse(ctx context.Context, ticker string, params *GetFuturesVXTradesParams, reqEditors ...RequestEditorFn) (*GetFuturesVXTradesResponse, error) {
-	rsp, err := c.GetFuturesVXTrades(ctx, ticker, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetFuturesVXTradesResponse(rsp)
+	return ParseGetFuturesV1TradesTickerResponse(rsp)
 }
 
 // GetOptionsV1ExchangesWithResponse request returning *GetOptionsV1ExchangesResponse
@@ -61109,6 +58336,33 @@ func (c *ClientWithResponses) GetOptionsV1ExchangesWithResponse(ctx context.Cont
 	return ParseGetOptionsV1ExchangesResponse(rsp)
 }
 
+// GetOptionsV3QuotesTickerWithResponse request returning *GetOptionsV3QuotesTickerResponse
+func (c *ClientWithResponses) GetOptionsV3QuotesTickerWithResponse(ctx context.Context, ticker string, params *GetOptionsV3QuotesTickerParams, reqEditors ...RequestEditorFn) (*GetOptionsV3QuotesTickerResponse, error) {
+	rsp, err := c.GetOptionsV3QuotesTicker(ctx, ticker, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV3QuotesTickerResponse(rsp)
+}
+
+// GetOptionsV3TradesTickerWithResponse request returning *GetOptionsV3TradesTickerResponse
+func (c *ClientWithResponses) GetOptionsV3TradesTickerWithResponse(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*GetOptionsV3TradesTickerResponse, error) {
+	rsp, err := c.GetOptionsV3TradesTicker(ctx, ticker, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV3TradesTickerResponse(rsp)
+}
+
+// GetStocksDevTradesTickerWithResponse request returning *GetStocksDevTradesTickerResponse
+func (c *ClientWithResponses) GetStocksDevTradesTickerWithResponse(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*GetStocksDevTradesTickerResponse, error) {
+	rsp, err := c.GetStocksDevTradesTicker(ctx, ticker, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksDevTradesTickerResponse(rsp)
+}
+
 // GetStocksFilings10KVXSectionsWithResponse request returning *GetStocksFilings10KVXSectionsResponse
 func (c *ClientWithResponses) GetStocksFilings10KVXSectionsWithResponse(ctx context.Context, params *GetStocksFilings10KVXSectionsParams, reqEditors ...RequestEditorFn) (*GetStocksFilings10KVXSectionsResponse, error) {
 	rsp, err := c.GetStocksFilings10KVXSections(ctx, params, reqEditors...)
@@ -61116,6 +58370,24 @@ func (c *ClientWithResponses) GetStocksFilings10KVXSectionsWithResponse(ctx cont
 		return nil, err
 	}
 	return ParseGetStocksFilings10KVXSectionsResponse(rsp)
+}
+
+// GetStocksFilings10KVX0SectionsWithResponse request returning *GetStocksFilings10KVX0SectionsResponse
+func (c *ClientWithResponses) GetStocksFilings10KVX0SectionsWithResponse(ctx context.Context, params *GetStocksFilings10KVX0SectionsParams, reqEditors ...RequestEditorFn) (*GetStocksFilings10KVX0SectionsResponse, error) {
+	rsp, err := c.GetStocksFilings10KVX0Sections(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksFilings10KVX0SectionsResponse(rsp)
+}
+
+// GetStocksFilings8KVXDisclosuresWithResponse request returning *GetStocksFilings8KVXDisclosuresResponse
+func (c *ClientWithResponses) GetStocksFilings8KVXDisclosuresWithResponse(ctx context.Context, params *GetStocksFilings8KVXDisclosuresParams, reqEditors ...RequestEditorFn) (*GetStocksFilings8KVXDisclosuresResponse, error) {
+	rsp, err := c.GetStocksFilings8KVXDisclosures(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksFilings8KVXDisclosuresResponse(rsp)
 }
 
 // GetStocksFilings8KVXTextWithResponse request returning *GetStocksFilings8KVXTextResponse
@@ -61206,6 +58478,15 @@ func (c *ClientWithResponses) GetStocksFinancialsV1RatiosWithResponse(ctx contex
 		return nil, err
 	}
 	return ParseGetStocksFinancialsV1RatiosResponse(rsp)
+}
+
+// GetStocksTaxonomiesVXDisclosuresWithResponse request returning *GetStocksTaxonomiesVXDisclosuresResponse
+func (c *ClientWithResponses) GetStocksTaxonomiesVXDisclosuresWithResponse(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*GetStocksTaxonomiesVXDisclosuresResponse, error) {
+	rsp, err := c.GetStocksTaxonomiesVXDisclosures(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksTaxonomiesVXDisclosuresResponse(rsp)
 }
 
 // GetStocksTaxonomiesVXRiskFactorsWithResponse request returning *GetStocksTaxonomiesVXRiskFactorsResponse
@@ -62069,10 +59350,10 @@ func ParseGetBenzingaV1AnalystInsightsResponse(rsp *http.Response) (*GetBenzinga
 
 			// Results The results for this request.
 			Results []struct {
-				// BenzingaFirmId The identifer used by Benzinga for the firm record.
+				// BenzingaFirmId The identifier used by Benzinga for the firm record.
 				BenzingaFirmId *string `json:"benzinga_firm_id,omitempty"`
 
-				// BenzingaId The identifer used by Benzinga for this record.
+				// BenzingaId The identifier used by Benzinga for this record.
 				BenzingaId *string `json:"benzinga_id,omitempty"`
 
 				// BenzingaRatingId The identifier used by Benzinga for the rating record.
@@ -62291,15 +59572,15 @@ func ParseGetBenzingaV1BullsBearsSayResponse(rsp *http.Response) (*GetBenzingaV1
 	return response, nil
 }
 
-// ParseGetBenzingaV1ConsensusRatingsResponse parses an HTTP response from a GetBenzingaV1ConsensusRatingsWithResponse call
-func ParseGetBenzingaV1ConsensusRatingsResponse(rsp *http.Response) (*GetBenzingaV1ConsensusRatingsResponse, error) {
+// ParseGetBenzingaV1ConsensusRatingsTickerResponse parses an HTTP response from a GetBenzingaV1ConsensusRatingsTickerWithResponse call
+func ParseGetBenzingaV1ConsensusRatingsTickerResponse(rsp *http.Response) (*GetBenzingaV1ConsensusRatingsTickerResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetBenzingaV1ConsensusRatingsResponse{
+	response := &GetBenzingaV1ConsensusRatingsTickerResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -62356,7 +59637,7 @@ func ParseGetBenzingaV1ConsensusRatingsResponse(rsp *http.Response) (*GetBenzing
 			} `json:"results"`
 
 			// Status The status of this request's response.
-			Status GetBenzingaV1ConsensusRatings200Status `json:"status"`
+			Status GetBenzingaV1ConsensusRatingsTicker200Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -62372,7 +59653,7 @@ func ParseGetBenzingaV1ConsensusRatingsResponse(rsp *http.Response) (*GetBenzing
 			RequestId string `json:"request_id"`
 
 			// Status The status of this request's response.
-			Status GetBenzingaV1ConsensusRatings400Status `json:"status"`
+			Status GetBenzingaV1ConsensusRatingsTicker400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -62414,7 +59695,7 @@ func ParseGetBenzingaV1EarningsResponse(rsp *http.Response) (*GetBenzingaV1Earni
 				// ActualRevenue The actual revenue reported by the company for the given fiscal period.
 				ActualRevenue *float64 `json:"actual_revenue,omitempty"`
 
-				// BenzingaId The identifer used by Benzinga for this record.
+				// BenzingaId The identifier used by Benzinga for this record.
 				BenzingaId *string `json:"benzinga_id,omitempty"`
 
 				// CompanyName The name of the company releasing earnings.
@@ -62534,7 +59815,7 @@ func ParseGetBenzingaV1FirmsResponse(rsp *http.Response) (*GetBenzingaV1FirmsRes
 
 			// Results The results for this request.
 			Results []struct {
-				// BenzingaId The identifer used by Benzinga for this record.
+				// BenzingaId The identifier used by Benzinga for this record.
 				BenzingaId *string `json:"benzinga_id,omitempty"`
 
 				// Currency Primary currency used by the financial firm, with some entries having null values.
@@ -62631,7 +59912,7 @@ func ParseGetBenzingaV1GuidanceResponse(rsp *http.Response) (*GetBenzingaV1Guida
 				Importance *int64 `json:"importance,omitempty"`
 
 				// LastUpdated The timestamp (formatted as an ISO 8601 timestamp) when the record was last updated in the system.
-				LastUpdated *string `json:"last_updated,omitempty"`
+				LastUpdated *time.Time `json:"last_updated,omitempty"`
 
 				// MaxEpsGuidance The highest EPS value the company expects for the fiscal period if a range was provided.
 				MaxEpsGuidance *float64 `json:"max_eps_guidance,omitempty"`
@@ -62735,16 +60016,16 @@ func ParseGetBenzingaV1RatingsResponse(rsp *http.Response) (*GetBenzingaV1Rating
 				// Analyst The name of the individual analyst who issued the rating.
 				Analyst *string `json:"analyst,omitempty"`
 
-				// BenzingaAnalystId The identifer used by Benzinga for this analyst.
+				// BenzingaAnalystId The identifier used by Benzinga for this analyst.
 				BenzingaAnalystId *string `json:"benzinga_analyst_id,omitempty"`
 
 				// BenzingaCalendarUrl A link to the Benzinga calendar page for this ticker
 				BenzingaCalendarUrl *string `json:"benzinga_calendar_url,omitempty"`
 
-				// BenzingaFirmId The identifer used by Benzinga for this firm.
+				// BenzingaFirmId The identifier used by Benzinga for this firm.
 				BenzingaFirmId *string `json:"benzinga_firm_id,omitempty"`
 
-				// BenzingaId The identifer used by Benzinga for this record.
+				// BenzingaId The identifier used by Benzinga for this record.
 				BenzingaId *string `json:"benzinga_id,omitempty"`
 
 				// BenzingaNewsUrl A link to the Benzinga articles page for this ticker
@@ -62858,7 +60139,7 @@ func ParseGetBenzingaV2NewsResponse(rsp *http.Response) (*GetBenzingaV2NewsRespo
 				// Author The name of the journalist or entity that authored the news article.
 				Author string `json:"author"`
 
-				// BenzingaId The identifer used by Benzinga for this record.
+				// BenzingaId The identifier used by Benzinga for this record.
 				BenzingaId int64 `json:"benzinga_id"`
 
 				// Body The full text content of the news article.
@@ -64743,7 +62024,7 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 				UnitOfMeasure *string `json:"unit_of_measure,omitempty"`
 
 				// UnitOfMeasureQty The quantity of the unit of measure for this product.
-				UnitOfMeasureQty *float64 `json:"unit_of_measure_qty,omitempty"`
+				UnitOfMeasureQty *float32 `json:"unit_of_measure_qty,omitempty"`
 			} `json:"results"`
 
 			// Status The status of this request's response.
@@ -64775,15 +62056,15 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 	return response, nil
 }
 
-// ParseGetFuturesV1QuotesResponse parses an HTTP response from a GetFuturesV1QuotesWithResponse call
-func ParseGetFuturesV1QuotesResponse(rsp *http.Response) (*GetFuturesV1QuotesResponse, error) {
+// ParseGetFuturesV1QuotesTickerResponse parses an HTTP response from a GetFuturesV1QuotesTickerWithResponse call
+func ParseGetFuturesV1QuotesTickerResponse(rsp *http.Response) (*GetFuturesV1QuotesTickerResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetFuturesV1QuotesResponse{
+	response := &GetFuturesV1QuotesTickerResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -64837,7 +62118,7 @@ func ParseGetFuturesV1QuotesResponse(rsp *http.Response) (*GetFuturesV1QuotesRes
 			} `json:"results"`
 
 			// Status The status of this request's response.
-			Status GetFuturesV1Quotes200Status `json:"status"`
+			Status GetFuturesV1QuotesTicker200Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -64853,7 +62134,7 @@ func ParseGetFuturesV1QuotesResponse(rsp *http.Response) (*GetFuturesV1QuotesRes
 			RequestId string `json:"request_id"`
 
 			// Status The status of this request's response.
-			Status GetFuturesV1Quotes400Status `json:"status"`
+			Status GetFuturesV1QuotesTicker400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -64902,7 +62183,7 @@ func ParseGetFuturesV1SchedulesResponse(rsp *http.Response) (*GetFuturesV1Schedu
 				SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
 
 				// Timestamp The timestamp for the given market event.
-				Timestamp *string `json:"timestamp,omitempty"`
+				Timestamp *time.Time `json:"timestamp,omitempty"`
 
 				// TradingVenue The trading venue (MIC) for the exchange on which this schedule's product trades.
 				TradingVenue *string `json:"trading_venue,omitempty"`
@@ -65087,15 +62368,15 @@ func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1Snapsho
 	return response, nil
 }
 
-// ParseGetFuturesV1TradesResponse parses an HTTP response from a GetFuturesV1TradesWithResponse call
-func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesResponse, error) {
+// ParseGetFuturesV1TradesTickerResponse parses an HTTP response from a GetFuturesV1TradesTickerWithResponse call
+func ParseGetFuturesV1TradesTickerResponse(rsp *http.Response) (*GetFuturesV1TradesTickerResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetFuturesV1TradesResponse{
+	response := &GetFuturesV1TradesTickerResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -65137,7 +62418,7 @@ func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesRes
 			} `json:"results"`
 
 			// Status The status of this request's response.
-			Status GetFuturesV1Trades200Status `json:"status"`
+			Status GetFuturesV1TradesTicker200Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -65153,823 +62434,7 @@ func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesRes
 			RequestId string `json:"request_id"`
 
 			// Status The status of this request's response.
-			Status GetFuturesV1Trades400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesAggregatesResponse parses an HTTP response from a GetFuturesAggregatesWithResponse call
-func ParseGetFuturesAggregatesResponse(rsp *http.Response) (*GetFuturesAggregatesResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesAggregatesResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, the URL to the next page of results.
-			NextUrl *string `json:"next_url,omitempty"`
-			Results []struct {
-				// Close The last price within the timeframe.
-				Close float64 `json:"close"`
-
-				// DollarVolume The total dollar volume of the transactions that occurred within the timeframe.
-				DollarVolume float64 `json:"dollar_volume"`
-
-				// High The highest price within the timeframe.
-				High float64 `json:"high"`
-
-				// Low The lowest price within the timeframe.
-				Low float64 `json:"low"`
-
-				// Open The opening price within the timeframe.
-				Open float64 `json:"open"`
-
-				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-				SessionEndDate string `json:"session_end_date"`
-
-				// SettlementPrice The price the contract would have cost to settle for this session.
-				SettlementPrice *float64 `json:"settlement_price,omitempty"`
-
-				// Ticker The ticker for the contract.
-				Ticker string `json:"ticker"`
-
-				// Transactions The number of transactions that occurred within the timeframe.
-				Transactions int64 `json:"transactions"`
-
-				// Volume The number of contracts that traded within the timeframe.
-				Volume int64 `json:"volume"`
-
-				// WindowStart The timestamp of the beginning of the candlestick’s aggregation window.
-				WindowStart int64 `json:"window_start"`
-			} `json:"results"`
-
-			// Status The status of the response.
-			Status string `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXContractsResponse parses an HTTP response from a GetFuturesVXContractsWithResponse call
-func ParseGetFuturesVXContractsResponse(rsp *http.Response) (*GetFuturesVXContractsResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXContractsResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
-				Active bool `json:"active"`
-
-				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
-				Date openapi_types.Date `json:"date"`
-
-				// DaysToMaturity The number of calendar days between the 'date' and the contract's final settlement date.
-				DaysToMaturity *int64 `json:"days_to_maturity,omitempty"`
-
-				// FirstTradeDate The first day on which the contract was tradeable.
-				FirstTradeDate *openapi_types.Date `json:"first_trade_date,omitempty"`
-
-				// GroupCode An identifier used to identify logical groups of products. The group_code is only populated for contracts listed for trading on CME Globex.
-				GroupCode *string `json:"group_code,omitempty"`
-
-				// LastTradeDate The last day on which the contract was tradeable.
-				LastTradeDate *openapi_types.Date `json:"last_trade_date,omitempty"`
-
-				// MaxOrderQuantity The maximum order quantity.
-				MaxOrderQuantity *int64 `json:"max_order_quantity,omitempty"`
-
-				// MinOrderQuantity The minimum order quantity.
-				MinOrderQuantity *int64 `json:"min_order_quantity,omitempty"`
-
-				// Name The name of this contract.
-				Name *string `json:"name,omitempty"`
-
-				// ProductCode The identifier for the contract's product.
-				ProductCode *string `json:"product_code,omitempty"`
-
-				// SettlementDate The date on which this contract settles.
-				SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
-
-				// SettlementTickSize The tick size for settlement.
-				SettlementTickSize *float64 `json:"settlement_tick_size,omitempty"`
-
-				// SpreadTickSize The tick size for spreads.
-				SpreadTickSize *float64 `json:"spread_tick_size,omitempty"`
-
-				// Ticker The ticker for the contract.
-				Ticker *string `json:"ticker,omitempty"`
-
-				// TradeTickSize The tick size for trades.
-				TradeTickSize *float64 `json:"trade_tick_size,omitempty"`
-
-				// TradingVenue The trading venue (MIC) for the exchange on which this contract trades.
-				TradingVenue *string `json:"trading_venue,omitempty"`
-
-				// Type The type of contract, one of 'single' or 'combo'. Leaving this filter blank will query for contracts where type is 'single', 'combo' or empty. This field only exists on contracts as of 2025-03-12 and later. It will be null when date < 2025-03-12.
-				Type *string `json:"type,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXContracts200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXContracts400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXExchangesResponse parses an HTTP response from a GetFuturesVXExchangesWithResponse call
-func ParseGetFuturesVXExchangesResponse(rsp *http.Response) (*GetFuturesVXExchangesResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXExchangesResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// Acronym Well-known acronym for the exchange (e.g., 'CME', 'NYMEX', 'CBOT', 'COMEX').
-				Acronym *string `json:"acronym,omitempty"`
-
-				// Id Numeric identifier for the futures exchange or trading venue.
-				Id string `json:"id"`
-
-				// Locale Geographic location code where the exchange operates.
-				Locale *string `json:"locale,omitempty"`
-
-				// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code for the futures market.
-				Mic *string `json:"mic,omitempty"`
-
-				// Name Full official name of the futures exchange (e.g., 'Chicago Mercantile Exchange', 'New York Mercantile Exchange').
-				Name string `json:"name"`
-
-				// OperatingMic Operating Market Identifier Code for the futures exchange.
-				OperatingMic *string `json:"operating_mic,omitempty"`
-
-				// Type Type of venue - 'exchange' for futures exchanges and derivatives trading platforms.
-				Type string `json:"type"`
-
-				// Url Official website URL of the futures exchange organization.
-				Url *string `json:"url,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXExchanges200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXExchanges400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXMarketStatusResponse parses an HTTP response from a GetFuturesVXMarketStatusWithResponse call
-func ParseGetFuturesVXMarketStatusResponse(rsp *http.Response) (*GetFuturesVXMarketStatusResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXMarketStatusResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// MarketEvent The current status of the market for the product.
-				MarketEvent *string `json:"market_event,omitempty"`
-
-				// Name The name of the futures product.
-				Name *string `json:"name,omitempty"`
-
-				// ProductCode The product code of the futures contracts for which you want statuses.
-				ProductCode *string `json:"product_code,omitempty"`
-
-				// SessionEndDate The trading date for the current session.
-				SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
-
-				// Timestamp The timestamp for the given market event.
-				Timestamp *string `json:"timestamp,omitempty"`
-
-				// TradingVenue The trading venue (MIC) for the exchange on which the corresponding product trades.
-				TradingVenue *string `json:"trading_venue,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXMarketStatus200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXMarketStatus400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXProductsResponse parses an HTTP response from a GetFuturesVXProductsWithResponse call
-func ParseGetFuturesVXProductsResponse(rsp *http.Response) (*GetFuturesVXProductsResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXProductsResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// AssetClass The asset class to which the product belongs.
-				AssetClass *string `json:"asset_class,omitempty"`
-
-				// AssetSubClass The asset sub-class to which the product belongs.
-				AssetSubClass *string `json:"asset_sub_class,omitempty"`
-
-				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
-				Date openapi_types.Date `json:"date"`
-
-				// LastUpdated The date and time at which this product was last updated.
-				LastUpdated *time.Time `json:"last_updated,omitempty"`
-
-				// Name The full name of the product.
-				Name *string `json:"name,omitempty"`
-
-				// PriceQuotation The quoted price for this product.
-				PriceQuotation *string `json:"price_quotation,omitempty"`
-
-				// ProductCode The identifier for the product.
-				ProductCode *string `json:"product_code,omitempty"`
-
-				// Sector The sector to which the product belongs.
-				Sector *string `json:"sector,omitempty"`
-
-				// SettlementCurrencyCode The currency in which this product settles.
-				SettlementCurrencyCode *string `json:"settlement_currency_code,omitempty"`
-
-				// SettlementMethod The method of settlement for this product (Financially Settled or Deliverable).
-				SettlementMethod *string `json:"settlement_method,omitempty"`
-
-				// SettlementType The type of settlement for this product.
-				SettlementType *string `json:"settlement_type,omitempty"`
-
-				// SubSector The sub-sector to which the product belongs.
-				SubSector *string `json:"sub_sector,omitempty"`
-
-				// TradeCurrencyCode The currency in which this product's contracts trade.
-				TradeCurrencyCode *string `json:"trade_currency_code,omitempty"`
-
-				// TradingVenue The trading venue (MIC) for the exchange on which this product's contracts trade.
-				TradingVenue *string `json:"trading_venue,omitempty"`
-
-				// Type The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.
-				Type *string `json:"type,omitempty"`
-
-				// UnitOfMeasure The unit of measure for this product.
-				UnitOfMeasure *string `json:"unit_of_measure,omitempty"`
-
-				// UnitOfMeasureQty The quantity of the unit of measure for this product.
-				UnitOfMeasureQty *float64 `json:"unit_of_measure_qty,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXProducts200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXProducts400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXQuotesResponse parses an HTTP response from a GetFuturesVXQuotesWithResponse call
-func ParseGetFuturesVXQuotesResponse(rsp *http.Response) (*GetFuturesVXQuotesResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXQuotesResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// AskPrice The ask price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-				AskPrice *float64 `json:"ask_price,omitempty"`
-
-				// AskSize The quote size represents the number of futures contracts available at the given ask price.
-				AskSize *int32 `json:"ask_size,omitempty"`
-
-				// AskTimestamp The time when the ask price was submitted to the exchange.
-				AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
-
-				// BidPrice The bid price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-				BidPrice *float64 `json:"bid_price,omitempty"`
-
-				// BidSize The quote size represents the number of futures contracts available at the given bid price.
-				BidSize *int32 `json:"bid_size,omitempty"`
-
-				// BidTimestamp The time when the bid price was submitted to the exchange.
-				BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
-
-				// Channel The CME multicast channel this event was sourced from.
-				Channel int32 `json:"channel"`
-
-				// ReportSequence The reporting sequence number.
-				ReportSequence int64 `json:"report_sequence"`
-
-				// SequenceNumber The unique sequence number assigned to this quote by the exchange.
-				SequenceNumber int64 `json:"sequence_number"`
-
-				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-				SessionEndDate *string `json:"session_end_date,omitempty"`
-
-				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-				Ticker string `json:"ticker"`
-
-				// Timestamp The time when the quote was generated at the exchange to nanosecond precision.
-				Timestamp int64 `json:"timestamp"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXQuotes200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXQuotes400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXSchedulesResponse parses an HTTP response from a GetFuturesVXSchedulesWithResponse call
-func ParseGetFuturesVXSchedulesResponse(rsp *http.Response) (*GetFuturesVXSchedulesResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXSchedulesResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// Event The type of session on the given trading date.
-				Event *string `json:"event,omitempty"`
-
-				// ProductCode The product code of the futures contract.
-				ProductCode *string `json:"product_code,omitempty"`
-
-				// ProductName The name of the futures product to which this schedule applies.
-				ProductName *string `json:"product_name,omitempty"`
-
-				// SessionEndDate The session end date for the schedules (also known as the trading date). This field is optional and can be used to filter results by a specific session end date. If left blank, schedules for all dates will be returned. Note that trading sessions end at 5 PM Central Time, so a session ending at 5 PM CT on January 1st would have a session_end_date of 2025-01-01.
-				SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
-
-				// Timestamp The timestamp for the given market event.
-				Timestamp *string `json:"timestamp,omitempty"`
-
-				// TradingVenue The trading venue (MIC) for the exchange on which this schedule's product trades.
-				TradingVenue *string `json:"trading_venue,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXSchedules200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXSchedules400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXSnapshotResponse parses an HTTP response from a GetFuturesVXSnapshotWithResponse call
-func ParseGetFuturesVXSnapshotResponse(rsp *http.Response) (*GetFuturesVXSnapshotResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXSnapshotResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				Details *struct {
-					ProductCode *string `json:"product_code,omitempty"`
-
-					// SettlementDate The day that this contract is settled.
-					SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
-					Ticker         *string             `json:"ticker,omitempty"`
-				} `json:"details,omitempty"`
-				LastMinute *struct {
-					// Close The price at the end of the minute bar.
-					Close *float64 `json:"close,omitempty"`
-
-					// High The highest price reached in the minute bar.
-					High *float64 `json:"high,omitempty"`
-
-					// LastUpdated The timestamp indicating the most recent update to the minute bar.
-					LastUpdated *int64 `json:"last_updated,omitempty"`
-
-					// Low The lowest price reached in the minute bar.
-					Low *float64 `json:"low,omitempty"`
-
-					// Open The opening price at the start of the minute bar.
-					Open *float64 `json:"open,omitempty"`
-
-					// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
-					Timeframe *string `json:"timeframe,omitempty"`
-
-					// Volume The number of contracts traded in the minute bar.
-					Volume *int64 `json:"volume,omitempty"`
-				} `json:"last_minute,omitempty"`
-				LastQuote *struct {
-					// Ask The lowest price a seller is willing to accept.
-					Ask *float64 `json:"ask,omitempty"`
-
-					// AskSize The number of contracts available at the ask price.
-					AskSize *int32 `json:"ask_size,omitempty"`
-
-					// AskTimestamp The time when the best ask price was last updated.
-					AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
-
-					// Bid The highest price a buyer is willing to pay.
-					Bid *float64 `json:"bid,omitempty"`
-
-					// BidSize The number of contracts available at the bid price.
-					BidSize *int32 `json:"bid_size,omitempty"`
-
-					// BidTimestamp The time when the best bid price was last updated.
-					BidTimestamp *int64 `json:"bid_timestamp,omitempty"`
-
-					// LastUpdated The time when the quote was generated at the exchange to nanosecond precision.
-					LastUpdated *int64 `json:"last_updated,omitempty"`
-
-					// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
-					Timeframe *string `json:"timeframe,omitempty"`
-				} `json:"last_quote,omitempty"`
-				LastTrade *struct {
-					// LastUpdated The time when the trade was generated at the exchange to nanosecond precision.
-					LastUpdated *int64 `json:"last_updated,omitempty"`
-
-					// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-					Price *float64 `json:"price,omitempty"`
-
-					// Size The total number of contracts exchanged between buyers and sellers on a given trade.
-					Size *int64 `json:"size,omitempty"`
-
-					// Timeframe The timeliness of the data as determined by your subscription. One of REAL-TIME or DELAYED.
-					Timeframe *string `json:"timeframe,omitempty"`
-				} `json:"last_trade,omitempty"`
-				Session *struct {
-					// Change The change in price during this session.
-					Change *float64 `json:"change,omitempty"`
-
-					// ChangePercent The percentage change in price during this session.
-					ChangePercent *float64 `json:"change_percent,omitempty"`
-
-					// Close The price at the end of the session.
-					Close *float64 `json:"close,omitempty"`
-
-					// High The highest price reached in the session.
-					High *float64 `json:"high,omitempty"`
-
-					// Low The lowest price reached in the session.
-					Low *float64 `json:"low,omitempty"`
-
-					// Open The opening price at the start of the session.
-					Open *float64 `json:"open,omitempty"`
-
-					// PreviousSettlement The settlement price of the previous session.
-					PreviousSettlement *float64 `json:"previous_settlement,omitempty"`
-
-					// SettlementPrice The final settlement price at the end of the session.
-					SettlementPrice *float64 `json:"settlement_price,omitempty"`
-
-					// Volume The number of contracts traded in the session.
-					Volume *int64 `json:"volume,omitempty"`
-				} `json:"session,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXSnapshot200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXSnapshot400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetFuturesVXTradesResponse parses an HTTP response from a GetFuturesVXTradesWithResponse call
-func ParseGetFuturesVXTradesResponse(rsp *http.Response) (*GetFuturesVXTradesResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetFuturesVXTradesResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// Channel The CME multicast channel this event was sourced from.
-				Channel int32 `json:"channel"`
-
-				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
-
-				// ReportSequence The reporting sequence number.
-				ReportSequence int64 `json:"report_sequence"`
-
-				// SequenceNumber The unique sequence number assigned to this trade.
-				SequenceNumber int64 `json:"sequence_number"`
-
-				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-				SessionEndDate *string `json:"session_end_date,omitempty"`
-
-				// Size The total number of contracts exchanged between buyers and sellers on a given trade.
-				Size *int64 `json:"size,omitempty"`
-
-				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
-				Ticker string `json:"ticker"`
-
-				// Timestamp The time when the trade was generated at the exchange to nanosecond precision.
-				Timestamp int64 `json:"timestamp"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXTrades200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetFuturesVXTrades400Status `json:"status"`
+			Status GetFuturesV1TradesTicker400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -66062,6 +62527,271 @@ func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1Exchan
 	return response, nil
 }
 
+// ParseGetOptionsV3QuotesTickerResponse parses an HTTP response from a GetOptionsV3QuotesTickerWithResponse call
+func ParseGetOptionsV3QuotesTickerResponse(rsp *http.Response) (*GetOptionsV3QuotesTickerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV3QuotesTickerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// AskExchange The exchange ID reporting the ask side of the quote.
+				AskExchange int32 `json:"ask_exchange"`
+
+				// AskPrice The ask price.
+				AskPrice float64 `json:"ask_price"`
+
+				// AskSize The size available at the ask price.
+				AskSize int64 `json:"ask_size"`
+
+				// BidExchange The exchange ID reporting the bid side of the quote.
+				BidExchange int32 `json:"bid_exchange"`
+
+				// BidPrice The bid price.
+				BidPrice float64 `json:"bid_price"`
+
+				// BidSize The size available at the bid price.
+				BidSize int64 `json:"bid_size"`
+
+				// SequenceNumber The sequence number represents the sequence in which quote events happened. These are increasing and unique per ticker symbol, but will not always be sequential. Values reset after each trading session/day.
+				SequenceNumber int64 `json:"sequence_number"`
+
+				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this quote from the exchange which produced it.
+				SipTimestamp int64 `json:"sip_timestamp"`
+
+				// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+				Ticker string `json:"ticker"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV3QuotesTicker200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV3QuotesTicker400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsV3TradesTickerResponse parses an HTTP response from a GetOptionsV3TradesTickerWithResponse call
+func ParseGetOptionsV3TradesTickerResponse(rsp *http.Response) (*GetOptionsV3TradesTickerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV3TradesTickerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Conditions A list of condition codes.
+				Conditions []int32 `json:"conditions"`
+
+				// Exchange The exchange ID.
+				Exchange int32 `json:"exchange"`
+
+				// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
+				ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
+
+				// Price The price of the trade. This is the actual dollar value per whole contract of this trade.
+				Price float64 `json:"price"`
+
+				// SequenceNumber The sequence number represents the sequence in which trade events happened. These are increasing and unique per ticker symbol, but will not always be sequential. Values reset after each trading session/day.
+				SequenceNumber int64 `json:"sequence_number"`
+
+				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
+				SipTimestamp int64 `json:"sip_timestamp"`
+
+				// Size The size of a trade (also known as volume).
+				Size int64 `json:"size"`
+
+				// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+				Ticker string `json:"ticker"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV3TradesTicker200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV3TradesTicker400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksDevTradesTickerResponse parses an HTTP response from a GetStocksDevTradesTickerWithResponse call
+func ParseGetStocksDevTradesTickerResponse(rsp *http.Response) (*GetStocksDevTradesTickerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksDevTradesTickerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Conditions A list of condition codes.
+				Conditions *[]int32 `json:"conditions,omitempty"`
+
+				// Correction The trade correction indicator.
+				Correction *int64 `json:"correction,omitempty"`
+
+				// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
+				Exchange *int32 `json:"exchange,omitempty"`
+
+				// Id The Trade ID which uniquely identifies a trade. These are unique per
+				// combination of ticker, exchange, and TRF. For example: A trade for AAPL
+				// executed on NYSE and a trade for AAPL executed on NASDAQ could potentially
+				// have the same Trade ID.
+				Id *string `json:"id,omitempty"`
+
+				// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
+				ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
+
+				// Price The price of the trade. This is the actual dollar value per whole share of
+				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
+				// total dollar value of $200.00.
+				Price float64 `json:"price"`
+
+				// SequenceNumber The sequence number represents the sequence in which trade events happened.
+				// These are increasing and unique per ticker symbol, but will not always be
+				// sequential (e.g., 1, 2, 6, 9, 10, 11). Values reset after each trading session/day.
+				SequenceNumber int64 `json:"sequence_number"`
+
+				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
+				SipTimestamp int64 `json:"sip_timestamp"`
+
+				// Size The size of a trade (also known as volume).
+				Size int32 `json:"size"`
+
+				// SizeFraction The fractional size of a trade (also known as volume).
+				SizeFraction int64 `json:"size_fraction"`
+
+				// Tape There are 3 tapes which define which exchange the ticker is listed on. These are integers in our objects which represent the letter of the alphabet. Eg: 1 = A, 2 = B, 3 = C.
+				// * Tape A is NYSE listed securities
+				// * Tape B is NYSE ARCA / NYSE American
+				// * Tape C is NASDAQ
+				Tape *int32 `json:"tape,omitempty"`
+
+				// Ticker The ticker symbol.
+				Ticker string `json:"ticker"`
+
+				// TrfId The ID for the Trade Reporting Facility where the trade took place.
+				TrfId *int32 `json:"trf_id,omitempty"`
+
+				// TrfTimestamp The nanosecond accuracy TRF (Trade Reporting Facility) Unix Timestamp. This is the timestamp of when the trade reporting facility received this trade.
+				TrfTimestamp *int64 `json:"trf_timestamp,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksDevTradesTicker200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksDevTradesTicker400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetStocksFilings10KVXSectionsResponse parses an HTTP response from a GetStocksFilings10KVXSectionsWithResponse call
 func ParseGetStocksFilings10KVXSectionsResponse(rsp *http.Response) (*GetStocksFilings10KVXSectionsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -66126,6 +62856,162 @@ func ParseGetStocksFilings10KVXSectionsResponse(rsp *http.Response) (*GetStocksF
 
 			// Status The status of this request's response.
 			Status GetStocksFilings10KVXSections400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksFilings10KVX0SectionsResponse parses an HTTP response from a GetStocksFilings10KVX0SectionsWithResponse call
+func ParseGetStocksFilings10KVX0SectionsResponse(rsp *http.Response) (*GetStocksFilings10KVX0SectionsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksFilings10KVX0SectionsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Cik SEC Central Index Key (10 digits, zero-padded).
+				Cik *string `json:"cik,omitempty"`
+
+				// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
+
+				// FilingUrl SEC URL source for the full filing.
+				FilingUrl *string `json:"filing_url,omitempty"`
+
+				// PeriodEnd Period end date that the filing relates to (formatted as YYYY-MM-DD).
+				PeriodEnd *openapi_types.Date `json:"period_end,omitempty"`
+
+				// Section Standardized section identifier from the filing (e.g. 'business', 'risk_factors', etc.).
+				Section *string `json:"section,omitempty"`
+
+				// Text Full raw text content of the section, including headers and formatting.
+				Text *string `json:"text,omitempty"`
+
+				// Ticker Stock ticker symbol for the company.
+				Ticker *string `json:"ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilings10KVX0Sections200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilings10KVX0Sections400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksFilings8KVXDisclosuresResponse parses an HTTP response from a GetStocksFilings8KVXDisclosuresWithResponse call
+func ParseGetStocksFilings8KVXDisclosuresResponse(rsp *http.Response) (*GetStocksFilings8KVXDisclosuresResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksFilings8KVXDisclosuresResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// AccessionNumber Unique SEC accession number for the filing (e.g., '0000320193-25-000010').
+				AccessionNumber *string `json:"accession_number,omitempty"`
+
+				// Cik SEC Central Index Key of the filer (10 digits, zero-padded).
+				Cik *string `json:"cik,omitempty"`
+
+				// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
+				FilingDate *string `json:"filing_date,omitempty"`
+
+				// FilingUrl Direct URL to the full submission text file for the filing on SEC EDGAR.
+				FilingUrl *string `json:"filing_url,omitempty"`
+
+				// PrimaryCategory Top-level disclosure category (e.g., 'financial_results'). See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+				PrimaryCategory *string `json:"primary_category,omitempty"`
+
+				// SecondaryCategory Mid-level disclosure category (e.g., 'earnings_announcement'). See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+				SecondaryCategory *string `json:"secondary_category,omitempty"`
+
+				// SupportingText A verbatim excerpt from the filing text supporting the assigned categories.
+				SupportingText *string `json:"supporting_text,omitempty"`
+
+				// TertiaryCategory Most specific disclosure category (e.g., 'quarterly_results'). Filtering on this column must use an exact match. See the full taxonomy at /stocks/taxonomies/vX/disclosures.
+				TertiaryCategory *string `json:"tertiary_category,omitempty"`
+
+				// Tickers A list of ticker symbols for the filing company. Multiple symbols may indicate different share classes; empty if no ticker is currently mapped to the filer.
+				Tickers *[]string `json:"tickers,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilings8KVXDisclosures200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksFilings8KVXDisclosures400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -67335,7 +64221,7 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 				MarketCap *float64 `json:"market_cap,omitempty"`
 
 				// Price Stock price used in ratio calculations, typically the closing price for the given date.
-				Price *float64 `json:"price,omitempty"`
+				Price float64 `json:"price"`
 
 				// PriceToBook Price-to-book ratio, calculated as stock price divided by book value per share, comparing market value to book value.
 				PriceToBook *float64 `json:"price_to_book,omitempty"`
@@ -67383,6 +64269,75 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 
 			// Status The status of this request's response.
 			Status GetStocksFinancialsV1Ratios400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksTaxonomiesVXDisclosuresResponse parses an HTTP response from a GetStocksTaxonomiesVXDisclosuresWithResponse call
+func ParseGetStocksTaxonomiesVXDisclosuresResponse(rsp *http.Response) (*GetStocksTaxonomiesVXDisclosuresResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksTaxonomiesVXDisclosuresResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Description Detailed explanation of what the disclosure category covers, including typical examples.
+				Description *string `json:"description,omitempty"`
+
+				// PrimaryCategory Top-level disclosure category.
+				PrimaryCategory *string `json:"primary_category,omitempty"`
+
+				// SecondaryCategory Mid-level disclosure category.
+				SecondaryCategory *string `json:"secondary_category,omitempty"`
+
+				// Taxonomy Taxonomy version that defines this classification (e.g., '1.0').
+				Taxonomy string `json:"taxonomy"`
+
+				// TertiaryCategory Most specific disclosure category.
+				TertiaryCategory *string `json:"tertiary_category,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksTaxonomiesVXDisclosures200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksTaxonomiesVXDisclosures400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
