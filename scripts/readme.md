@@ -53,8 +53,7 @@ what's committed it:
 
 - mints a short-lived **GitHub App** token (the default `GITHUB_TOKEN` can't open
   PRs — org policy blocks it),
-- makes a **GPG-signed** commit as the bot identity `justinpolygon`
-  (`123573436+justinpolygon@users.noreply.github.com`),
+- commits as the GitHub App's bot identity,
 - pushes a **unique** branch `bot/openapi-sync-<date>-<run-id>` and opens a
   brand-new `[bot]`-prefixed PR (never reusing an existing one, so author ≠
   reviewer),
@@ -66,7 +65,6 @@ what's committed it:
 | --- | --- | --- |
 | Variable | `MASSIVE_CLIENT_LIBRARY_AUTOMATION_APP_ID` | GitHub App id (App must be installed on this repo) |
 | Secret | `MASSIVE_CLIENT_LIBRARY_AUTOMATION_APP_PRIVATE_KEY` | GitHub App private key |
-| Secret | `GPG_PRIVATE_KEY` | Signs the bot commit (shared with client-jvm / client-js) |
 | Secret | `SLACK_CLIENT_LIBRARY_WEBHOOK` | Slack notification (shared; optional — skipped if unset) |
 
 ## Per-file reference
