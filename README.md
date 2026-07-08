@@ -6,6 +6,10 @@ The official Go client library for the [Massive](https://massive.com/) REST and 
 
 For details, see our [rebrand announcement blog post](https://massive.com/blog/polygon-is-now-massive/) or open an issue / contact [support@massive.com](mailto:support@massive.com) if you have questions.
 
+## How this SDK stays up to date
+
+The REST client is generated from the Massive.com OpenAPI spec. A scheduled GitHub Actions workflow ([`.github/workflows/sync-openapi.yml`](./.github/workflows/sync-openapi.yml)) runs **daily**: it pulls the latest spec, regenerates the client with [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen), and — only when the output differs from what's committed — opens a brand-new `[bot]`-prefixed pull request on a unique `bot/openapi-sync-<date>-<run-id>` branch for a human to review and merge. Each run opens its own PR (never reusing a previous one), so the author and reviewer are always different people. You can also trigger it on demand from the Actions tab ("Run workflow"). See [`scripts/readme.md`](./scripts/readme.md) for the maintainer details.
+
 ## Getting Started
 
 This section guides you through setting up a simple project with massive.com/client-go.
@@ -20,7 +24,7 @@ Next, initialize a new module for dependency management. This creates a `go.mod`
 go mod init example
 ```
 
-Then, create a `main.go` file. For quick start, you can find over 100+ [example code snippets](https://github.com/massive-com/client-go/tree/master/rest/example) that demonstrate connecting to both the REST and WebSocket APIs.
+Then, create a `main.go` file. For a quick start, use the REST example below, or see the runnable [WebSocket examples](./websocket/example) that demonstrate connecting to the streaming APIs.
 
 Here's a working example that fetches daily aggregates for AAPL (with full pagination and trace support):
 
@@ -250,6 +254,40 @@ for {
 ```
 
 See the [full example](./websocket/example/main.go) for more details on how to use this client effectively.
+
+## Developing & regenerating the client
+
+The repository is a mix of generated and hand-written code:
+
+| Path | Category | Notes |
+| --- | --- | --- |
+| `rest/gen/client.gen.go` | **Generated** | REST client + models, produced by oapi-codegen. Overwritten on every regen — do not edit by hand. |
+| `rest/scripts/openapi.json` | **Committed spec** | The filtered OpenAPI spec the client is generated from. Written by `pull_spec.js`; committed so spec changes are visible in PR diffs. |
+| `rest/client.go`, `rest/iterator.go` | **Hand-written** | Client constructor, options, pagination iterator. |
+| `websocket/` | **Hand-written** | The entire WebSocket client. Never touched by generation. |
+| `README.md`, `go.mod`, `LICENSE` | **Curated** | Never touched by generation. |
+| `scripts/generate.sh`, `rest/scripts/*` | **Tooling** | The generation pipeline (see [`scripts/readme.md`](./scripts/readme.md)). |
+
+### Regenerate locally
+
+Prerequisites: **Go 1.21+**, **Node.js 18+**, and **jq**.
+
+```bash
+bash scripts/generate.sh
+go build ./... && go test ./...
+```
+
+`scripts/generate.sh` pulls the latest spec, pre-processes it, runs the pinned generator (`oapi-codegen v2.5.1`, invoked via `go run <pkg>@<version>` so the version is reproducible), and post-processes the output. It aborts if the spec pull returns nothing or if generation produces no client, so a bad run never clobbers the committed client.
+
+If you don't have the toolchain locally, run it in a container that matches CI (Go 1.24 + Node 22 + jq):
+
+```bash
+docker run --rm -v "$PWD":/src -w /src golang:1.24-bookworm bash -c '
+  apt-get update && apt-get install -y jq curl >/dev/null &&
+  curl -fsSL https://deb.nodesource.com/setup_22.x | bash - >/dev/null &&
+  apt-get install -y nodejs >/dev/null &&
+  bash scripts/generate.sh'
+```
 
 ## Contributing
 
