@@ -57,6 +57,9 @@ func (it *Iterator) fetchNextPage(urlStr string) ([]map[string]any, *string, err
 	if err != nil {
 		return nil, nil, err
 	}
+
+	it.client.rateLimit(req.Context(), req)
+
 	if err := it.client.addHeaders(context.Background(), req); err != nil {
 		return nil, nil, err
 	}

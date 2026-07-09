@@ -5,10 +5,16 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"time"
 	"reflect"
+	"time"
+
+	"golang.org/x/time/rate"
 
 	"github.com/massive-com/client-go/v3/rest/gen"
+)
+
+const (
+	rateLimiterSleepInterval = 100 * time.Millisecond
 )
 
 type Client struct {
@@ -17,6 +23,7 @@ type Client struct {
 	apiKey     string
 	trace      bool
 	pagination bool
+	limiter    *rate.Limiter
 }
 
 type Option func(*Client)
@@ -27,6 +34,14 @@ func WithTrace(enabled bool) Option {
 
 func WithPagination(enabled bool) Option {
 	return func(c *Client) { c.pagination = enabled }
+}
+
+// WithLimiter sets a rate limiter for the request rate.
+// limiter is checked before
+func WithLimiter(limiter *rate.Limiter) Option {
+	return func(c *Client) {
+		c.limiter = limiter
+	}
 }
 
 // New is backward-compatible (no options = trace=false, pagination=true)
@@ -66,14 +81,28 @@ func NewWithOptions(apiKey string, opts ...Option) *Client {
 
 	var err error
 	c.ClientWithResponses, err = gen.NewClientWithResponses("https://api.massive.com",
-		gen.WithHTTPClient(c.httpClient),   // ← THIS makes the FIRST request traced
+		gen.WithHTTPClient(c.httpClient), // ← THIS makes the FIRST request traced
 		gen.WithRequestEditorFn(c.addHeaders),
+		gen.WithRequestEditorFn(c.rateLimit),
 	)
 	if err != nil {
 		panic(err)
 	}
 
 	return c
+}
+
+// rateLimit enforces the rate limit on the client that was
+// set by WithLimiter during creation time.
+func (c *Client) rateLimit(_ context.Context, _ *http.Request) error {
+	if c.limiter != nil {
+		for !c.limiter.Allow() {
+			time.Sleep(rateLimiterSleepInterval)
+			continue
+		}
+	}
+
+	return nil
 }
 
 func (c *Client) addHeaders(_ context.Context, req *http.Request) error {
@@ -83,11 +112,11 @@ func (c *Client) addHeaders(_ context.Context, req *http.Request) error {
 }
 
 // === Pointer helpers ===
-func String(v string) *string { return &v }
-func Int(v int) *int         { return &v }
-func Int64(v int64) *int64   { return &v }
+func String(v string) *string    { return &v }
+func Int(v int) *int             { return &v }
+func Int64(v int64) *int64       { return &v }
 func Float64(v float64) *float64 { return &v }
-func Bool(v bool) *bool      { return &v }
+func Bool(v bool) *bool          { return &v }
 
 // Generic Ptr (used for everything else, including custom enums)
 func Ptr[T any](v T) *T { return &v }

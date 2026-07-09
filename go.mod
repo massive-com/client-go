@@ -9,6 +9,7 @@ require (
 	github.com/sirupsen/logrus v1.9.4
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/exp v0.0.0-20220414153411-bcd21879b8fd
+	golang.org/x/time v0.5.0
 	gopkg.in/tomb.v2 v2.0.0-20161208151619-d5d1b5820637
 )
 
