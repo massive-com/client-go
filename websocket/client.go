@@ -1,7 +1,6 @@
 package massivews
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"net/url"
@@ -10,6 +9,7 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff/v4"
+	json "github.com/goccy/go-json"
 	"github.com/gorilla/websocket"
 	"github.com/massive-com/client-go/v3/websocket/models"
 	"golang.org/x/exp/maps"
@@ -387,20 +387,19 @@ func (c *Client) process() (err error) {
 
 func (c *Client) route(msgs []json.RawMessage) error {
 	for _, msg := range msgs {
-		var ev models.EventType
-		err := json.Unmarshal(msg, &ev)
-		if err != nil {
-			c.log.Errorf("failed to process message: %v", err)
+		eventType := models.PeekEventType(msg)
+		if eventType == "" {
+			c.log.Errorf("failed to identify event type in message")
 			continue
 		}
 
-		switch ev.EventType {
+		switch eventType {
 		case "status":
 			if err := c.handleStatus(msg); err != nil {
 				return err
 			}
 		default:
-			c.handleData(ev.EventType, msg)
+			c.handleData(eventType, msg)
 		}
 	}
 

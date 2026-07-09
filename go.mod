@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/cenkalti/backoff/v4 v4.3.0
+	github.com/goccy/go-json v0.10.6
 	github.com/gorilla/websocket v1.5.3
 	github.com/oapi-codegen/runtime v1.2.0
 	github.com/sirupsen/logrus v1.9.4
