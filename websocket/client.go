@@ -1,6 +1,7 @@
 package massivews
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -18,10 +19,11 @@ import (
 )
 
 const (
-	writeWait      = 5 * time.Second
-	pongWait       = 30 * time.Second
-	pingPeriod     = pongWait - 5*time.Second // send ping 5 seconds before deadline
-	maxMessageSize = 1_000_000                // 1MB
+	writeWait                = 5 * time.Second
+	pongWait                 = 30 * time.Second
+	pingPeriod               = pongWait - 5*time.Second // send ping 5 seconds before deadline
+	maxMessageSize           = 1_000_000                // 1MB
+	clientMaxBackoffInterval = 60 * time.Second
 )
 
 // Client defines a client to the Massive WebSocket API.
@@ -31,8 +33,10 @@ type Client struct {
 	market Market
 	url    string
 
-	shouldClose bool
+	closeCtx    context.Context
+	closeCtxFn  context.CancelFunc
 	backoff     backoff.BackOff
+	connectTime time.Time
 
 	mtx    sync.Mutex
 	rwtomb tomb.Tomb
@@ -57,12 +61,15 @@ func New(config Config) (*Client, error) {
 	if err := config.validate(); err != nil {
 		return nil, fmt.Errorf("invalid client options: %w", err)
 	}
-
+	expBackoff := backoff.NewExponentialBackOff()
+	expBackoff.MaxInterval = clientMaxBackoffInterval
+	// The client should give up if it is in a reconnect loop for too long.
+	expBackoff.MaxElapsedTime = time.Hour
 	c := &Client{
 		apiKey:               config.APIKey,
 		feed:                 config.Feed,
 		market:               config.Market,
-		backoff:              backoff.NewExponentialBackOff(),
+		backoff:              expBackoff,
 		rQueue:               make(chan json.RawMessage, 10000),
 		wQueue:               make(chan json.RawMessage, 1000),
 		subs:                 make(subscriptions),
@@ -98,11 +105,12 @@ func (c *Client) Connect() error {
 	if c.conn != nil {
 		return nil
 	}
+	c.closeCtx, c.closeCtxFn = context.WithCancel(context.Background())
 
-	notify := func(err error, _ time.Duration) {
+	notify := func(err error) {
 		c.log.Errorf(err.Error())
 	}
-	if err := backoff.RetryNotify(c.connect(false), c.backoff, notify); err != nil {
+	if err := c.backoffRetry(c.connect(false), notify); err != nil {
 		return err
 	}
 
@@ -172,9 +180,46 @@ func (c *Client) Error() <-chan error {
 
 // Close attempts to gracefully close the connection to the server.
 func (c *Client) Close() {
+	if c.closeCtxFn != nil {
+		// Close the context so that any pending backoff-retries instantly cancel.
+		c.closeCtxFn()
+	}
 	c.mtx.Lock()
 	defer c.mtx.Unlock()
 	c.close(false)
+}
+
+func (c *Client) backoffRetry(fn func() error, notify func(error)) error {
+	var err error
+	for {
+		if time.Since(c.connectTime) > 2*clientMaxBackoffInterval {
+			// Reset the backoff timer only if the connection has been stable for double the max interval.
+			c.backoff.Reset()
+			err = nil
+		}
+		// Skip backoffs only for the very first connection a client performs.
+		if !c.connectTime.IsZero() {
+			// Backoff regardless of prior error status in this func, since it's possible for
+			// another goroutine other than the `fn` to have failed and triggered a reconnect.
+			wait := c.backoff.NextBackOff()
+			if wait == backoff.Stop {
+				return err // Return the last-known recent error.
+			}
+			select {
+			case <-time.After(wait):
+			case <-c.closeCtx.Done():
+				return c.closeCtx.Err()
+			}
+		}
+		c.connectTime = time.Now()
+		err = fn()
+		if err == nil {
+			return nil
+		}
+		if notify != nil {
+			notify(err)
+		}
+	}
 }
 
 func newConn(uri string) (*websocket.Conn, error) {
@@ -239,20 +284,21 @@ func (c *Client) reconnect() {
 	c.mtx.Lock()
 	defer c.mtx.Unlock()
 
-	if c.shouldClose {
+	if c.closeCtx.Err() != nil {
 		return
 	}
 
 	c.log.Debugf("unexpected disconnect: reconnecting")
 	c.close(true)
 
-	notify := func(err error, _ time.Duration) {
+	notify := func(err error) {
 		c.log.Errorf(err.Error())
 		if c.reconnectCallback != nil {
 			c.reconnectCallback(err)
 		}
 	}
-	err := backoff.RetryNotify(c.connect(true), c.backoff, notify)
+
+	err := c.backoffRetry(c.connect(true), notify)
 	if err != nil {
 		err = fmt.Errorf("error reconnecting: %w: closing connection", err)
 		c.log.Errorf(err.Error())
@@ -286,7 +332,7 @@ func (c *Client) close(reconnect bool) {
 		if err := c.ptomb.Wait(); err != nil {
 			c.log.Errorf("process thread closed: %v", err)
 		}
-		c.shouldClose = true
+		c.closeCtxFn()
 		c.closeOutput()
 	}
 
