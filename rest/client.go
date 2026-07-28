@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"time"
 	"reflect"
+	"time"
 
 	"github.com/massive-com/client-go/v3/rest/gen"
 )
@@ -66,7 +66,7 @@ func NewWithOptions(apiKey string, opts ...Option) *Client {
 
 	var err error
 	c.ClientWithResponses, err = gen.NewClientWithResponses("https://api.massive.com",
-		gen.WithHTTPClient(c.httpClient),   // ← THIS makes the FIRST request traced
+		gen.WithHTTPClient(c.httpClient), // ← THIS makes the FIRST request traced
 		gen.WithRequestEditorFn(c.addHeaders),
 	)
 	if err != nil {
@@ -83,11 +83,11 @@ func (c *Client) addHeaders(_ context.Context, req *http.Request) error {
 }
 
 // === Pointer helpers ===
-func String(v string) *string { return &v }
-func Int(v int) *int         { return &v }
-func Int64(v int64) *int64   { return &v }
+func String(v string) *string    { return &v }
+func Int(v int) *int             { return &v }
+func Int64(v int64) *int64       { return &v }
 func Float64(v float64) *float64 { return &v }
-func Bool(v bool) *bool      { return &v }
+func Bool(v bool) *bool          { return &v }
 
 // Generic Ptr (used for everything else, including custom enums)
 func Ptr[T any](v T) *T { return &v }
