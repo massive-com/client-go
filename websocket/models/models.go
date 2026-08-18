@@ -34,8 +34,16 @@ type EquityAgg struct {
 	// The tick volume.
 	Volume float64 `json:"v,omitempty"`
 
+	// The tick volume including fractional shares, represented as a decimal string. Stocks only. Kept as a string so
+	// that the precision the server sends is preserved; Volume truncates any fractional part.
+	DecimalVolume string `json:"dv,omitempty"`
+
 	// Today's accumulated volume.
 	AccumulatedVolume float64 `json:"av,omitempty"`
+
+	// Today's accumulated volume including fractional shares, represented as a decimal string. Stocks only. See
+	// DecimalVolume for why this is a string.
+	DecimalAccumulatedVolume string `json:"dav,omitempty"`
 
 	// Today's official opening price.
 	OfficialOpenPrice float64 `json:"op,omitempty"`
@@ -130,11 +138,19 @@ type EquityTrade struct {
 	// The trade size.
 	Size int64 `json:"s,omitempty"`
 
+	// The trade size including fractional shares, represented as a decimal string. Stocks only. Prefer this over Size
+	// for stocks: Size truncates, so a trade of less than one share is reported as 0.
+	DecimalSize string `json:"ds,omitempty"`
+
 	// The trade conditions.
 	Conditions []int32 `json:"c,omitempty"`
 
 	// The Timestamp in Unix MS.
 	Timestamp int64 `json:"t,omitempty"`
+
+	// The time the trade occurred at the exchange or TRF, in Unix MS. This is always less than or equal to Timestamp,
+	// which is stamped later by the SIP.
+	ParticipantTimestamp int64 `json:"pt,omitempty"`
 
 	// The sequence number represents the sequence in which message events happened. These are increasing and unique per
 	// ticker symbol, but will not always be sequential (e.g., 1, 2, 6, 9, 10, 11).
