@@ -2381,7 +2381,7 @@ type GetConsumerSpendingEuV1MerchantHierarchyParamsListingStatusAnyOf string
 
 // GetCryptoV1ExchangesParams defines parameters for GetCryptoV1Exchanges.
 type GetCryptoV1ExchangesParams struct {
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 }
 
@@ -2913,6 +2913,30 @@ type GetEtfGlobalV1TaxonomiesParams struct {
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
+// GetFedV1FundingConditionsParams defines parameters for GetFedV1FundingConditions.
+type GetFedV1FundingConditionsParams struct {
+	// Date Calendar date of the observation (YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'asc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
 // GetFedV1InflationParams defines parameters for GetFedV1Inflation.
 type GetFedV1InflationParams struct {
 	// Date Calendar date of the observation (YYYY‑MM‑DD).
@@ -3023,32 +3047,32 @@ type GetFedV1TreasuryYieldsParams struct {
 
 // GetForexV1ExchangesParams defines parameters for GetForexV1Exchanges.
 type GetForexV1ExchangesParams struct {
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 }
 
 // AggregatesV1Params defines parameters for AggregatesV1.
 type AggregatesV1Params struct {
-	// Resolution The size of each aggregate candle, specified as a number followed by a unit: `sec`, `min`, `hour`, `session`, `week`, `month`, `quarter`, or `year`.
+	// Resolution The size of each aggregate candle, specified as a number followed by a unit: sec, min, hour, session, week, month, quarter, or year.
 	//
-	// Each unit has a maximum multiplier. For instance, minute candles go up to `59min` — after that, use `1hour`. Requesting an unsupported size returns a `400 Bad Request`.
+	// Each unit has a maximum multiplier. For instance, minute candles go up to 59min; after that, use 1hour. Requesting an unsupported size returns a 400 Bad Request.
 	Resolution *string `form:"resolution,omitempty" json:"resolution,omitempty"`
 
-	// WindowStart Filter by the start time of each candle. Accepts a `YYYY-MM-DD` date or a nanosecond Unix timestamp. The value is snapped to the start of the matching candle interval.
+	// WindowStart Filter by the start time of each candle. Accepts a YYYY-MM-DD date or a nanosecond Unix timestamp. The value is snapped to the start of the matching candle interval. When omitted, the API returns the most recent candles up to the limit.
 	//
-	// When omitted, the API returns the most recent candles up to `limit`.
+	// Session candles are timestamped at the start of the session, not the trading date they settle on. A futures session opens the evening before it settles, so window_start falls on the day before session_end_date. To pull the session that settles on a given date, set window_start to the day before. For example, window_start=2025-08-05 returns the session that settles on 2025-08-06. Week, month, quarter, and year candles follow the same rule: window_start is the first day of the period and session_end_date is the last trading date in it.
 	//
-	// Use comparison suffixes to query a range:
-	// - `window_start.gte` — greater than or equal to
-	// - `window_start.gt` — greater than
-	// - `window_start.lte` — less than or equal to
-	// - `window_start.lt` — less than
+	// Add a comparison suffix to filter a range: window_start.gte (greater than or equal to), window_start.gt (greater than), window_start.lte (less than or equal to), or window_start.lt (less than).
 	//
-	// **Examples**
-	// - Most recent minute candles: `/v1/aggs/ESU5?resolution=1min&limit=5`
-	// - Single daily candle: `/v1/aggs/ESU5?resolution=1session&window_start=2025-08-05`
-	// - Date range: `/v1/aggs/ESU5?resolution=1session&window_start.gte=2025-07-01&window_start.lte=2025-07-31`
-	// - After a timestamp: `/v1/aggs/ESU5?resolution=1sec&window_start.gt=1751409877000000000&limit=1000`
+	// Examples:
+	//
+	// Most recent minute candles: /v1/aggs/ESU5?resolution=1min&limit=5
+	//
+	// Session settling 2025-08-06 (pass its start date, 2025-08-05): /v1/aggs/ESU5?resolution=1session&window_start=2025-08-05
+	//
+	// Date range: /v1/aggs/ESU5?resolution=1session&window_start.gte=2025-07-01&window_start.lte=2025-07-31
+	//
+	// After a timestamp: /v1/aggs/ESU5?resolution=1sec&window_start.gt=1751409877000000000&limit=1000
 	WindowStart *string `form:"window_start,omitempty" json:"window_start,omitempty"`
 
 	// Limit The number of results to return per page (default=1000, maximum=50000, minimum=1).
@@ -3180,7 +3204,7 @@ type GetFuturesV1ContractsParamsTypeAnyOf string
 
 // GetFuturesV1ExchangesParams defines parameters for GetFuturesV1Exchanges.
 type GetFuturesV1ExchangesParams struct {
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 }
 
@@ -3204,7 +3228,7 @@ type GetFuturesV1MarketStatusParams struct {
 	// ProductCodeLte Filter less than or equal to the value.
 	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '99'.
+	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '100'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 }
 
@@ -3366,7 +3390,7 @@ type GetFuturesV1QuotesTickerParams struct {
 	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '49999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3498,7 +3522,7 @@ type GetFuturesV1TradesTickerParams struct {
 	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
 	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '49999'.
+	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3507,7 +3531,7 @@ type GetFuturesV1TradesTickerParams struct {
 
 // GetOptionsV1ExchangesParams defines parameters for GetOptionsV1Exchanges.
 type GetOptionsV1ExchangesParams struct {
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 }
 
@@ -3528,7 +3552,7 @@ type GetOptionsV3QuotesTickerParams struct {
 	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '49999'.
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3552,7 +3576,7 @@ type GetOptionsV3TradesTickerParams struct {
 	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '49999'.
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3576,7 +3600,7 @@ type GetStocksDevTradesTickerParams struct {
 	// SipTimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	SipTimestampLte *string `form:"sip_timestamp.lte,omitempty" json:"sip_timestamp.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '49999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'sip_timestamp' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3657,7 +3681,7 @@ type GetStocksFilings10KVXSectionsParams struct {
 	// PeriodEndLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	PeriodEndLte *string `form:"period_end.lte,omitempty" json:"period_end.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '99'.
+	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '100'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'period_end' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3744,7 +3768,7 @@ type GetStocksFilings10KVX0SectionsParams struct {
 	// PeriodEndLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	PeriodEndLte *string `form:"period_end.lte,omitempty" json:"period_end.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '99'.
+	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '100'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'period_end' if not specified. The sort order defaults to 'desc' if not specified.
@@ -3873,7 +3897,7 @@ type GetStocksFilings8KVXTextParams struct {
 	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '99'.
+	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '100'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
@@ -4143,7 +4167,7 @@ type GetStocksFilingsVXRiskFactorsParams struct {
 	// CikLte Filter less than or equal to the value.
 	CikLte *string `form:"cik.lte,omitempty" json:"cik.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '49999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.
@@ -4194,7 +4218,7 @@ type GetStocksFinancialsV1BalanceSheetsParams struct {
 	// PeriodEndLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	PeriodEndLte *string `form:"period_end.lte,omitempty" json:"period_end.lte,omitempty"`
 
-	// FilingDate The date when the financial statement was filed with the SEC. Value must be formatted 'yyyy-mm-dd'.
+	// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index). Value must be formatted 'yyyy-mm-dd'.
 	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
 
 	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
@@ -4209,35 +4233,35 @@ type GetStocksFinancialsV1BalanceSheetsParams struct {
 	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
 
-	// FiscalYear The fiscal year for the reporting period. Value must be a floating point number.
-	FiscalYear *float64 `form:"fiscal_year,omitempty" json:"fiscal_year,omitempty"`
+	// FiscalYear The fiscal year for the reporting period. Value must be an integer.
+	FiscalYear *int64 `form:"fiscal_year,omitempty" json:"fiscal_year,omitempty"`
 
-	// FiscalYearGt Filter greater than the value. Value must be a floating point number.
-	FiscalYearGt *float64 `form:"fiscal_year.gt,omitempty" json:"fiscal_year.gt,omitempty"`
+	// FiscalYearGt Filter greater than the value. Value must be an integer.
+	FiscalYearGt *int64 `form:"fiscal_year.gt,omitempty" json:"fiscal_year.gt,omitempty"`
 
-	// FiscalYearGte Filter greater than or equal to the value. Value must be a floating point number.
-	FiscalYearGte *float64 `form:"fiscal_year.gte,omitempty" json:"fiscal_year.gte,omitempty"`
+	// FiscalYearGte Filter greater than or equal to the value. Value must be an integer.
+	FiscalYearGte *int64 `form:"fiscal_year.gte,omitempty" json:"fiscal_year.gte,omitempty"`
 
-	// FiscalYearLt Filter less than the value. Value must be a floating point number.
-	FiscalYearLt *float64 `form:"fiscal_year.lt,omitempty" json:"fiscal_year.lt,omitempty"`
+	// FiscalYearLt Filter less than the value. Value must be an integer.
+	FiscalYearLt *int64 `form:"fiscal_year.lt,omitempty" json:"fiscal_year.lt,omitempty"`
 
-	// FiscalYearLte Filter less than or equal to the value. Value must be a floating point number.
-	FiscalYearLte *float64 `form:"fiscal_year.lte,omitempty" json:"fiscal_year.lte,omitempty"`
+	// FiscalYearLte Filter less than or equal to the value. Value must be an integer.
+	FiscalYearLte *int64 `form:"fiscal_year.lte,omitempty" json:"fiscal_year.lte,omitempty"`
 
-	// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period. Value must be a floating point number.
-	FiscalQuarter *float64 `form:"fiscal_quarter,omitempty" json:"fiscal_quarter,omitempty"`
+	// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period. Value must be an integer.
+	FiscalQuarter *int64 `form:"fiscal_quarter,omitempty" json:"fiscal_quarter,omitempty"`
 
-	// FiscalQuarterGt Filter greater than the value. Value must be a floating point number.
-	FiscalQuarterGt *float64 `form:"fiscal_quarter.gt,omitempty" json:"fiscal_quarter.gt,omitempty"`
+	// FiscalQuarterGt Filter greater than the value. Value must be an integer.
+	FiscalQuarterGt *int64 `form:"fiscal_quarter.gt,omitempty" json:"fiscal_quarter.gt,omitempty"`
 
-	// FiscalQuarterGte Filter greater than or equal to the value. Value must be a floating point number.
-	FiscalQuarterGte *float64 `form:"fiscal_quarter.gte,omitempty" json:"fiscal_quarter.gte,omitempty"`
+	// FiscalQuarterGte Filter greater than or equal to the value. Value must be an integer.
+	FiscalQuarterGte *int64 `form:"fiscal_quarter.gte,omitempty" json:"fiscal_quarter.gte,omitempty"`
 
-	// FiscalQuarterLt Filter less than the value. Value must be a floating point number.
-	FiscalQuarterLt *float64 `form:"fiscal_quarter.lt,omitempty" json:"fiscal_quarter.lt,omitempty"`
+	// FiscalQuarterLt Filter less than the value. Value must be an integer.
+	FiscalQuarterLt *int64 `form:"fiscal_quarter.lt,omitempty" json:"fiscal_quarter.lt,omitempty"`
 
-	// FiscalQuarterLte Filter less than or equal to the value. Value must be a floating point number.
-	FiscalQuarterLte *float64 `form:"fiscal_quarter.lte,omitempty" json:"fiscal_quarter.lte,omitempty"`
+	// FiscalQuarterLte Filter less than or equal to the value. Value must be an integer.
+	FiscalQuarterLte *int64 `form:"fiscal_quarter.lte,omitempty" json:"fiscal_quarter.lte,omitempty"`
 
 	// Timeframe The reporting period type. Possible values include: quarterly, annual.
 	Timeframe *string `form:"timeframe,omitempty" json:"timeframe,omitempty"`
@@ -4299,7 +4323,7 @@ type GetStocksFinancialsV1CashFlowStatementsParams struct {
 	// PeriodEndLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	PeriodEndLte *string `form:"period_end.lte,omitempty" json:"period_end.lte,omitempty"`
 
-	// FilingDate The date when the financial statement was filed with the SEC. Value must be formatted 'yyyy-mm-dd'.
+	// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index). Value must be formatted 'yyyy-mm-dd'.
 	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
 
 	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
@@ -4323,35 +4347,35 @@ type GetStocksFinancialsV1CashFlowStatementsParams struct {
 	// TickersAnyOf Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.
 	TickersAnyOf *string `form:"tickers.any_of,omitempty" json:"tickers.any_of,omitempty"`
 
-	// FiscalYear The fiscal year for the reporting period. Value must be a floating point number.
-	FiscalYear *float64 `form:"fiscal_year,omitempty" json:"fiscal_year,omitempty"`
+	// FiscalYear The fiscal year for the reporting period. Value must be an integer.
+	FiscalYear *int64 `form:"fiscal_year,omitempty" json:"fiscal_year,omitempty"`
 
-	// FiscalYearGt Filter greater than the value. Value must be a floating point number.
-	FiscalYearGt *float64 `form:"fiscal_year.gt,omitempty" json:"fiscal_year.gt,omitempty"`
+	// FiscalYearGt Filter greater than the value. Value must be an integer.
+	FiscalYearGt *int64 `form:"fiscal_year.gt,omitempty" json:"fiscal_year.gt,omitempty"`
 
-	// FiscalYearGte Filter greater than or equal to the value. Value must be a floating point number.
-	FiscalYearGte *float64 `form:"fiscal_year.gte,omitempty" json:"fiscal_year.gte,omitempty"`
+	// FiscalYearGte Filter greater than or equal to the value. Value must be an integer.
+	FiscalYearGte *int64 `form:"fiscal_year.gte,omitempty" json:"fiscal_year.gte,omitempty"`
 
-	// FiscalYearLt Filter less than the value. Value must be a floating point number.
-	FiscalYearLt *float64 `form:"fiscal_year.lt,omitempty" json:"fiscal_year.lt,omitempty"`
+	// FiscalYearLt Filter less than the value. Value must be an integer.
+	FiscalYearLt *int64 `form:"fiscal_year.lt,omitempty" json:"fiscal_year.lt,omitempty"`
 
-	// FiscalYearLte Filter less than or equal to the value. Value must be a floating point number.
-	FiscalYearLte *float64 `form:"fiscal_year.lte,omitempty" json:"fiscal_year.lte,omitempty"`
+	// FiscalYearLte Filter less than or equal to the value. Value must be an integer.
+	FiscalYearLte *int64 `form:"fiscal_year.lte,omitempty" json:"fiscal_year.lte,omitempty"`
 
-	// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period. Value must be a floating point number.
-	FiscalQuarter *float64 `form:"fiscal_quarter,omitempty" json:"fiscal_quarter,omitempty"`
+	// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period. Value must be an integer.
+	FiscalQuarter *int64 `form:"fiscal_quarter,omitempty" json:"fiscal_quarter,omitempty"`
 
-	// FiscalQuarterGt Filter greater than the value. Value must be a floating point number.
-	FiscalQuarterGt *float64 `form:"fiscal_quarter.gt,omitempty" json:"fiscal_quarter.gt,omitempty"`
+	// FiscalQuarterGt Filter greater than the value. Value must be an integer.
+	FiscalQuarterGt *int64 `form:"fiscal_quarter.gt,omitempty" json:"fiscal_quarter.gt,omitempty"`
 
-	// FiscalQuarterGte Filter greater than or equal to the value. Value must be a floating point number.
-	FiscalQuarterGte *float64 `form:"fiscal_quarter.gte,omitempty" json:"fiscal_quarter.gte,omitempty"`
+	// FiscalQuarterGte Filter greater than or equal to the value. Value must be an integer.
+	FiscalQuarterGte *int64 `form:"fiscal_quarter.gte,omitempty" json:"fiscal_quarter.gte,omitempty"`
 
-	// FiscalQuarterLt Filter less than the value. Value must be a floating point number.
-	FiscalQuarterLt *float64 `form:"fiscal_quarter.lt,omitempty" json:"fiscal_quarter.lt,omitempty"`
+	// FiscalQuarterLt Filter less than the value. Value must be an integer.
+	FiscalQuarterLt *int64 `form:"fiscal_quarter.lt,omitempty" json:"fiscal_quarter.lt,omitempty"`
 
-	// FiscalQuarterLte Filter less than or equal to the value. Value must be a floating point number.
-	FiscalQuarterLte *float64 `form:"fiscal_quarter.lte,omitempty" json:"fiscal_quarter.lte,omitempty"`
+	// FiscalQuarterLte Filter less than or equal to the value. Value must be an integer.
+	FiscalQuarterLte *int64 `form:"fiscal_quarter.lte,omitempty" json:"fiscal_quarter.lte,omitempty"`
 
 	// Timeframe The reporting period type. Possible values include: quarterly, annual, trailing_twelve_months.
 	Timeframe *string `form:"timeframe,omitempty" json:"timeframe,omitempty"`
@@ -4422,7 +4446,7 @@ type GetStocksFinancialsV1IncomeStatementsParams struct {
 	// PeriodEndLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	PeriodEndLte *string `form:"period_end.lte,omitempty" json:"period_end.lte,omitempty"`
 
-	// FilingDate The date when the financial statement was filed with the SEC. Value must be formatted 'yyyy-mm-dd'.
+	// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index). Value must be formatted 'yyyy-mm-dd'.
 	FilingDate *string `form:"filing_date,omitempty" json:"filing_date,omitempty"`
 
 	// FilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
@@ -4437,35 +4461,35 @@ type GetStocksFinancialsV1IncomeStatementsParams struct {
 	// FilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	FilingDateLte *string `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
 
-	// FiscalYear The fiscal year for the reporting period. Value must be a floating point number.
-	FiscalYear *float64 `form:"fiscal_year,omitempty" json:"fiscal_year,omitempty"`
+	// FiscalYear The fiscal year for the reporting period. Value must be an integer.
+	FiscalYear *int64 `form:"fiscal_year,omitempty" json:"fiscal_year,omitempty"`
 
-	// FiscalYearGt Filter greater than the value. Value must be a floating point number.
-	FiscalYearGt *float64 `form:"fiscal_year.gt,omitempty" json:"fiscal_year.gt,omitempty"`
+	// FiscalYearGt Filter greater than the value. Value must be an integer.
+	FiscalYearGt *int64 `form:"fiscal_year.gt,omitempty" json:"fiscal_year.gt,omitempty"`
 
-	// FiscalYearGte Filter greater than or equal to the value. Value must be a floating point number.
-	FiscalYearGte *float64 `form:"fiscal_year.gte,omitempty" json:"fiscal_year.gte,omitempty"`
+	// FiscalYearGte Filter greater than or equal to the value. Value must be an integer.
+	FiscalYearGte *int64 `form:"fiscal_year.gte,omitempty" json:"fiscal_year.gte,omitempty"`
 
-	// FiscalYearLt Filter less than the value. Value must be a floating point number.
-	FiscalYearLt *float64 `form:"fiscal_year.lt,omitempty" json:"fiscal_year.lt,omitempty"`
+	// FiscalYearLt Filter less than the value. Value must be an integer.
+	FiscalYearLt *int64 `form:"fiscal_year.lt,omitempty" json:"fiscal_year.lt,omitempty"`
 
-	// FiscalYearLte Filter less than or equal to the value. Value must be a floating point number.
-	FiscalYearLte *float64 `form:"fiscal_year.lte,omitempty" json:"fiscal_year.lte,omitempty"`
+	// FiscalYearLte Filter less than or equal to the value. Value must be an integer.
+	FiscalYearLte *int64 `form:"fiscal_year.lte,omitempty" json:"fiscal_year.lte,omitempty"`
 
-	// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period. Value must be a floating point number.
-	FiscalQuarter *float64 `form:"fiscal_quarter,omitempty" json:"fiscal_quarter,omitempty"`
+	// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period. Value must be an integer.
+	FiscalQuarter *int64 `form:"fiscal_quarter,omitempty" json:"fiscal_quarter,omitempty"`
 
-	// FiscalQuarterGt Filter greater than the value. Value must be a floating point number.
-	FiscalQuarterGt *float64 `form:"fiscal_quarter.gt,omitempty" json:"fiscal_quarter.gt,omitempty"`
+	// FiscalQuarterGt Filter greater than the value. Value must be an integer.
+	FiscalQuarterGt *int64 `form:"fiscal_quarter.gt,omitempty" json:"fiscal_quarter.gt,omitempty"`
 
-	// FiscalQuarterGte Filter greater than or equal to the value. Value must be a floating point number.
-	FiscalQuarterGte *float64 `form:"fiscal_quarter.gte,omitempty" json:"fiscal_quarter.gte,omitempty"`
+	// FiscalQuarterGte Filter greater than or equal to the value. Value must be an integer.
+	FiscalQuarterGte *int64 `form:"fiscal_quarter.gte,omitempty" json:"fiscal_quarter.gte,omitempty"`
 
-	// FiscalQuarterLt Filter less than the value. Value must be a floating point number.
-	FiscalQuarterLt *float64 `form:"fiscal_quarter.lt,omitempty" json:"fiscal_quarter.lt,omitempty"`
+	// FiscalQuarterLt Filter less than the value. Value must be an integer.
+	FiscalQuarterLt *int64 `form:"fiscal_quarter.lt,omitempty" json:"fiscal_quarter.lt,omitempty"`
 
-	// FiscalQuarterLte Filter less than or equal to the value. Value must be a floating point number.
-	FiscalQuarterLte *float64 `form:"fiscal_quarter.lte,omitempty" json:"fiscal_quarter.lte,omitempty"`
+	// FiscalQuarterLte Filter less than or equal to the value. Value must be an integer.
+	FiscalQuarterLte *int64 `form:"fiscal_quarter.lte,omitempty" json:"fiscal_quarter.lte,omitempty"`
 
 	// Timeframe The reporting period type. Possible values include: quarterly, annual, trailing_twelve_months.
 	Timeframe *string `form:"timeframe,omitempty" json:"timeframe,omitempty"`
@@ -4575,7 +4599,7 @@ type GetStocksFinancialsV1RatiosParams struct {
 	// MarketCapLte Filter less than or equal to the value. Value must be a floating point number.
 	MarketCapLte *float64 `form:"market_cap.lte,omitempty" json:"market_cap.lte,omitempty"`
 
-	// EarningsPerShare Earnings per share, calculated as net income available to common shareholders divided by weighted shares outstanding. Value must be a floating point number.
+	// EarningsPerShare Earnings per share, calculated as trailing twelve months (TTM) net income available to common shareholders divided by point-in-time shares outstanding as of the price date, assuming all shares of other share classes are converted to this share class. This is not weighted average basic or diluted shares outstanding, so this value will not match the reported basic or diluted EPS on the income statements endpoint. Value must be a floating point number.
 	EarningsPerShare *float64 `form:"earnings_per_share,omitempty" json:"earnings_per_share,omitempty"`
 
 	// EarningsPerShareGt Filter greater than the value. Value must be a floating point number.
@@ -4911,7 +4935,7 @@ type GetStocksTaxonomiesVXDisclosuresParams struct {
 	// TertiaryCategoryLte Filter less than or equal to the value.
 	TertiaryCategoryLte *string `form:"tertiary_category.lte,omitempty" json:"tertiary_category.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '200' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '200' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'taxonomy' if not specified. The sort order defaults to 'desc' if not specified.
@@ -4989,7 +5013,7 @@ type GetStocksTaxonomiesVXRiskFactorsParams struct {
 	// TertiaryCategoryLte Filter less than or equal to the value.
 	TertiaryCategoryLte *string `form:"tertiary_category.lte,omitempty" json:"tertiary_category.lte,omitempty"`
 
-	// Limit Limit the maximum number of results returned. Defaults to '200' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '200' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'taxonomy' if not specified. The sort order defaults to 'desc' if not specified.
@@ -5067,7 +5091,7 @@ type GetStocksV1DividendsParamsDistributionTypeAnyOf string
 
 // GetStocksV1ExchangesParams defines parameters for GetStocksV1Exchanges.
 type GetStocksV1ExchangesParams struct {
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '999'.
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 }
 
@@ -5235,7 +5259,7 @@ type GetStocksV1SplitsParams struct {
 	// TickerLte Filter less than or equal to the value.
 	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
 
-	// ExecutionDate Date when the stock split was applied and shares adjusted Value must be formatted 'yyyy-mm-dd'.
+	// ExecutionDate Date when the stock split takes effect. The adjustment is applied overnight. On the prior trading day, the post-market session is the last session that shows pre-split prices. On the execution date, all trading is already adjusted for the split. This includes the pre-market session. Value must be formatted 'yyyy-mm-dd'.
 	ExecutionDate *string `form:"execution_date,omitempty" json:"execution_date,omitempty"`
 
 	// ExecutionDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
@@ -7433,7 +7457,7 @@ type GetTickerParams struct {
 
 // GetSnapshotsParams defines parameters for GetSnapshots.
 type GetSnapshotsParams struct {
-	// Ticker Search a range of tickers lexicographically.
+	// Ticker Specify a single ticker symbol. Ticker symbols are case-sensitive and use a prefix for non-stock assets, for example NVDA for stocks, O:SPY280121C00750000 for options, C:EURUSD for forex, X:BTCUSD for crypto, and I:SPX for indices. To request more than one ticker or a range of tickers, expand the filter modifiers.
 	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
 
 	// Type Query by the type of asset.
@@ -7482,7 +7506,7 @@ type GetIndicesSnapshotParams struct {
 	// Warning: The maximum number of characters allowed in a URL are subject to your technology stack.
 	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
 
-	// Ticker Search a range of tickers lexicographically.
+	// Ticker Specify a single index ticker, for example I:SPX. Index tickers are case-sensitive and start with I:. To request more than one ticker or a range of tickers, expand the filter modifiers.
 	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
 
 	// TickerGte Range by ticker.
@@ -7925,6 +7949,9 @@ type ClientInterface interface {
 
 	// GetEtfGlobalV1Taxonomies request
 	GetEtfGlobalV1Taxonomies(ctx context.Context, params *GetEtfGlobalV1TaxonomiesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetFedV1FundingConditions request
+	GetFedV1FundingConditions(ctx context.Context, params *GetFedV1FundingConditionsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetFedV1Inflation request
 	GetFedV1Inflation(ctx context.Context, params *GetFedV1InflationParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8496,6 +8523,18 @@ func (c *Client) GetEtfGlobalV1Profiles(ctx context.Context, params *GetEtfGloba
 
 func (c *Client) GetEtfGlobalV1Taxonomies(ctx context.Context, params *GetEtfGlobalV1TaxonomiesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetEtfGlobalV1TaxonomiesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetFedV1FundingConditions(ctx context.Context, params *GetFedV1FundingConditionsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetFedV1FundingConditionsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -18598,6 +18637,151 @@ func NewGetEtfGlobalV1TaxonomiesRequest(server string, params *GetEtfGlobalV1Tax
 		if params.CompositeTickerLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "composite_ticker.lte", runtime.ParamLocationQuery, *params.CompositeTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetFedV1FundingConditionsRequest generates requests for GetFedV1FundingConditions
+func NewGetFedV1FundingConditionsRequest(server string, params *GetFedV1FundingConditionsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/fed/v1/funding-conditions")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -44748,6 +44932,9 @@ type ClientWithResponsesInterface interface {
 	// GetEtfGlobalV1TaxonomiesWithResponse request
 	GetEtfGlobalV1TaxonomiesWithResponse(ctx context.Context, params *GetEtfGlobalV1TaxonomiesParams, reqEditors ...RequestEditorFn) (*GetEtfGlobalV1TaxonomiesResponse, error)
 
+	// GetFedV1FundingConditionsWithResponse request
+	GetFedV1FundingConditionsWithResponse(ctx context.Context, params *GetFedV1FundingConditionsParams, reqEditors ...RequestEditorFn) (*GetFedV1FundingConditionsResponse, error)
+
 	// GetFedV1InflationWithResponse request
 	GetFedV1InflationWithResponse(ctx context.Context, params *GetFedV1InflationParams, reqEditors ...RequestEditorFn) (*GetFedV1InflationResponse, error)
 
@@ -45634,10 +45821,10 @@ type GetBenzingaV1GuidanceResponse struct {
 			// EpsMethod The methodology of the EPS figure. Possible values are gaap (standardized financials under Generally Accepted Accounting Principles), ffo (Funds From Operations, a non-GAAP metric commonly used to assess the operating performance of REITs), and adj (adjusted, non-GAAP).
 			EpsMethod *string `json:"eps_method,omitempty"`
 
-			// EstimatedEpsGuidance The midpoint or central earnings per share (EPS) value the company expects for the given fiscal period.
+			// EstimatedEpsGuidance The analyst consensus EPS estimate at the time the company issued its guidance. This can sit above, below, or in line with the company's issued range.
 			EstimatedEpsGuidance *float64 `json:"estimated_eps_guidance,omitempty"`
 
-			// EstimatedRevenueGuidance The midpoint or central revenue figure the company expects for the given fiscal period.
+			// EstimatedRevenueGuidance The analyst consensus revenue estimate at the time the company issued its guidance. This can sit above, below, or in line with the company's issued range.
 			EstimatedRevenueGuidance *float64 `json:"estimated_revenue_guidance,omitempty"`
 
 			// FiscalPeriod The fiscal quarter to which the guidance applies, such as Q1, Q2, Q3, or Q4.
@@ -46917,6 +47104,118 @@ func (r GetEtfGlobalV1TaxonomiesResponse) StatusCode() int {
 	return 0
 }
 
+type GetFedV1FundingConditionsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Date Calendar date of the observation (YYYY-MM-DD).
+			Date *openapi_types.Date `json:"date,omitempty"`
+
+			// EffectiveFedFundsRate Federal Funds Effective Rate as a percentage (DFF series from FRED); published daily.
+			EffectiveFedFundsRate *float32 `json:"effective_fed_funds_rate,omitempty"`
+
+			// EffectiveFedFundsVolume Total transaction volume underlying the effective federal funds rate calculation, in billions of U.AskSize. dollars; reported on business days.
+			EffectiveFedFundsVolume *float32 `json:"effective_fed_funds_volume,omitempty"`
+
+			// FedFundsTargetLower Lower bound of the federal funds target range as a percentage (DFEDTARL series from FRED); posted every calendar day.
+			FedFundsTargetLower *float32 `json:"fed_funds_target_lower,omitempty"`
+
+			// FedFundsTargetUpper Upper bound of the federal funds target range as a percentage (DFEDTARU series from FRED); posted every calendar day.
+			FedFundsTargetUpper *float32 `json:"fed_funds_target_upper,omitempty"`
+
+			// FedOvernightRepoTreasuryAmount NY Fed overnight repo operation amount against Treasury collateral, in billions of U.AskSize. dollars (RPONTSYD series from FRED); reported on business days.
+			FedOvernightRepoTreasuryAmount *float32 `json:"fed_overnight_repo_treasury_amount,omitempty"`
+
+			// FedOvernightReverseRepoTreasuryAmount NY Fed overnight reverse repo operation amount against Treasury collateral, in billions of U.AskSize. dollars (RRPONTSYD series from FRED); reported on business days.
+			FedOvernightReverseRepoTreasuryAmount *float32 `json:"fed_overnight_reverse_repo_treasury_amount,omitempty"`
+
+			// FinancialCommercialPaper90dRate 90-day AA financial commercial paper interest rate as a percentage, quoted on a discount basis (DCPF3M series from FRED); reported on business days, with occasional source-level gaps.
+			FinancialCommercialPaper90dRate *float32 `json:"financial_commercial_paper_90d_rate,omitempty"`
+
+			// InterestOnReserveBalances Interest rate paid on reserve balances as a percentage (IORB series from FRED); posted every calendar day.
+			InterestOnReserveBalances *float32 `json:"interest_on_reserve_balances,omitempty"`
+
+			// NonfinancialCommercialPaper90dRate 90-day AA nonfinancial commercial paper interest rate as a percentage, quoted on a discount basis (DCPN3M series from FRED); reported on business days, with occasional source-level gaps.
+			NonfinancialCommercialPaper90dRate *float32 `json:"nonfinancial_commercial_paper_90d_rate,omitempty"`
+
+			// Obfr25thPercentile 25th percentile transaction rate of the OBFR distribution as a percentage; posted on business days.
+			Obfr25thPercentile *float32 `json:"obfr_25th_percentile,omitempty"`
+
+			// Obfr75thPercentile 75th percentile transaction rate of the OBFR distribution as a percentage; posted on business days.
+			Obfr75thPercentile *float32 `json:"obfr_75th_percentile,omitempty"`
+
+			// ObfrVolume Total transaction volume underlying the OBFR calculation, in billions of U.AskSize. dollars; reported on business days.
+			ObfrVolume *float32 `json:"obfr_volume,omitempty"`
+
+			// OvernightBankFundingRate Overnight Bank Funding Rate (OBFR) as a percentage; published by the Federal Reserve Bank of New York and reported on business days.
+			OvernightBankFundingRate *float32 `json:"overnight_bank_funding_rate,omitempty"`
+
+			// SecuredOvernightFinancingRate Secured Overnight Financing Rate (SOFR) as a percentage; published by the Federal Reserve Bank of New York and reported on business days.
+			SecuredOvernightFinancingRate *float32 `json:"secured_overnight_financing_rate,omitempty"`
+
+			// Sofr25thPercentile 25th percentile transaction rate of the SOFR distribution as a percentage; posted on business days.
+			Sofr25thPercentile *float32 `json:"sofr_25th_percentile,omitempty"`
+
+			// Sofr75thPercentile 75th percentile transaction rate of the SOFR distribution as a percentage; posted on business days.
+			Sofr75thPercentile *float32 `json:"sofr_75th_percentile,omitempty"`
+
+			// SofrVolume Total transaction volume underlying the SOFR calculation, in billions of U.AskSize. dollars; reported on business days.
+			SofrVolume *float32 `json:"sofr_volume,omitempty"`
+
+			// Tgcr25thPercentile 25th percentile transaction rate of the TGCR distribution as a percentage; posted on business days.
+			Tgcr25thPercentile *float32 `json:"tgcr_25th_percentile,omitempty"`
+
+			// Tgcr75thPercentile 75th percentile transaction rate of the TGCR distribution as a percentage; posted on business days.
+			Tgcr75thPercentile *float32 `json:"tgcr_75th_percentile,omitempty"`
+
+			// TriPartyGeneralCollateralRate Tri-Party General Collateral Rate (TGCR) as a percentage; published by the Federal Reserve Bank of New York as a repo reference rate and reported on business days.
+			TriPartyGeneralCollateralRate *float32 `json:"tri_party_general_collateral_rate,omitempty"`
+
+			// TriPartyGeneralCollateralVolume Total transaction volume underlying the TGCR calculation, in billions of U.AskSize. dollars; reported on business days.
+			TriPartyGeneralCollateralVolume *float32 `json:"tri_party_general_collateral_volume,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetFedV1FundingConditions200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetFedV1FundingConditions400Status `json:"status"`
+	}
+}
+type GetFedV1FundingConditions200Status string
+type GetFedV1FundingConditions400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetFedV1FundingConditionsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetFedV1FundingConditionsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetFedV1InflationResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -47262,7 +47561,7 @@ type AggregatesV1Response struct {
 			// Close The last price within the timeframe.
 			Close float64 `json:"close"`
 
-			// DollarVolume The total dollar volume of the transactions that occurred within the timeframe.
+			// DollarVolume The sum of price × size across all trades in the window, expressed in the contract's quoted price units, which are the same units as the bar's open, high, low, and close. Despite the field name, no contract multiplier is applied, so this is not a notional dollar value. See the <a href="/docs/rest/futures/products">Products endpoint</a> for contract multiplier details. Because dollar_volume is a raw sum, you can use it to compute a volume-weighted average price (VWAP) over any span of bars: sum dollar_volume across the bars in the window and divide by the summed volume.
 			DollarVolume float64 `json:"dollar_volume"`
 
 			// High The highest price within the timeframe.
@@ -47274,10 +47573,10 @@ type AggregatesV1Response struct {
 			// Open The opening price within the timeframe.
 			Open float64 `json:"open"`
 
-			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
+			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format. Sessions are named by this end date, while window_start holds the session's start date, which for session candles is the day before.
 			SessionEndDate string `json:"session_end_date"`
 
-			// SettlementPrice The price the contract would have cost to settle for this session.
+			// SettlementPrice The price the contract settled at for this session. Included for session, week, month, quarter, and year candles; for multi-session candles it is the settlement of the final session in the period. Not returned for intraday candles (sec, min, hour).
 			SettlementPrice *float64 `json:"settlement_price,omitempty"`
 
 			// Ticker The ticker for the contract.
@@ -48159,7 +48458,7 @@ type GetOptionsV3TradesTickerResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// Conditions A list of condition codes.
-			Conditions []int32 `json:"conditions"`
+			Conditions *[]int32 `json:"conditions,omitempty"`
 
 			// Exchange The exchange ID.
 			Exchange int32 `json:"exchange"`
@@ -48171,10 +48470,10 @@ type GetOptionsV3TradesTickerResponse struct {
 			Price float64 `json:"price"`
 
 			// SequenceNumber The sequence number represents the sequence in which trade events happened. These are increasing and unique per ticker symbol, but will not always be sequential. Values reset after each trading session/day.
-			SequenceNumber int64 `json:"sequence_number"`
+			SequenceNumber *int64 `json:"sequence_number,omitempty"`
 
 			// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
-			SipTimestamp int64 `json:"sip_timestamp"`
+			SipTimestamp *int64 `json:"sip_timestamp,omitempty"`
 
 			// Size The size of a trade (also known as volume).
 			Size int64 `json:"size"`
@@ -49175,14 +49474,14 @@ type GetStocksFinancialsV1BalanceSheetsResponse struct {
 			// DeferredRevenueCurrent Customer payments received in advance for goods or services to be delivered within one year.
 			DeferredRevenueCurrent *float64 `json:"deferred_revenue_current,omitempty"`
 
-			// FilingDate The date when the financial statement was filed with the SEC.
+			// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index).
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 			// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-			FiscalQuarter *float64 `json:"fiscal_quarter,omitempty"`
+			FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
 
 			// FiscalYear The fiscal year for the reporting period.
-			FiscalYear *float64 `json:"fiscal_year,omitempty"`
+			FiscalYear *int32 `json:"fiscal_year,omitempty"`
 
 			// Goodwill Intangible asset representing the excess of purchase price over fair value of net assets acquired in business combinations.
 			Goodwill *float64 `json:"goodwill,omitempty"`
@@ -49326,14 +49625,14 @@ type GetStocksFinancialsV1CashFlowStatementsResponse struct {
 			// EffectOfCurrencyExchangeRate Impact of foreign exchange rate changes on cash and cash equivalents denominated in foreign currencies.
 			EffectOfCurrencyExchangeRate *float64 `json:"effect_of_currency_exchange_rate,omitempty"`
 
-			// FilingDate The date when the financial statement was filed with the SEC.
+			// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index).
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 			// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-			FiscalQuarter *float64 `json:"fiscal_quarter,omitempty"`
+			FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
 
 			// FiscalYear The fiscal year for the reporting period.
-			FiscalYear *float64 `json:"fiscal_year,omitempty"`
+			FiscalYear *int32 `json:"fiscal_year,omitempty"`
 
 			// IncomeLossFromDiscontinuedOperations After-tax income or loss from business operations that have been discontinued.
 			IncomeLossFromDiscontinuedOperations *float64 `json:"income_loss_from_discontinued_operations,omitempty"`
@@ -49483,14 +49782,14 @@ type GetStocksFinancialsV1IncomeStatementsResponse struct {
 			// ExtraordinaryItems Unusual and infrequent gains or losses that are both unusual in nature and infrequent in occurrence.
 			ExtraordinaryItems *float64 `json:"extraordinary_items,omitempty"`
 
-			// FilingDate The date when the financial statement was filed with the SEC.
+			// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index).
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 			// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-			FiscalQuarter *float64 `json:"fiscal_quarter,omitempty"`
+			FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
 
 			// FiscalYear The fiscal year for the reporting period.
-			FiscalYear *float64 `json:"fiscal_year,omitempty"`
+			FiscalYear *int32 `json:"fiscal_year,omitempty"`
 
 			// GrossProfit Revenue minus cost of revenue, representing profit before operating expenses.
 			GrossProfit *float64 `json:"gross_profit,omitempty"`
@@ -49616,7 +49915,7 @@ type GetStocksFinancialsV1RatiosResponse struct {
 			// DividendYield Dividend yield, calculated as annual dividends per share divided by stock price, measuring the income return on investment.
 			DividendYield *float64 `json:"dividend_yield,omitempty"`
 
-			// EarningsPerShare Earnings per share, calculated as net income available to common shareholders divided by weighted shares outstanding.
+			// EarningsPerShare Earnings per share, calculated as trailing twelve months (TTM) net income available to common shareholders divided by point-in-time shares outstanding as of the price date, assuming all shares of other share classes are converted to this share class. This is not weighted average basic or diluted shares outstanding, so this value will not match the reported basic or diluted EPS on the income statements endpoint.
 			EarningsPerShare *float64 `json:"earnings_per_share,omitempty"`
 
 			// EnterpriseValue Enterprise value, calculated as market capitalization plus total debt minus cash and cash equivalents, representing total company value.
@@ -50142,7 +50441,7 @@ type GetStocksV1SplitsResponse struct {
 			// AdjustmentType Classification of the share-change event. Possible values include: forward_split (share count increases), reverse_split (share count decreases), stock_dividend (shares issued as a dividend)
 			AdjustmentType string `json:"adjustment_type"`
 
-			// ExecutionDate Date when the stock split was applied and shares adjusted
+			// ExecutionDate Date when the stock split takes effect. The adjustment is applied overnight. On the prior trading day, the post-market session is the last session that shows pre-split prices. On the execution date, all trading is already adjusted for the split. This includes the pre-market session.
 			ExecutionDate *openapi_types.Date `json:"execution_date,omitempty"`
 
 			// HistoricalAdjustmentFactor Cumulative adjustment factor used to offset split effects on historical prices. To adjust a historical price for splits: for a price on date D, find the first split whose `execution_date` is after date D and multiply the unadjusted price by the `historical_adjustment_factor`.
@@ -55537,7 +55836,7 @@ type DeprecatedGetHistoricStocksQuotesResponse struct {
 			// P The ask price.
 			AskPrice float64 `json:"P"`
 
-			// S The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
+			// S The ask size. This represents the number of shares sellers are offering at the given ask price.
 			AskSize int `json:"S"`
 
 			// X The ask exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -55553,7 +55852,7 @@ type DeprecatedGetHistoricStocksQuotesResponse struct {
 			// P The bid price.
 			BidPrice float64 `json:"p"`
 
-			// S The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
+			// S The bid size. This represents the number of shares buyers are bidding for at the given bid price.
 			BidSize int `json:"s"`
 
 			// X The bid exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -56896,7 +57195,7 @@ type GetSnapshotsResponse struct {
 				// AskExchange The ask side exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 				AskExchange *int `json:"ask_exchange,omitempty"`
 
-				// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
+				// AskSize The ask size. This represents the number of shares, or contracts for options, sellers are offering at the given ask price.
 				AskSize *float64 `json:"ask_size,omitempty"`
 
 				// Bid The bid price.
@@ -56905,7 +57204,7 @@ type GetSnapshotsResponse struct {
 				// BidExchange The bid side exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 				BidExchange *int `json:"bid_exchange,omitempty"`
 
-				// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
+				// BidSize The bid size. This represents the number of shares, or contracts for options, buyers are bidding for at the given bid price.
 				BidSize *float64 `json:"bid_size,omitempty"`
 
 				// LastUpdated The nanosecond timestamp of when this information was updated.
@@ -58199,6 +58498,15 @@ func (c *ClientWithResponses) GetEtfGlobalV1TaxonomiesWithResponse(ctx context.C
 		return nil, err
 	}
 	return ParseGetEtfGlobalV1TaxonomiesResponse(rsp)
+}
+
+// GetFedV1FundingConditionsWithResponse request returning *GetFedV1FundingConditionsResponse
+func (c *ClientWithResponses) GetFedV1FundingConditionsWithResponse(ctx context.Context, params *GetFedV1FundingConditionsParams, reqEditors ...RequestEditorFn) (*GetFedV1FundingConditionsResponse, error) {
+	rsp, err := c.GetFedV1FundingConditions(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetFedV1FundingConditionsResponse(rsp)
 }
 
 // GetFedV1InflationWithResponse request returning *GetFedV1InflationResponse
@@ -59896,10 +60204,10 @@ func ParseGetBenzingaV1GuidanceResponse(rsp *http.Response) (*GetBenzingaV1Guida
 				// EpsMethod The methodology of the EPS figure. Possible values are gaap (standardized financials under Generally Accepted Accounting Principles), ffo (Funds From Operations, a non-GAAP metric commonly used to assess the operating performance of REITs), and adj (adjusted, non-GAAP).
 				EpsMethod *string `json:"eps_method,omitempty"`
 
-				// EstimatedEpsGuidance The midpoint or central earnings per share (EPS) value the company expects for the given fiscal period.
+				// EstimatedEpsGuidance The analyst consensus EPS estimate at the time the company issued its guidance. This can sit above, below, or in line with the company's issued range.
 				EstimatedEpsGuidance *float64 `json:"estimated_eps_guidance,omitempty"`
 
-				// EstimatedRevenueGuidance The midpoint or central revenue figure the company expects for the given fiscal period.
+				// EstimatedRevenueGuidance The analyst consensus revenue estimate at the time the company issued its guidance. This can sit above, below, or in line with the company's issued range.
 				EstimatedRevenueGuidance *float64 `json:"estimated_revenue_guidance,omitempty"`
 
 				// FiscalPeriod The fiscal quarter to which the guidance applies, such as Q1, Q2, Q3, or Q4.
@@ -61255,6 +61563,126 @@ func ParseGetEtfGlobalV1TaxonomiesResponse(rsp *http.Response) (*GetEtfGlobalV1T
 	return response, nil
 }
 
+// ParseGetFedV1FundingConditionsResponse parses an HTTP response from a GetFedV1FundingConditionsWithResponse call
+func ParseGetFedV1FundingConditionsResponse(rsp *http.Response) (*GetFedV1FundingConditionsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetFedV1FundingConditionsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Date Calendar date of the observation (YYYY-MM-DD).
+				Date *openapi_types.Date `json:"date,omitempty"`
+
+				// EffectiveFedFundsRate Federal Funds Effective Rate as a percentage (DFF series from FRED); published daily.
+				EffectiveFedFundsRate *float32 `json:"effective_fed_funds_rate,omitempty"`
+
+				// EffectiveFedFundsVolume Total transaction volume underlying the effective federal funds rate calculation, in billions of U.AskSize. dollars; reported on business days.
+				EffectiveFedFundsVolume *float32 `json:"effective_fed_funds_volume,omitempty"`
+
+				// FedFundsTargetLower Lower bound of the federal funds target range as a percentage (DFEDTARL series from FRED); posted every calendar day.
+				FedFundsTargetLower *float32 `json:"fed_funds_target_lower,omitempty"`
+
+				// FedFundsTargetUpper Upper bound of the federal funds target range as a percentage (DFEDTARU series from FRED); posted every calendar day.
+				FedFundsTargetUpper *float32 `json:"fed_funds_target_upper,omitempty"`
+
+				// FedOvernightRepoTreasuryAmount NY Fed overnight repo operation amount against Treasury collateral, in billions of U.AskSize. dollars (RPONTSYD series from FRED); reported on business days.
+				FedOvernightRepoTreasuryAmount *float32 `json:"fed_overnight_repo_treasury_amount,omitempty"`
+
+				// FedOvernightReverseRepoTreasuryAmount NY Fed overnight reverse repo operation amount against Treasury collateral, in billions of U.AskSize. dollars (RRPONTSYD series from FRED); reported on business days.
+				FedOvernightReverseRepoTreasuryAmount *float32 `json:"fed_overnight_reverse_repo_treasury_amount,omitempty"`
+
+				// FinancialCommercialPaper90dRate 90-day AA financial commercial paper interest rate as a percentage, quoted on a discount basis (DCPF3M series from FRED); reported on business days, with occasional source-level gaps.
+				FinancialCommercialPaper90dRate *float32 `json:"financial_commercial_paper_90d_rate,omitempty"`
+
+				// InterestOnReserveBalances Interest rate paid on reserve balances as a percentage (IORB series from FRED); posted every calendar day.
+				InterestOnReserveBalances *float32 `json:"interest_on_reserve_balances,omitempty"`
+
+				// NonfinancialCommercialPaper90dRate 90-day AA nonfinancial commercial paper interest rate as a percentage, quoted on a discount basis (DCPN3M series from FRED); reported on business days, with occasional source-level gaps.
+				NonfinancialCommercialPaper90dRate *float32 `json:"nonfinancial_commercial_paper_90d_rate,omitempty"`
+
+				// Obfr25thPercentile 25th percentile transaction rate of the OBFR distribution as a percentage; posted on business days.
+				Obfr25thPercentile *float32 `json:"obfr_25th_percentile,omitempty"`
+
+				// Obfr75thPercentile 75th percentile transaction rate of the OBFR distribution as a percentage; posted on business days.
+				Obfr75thPercentile *float32 `json:"obfr_75th_percentile,omitempty"`
+
+				// ObfrVolume Total transaction volume underlying the OBFR calculation, in billions of U.AskSize. dollars; reported on business days.
+				ObfrVolume *float32 `json:"obfr_volume,omitempty"`
+
+				// OvernightBankFundingRate Overnight Bank Funding Rate (OBFR) as a percentage; published by the Federal Reserve Bank of New York and reported on business days.
+				OvernightBankFundingRate *float32 `json:"overnight_bank_funding_rate,omitempty"`
+
+				// SecuredOvernightFinancingRate Secured Overnight Financing Rate (SOFR) as a percentage; published by the Federal Reserve Bank of New York and reported on business days.
+				SecuredOvernightFinancingRate *float32 `json:"secured_overnight_financing_rate,omitempty"`
+
+				// Sofr25thPercentile 25th percentile transaction rate of the SOFR distribution as a percentage; posted on business days.
+				Sofr25thPercentile *float32 `json:"sofr_25th_percentile,omitempty"`
+
+				// Sofr75thPercentile 75th percentile transaction rate of the SOFR distribution as a percentage; posted on business days.
+				Sofr75thPercentile *float32 `json:"sofr_75th_percentile,omitempty"`
+
+				// SofrVolume Total transaction volume underlying the SOFR calculation, in billions of U.AskSize. dollars; reported on business days.
+				SofrVolume *float32 `json:"sofr_volume,omitempty"`
+
+				// Tgcr25thPercentile 25th percentile transaction rate of the TGCR distribution as a percentage; posted on business days.
+				Tgcr25thPercentile *float32 `json:"tgcr_25th_percentile,omitempty"`
+
+				// Tgcr75thPercentile 75th percentile transaction rate of the TGCR distribution as a percentage; posted on business days.
+				Tgcr75thPercentile *float32 `json:"tgcr_75th_percentile,omitempty"`
+
+				// TriPartyGeneralCollateralRate Tri-Party General Collateral Rate (TGCR) as a percentage; published by the Federal Reserve Bank of New York as a repo reference rate and reported on business days.
+				TriPartyGeneralCollateralRate *float32 `json:"tri_party_general_collateral_rate,omitempty"`
+
+				// TriPartyGeneralCollateralVolume Total transaction volume underlying the TGCR calculation, in billions of U.AskSize. dollars; reported on business days.
+				TriPartyGeneralCollateralVolume *float32 `json:"tri_party_general_collateral_volume,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetFedV1FundingConditions200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetFedV1FundingConditions400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetFedV1InflationResponse parses an HTTP response from a GetFedV1InflationWithResponse call
 func ParseGetFedV1InflationResponse(rsp *http.Response) (*GetFedV1InflationResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -61652,7 +62080,7 @@ func ParseAggregatesV1Response(rsp *http.Response) (*AggregatesV1Response, error
 				// Close The last price within the timeframe.
 				Close float64 `json:"close"`
 
-				// DollarVolume The total dollar volume of the transactions that occurred within the timeframe.
+				// DollarVolume The sum of price × size across all trades in the window, expressed in the contract's quoted price units, which are the same units as the bar's open, high, low, and close. Despite the field name, no contract multiplier is applied, so this is not a notional dollar value. See the <a href="/docs/rest/futures/products">Products endpoint</a> for contract multiplier details. Because dollar_volume is a raw sum, you can use it to compute a volume-weighted average price (VWAP) over any span of bars: sum dollar_volume across the bars in the window and divide by the summed volume.
 				DollarVolume float64 `json:"dollar_volume"`
 
 				// High The highest price within the timeframe.
@@ -61664,10 +62092,10 @@ func ParseAggregatesV1Response(rsp *http.Response) (*AggregatesV1Response, error
 				// Open The opening price within the timeframe.
 				Open float64 `json:"open"`
 
-				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
+				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format. Sessions are named by this end date, while window_start holds the session's start date, which for session candles is the day before.
 				SessionEndDate string `json:"session_end_date"`
 
-				// SettlementPrice The price the contract would have cost to settle for this session.
+				// SettlementPrice The price the contract settled at for this session. Included for session, week, month, quarter, and year candles; for multi-session candles it is the settlement of the final session in the period. Not returned for intraday candles (sec, min, hour).
 				SettlementPrice *float64 `json:"settlement_price,omitempty"`
 
 				// Ticker The ticker for the contract.
@@ -62633,7 +63061,7 @@ func ParseGetOptionsV3TradesTickerResponse(rsp *http.Response) (*GetOptionsV3Tra
 			// Results The results for this request.
 			Results []struct {
 				// Conditions A list of condition codes.
-				Conditions []int32 `json:"conditions"`
+				Conditions *[]int32 `json:"conditions,omitempty"`
 
 				// Exchange The exchange ID.
 				Exchange int32 `json:"exchange"`
@@ -62645,10 +63073,10 @@ func ParseGetOptionsV3TradesTickerResponse(rsp *http.Response) (*GetOptionsV3Tra
 				Price float64 `json:"price"`
 
 				// SequenceNumber The sequence number represents the sequence in which trade events happened. These are increasing and unique per ticker symbol, but will not always be sequential. Values reset after each trading session/day.
-				SequenceNumber int64 `json:"sequence_number"`
+				SequenceNumber *int64 `json:"sequence_number,omitempty"`
 
 				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
-				SipTimestamp int64 `json:"sip_timestamp"`
+				SipTimestamp *int64 `json:"sip_timestamp,omitempty"`
 
 				// Size The size of a trade (also known as volume).
 				Size int64 `json:"size"`
@@ -63737,14 +64165,14 @@ func ParseGetStocksFinancialsV1BalanceSheetsResponse(rsp *http.Response) (*GetSt
 				// DeferredRevenueCurrent Customer payments received in advance for goods or services to be delivered within one year.
 				DeferredRevenueCurrent *float64 `json:"deferred_revenue_current,omitempty"`
 
-				// FilingDate The date when the financial statement was filed with the SEC.
+				// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index).
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 				// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-				FiscalQuarter *float64 `json:"fiscal_quarter,omitempty"`
+				FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
 
 				// FiscalYear The fiscal year for the reporting period.
-				FiscalYear *float64 `json:"fiscal_year,omitempty"`
+				FiscalYear *int32 `json:"fiscal_year,omitempty"`
 
 				// Goodwill Intangible asset representing the excess of purchase price over fair value of net assets acquired in business combinations.
 				Goodwill *float64 `json:"goodwill,omitempty"`
@@ -63896,14 +64324,14 @@ func ParseGetStocksFinancialsV1CashFlowStatementsResponse(rsp *http.Response) (*
 				// EffectOfCurrencyExchangeRate Impact of foreign exchange rate changes on cash and cash equivalents denominated in foreign currencies.
 				EffectOfCurrencyExchangeRate *float64 `json:"effect_of_currency_exchange_rate,omitempty"`
 
-				// FilingDate The date when the financial statement was filed with the SEC.
+				// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index).
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 				// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-				FiscalQuarter *float64 `json:"fiscal_quarter,omitempty"`
+				FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
 
 				// FiscalYear The fiscal year for the reporting period.
-				FiscalYear *float64 `json:"fiscal_year,omitempty"`
+				FiscalYear *int32 `json:"fiscal_year,omitempty"`
 
 				// IncomeLossFromDiscontinuedOperations After-tax income or loss from business operations that have been discontinued.
 				IncomeLossFromDiscontinuedOperations *float64 `json:"income_loss_from_discontinued_operations,omitempty"`
@@ -64061,14 +64489,14 @@ func ParseGetStocksFinancialsV1IncomeStatementsResponse(rsp *http.Response) (*Ge
 				// ExtraordinaryItems Unusual and infrequent gains or losses that are both unusual in nature and infrequent in occurrence.
 				ExtraordinaryItems *float64 `json:"extraordinary_items,omitempty"`
 
-				// FilingDate The date when the financial statement was filed with the SEC.
+				// FilingDate The date of the most recent SEC filing that included this period's data. This is not necessarily the date this period was originally filed. Because SEC filings restate comparative data for prior periods, multiple records can share the same filing_date. For example, an annual 10-K reports three years of results, and a 10-Q includes prior period comparatives. To find the original filing date for a specific 10-K or 10-Q, use the SEC EDGAR filings index endpoint (/stocks/filings/vX/index).
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 				// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-				FiscalQuarter *float64 `json:"fiscal_quarter,omitempty"`
+				FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
 
 				// FiscalYear The fiscal year for the reporting period.
-				FiscalYear *float64 `json:"fiscal_year,omitempty"`
+				FiscalYear *int32 `json:"fiscal_year,omitempty"`
 
 				// GrossProfit Revenue minus cost of revenue, representing profit before operating expenses.
 				GrossProfit *float64 `json:"gross_profit,omitempty"`
@@ -64202,7 +64630,7 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 				// DividendYield Dividend yield, calculated as annual dividends per share divided by stock price, measuring the income return on investment.
 				DividendYield *float64 `json:"dividend_yield,omitempty"`
 
-				// EarningsPerShare Earnings per share, calculated as net income available to common shareholders divided by weighted shares outstanding.
+				// EarningsPerShare Earnings per share, calculated as trailing twelve months (TTM) net income available to common shareholders divided by point-in-time shares outstanding as of the price date, assuming all shares of other share classes are converted to this share class. This is not weighted average basic or diluted shares outstanding, so this value will not match the reported basic or diluted EPS on the income statements endpoint.
 				EarningsPerShare *float64 `json:"earnings_per_share,omitempty"`
 
 				// EnterpriseValue Enterprise value, calculated as market capitalization plus total debt minus cash and cash equivalents, representing total company value.
@@ -64784,7 +65212,7 @@ func ParseGetStocksV1SplitsResponse(rsp *http.Response) (*GetStocksV1SplitsRespo
 				// AdjustmentType Classification of the share-change event. Possible values include: forward_split (share count increases), reverse_split (share count decreases), stock_dividend (shares issued as a dividend)
 				AdjustmentType string `json:"adjustment_type"`
 
-				// ExecutionDate Date when the stock split was applied and shares adjusted
+				// ExecutionDate Date when the stock split takes effect. The adjustment is applied overnight. On the prior trading day, the post-market session is the last session that shows pre-split prices. On the execution date, all trading is already adjusted for the split. This includes the pre-market session.
 				ExecutionDate *openapi_types.Date `json:"execution_date,omitempty"`
 
 				// HistoricalAdjustmentFactor Cumulative adjustment factor used to offset split effects on historical prices. To adjust a historical price for splits: for a price on date D, find the first split whose `execution_date` is after date D and multiply the unadjusted price by the `historical_adjustment_factor`.
@@ -70597,7 +71025,7 @@ func ParseDeprecatedGetHistoricStocksQuotesResponse(rsp *http.Response) (*Deprec
 				// P The ask price.
 				AskPrice float64 `json:"P"`
 
-				// S The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
+				// S The ask size. This represents the number of shares sellers are offering at the given ask price.
 				AskSize int `json:"S"`
 
 				// X The ask exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -70613,7 +71041,7 @@ func ParseDeprecatedGetHistoricStocksQuotesResponse(rsp *http.Response) (*Deprec
 				// P The bid price.
 				BidPrice float64 `json:"p"`
 
-				// S The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
+				// S The bid size. This represents the number of shares buyers are bidding for at the given bid price.
 				BidSize int `json:"s"`
 
 				// X The bid exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -72063,7 +72491,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// AskExchange The ask side exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 					AskExchange *int `json:"ask_exchange,omitempty"`
 
-					// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
+					// AskSize The ask size. This represents the number of shares, or contracts for options, sellers are offering at the given ask price.
 					AskSize *float64 `json:"ask_size,omitempty"`
 
 					// Bid The bid price.
@@ -72072,7 +72500,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// BidExchange The bid side exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 					BidExchange *int `json:"bid_exchange,omitempty"`
 
-					// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
+					// BidSize The bid size. This represents the number of shares, or contracts for options, buyers are bidding for at the given bid price.
 					BidSize *float64 `json:"bid_size,omitempty"`
 
 					// LastUpdated The nanosecond timestamp of when this information was updated.
