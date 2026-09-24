@@ -46602,7 +46602,7 @@ type GetEtfGlobalV1ConstituentsResponse struct {
 			// UsCode A unique identifier code for the constituent security in US markets.
 			UsCode *string `json:"us_code,omitempty"`
 
-			// Weight The percentage weight of this constituent security within the ETF's total portfolio.
+			// Weight The constituent's weight in the ETF's portfolio, as a decimal fraction (0.0789 = 7.89%). Short positions are negative. For most funds the weights sum to about 1; leveraged and inverse funds vary. A few constituents have no weight, so a sum can fall short.
 			Weight *float64 `json:"weight,omitempty"`
 		} `json:"results"`
 
@@ -61041,7 +61041,7 @@ func ParseGetEtfGlobalV1ConstituentsResponse(rsp *http.Response) (*GetEtfGlobalV
 				// UsCode A unique identifier code for the constituent security in US markets.
 				UsCode *string `json:"us_code,omitempty"`
 
-				// Weight The percentage weight of this constituent security within the ETF's total portfolio.
+				// Weight The constituent's weight in the ETF's portfolio, as a decimal fraction (0.0789 = 7.89%). Short positions are negative. For most funds the weights sum to about 1; leveraged and inverse funds vary. A few constituents have no weight, so a sum can fall short.
 				Weight *float64 `json:"weight,omitempty"`
 			} `json:"results"`
 
