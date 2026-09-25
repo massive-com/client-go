@@ -46602,7 +46602,7 @@ type GetEtfGlobalV1ConstituentsResponse struct {
 			// UsCode A unique identifier code for the constituent security in US markets.
 			UsCode *string `json:"us_code,omitempty"`
 
-			// Weight The percentage weight of this constituent security within the ETF's total portfolio.
+			// Weight The constituent's weight in the ETF's portfolio, as a decimal fraction (0.0789 = 7.89%). Short positions are negative. For most funds the weights sum to about 1; leveraged and inverse funds vary. A few constituents have no weight, so a sum can fall short.
 			Weight *float64 `json:"weight,omitempty"`
 		} `json:"results"`
 
@@ -49478,10 +49478,10 @@ type GetStocksFinancialsV1BalanceSheetsResponse struct {
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 			// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-			FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
+			FiscalQuarter *int64 `json:"fiscal_quarter,omitempty"`
 
 			// FiscalYear The fiscal year for the reporting period.
-			FiscalYear *int32 `json:"fiscal_year,omitempty"`
+			FiscalYear *int64 `json:"fiscal_year,omitempty"`
 
 			// Goodwill Intangible asset representing the excess of purchase price over fair value of net assets acquired in business combinations.
 			Goodwill *float64 `json:"goodwill,omitempty"`
@@ -49629,10 +49629,10 @@ type GetStocksFinancialsV1CashFlowStatementsResponse struct {
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 			// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-			FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
+			FiscalQuarter *int64 `json:"fiscal_quarter,omitempty"`
 
 			// FiscalYear The fiscal year for the reporting period.
-			FiscalYear *int32 `json:"fiscal_year,omitempty"`
+			FiscalYear *int64 `json:"fiscal_year,omitempty"`
 
 			// IncomeLossFromDiscontinuedOperations After-tax income or loss from business operations that have been discontinued.
 			IncomeLossFromDiscontinuedOperations *float64 `json:"income_loss_from_discontinued_operations,omitempty"`
@@ -49786,10 +49786,10 @@ type GetStocksFinancialsV1IncomeStatementsResponse struct {
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 			// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-			FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
+			FiscalQuarter *int64 `json:"fiscal_quarter,omitempty"`
 
 			// FiscalYear The fiscal year for the reporting period.
-			FiscalYear *int32 `json:"fiscal_year,omitempty"`
+			FiscalYear *int64 `json:"fiscal_year,omitempty"`
 
 			// GrossProfit Revenue minus cost of revenue, representing profit before operating expenses.
 			GrossProfit *float64 `json:"gross_profit,omitempty"`
@@ -61041,7 +61041,7 @@ func ParseGetEtfGlobalV1ConstituentsResponse(rsp *http.Response) (*GetEtfGlobalV
 				// UsCode A unique identifier code for the constituent security in US markets.
 				UsCode *string `json:"us_code,omitempty"`
 
-				// Weight The percentage weight of this constituent security within the ETF's total portfolio.
+				// Weight The constituent's weight in the ETF's portfolio, as a decimal fraction (0.0789 = 7.89%). Short positions are negative. For most funds the weights sum to about 1; leveraged and inverse funds vary. A few constituents have no weight, so a sum can fall short.
 				Weight *float64 `json:"weight,omitempty"`
 			} `json:"results"`
 
@@ -64169,10 +64169,10 @@ func ParseGetStocksFinancialsV1BalanceSheetsResponse(rsp *http.Response) (*GetSt
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 				// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-				FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
+				FiscalQuarter *int64 `json:"fiscal_quarter,omitempty"`
 
 				// FiscalYear The fiscal year for the reporting period.
-				FiscalYear *int32 `json:"fiscal_year,omitempty"`
+				FiscalYear *int64 `json:"fiscal_year,omitempty"`
 
 				// Goodwill Intangible asset representing the excess of purchase price over fair value of net assets acquired in business combinations.
 				Goodwill *float64 `json:"goodwill,omitempty"`
@@ -64328,10 +64328,10 @@ func ParseGetStocksFinancialsV1CashFlowStatementsResponse(rsp *http.Response) (*
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 				// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-				FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
+				FiscalQuarter *int64 `json:"fiscal_quarter,omitempty"`
 
 				// FiscalYear The fiscal year for the reporting period.
-				FiscalYear *int32 `json:"fiscal_year,omitempty"`
+				FiscalYear *int64 `json:"fiscal_year,omitempty"`
 
 				// IncomeLossFromDiscontinuedOperations After-tax income or loss from business operations that have been discontinued.
 				IncomeLossFromDiscontinuedOperations *float64 `json:"income_loss_from_discontinued_operations,omitempty"`
@@ -64493,10 +64493,10 @@ func ParseGetStocksFinancialsV1IncomeStatementsResponse(rsp *http.Response) (*Ge
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
 
 				// FiscalQuarter The fiscal quarter number (1, 2, 3, or 4) for the reporting period.
-				FiscalQuarter *int32 `json:"fiscal_quarter,omitempty"`
+				FiscalQuarter *int64 `json:"fiscal_quarter,omitempty"`
 
 				// FiscalYear The fiscal year for the reporting period.
-				FiscalYear *int32 `json:"fiscal_year,omitempty"`
+				FiscalYear *int64 `json:"fiscal_year,omitempty"`
 
 				// GrossProfit Revenue minus cost of revenue, representing profit before operating expenses.
 				GrossProfit *float64 `json:"gross_profit,omitempty"`
