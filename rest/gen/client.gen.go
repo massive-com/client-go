@@ -48406,7 +48406,7 @@ type GetOptionsV3QuotesTickerResponse struct {
 			SequenceNumber int64 `json:"sequence_number"`
 
 			// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this quote from the exchange which produced it.
-			SipTimestamp int64 `json:"sip_timestamp"`
+			SipTimestamp *int64 `json:"sip_timestamp,omitempty"`
 
 			// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
 			Ticker string `json:"ticker"`
@@ -63001,7 +63001,7 @@ func ParseGetOptionsV3QuotesTickerResponse(rsp *http.Response) (*GetOptionsV3Quo
 				SequenceNumber int64 `json:"sequence_number"`
 
 				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this quote from the exchange which produced it.
-				SipTimestamp int64 `json:"sip_timestamp"`
+				SipTimestamp *int64 `json:"sip_timestamp,omitempty"`
 
 				// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
 				Ticker string `json:"ticker"`
