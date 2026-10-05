@@ -54052,7 +54052,7 @@ type GetLastStocksQuoteResponse struct {
 			// P The ask price.
 			AskPrice *float64 `json:"P,omitempty"`
 
-			// S The total number of shares available for sale at the current ask price.
+			// S The ask size. This represents the number of shares sellers are offering at the given ask price.
 			AskSize *int `json:"S,omitempty"`
 
 			// T The exchange symbol that this item is traded under.
@@ -54078,7 +54078,7 @@ type GetLastStocksQuoteResponse struct {
 			// sequential (e.g., 1, 2, 6, 9, 10, 11).
 			Q int64 `json:"q"`
 
-			// S The total number of shares that buyers want to purchase at the current bid price.
+			// S The bid size. This represents the number of shares buyers are bidding for at the given bid price.
 			BidSize *int `json:"s,omitempty"`
 
 			// T The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this message from the exchange which produced it.
@@ -56037,7 +56037,7 @@ type GetOptionsQuotesResponse struct {
 			// AskPrice The ask price.
 			AskPrice *float64 `json:"ask_price,omitempty"`
 
-			// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
+			// AskSize The ask size. This represents the number of contracts sellers are offering at the given ask price.
 			AskSize *float64 `json:"ask_size,omitempty"`
 
 			// BidExchange The bid exchange ID
@@ -56046,7 +56046,7 @@ type GetOptionsQuotesResponse struct {
 			// BidPrice The bid price.
 			BidPrice *float64 `json:"bid_price,omitempty"`
 
-			// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
+			// BidSize The bid size. This represents the number of contracts buyers are bidding for at the given bid price.
 			BidSize *float64 `json:"bid_size,omitempty"`
 
 			// SequenceNumber The sequence number represents the sequence in which quote events happened.
@@ -56097,7 +56097,7 @@ type GetStocksQuotesResponse struct {
 			// AskPrice The ask price.
 			AskPrice *float64 `json:"ask_price,omitempty"`
 
-			// AskSize The total number of shares available for sale at the current ask price.
+			// AskSize The ask size. This represents the number of shares sellers are offering at the given ask price.
 			AskSize *float64 `json:"ask_size,omitempty"`
 
 			// BidExchange The bid exchange ID
@@ -56106,7 +56106,7 @@ type GetStocksQuotesResponse struct {
 			// BidPrice The bid price.
 			BidPrice *float64 `json:"bid_price,omitempty"`
 
-			// BidSize The total number of shares that buyers want to purchase at the current bid price.
+			// BidSize The bid size. This represents the number of shares buyers are bidding for at the given bid price.
 			BidSize *float64 `json:"bid_size,omitempty"`
 
 			// Conditions A list of condition codes.
@@ -57946,12 +57946,16 @@ type GetOptionsTradesResponse struct {
 			// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 			Exchange int `json:"exchange"`
 
+			// Id The trade ID. Options trades do not have a trade ID, so this field is
+			// returned as an empty string.
+			Id *string `json:"id,omitempty"`
+
 			// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
 			ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
 
-			// Price The price of the trade. This is the actual dollar value per whole share of
-			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
-			// total dollar value of $200.00.
+			// Price The price of the trade. This is the price per share of the underlying, so
+			// the total dollar value of a trade is the price multiplied by the size and
+			// by the contract multiplier, which is typically 100 shares per contract.
 			Price float64 `json:"price"`
 
 			// SequenceNumber The sequence number represents the sequence in which message events happened. These are increasing and unique per ticker symbol, but will not always be consecutive (e.g. 1, 2, 6, 9, 10, 11).
@@ -58015,8 +58019,8 @@ type GetStocksTradesResponse struct {
 			// have the same Trade ID.
 			Id string `json:"id"`
 
-			// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
-			ParticipantTimestamp int64 `json:"participant_timestamp"`
+			// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange. Omitted on OTC trades reported through the FINRA ORF (exchange 62), which carry no participant timestamp.
+			ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
 
 			// Price The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
@@ -69144,7 +69148,7 @@ func ParseGetLastStocksQuoteResponse(rsp *http.Response) (*GetLastStocksQuoteRes
 				// P The ask price.
 				AskPrice *float64 `json:"P,omitempty"`
 
-				// S The total number of shares available for sale at the current ask price.
+				// S The ask size. This represents the number of shares sellers are offering at the given ask price.
 				AskSize *int `json:"S,omitempty"`
 
 				// T The exchange symbol that this item is traded under.
@@ -69170,7 +69174,7 @@ func ParseGetLastStocksQuoteResponse(rsp *http.Response) (*GetLastStocksQuoteRes
 				// sequential (e.g., 1, 2, 6, 9, 10, 11).
 				Q int64 `json:"q"`
 
-				// S The total number of shares that buyers want to purchase at the current bid price.
+				// S The bid size. This represents the number of shares buyers are bidding for at the given bid price.
 				BidSize *int `json:"s,omitempty"`
 
 				// T The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this message from the exchange which produced it.
@@ -71241,7 +71245,7 @@ func ParseGetOptionsQuotesResponse(rsp *http.Response) (*GetOptionsQuotesRespons
 				// AskPrice The ask price.
 				AskPrice *float64 `json:"ask_price,omitempty"`
 
-				// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
+				// AskSize The ask size. This represents the number of contracts sellers are offering at the given ask price.
 				AskSize *float64 `json:"ask_size,omitempty"`
 
 				// BidExchange The bid exchange ID
@@ -71250,7 +71254,7 @@ func ParseGetOptionsQuotesResponse(rsp *http.Response) (*GetOptionsQuotesRespons
 				// BidPrice The bid price.
 				BidPrice *float64 `json:"bid_price,omitempty"`
 
-				// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
+				// BidSize The bid size. This represents the number of contracts buyers are bidding for at the given bid price.
 				BidSize *float64 `json:"bid_size,omitempty"`
 
 				// SequenceNumber The sequence number represents the sequence in which quote events happened.
@@ -71308,7 +71312,7 @@ func ParseGetStocksQuotesResponse(rsp *http.Response) (*GetStocksQuotesResponse,
 				// AskPrice The ask price.
 				AskPrice *float64 `json:"ask_price,omitempty"`
 
-				// AskSize The total number of shares available for sale at the current ask price.
+				// AskSize The ask size. This represents the number of shares sellers are offering at the given ask price.
 				AskSize *float64 `json:"ask_size,omitempty"`
 
 				// BidExchange The bid exchange ID
@@ -71317,7 +71321,7 @@ func ParseGetStocksQuotesResponse(rsp *http.Response) (*GetStocksQuotesResponse,
 				// BidPrice The bid price.
 				BidPrice *float64 `json:"bid_price,omitempty"`
 
-				// BidSize The total number of shares that buyers want to purchase at the current bid price.
+				// BidSize The bid size. This represents the number of shares buyers are bidding for at the given bid price.
 				BidSize *float64 `json:"bid_size,omitempty"`
 
 				// Conditions A list of condition codes.
@@ -73249,12 +73253,16 @@ func ParseGetOptionsTradesResponse(rsp *http.Response) (*GetOptionsTradesRespons
 				// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 				Exchange int `json:"exchange"`
 
+				// Id The trade ID. Options trades do not have a trade ID, so this field is
+				// returned as an empty string.
+				Id *string `json:"id,omitempty"`
+
 				// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
 				ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
 
-				// Price The price of the trade. This is the actual dollar value per whole share of
-				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
-				// total dollar value of $200.00.
+				// Price The price of the trade. This is the price per share of the underlying, so
+				// the total dollar value of a trade is the price multiplied by the size and
+				// by the contract multiplier, which is typically 100 shares per contract.
 				Price float64 `json:"price"`
 
 				// SequenceNumber The sequence number represents the sequence in which message events happened. These are increasing and unique per ticker symbol, but will not always be consecutive (e.g. 1, 2, 6, 9, 10, 11).
@@ -73325,8 +73333,8 @@ func ParseGetStocksTradesResponse(rsp *http.Response) (*GetStocksTradesResponse,
 				// have the same Trade ID.
 				Id string `json:"id"`
 
-				// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange.
-				ParticipantTimestamp int64 `json:"participant_timestamp"`
+				// ParticipantTimestamp The nanosecond accuracy Participant/Exchange Unix Timestamp. This is the timestamp of when the trade was actually generated at the exchange. Omitted on OTC trades reported through the FINRA ORF (exchange 62), which carry no participant timestamp.
+				ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
 
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
