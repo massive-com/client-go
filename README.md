@@ -100,6 +100,13 @@ Finally, execute your application:
 go run main.go
 ```
 
+## AI tools
+
+Coding with Claude, Cursor, ChatGPT, or another AI assistant? Give it direct access to Massive data and docs:
+
+- **MCP server**: connect your MCP client to the hosted server at `https://mcp.massive.com/`. See the [AI Tools quickstart](https://massive.com/docs/ai-tools/quickstart) for setup in each client.
+- **llms.txt**: point your agent at [`https://massive.com/docs/llms.txt`](https://massive.com/docs/llms.txt) for an LLM-friendly index of the Massive docs.
+
 ## REST API Client
 
 [![rest-docs][rest-doc-img]][rest-doc]
@@ -292,6 +299,8 @@ docker run --rm -v "$PWD":/src -w /src golang:1.24-bookworm bash -c '
 ## Contributing
 
 If you found a bug or have an idea for a new feature, please first discuss it with us by [submitting a new issue](https://github.com/massive-com/client-go/issues/new/choose). We will respond to issues within at most 3 weeks. We're also open to volunteers if you want to submit a PR for any open issues but please discuss it with us beforehand. PRs that aren't linked to an existing issue or discussed with us ahead of time will generally be declined.
+
+If you use an AI coding agent to work on this repo, it should read [AGENTS.md](./AGENTS.md), which covers the project layout, build and test commands, and which files are generated.
 
 -------------------------------------------------------------------------------
 
