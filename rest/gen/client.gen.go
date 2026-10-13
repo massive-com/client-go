@@ -275,6 +275,180 @@ const (
 	GetFuturesV1ProductsParamsTypeAnyOfSingle GetFuturesV1ProductsParamsTypeAnyOf = "single"
 )
 
+// Defines values for GetFuturesV1ProductsNewParamsSector.
+const (
+	GetFuturesV1ProductsNewParamsSectorAsia              GetFuturesV1ProductsNewParamsSector = "asia"
+	GetFuturesV1ProductsNewParamsSectorBase              GetFuturesV1ProductsNewParamsSector = "base"
+	GetFuturesV1ProductsNewParamsSectorBiofuels          GetFuturesV1ProductsNewParamsSector = "biofuels"
+	GetFuturesV1ProductsNewParamsSectorCoal              GetFuturesV1ProductsNewParamsSector = "coal"
+	GetFuturesV1ProductsNewParamsSectorCrossRates        GetFuturesV1ProductsNewParamsSector = "cross_rates"
+	GetFuturesV1ProductsNewParamsSectorCrudeOil          GetFuturesV1ProductsNewParamsSector = "crude_oil"
+	GetFuturesV1ProductsNewParamsSectorCustomIndex       GetFuturesV1ProductsNewParamsSector = "custom_index"
+	GetFuturesV1ProductsNewParamsSectorDairy             GetFuturesV1ProductsNewParamsSector = "dairy"
+	GetFuturesV1ProductsNewParamsSectorDjUbsCi           GetFuturesV1ProductsNewParamsSector = "dj_ubs_ci"
+	GetFuturesV1ProductsNewParamsSectorElectricity       GetFuturesV1ProductsNewParamsSector = "electricity"
+	GetFuturesV1ProductsNewParamsSectorEmissions         GetFuturesV1ProductsNewParamsSector = "emissions"
+	GetFuturesV1ProductsNewParamsSectorEurope            GetFuturesV1ProductsNewParamsSector = "europe"
+	GetFuturesV1ProductsNewParamsSectorFertilizer        GetFuturesV1ProductsNewParamsSector = "fertilizer"
+	GetFuturesV1ProductsNewParamsSectorForestry          GetFuturesV1ProductsNewParamsSector = "forestry"
+	GetFuturesV1ProductsNewParamsSectorGrainsAndOilseeds GetFuturesV1ProductsNewParamsSector = "grains_and_oilseeds"
+	GetFuturesV1ProductsNewParamsSectorIntlIndex         GetFuturesV1ProductsNewParamsSector = "intl_index"
+	GetFuturesV1ProductsNewParamsSectorLiqNatGasLng      GetFuturesV1ProductsNewParamsSector = "liq_nat_gas_lng"
+	GetFuturesV1ProductsNewParamsSectorLivestock         GetFuturesV1ProductsNewParamsSector = "livestock"
+	GetFuturesV1ProductsNewParamsSectorLongTermGov       GetFuturesV1ProductsNewParamsSector = "long_term_gov"
+	GetFuturesV1ProductsNewParamsSectorLongTermNonGov    GetFuturesV1ProductsNewParamsSector = "long_term_non_gov"
+	GetFuturesV1ProductsNewParamsSectorMajors            GetFuturesV1ProductsNewParamsSector = "majors"
+	GetFuturesV1ProductsNewParamsSectorMinors            GetFuturesV1ProductsNewParamsSector = "minors"
+	GetFuturesV1ProductsNewParamsSectorNatGas            GetFuturesV1ProductsNewParamsSector = "nat_gas"
+	GetFuturesV1ProductsNewParamsSectorNatGasLiqPetro    GetFuturesV1ProductsNewParamsSector = "nat_gas_liq_petro"
+	GetFuturesV1ProductsNewParamsSectorPrecious          GetFuturesV1ProductsNewParamsSector = "precious"
+	GetFuturesV1ProductsNewParamsSectorRefinedProducts   GetFuturesV1ProductsNewParamsSector = "refined_products"
+	GetFuturesV1ProductsNewParamsSectorSAndPGsci         GetFuturesV1ProductsNewParamsSector = "s_and_p_gsci"
+	GetFuturesV1ProductsNewParamsSectorSelSectorIndex    GetFuturesV1ProductsNewParamsSector = "sel_sector_index"
+	GetFuturesV1ProductsNewParamsSectorShortTermGov      GetFuturesV1ProductsNewParamsSector = "short_term_gov"
+	GetFuturesV1ProductsNewParamsSectorShortTermNonGov   GetFuturesV1ProductsNewParamsSector = "short_term_non_gov"
+	GetFuturesV1ProductsNewParamsSectorSofts             GetFuturesV1ProductsNewParamsSector = "softs"
+	GetFuturesV1ProductsNewParamsSectorUs                GetFuturesV1ProductsNewParamsSector = "us"
+	GetFuturesV1ProductsNewParamsSectorUsIndex           GetFuturesV1ProductsNewParamsSector = "us_index"
+	GetFuturesV1ProductsNewParamsSectorWetBulk           GetFuturesV1ProductsNewParamsSector = "wet_bulk"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsSectorAnyOf.
+const (
+	GetFuturesV1ProductsNewParamsSectorAnyOfAsia              GetFuturesV1ProductsNewParamsSectorAnyOf = "asia"
+	GetFuturesV1ProductsNewParamsSectorAnyOfBase              GetFuturesV1ProductsNewParamsSectorAnyOf = "base"
+	GetFuturesV1ProductsNewParamsSectorAnyOfBiofuels          GetFuturesV1ProductsNewParamsSectorAnyOf = "biofuels"
+	GetFuturesV1ProductsNewParamsSectorAnyOfCoal              GetFuturesV1ProductsNewParamsSectorAnyOf = "coal"
+	GetFuturesV1ProductsNewParamsSectorAnyOfCrossRates        GetFuturesV1ProductsNewParamsSectorAnyOf = "cross_rates"
+	GetFuturesV1ProductsNewParamsSectorAnyOfCrudeOil          GetFuturesV1ProductsNewParamsSectorAnyOf = "crude_oil"
+	GetFuturesV1ProductsNewParamsSectorAnyOfCustomIndex       GetFuturesV1ProductsNewParamsSectorAnyOf = "custom_index"
+	GetFuturesV1ProductsNewParamsSectorAnyOfDairy             GetFuturesV1ProductsNewParamsSectorAnyOf = "dairy"
+	GetFuturesV1ProductsNewParamsSectorAnyOfDjUbsCi           GetFuturesV1ProductsNewParamsSectorAnyOf = "dj_ubs_ci"
+	GetFuturesV1ProductsNewParamsSectorAnyOfElectricity       GetFuturesV1ProductsNewParamsSectorAnyOf = "electricity"
+	GetFuturesV1ProductsNewParamsSectorAnyOfEmissions         GetFuturesV1ProductsNewParamsSectorAnyOf = "emissions"
+	GetFuturesV1ProductsNewParamsSectorAnyOfEurope            GetFuturesV1ProductsNewParamsSectorAnyOf = "europe"
+	GetFuturesV1ProductsNewParamsSectorAnyOfFertilizer        GetFuturesV1ProductsNewParamsSectorAnyOf = "fertilizer"
+	GetFuturesV1ProductsNewParamsSectorAnyOfForestry          GetFuturesV1ProductsNewParamsSectorAnyOf = "forestry"
+	GetFuturesV1ProductsNewParamsSectorAnyOfGrainsAndOilseeds GetFuturesV1ProductsNewParamsSectorAnyOf = "grains_and_oilseeds"
+	GetFuturesV1ProductsNewParamsSectorAnyOfIntlIndex         GetFuturesV1ProductsNewParamsSectorAnyOf = "intl_index"
+	GetFuturesV1ProductsNewParamsSectorAnyOfLiqNatGasLng      GetFuturesV1ProductsNewParamsSectorAnyOf = "liq_nat_gas_lng"
+	GetFuturesV1ProductsNewParamsSectorAnyOfLivestock         GetFuturesV1ProductsNewParamsSectorAnyOf = "livestock"
+	GetFuturesV1ProductsNewParamsSectorAnyOfLongTermGov       GetFuturesV1ProductsNewParamsSectorAnyOf = "long_term_gov"
+	GetFuturesV1ProductsNewParamsSectorAnyOfLongTermNonGov    GetFuturesV1ProductsNewParamsSectorAnyOf = "long_term_non_gov"
+	GetFuturesV1ProductsNewParamsSectorAnyOfMajors            GetFuturesV1ProductsNewParamsSectorAnyOf = "majors"
+	GetFuturesV1ProductsNewParamsSectorAnyOfMinors            GetFuturesV1ProductsNewParamsSectorAnyOf = "minors"
+	GetFuturesV1ProductsNewParamsSectorAnyOfNatGas            GetFuturesV1ProductsNewParamsSectorAnyOf = "nat_gas"
+	GetFuturesV1ProductsNewParamsSectorAnyOfNatGasLiqPetro    GetFuturesV1ProductsNewParamsSectorAnyOf = "nat_gas_liq_petro"
+	GetFuturesV1ProductsNewParamsSectorAnyOfPrecious          GetFuturesV1ProductsNewParamsSectorAnyOf = "precious"
+	GetFuturesV1ProductsNewParamsSectorAnyOfRefinedProducts   GetFuturesV1ProductsNewParamsSectorAnyOf = "refined_products"
+	GetFuturesV1ProductsNewParamsSectorAnyOfSAndPGsci         GetFuturesV1ProductsNewParamsSectorAnyOf = "s_and_p_gsci"
+	GetFuturesV1ProductsNewParamsSectorAnyOfSelSectorIndex    GetFuturesV1ProductsNewParamsSectorAnyOf = "sel_sector_index"
+	GetFuturesV1ProductsNewParamsSectorAnyOfShortTermGov      GetFuturesV1ProductsNewParamsSectorAnyOf = "short_term_gov"
+	GetFuturesV1ProductsNewParamsSectorAnyOfShortTermNonGov   GetFuturesV1ProductsNewParamsSectorAnyOf = "short_term_non_gov"
+	GetFuturesV1ProductsNewParamsSectorAnyOfSofts             GetFuturesV1ProductsNewParamsSectorAnyOf = "softs"
+	GetFuturesV1ProductsNewParamsSectorAnyOfUs                GetFuturesV1ProductsNewParamsSectorAnyOf = "us"
+	GetFuturesV1ProductsNewParamsSectorAnyOfUsIndex           GetFuturesV1ProductsNewParamsSectorAnyOf = "us_index"
+	GetFuturesV1ProductsNewParamsSectorAnyOfWetBulk           GetFuturesV1ProductsNewParamsSectorAnyOf = "wet_bulk"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsSubSector.
+const (
+	GetFuturesV1ProductsNewParamsSubSectorAsian             GetFuturesV1ProductsNewParamsSubSector = "asian"
+	GetFuturesV1ProductsNewParamsSubSectorCanadian          GetFuturesV1ProductsNewParamsSubSector = "canadian"
+	GetFuturesV1ProductsNewParamsSubSectorCat               GetFuturesV1ProductsNewParamsSubSector = "cat"
+	GetFuturesV1ProductsNewParamsSubSectorCoolingDegreeDays GetFuturesV1ProductsNewParamsSubSector = "cooling_degree_days"
+	GetFuturesV1ProductsNewParamsSubSectorErcot             GetFuturesV1ProductsNewParamsSubSector = "ercot"
+	GetFuturesV1ProductsNewParamsSubSectorEuropean          GetFuturesV1ProductsNewParamsSubSector = "european"
+	GetFuturesV1ProductsNewParamsSubSectorGulf              GetFuturesV1ProductsNewParamsSubSector = "gulf"
+	GetFuturesV1ProductsNewParamsSubSectorHeatingDegreeDays GetFuturesV1ProductsNewParamsSubSector = "heating_degree_days"
+	GetFuturesV1ProductsNewParamsSubSectorIsoNe             GetFuturesV1ProductsNewParamsSubSector = "iso_ne"
+	GetFuturesV1ProductsNewParamsSubSectorLargeCapIndex     GetFuturesV1ProductsNewParamsSubSector = "large_cap_index"
+	GetFuturesV1ProductsNewParamsSubSectorMidCapIndex       GetFuturesV1ProductsNewParamsSubSector = "mid_cap_index"
+	GetFuturesV1ProductsNewParamsSubSectorMiso              GetFuturesV1ProductsNewParamsSubSector = "miso"
+	GetFuturesV1ProductsNewParamsSubSectorNorthAmerican     GetFuturesV1ProductsNewParamsSubSector = "north_american"
+	GetFuturesV1ProductsNewParamsSubSectorNyiso             GetFuturesV1ProductsNewParamsSubSector = "nyiso"
+	GetFuturesV1ProductsNewParamsSubSectorPjm               GetFuturesV1ProductsNewParamsSubSector = "pjm"
+	GetFuturesV1ProductsNewParamsSubSectorSmallCapIndex     GetFuturesV1ProductsNewParamsSubSector = "small_cap_index"
+	GetFuturesV1ProductsNewParamsSubSectorWest              GetFuturesV1ProductsNewParamsSubSector = "west"
+	GetFuturesV1ProductsNewParamsSubSectorWesternPower      GetFuturesV1ProductsNewParamsSubSector = "western_power"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsSubSectorAnyOf.
+const (
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfAsian             GetFuturesV1ProductsNewParamsSubSectorAnyOf = "asian"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfCanadian          GetFuturesV1ProductsNewParamsSubSectorAnyOf = "canadian"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfCat               GetFuturesV1ProductsNewParamsSubSectorAnyOf = "cat"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfCoolingDegreeDays GetFuturesV1ProductsNewParamsSubSectorAnyOf = "cooling_degree_days"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfErcot             GetFuturesV1ProductsNewParamsSubSectorAnyOf = "ercot"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfEuropean          GetFuturesV1ProductsNewParamsSubSectorAnyOf = "european"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfGulf              GetFuturesV1ProductsNewParamsSubSectorAnyOf = "gulf"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfHeatingDegreeDays GetFuturesV1ProductsNewParamsSubSectorAnyOf = "heating_degree_days"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfIsoNe             GetFuturesV1ProductsNewParamsSubSectorAnyOf = "iso_ne"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfLargeCapIndex     GetFuturesV1ProductsNewParamsSubSectorAnyOf = "large_cap_index"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfMidCapIndex       GetFuturesV1ProductsNewParamsSubSectorAnyOf = "mid_cap_index"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfMiso              GetFuturesV1ProductsNewParamsSubSectorAnyOf = "miso"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfNorthAmerican     GetFuturesV1ProductsNewParamsSubSectorAnyOf = "north_american"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfNyiso             GetFuturesV1ProductsNewParamsSubSectorAnyOf = "nyiso"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfPjm               GetFuturesV1ProductsNewParamsSubSectorAnyOf = "pjm"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfSmallCapIndex     GetFuturesV1ProductsNewParamsSubSectorAnyOf = "small_cap_index"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfWest              GetFuturesV1ProductsNewParamsSubSectorAnyOf = "west"
+	GetFuturesV1ProductsNewParamsSubSectorAnyOfWesternPower      GetFuturesV1ProductsNewParamsSubSectorAnyOf = "western_power"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsAssetClass.
+const (
+	GetFuturesV1ProductsNewParamsAssetClassAltInvestment GetFuturesV1ProductsNewParamsAssetClass = "alt_investment"
+	GetFuturesV1ProductsNewParamsAssetClassCommodity     GetFuturesV1ProductsNewParamsAssetClass = "commodity"
+	GetFuturesV1ProductsNewParamsAssetClassFinancials    GetFuturesV1ProductsNewParamsAssetClass = "financials"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsAssetClassAnyOf.
+const (
+	GetFuturesV1ProductsNewParamsAssetClassAnyOfAltInvestment GetFuturesV1ProductsNewParamsAssetClassAnyOf = "alt_investment"
+	GetFuturesV1ProductsNewParamsAssetClassAnyOfCommodity     GetFuturesV1ProductsNewParamsAssetClassAnyOf = "commodity"
+	GetFuturesV1ProductsNewParamsAssetClassAnyOfFinancials    GetFuturesV1ProductsNewParamsAssetClassAnyOf = "financials"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsAssetSubClass.
+const (
+	GetFuturesV1ProductsNewParamsAssetSubClassAgricultural    GetFuturesV1ProductsNewParamsAssetSubClass = "agricultural"
+	GetFuturesV1ProductsNewParamsAssetSubClassCommodityIndex  GetFuturesV1ProductsNewParamsAssetSubClass = "commodity_index"
+	GetFuturesV1ProductsNewParamsAssetSubClassEnergy          GetFuturesV1ProductsNewParamsAssetSubClass = "energy"
+	GetFuturesV1ProductsNewParamsAssetSubClassEquity          GetFuturesV1ProductsNewParamsAssetSubClass = "equity"
+	GetFuturesV1ProductsNewParamsAssetSubClassForeignExchange GetFuturesV1ProductsNewParamsAssetSubClass = "foreign_exchange"
+	GetFuturesV1ProductsNewParamsAssetSubClassFreight         GetFuturesV1ProductsNewParamsAssetSubClass = "freight"
+	GetFuturesV1ProductsNewParamsAssetSubClassHousing         GetFuturesV1ProductsNewParamsAssetSubClass = "housing"
+	GetFuturesV1ProductsNewParamsAssetSubClassInterestRate    GetFuturesV1ProductsNewParamsAssetSubClass = "interest_rate"
+	GetFuturesV1ProductsNewParamsAssetSubClassMetals          GetFuturesV1ProductsNewParamsAssetSubClass = "metals"
+	GetFuturesV1ProductsNewParamsAssetSubClassWeather         GetFuturesV1ProductsNewParamsAssetSubClass = "weather"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsAssetSubClassAnyOf.
+const (
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfAgricultural    GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "agricultural"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfCommodityIndex  GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "commodity_index"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfEnergy          GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "energy"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfEquity          GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "equity"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfForeignExchange GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "foreign_exchange"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfFreight         GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "freight"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfHousing         GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "housing"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfInterestRate    GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "interest_rate"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfMetals          GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "metals"
+	GetFuturesV1ProductsNewParamsAssetSubClassAnyOfWeather         GetFuturesV1ProductsNewParamsAssetSubClassAnyOf = "weather"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsType.
+const (
+	GetFuturesV1ProductsNewParamsTypeCombo  GetFuturesV1ProductsNewParamsType = "combo"
+	GetFuturesV1ProductsNewParamsTypeSingle GetFuturesV1ProductsNewParamsType = "single"
+)
+
+// Defines values for GetFuturesV1ProductsNewParamsTypeAnyOf.
+const (
+	GetFuturesV1ProductsNewParamsTypeAnyOfCombo  GetFuturesV1ProductsNewParamsTypeAnyOf = "combo"
+	GetFuturesV1ProductsNewParamsTypeAnyOfSingle GetFuturesV1ProductsNewParamsTypeAnyOf = "single"
+)
+
 // Defines values for GetStocksFilings10KVXSectionsParamsSection.
 const (
 	GetStocksFilings10KVXSectionsParamsSectionBusiness    GetStocksFilings10KVXSectionsParamsSection = "business"
@@ -1263,25 +1437,6 @@ const (
 	GetStocksTradesParamsSortTimestamp GetStocksTradesParamsSort = "timestamp"
 )
 
-// Defines values for ListFinancialsParamsTimeframe.
-const (
-	Annual    ListFinancialsParamsTimeframe = "annual"
-	Quarterly ListFinancialsParamsTimeframe = "quarterly"
-	Ttm       ListFinancialsParamsTimeframe = "ttm"
-)
-
-// Defines values for ListFinancialsParamsOrder.
-const (
-	ListFinancialsParamsOrderAsc  ListFinancialsParamsOrder = "asc"
-	ListFinancialsParamsOrderDesc ListFinancialsParamsOrder = "desc"
-)
-
-// Defines values for ListFinancialsParamsSort.
-const (
-	FilingDate         ListFinancialsParamsSort = "filing_date"
-	PeriodOfReportDate ListFinancialsParamsSort = "period_of_report_date"
-)
-
 // Defines values for ListIPOsParamsIpoStatus.
 const (
 	DirectListingProcess ListIPOsParamsIpoStatus = "direct_listing_process"
@@ -1295,8 +1450,8 @@ const (
 
 // Defines values for ListIPOsParamsOrder.
 const (
-	Asc  ListIPOsParamsOrder = "asc"
-	Desc ListIPOsParamsOrder = "desc"
+	ListIPOsParamsOrderAsc  ListIPOsParamsOrder = "asc"
+	ListIPOsParamsOrderDesc ListIPOsParamsOrder = "desc"
 )
 
 // Defines values for ListIPOsParamsSort.
@@ -3369,6 +3524,162 @@ type GetFuturesV1ProductsParamsType string
 
 // GetFuturesV1ProductsParamsTypeAnyOf defines parameters for GetFuturesV1Products.
 type GetFuturesV1ProductsParamsTypeAnyOf string
+
+// GetFuturesV1ProductsNewParams defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParams struct {
+	// Name The full name of the product.
+	Name *string `form:"name,omitempty" json:"name,omitempty"`
+
+	// NameAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	NameAnyOf *string `form:"name.any_of,omitempty" json:"name.any_of,omitempty"`
+
+	// NameGt Filter greater than the value.
+	NameGt *string `form:"name.gt,omitempty" json:"name.gt,omitempty"`
+
+	// NameGte Filter greater than or equal to the value.
+	NameGte *string `form:"name.gte,omitempty" json:"name.gte,omitempty"`
+
+	// NameLt Filter less than the value.
+	NameLt *string `form:"name.lt,omitempty" json:"name.lt,omitempty"`
+
+	// NameLte Filter less than or equal to the value.
+	NameLte *string `form:"name.lte,omitempty" json:"name.lte,omitempty"`
+
+	// ProductCode The identifier for the product.
+	ProductCode *string `form:"product_code,omitempty" json:"product_code,omitempty"`
+
+	// ProductCodeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	ProductCodeAnyOf *string `form:"product_code.any_of,omitempty" json:"product_code.any_of,omitempty"`
+
+	// ProductCodeGt Filter greater than the value.
+	ProductCodeGt *string `form:"product_code.gt,omitempty" json:"product_code.gt,omitempty"`
+
+	// ProductCodeGte Filter greater than or equal to the value.
+	ProductCodeGte *string `form:"product_code.gte,omitempty" json:"product_code.gte,omitempty"`
+
+	// ProductCodeLt Filter less than the value.
+	ProductCodeLt *string `form:"product_code.lt,omitempty" json:"product_code.lt,omitempty"`
+
+	// ProductCodeLte Filter less than or equal to the value.
+	ProductCodeLte *string `form:"product_code.lte,omitempty" json:"product_code.lte,omitempty"`
+
+	// ProviderId A unique identifier for the product assigned by the data provider. Can be used to distinguish products that share a product code.
+	ProviderId *string `form:"provider_id,omitempty" json:"provider_id,omitempty"`
+
+	// ProviderIdAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	ProviderIdAnyOf *string `form:"provider_id.any_of,omitempty" json:"provider_id.any_of,omitempty"`
+
+	// ProviderIdGt Filter greater than the value.
+	ProviderIdGt *string `form:"provider_id.gt,omitempty" json:"provider_id.gt,omitempty"`
+
+	// ProviderIdGte Filter greater than or equal to the value.
+	ProviderIdGte *string `form:"provider_id.gte,omitempty" json:"provider_id.gte,omitempty"`
+
+	// ProviderIdLt Filter less than the value.
+	ProviderIdLt *string `form:"provider_id.lt,omitempty" json:"provider_id.lt,omitempty"`
+
+	// ProviderIdLte Filter less than or equal to the value.
+	ProviderIdLte *string `form:"provider_id.lte,omitempty" json:"provider_id.lte,omitempty"`
+
+	// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day. Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// TradingVenue The trading venue (MIC) for the exchange on which this product's contracts trade.
+	TradingVenue *string `form:"trading_venue,omitempty" json:"trading_venue,omitempty"`
+
+	// TradingVenueAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TradingVenueAnyOf *string `form:"trading_venue.any_of,omitempty" json:"trading_venue.any_of,omitempty"`
+
+	// TradingVenueGt Filter greater than the value.
+	TradingVenueGt *string `form:"trading_venue.gt,omitempty" json:"trading_venue.gt,omitempty"`
+
+	// TradingVenueGte Filter greater than or equal to the value.
+	TradingVenueGte *string `form:"trading_venue.gte,omitempty" json:"trading_venue.gte,omitempty"`
+
+	// TradingVenueLt Filter less than the value.
+	TradingVenueLt *string `form:"trading_venue.lt,omitempty" json:"trading_venue.lt,omitempty"`
+
+	// TradingVenueLte Filter less than or equal to the value.
+	TradingVenueLte *string `form:"trading_venue.lte,omitempty" json:"trading_venue.lte,omitempty"`
+
+	// Sector The sector to which the product belongs.
+	Sector *GetFuturesV1ProductsNewParamsSector `form:"sector,omitempty" json:"sector,omitempty"`
+
+	// SectorAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	SectorAnyOf *GetFuturesV1ProductsNewParamsSectorAnyOf `form:"sector.any_of,omitempty" json:"sector.any_of,omitempty"`
+
+	// SubSector The sub-sector to which the product belongs.
+	SubSector *GetFuturesV1ProductsNewParamsSubSector `form:"sub_sector,omitempty" json:"sub_sector,omitempty"`
+
+	// SubSectorAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	SubSectorAnyOf *GetFuturesV1ProductsNewParamsSubSectorAnyOf `form:"sub_sector.any_of,omitempty" json:"sub_sector.any_of,omitempty"`
+
+	// AssetClass The asset class to which the product belongs.
+	AssetClass *GetFuturesV1ProductsNewParamsAssetClass `form:"asset_class,omitempty" json:"asset_class,omitempty"`
+
+	// AssetClassAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	AssetClassAnyOf *GetFuturesV1ProductsNewParamsAssetClassAnyOf `form:"asset_class.any_of,omitempty" json:"asset_class.any_of,omitempty"`
+
+	// AssetSubClass The asset sub-class to which the product belongs.
+	AssetSubClass *GetFuturesV1ProductsNewParamsAssetSubClass `form:"asset_sub_class,omitempty" json:"asset_sub_class,omitempty"`
+
+	// AssetSubClassAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	AssetSubClassAnyOf *GetFuturesV1ProductsNewParamsAssetSubClassAnyOf `form:"asset_sub_class.any_of,omitempty" json:"asset_sub_class.any_of,omitempty"`
+
+	// Type The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.
+	Type *GetFuturesV1ProductsNewParamsType `form:"type,omitempty" json:"type,omitempty"`
+
+	// TypeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TypeAnyOf *GetFuturesV1ProductsNewParamsTypeAnyOf `form:"type.any_of,omitempty" json:"type.any_of,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'asc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetFuturesV1ProductsNewParamsSector defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsSector string
+
+// GetFuturesV1ProductsNewParamsSectorAnyOf defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsSectorAnyOf string
+
+// GetFuturesV1ProductsNewParamsSubSector defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsSubSector string
+
+// GetFuturesV1ProductsNewParamsSubSectorAnyOf defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsSubSectorAnyOf string
+
+// GetFuturesV1ProductsNewParamsAssetClass defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsAssetClass string
+
+// GetFuturesV1ProductsNewParamsAssetClassAnyOf defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsAssetClassAnyOf string
+
+// GetFuturesV1ProductsNewParamsAssetSubClass defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsAssetSubClass string
+
+// GetFuturesV1ProductsNewParamsAssetSubClassAnyOf defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsAssetSubClassAnyOf string
+
+// GetFuturesV1ProductsNewParamsType defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsType string
+
+// GetFuturesV1ProductsNewParamsTypeAnyOf defines parameters for GetFuturesV1ProductsNew.
+type GetFuturesV1ProductsNewParamsTypeAnyOf string
 
 // GetFuturesV1QuotesTickerParams defines parameters for GetFuturesV1QuotesTicker.
 type GetFuturesV1QuotesTickerParams struct {
@@ -7690,87 +8001,6 @@ type GetStocksTradesParamsOrder string
 // GetStocksTradesParamsSort defines parameters for GetStocksTrades.
 type GetStocksTradesParamsSort string
 
-// ListFinancialsParams defines parameters for ListFinancials.
-type ListFinancialsParams struct {
-	// Ticker Query by company ticker.
-	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
-
-	// Cik Query by central index key (<a rel="noopener noreferrer nofollow" target="_blank" href="https://www.sec.gov/edgar/searchedgar/cik.htm">CIK</a>) Number
-	Cik *string `form:"cik,omitempty" json:"cik,omitempty"`
-
-	// CompanyName Query by company name.
-	CompanyName *string `form:"company_name,omitempty" json:"company_name,omitempty"`
-
-	// Sic Query by standard industrial classification (<a rel="noopener noreferrer nofollow" target="_blank" href="https://www.sec.gov/corpfin/division-of-corporation-finance-standard-industrial-classification-sic-code-list">SIC</a>)
-	Sic *string `form:"sic,omitempty" json:"sic,omitempty"`
-
-	// FilingDate Query by the date when the filing with financials data was filed in YYYY-MM-DD format.
-	//
-	// Best used when querying over date ranges to find financials based on filings that happen in a time period.
-	//
-	// Examples:
-	//
-	// To get financials based on filings that have happened after January 1, 2009 use the query param filing_date.gte=2009-01-01
-	//
-	// To get financials based on filings that happened in the year 2009 use the query params filing_date.gte=2009-01-01&filing_date.lt=2010-01-01
-	FilingDate *openapi_types.Date `form:"filing_date,omitempty" json:"filing_date,omitempty"`
-
-	// PeriodOfReportDate The period of report for the filing with financials data in YYYY-MM-DD format.
-	PeriodOfReportDate *openapi_types.Date `form:"period_of_report_date,omitempty" json:"period_of_report_date,omitempty"`
-
-	// Timeframe Query by timeframe. Annual financials originate from 10-K filings, and quarterly financials originate from 10-Q filings. Note: Most companies do not file quarterly reports for Q4 and instead include those financials in their annual report, so some companies my not return quarterly financials for Q4
-	Timeframe *ListFinancialsParamsTimeframe `form:"timeframe,omitempty" json:"timeframe,omitempty"`
-
-	// IncludeSources Whether or not to include the `xpath` and `formula` attributes for each financial data point.
-	// See the `xpath` and `formula` response attributes for more info. False by default.
-	IncludeSources *bool `form:"include_sources,omitempty" json:"include_sources,omitempty"`
-
-	// CompanyNameSearch Search by company_name.
-	CompanyNameSearch *string `form:"company_name.search,omitempty" json:"company_name.search,omitempty"`
-
-	// FilingDateGte Search by filing_date.
-	FilingDateGte *openapi_types.Date `form:"filing_date.gte,omitempty" json:"filing_date.gte,omitempty"`
-
-	// FilingDateGt Search by filing_date.
-	FilingDateGt *openapi_types.Date `form:"filing_date.gt,omitempty" json:"filing_date.gt,omitempty"`
-
-	// FilingDateLte Search by filing_date.
-	FilingDateLte *openapi_types.Date `form:"filing_date.lte,omitempty" json:"filing_date.lte,omitempty"`
-
-	// FilingDateLt Search by filing_date.
-	FilingDateLt *openapi_types.Date `form:"filing_date.lt,omitempty" json:"filing_date.lt,omitempty"`
-
-	// PeriodOfReportDateGte Search by period_of_report_date.
-	PeriodOfReportDateGte *openapi_types.Date `form:"period_of_report_date.gte,omitempty" json:"period_of_report_date.gte,omitempty"`
-
-	// PeriodOfReportDateGt Search by period_of_report_date.
-	PeriodOfReportDateGt *openapi_types.Date `form:"period_of_report_date.gt,omitempty" json:"period_of_report_date.gt,omitempty"`
-
-	// PeriodOfReportDateLte Search by period_of_report_date.
-	PeriodOfReportDateLte *openapi_types.Date `form:"period_of_report_date.lte,omitempty" json:"period_of_report_date.lte,omitempty"`
-
-	// PeriodOfReportDateLt Search by period_of_report_date.
-	PeriodOfReportDateLt *openapi_types.Date `form:"period_of_report_date.lt,omitempty" json:"period_of_report_date.lt,omitempty"`
-
-	// Order Order results based on the `sort` field.
-	Order *ListFinancialsParamsOrder `form:"order,omitempty" json:"order,omitempty"`
-
-	// Limit Limit the number of results returned, default is 10 and max is 100.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort Sort field used for ordering.
-	Sort *ListFinancialsParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// ListFinancialsParamsTimeframe defines parameters for ListFinancials.
-type ListFinancialsParamsTimeframe string
-
-// ListFinancialsParamsOrder defines parameters for ListFinancials.
-type ListFinancialsParamsOrder string
-
-// ListFinancialsParamsSort defines parameters for ListFinancials.
-type ListFinancialsParamsSort string
-
 // ListIPOsParams defines parameters for ListIPOs.
 type ListIPOsParams struct {
 	// Ticker Specify a case-sensitive ticker symbol. For example, TSLA represents Tesla Inc.
@@ -7982,6 +8212,9 @@ type ClientInterface interface {
 
 	// GetFuturesV1Products request
 	GetFuturesV1Products(ctx context.Context, params *GetFuturesV1ProductsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetFuturesV1ProductsNew request
+	GetFuturesV1ProductsNew(ctx context.Context, params *GetFuturesV1ProductsNewParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetFuturesV1QuotesTicker request
 	GetFuturesV1QuotesTicker(ctx context.Context, ticker string, params *GetFuturesV1QuotesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8319,9 +8552,6 @@ type ClientInterface interface {
 	// GetStocksTrades request
 	GetStocksTrades(ctx context.Context, stockTicker string, params *GetStocksTradesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ListFinancials request
-	ListFinancials(ctx context.Context, params *ListFinancialsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// ListIPOs request
 	ListIPOs(ctx context.Context, params *ListIPOsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8655,6 +8885,18 @@ func (c *Client) GetFuturesV1MarketStatus(ctx context.Context, params *GetFuture
 
 func (c *Client) GetFuturesV1Products(ctx context.Context, params *GetFuturesV1ProductsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetFuturesV1ProductsRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetFuturesV1ProductsNew(ctx context.Context, params *GetFuturesV1ProductsNewParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetFuturesV1ProductsNewRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9999,18 +10241,6 @@ func (c *Client) GetOptionsTrades(ctx context.Context, optionsTicker string, par
 
 func (c *Client) GetStocksTrades(ctx context.Context, stockTicker string, params *GetStocksTradesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetStocksTradesRequest(c.Server, stockTicker, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) ListFinancials(ctx context.Context, params *ListFinancialsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewListFinancialsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -20639,6 +20869,695 @@ func NewGetFuturesV1ProductsRequest(server string, params *GetFuturesV1ProductsP
 		if params.ProductCodeLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TradingVenue != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue", runtime.ParamLocationQuery, *params.TradingVenue); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TradingVenueAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.any_of", runtime.ParamLocationQuery, *params.TradingVenueAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TradingVenueGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.gt", runtime.ParamLocationQuery, *params.TradingVenueGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TradingVenueGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.gte", runtime.ParamLocationQuery, *params.TradingVenueGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TradingVenueLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.lt", runtime.ParamLocationQuery, *params.TradingVenueLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TradingVenueLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "trading_venue.lte", runtime.ParamLocationQuery, *params.TradingVenueLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sector != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sector", runtime.ParamLocationQuery, *params.Sector); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SectorAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sector.any_of", runtime.ParamLocationQuery, *params.SectorAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SubSector != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sub_sector", runtime.ParamLocationQuery, *params.SubSector); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.SubSectorAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sub_sector.any_of", runtime.ParamLocationQuery, *params.SubSectorAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AssetClass != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_class", runtime.ParamLocationQuery, *params.AssetClass); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AssetClassAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_class.any_of", runtime.ParamLocationQuery, *params.AssetClassAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AssetSubClass != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_sub_class", runtime.ParamLocationQuery, *params.AssetSubClass); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.AssetSubClassAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "asset_sub_class.any_of", runtime.ParamLocationQuery, *params.AssetSubClassAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Type != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TypeAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type.any_of", runtime.ParamLocationQuery, *params.TypeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetFuturesV1ProductsNewRequest generates requests for GetFuturesV1ProductsNew
+func NewGetFuturesV1ProductsNewRequest(server string, params *GetFuturesV1ProductsNewParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/futures/v1/products/new")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Name != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name", runtime.ParamLocationQuery, *params.Name); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.NameAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.any_of", runtime.ParamLocationQuery, *params.NameAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.NameGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.gt", runtime.ParamLocationQuery, *params.NameGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.NameGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.gte", runtime.ParamLocationQuery, *params.NameGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.NameLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.lt", runtime.ParamLocationQuery, *params.NameLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.NameLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "name.lte", runtime.ParamLocationQuery, *params.NameLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code", runtime.ParamLocationQuery, *params.ProductCode); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.any_of", runtime.ParamLocationQuery, *params.ProductCodeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gt", runtime.ParamLocationQuery, *params.ProductCodeGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.gte", runtime.ParamLocationQuery, *params.ProductCodeGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lt", runtime.ParamLocationQuery, *params.ProductCodeLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProductCodeLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "product_code.lte", runtime.ParamLocationQuery, *params.ProductCodeLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProviderId != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "provider_id", runtime.ParamLocationQuery, *params.ProviderId); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProviderIdAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "provider_id.any_of", runtime.ParamLocationQuery, *params.ProviderIdAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProviderIdGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "provider_id.gt", runtime.ParamLocationQuery, *params.ProviderIdGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProviderIdGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "provider_id.gte", runtime.ParamLocationQuery, *params.ProviderIdGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProviderIdLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "provider_id.lt", runtime.ParamLocationQuery, *params.ProviderIdLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ProviderIdLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "provider_id.lte", runtime.ParamLocationQuery, *params.ProviderIdLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -44204,359 +45123,6 @@ func NewGetStocksTradesRequest(server string, stockTicker string, params *GetSto
 	return req, nil
 }
 
-// NewListFinancialsRequest generates requests for ListFinancials
-func NewListFinancialsRequest(server string, params *ListFinancialsParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/vX/reference/financials")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Ticker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Cik != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "cik", runtime.ParamLocationQuery, *params.Cik); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.CompanyName != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "company_name", runtime.ParamLocationQuery, *params.CompanyName); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sic != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sic", runtime.ParamLocationQuery, *params.Sic); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FilingDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date", runtime.ParamLocationQuery, *params.FilingDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.PeriodOfReportDate != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_of_report_date", runtime.ParamLocationQuery, *params.PeriodOfReportDate); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Timeframe != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timeframe", runtime.ParamLocationQuery, *params.Timeframe); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.IncludeSources != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "include_sources", runtime.ParamLocationQuery, *params.IncludeSources); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.CompanyNameSearch != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "company_name.search", runtime.ParamLocationQuery, *params.CompanyNameSearch); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FilingDateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gte", runtime.ParamLocationQuery, *params.FilingDateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FilingDateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.gt", runtime.ParamLocationQuery, *params.FilingDateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FilingDateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lte", runtime.ParamLocationQuery, *params.FilingDateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.FilingDateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "filing_date.lt", runtime.ParamLocationQuery, *params.FilingDateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.PeriodOfReportDateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_of_report_date.gte", runtime.ParamLocationQuery, *params.PeriodOfReportDateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.PeriodOfReportDateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_of_report_date.gt", runtime.ParamLocationQuery, *params.PeriodOfReportDateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.PeriodOfReportDateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_of_report_date.lte", runtime.ParamLocationQuery, *params.PeriodOfReportDateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.PeriodOfReportDateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "period_of_report_date.lt", runtime.ParamLocationQuery, *params.PeriodOfReportDateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Order != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "order", runtime.ParamLocationQuery, *params.Order); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
 // NewListIPOsRequest generates requests for ListIPOs
 func NewListIPOsRequest(server string, params *ListIPOsParams) (*http.Request, error) {
 	var err error
@@ -44965,6 +45531,9 @@ type ClientWithResponsesInterface interface {
 	// GetFuturesV1ProductsWithResponse request
 	GetFuturesV1ProductsWithResponse(ctx context.Context, params *GetFuturesV1ProductsParams, reqEditors ...RequestEditorFn) (*GetFuturesV1ProductsResponse, error)
 
+	// GetFuturesV1ProductsNewWithResponse request
+	GetFuturesV1ProductsNewWithResponse(ctx context.Context, params *GetFuturesV1ProductsNewParams, reqEditors ...RequestEditorFn) (*GetFuturesV1ProductsNewResponse, error)
+
 	// GetFuturesV1QuotesTickerWithResponse request
 	GetFuturesV1QuotesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1QuotesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1QuotesTickerResponse, error)
 
@@ -45300,9 +45869,6 @@ type ClientWithResponsesInterface interface {
 
 	// GetStocksTradesWithResponse request
 	GetStocksTradesWithResponse(ctx context.Context, stockTicker string, params *GetStocksTradesParams, reqEditors ...RequestEditorFn) (*GetStocksTradesResponse, error)
-
-	// ListFinancialsWithResponse request
-	ListFinancialsWithResponse(ctx context.Context, params *ListFinancialsParams, reqEditors ...RequestEditorFn) (*ListFinancialsResponse, error)
 
 	// ListIPOsWithResponse request
 	ListIPOsWithResponse(ctx context.Context, params *ListIPOsParams, reqEditors ...RequestEditorFn) (*ListIPOsResponse, error)
@@ -47935,6 +48501,115 @@ func (r GetFuturesV1ProductsResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetFuturesV1ProductsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetFuturesV1ProductsNewResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// AssetClass The asset class to which the product belongs.
+			AssetClass *string `json:"asset_class,omitempty"`
+
+			// AssetSubClass The asset sub-class to which the product belongs.
+			AssetSubClass *string `json:"asset_sub_class,omitempty"`
+
+			// ClearingSymbol The clearing symbol assigned to this product by the exchange's clearing house.
+			ClearingSymbol *string `json:"clearing_symbol,omitempty"`
+
+			// ClearingVenue The trading venue (MIC) for the clearing house that clears this product's contracts.
+			ClearingVenue *string `json:"clearing_venue,omitempty"`
+
+			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
+			Date openapi_types.Date `json:"date"`
+
+			// LastUpdated The date and time at which this product was last updated.
+			LastUpdated *time.Time `json:"last_updated,omitempty"`
+
+			// Name The full name of the product.
+			Name *string `json:"name,omitempty"`
+
+			// PriceQuotation The quoted price for this product.
+			PriceQuotation *string `json:"price_quotation,omitempty"`
+
+			// ProductCode The identifier for the product.
+			ProductCode *string `json:"product_code,omitempty"`
+
+			// ProviderId A unique identifier for the product assigned by the data provider. Can be used to distinguish products that share a product code.
+			ProviderId *string `json:"provider_id,omitempty"`
+
+			// Sector The sector to which the product belongs.
+			Sector *string `json:"sector,omitempty"`
+
+			// SettlementCurrencyCode The currency in which this product settles.
+			SettlementCurrencyCode *string `json:"settlement_currency_code,omitempty"`
+
+			// SettlementMethod The method of settlement for this product (Financially Settled or Deliverable).
+			SettlementMethod *string `json:"settlement_method,omitempty"`
+
+			// SettlementType The type of settlement for this product.
+			SettlementType *string `json:"settlement_type,omitempty"`
+
+			// StrategyType The strategy type for combo products (e.g. spread, strip, pack). Null for single products.
+			StrategyType *string `json:"strategy_type,omitempty"`
+
+			// SubSector The sub-sector to which the product belongs.
+			SubSector *string `json:"sub_sector,omitempty"`
+
+			// TradeCurrencyCode The currency in which this product's contracts trade.
+			TradeCurrencyCode *string `json:"trade_currency_code,omitempty"`
+
+			// TradingVenue The trading venue (MIC) for the exchange on which this product's contracts trade.
+			TradingVenue *string `json:"trading_venue,omitempty"`
+
+			// Type The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.
+			Type *string `json:"type,omitempty"`
+
+			// UnitOfMeasure The unit of measure for this product.
+			UnitOfMeasure *string `json:"unit_of_measure,omitempty"`
+
+			// UnitOfMeasureQty The quantity of the unit of measure for this product.
+			UnitOfMeasureQty *float32 `json:"unit_of_measure_qty,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetFuturesV1ProductsNew200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetFuturesV1ProductsNew400Status `json:"status"`
+	}
+}
+type GetFuturesV1ProductsNew200Status string
+type GetFuturesV1ProductsNew400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetFuturesV1ProductsNewResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetFuturesV1ProductsNewResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -58072,135 +58747,6 @@ func (r GetStocksTradesResponse) StatusCode() int {
 	return 0
 }
 
-type ListFinancialsResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// Count The total number of results for this request.
-		Count int `json:"count"`
-
-		// NextUrl If present, this value can be used to fetch the next page of data.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results An array of results containing the requested data.
-		Results []struct {
-			// AcceptanceDatetime The datetime (EST timezone) the filing was accepted by EDGAR in YYYYMMDDHHMMSS format.
-			AcceptanceDatetime *string `json:"acceptance_datetime,omitempty"`
-
-			// Cik The CIK number for the company.
-			Cik string `json:"cik"`
-
-			// CompanyName The company name.
-			CompanyName string `json:"company_name"`
-
-			// EndDate The end date of the period that these financials cover in YYYYMMDD format.
-			EndDate *string `json:"end_date,omitempty"`
-
-			// FilingDate The date that the SEC filing which these financials were derived from was made available. Note that this is not necessarily the date when this information became public, as some companies may publish a press release before filing with the SEC.
-			FilingDate *string `json:"filing_date,omitempty"`
-
-			// Financials Structured financial statements with detailed data points and metadata.
-			Financials struct {
-				// BalanceSheet Balance sheet.
-				// The keys in this object can be any of the fields listed in the Balance Sheet section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-				BalanceSheet *struct {
-					// Asterisk An individual financial data point.
-					Asterisk *struct {
-						// DerivedFrom The list of report IDs (or errata) which were used to derive this data point.
-						// This value is only returned for data points taken directly from XBRL when the `include_sources` query parameter is `true` and if source is SourceInterReportDerived.
-						DerivedFrom *[]string `json:"derived_from,omitempty"`
-
-						// Formula The name of the formula used to derive this data point from other financial data points.
-						// Information about the formulas can be found <a rel="noopener noreferrer nofollow" target="_blank" href="http://xbrlsite.azurewebsites.net/2020/reporting-scheme/us-gaap/fac/documentation/ImputeRulesList.html">here</a>.
-						// This value is only returned for data points that are not explicitly expressed within the XBRL source file when the `include_sources` query parameter is `true` and if source is SourceIntraReportImpute.
-						Formula *string `json:"formula,omitempty"`
-
-						// Label A human readable label for the financial data point.
-						Label string `json:"label"`
-
-						// Order An indicator of what order within the statement that you would find this data point.
-						Order int `json:"order"`
-
-						// Source The source where this data point came from. This will be one of: SourceDirectReport, SourceIntraReportImpute or SourceInterReportDerived.
-						Source *string `json:"source,omitempty"`
-
-						// Unit The unit of the financial data point.
-						Unit string `json:"unit"`
-
-						// Value The value of the financial data point.
-						Value float32 `json:"value"`
-
-						// Xpath The <a rel="noopener noreferrer nofollow" target="_blank" href="https://en.wikipedia.org/wiki/XPath">XPath 1.0</a> query that identifies the fact from within the XBRL source file.
-						// This value is only returned for data points taken directly from XBRL when the `include_sources` query parameter is `true` and if source is SourceDirectReport.
-						Xpath *string `json:"xpath,omitempty"`
-					} `json:"*,omitempty"`
-				} `json:"balance_sheet,omitempty"`
-
-				// CashFlowStatement Cash flow statement.
-				// The keys in this object can be any of the fields listed in the Cash Flow Statement section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-				// See the attributes of the objects within `balance_sheet` for more details.
-				CashFlowStatement *map[string]interface{} `json:"cash_flow_statement,omitempty"`
-
-				// ComprehensiveIncome Comprehensive income.
-				// The keys in this object can be any of the fields listed in the Comprehensive Income section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-				// See the attributes of the objects within `balance_sheet` for more details.
-				ComprehensiveIncome *map[string]interface{} `json:"comprehensive_income,omitempty"`
-
-				// IncomeStatement Income statement.
-				// The keys in this object can be any of the fields listed in the Income Statement section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-				// See the attributes of the objects within `balance_sheet` for more details.
-				IncomeStatement *map[string]interface{} `json:"income_statement,omitempty"`
-			} `json:"financials"`
-
-			// FiscalPeriod Fiscal period of the report according to the company (Q1, Q2, Q3, Q4, or FY).
-			FiscalPeriod string `json:"fiscal_period"`
-
-			// FiscalYear Fiscal year of the report according to the company.
-			FiscalYear *string `json:"fiscal_year,omitempty"`
-
-			// Sic The Standard Industrial Classification (SIC) code for the company.
-			Sic *string `json:"sic,omitempty"`
-
-			// SourceFilingFileUrl The URL of the specific XBRL instance document within the SEC filing that these financials were derived from.
-			SourceFilingFileUrl *string `json:"source_filing_file_url,omitempty"`
-
-			// SourceFilingUrl The URL of the SEC filing that these financials were derived from.
-			SourceFilingUrl *string `json:"source_filing_url,omitempty"`
-
-			// StartDate The start date of the period that these financials cover in YYYYMMDD format.
-			StartDate *string `json:"start_date,omitempty"`
-
-			// Tickers The list of ticker symbols for the company.
-			Tickers *[]string `json:"tickers,omitempty"`
-
-			// Timeframe The timeframe of the report (quarterly, annual or ttm).
-			Timeframe string `json:"timeframe"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status string `json:"status"`
-	}
-}
-
-// Status returns HTTPResponse.Status
-func (r ListFinancialsResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r ListFinancialsResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
 type ListIPOsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -58601,6 +59147,15 @@ func (c *ClientWithResponses) GetFuturesV1ProductsWithResponse(ctx context.Conte
 		return nil, err
 	}
 	return ParseGetFuturesV1ProductsResponse(rsp)
+}
+
+// GetFuturesV1ProductsNewWithResponse request returning *GetFuturesV1ProductsNewResponse
+func (c *ClientWithResponses) GetFuturesV1ProductsNewWithResponse(ctx context.Context, params *GetFuturesV1ProductsNewParams, reqEditors ...RequestEditorFn) (*GetFuturesV1ProductsNewResponse, error) {
+	rsp, err := c.GetFuturesV1ProductsNew(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetFuturesV1ProductsNewResponse(rsp)
 }
 
 // GetFuturesV1QuotesTickerWithResponse request returning *GetFuturesV1QuotesTickerResponse
@@ -59609,15 +60164,6 @@ func (c *ClientWithResponses) GetStocksTradesWithResponse(ctx context.Context, s
 		return nil, err
 	}
 	return ParseGetStocksTradesResponse(rsp)
-}
-
-// ListFinancialsWithResponse request returning *ListFinancialsResponse
-func (c *ClientWithResponses) ListFinancialsWithResponse(ctx context.Context, params *ListFinancialsParams, reqEditors ...RequestEditorFn) (*ListFinancialsResponse, error) {
-	rsp, err := c.ListFinancials(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseListFinancialsResponse(rsp)
 }
 
 // ListIPOsWithResponse request returning *ListIPOsResponse
@@ -62477,6 +63023,123 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 
 			// Status The status of this request's response.
 			Status GetFuturesV1Products400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetFuturesV1ProductsNewResponse parses an HTTP response from a GetFuturesV1ProductsNewWithResponse call
+func ParseGetFuturesV1ProductsNewResponse(rsp *http.Response) (*GetFuturesV1ProductsNewResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetFuturesV1ProductsNewResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// AssetClass The asset class to which the product belongs.
+				AssetClass *string `json:"asset_class,omitempty"`
+
+				// AssetSubClass The asset sub-class to which the product belongs.
+				AssetSubClass *string `json:"asset_sub_class,omitempty"`
+
+				// ClearingSymbol The clearing symbol assigned to this product by the exchange's clearing house.
+				ClearingSymbol *string `json:"clearing_symbol,omitempty"`
+
+				// ClearingVenue The trading venue (MIC) for the clearing house that clears this product's contracts.
+				ClearingVenue *string `json:"clearing_venue,omitempty"`
+
+				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
+				Date openapi_types.Date `json:"date"`
+
+				// LastUpdated The date and time at which this product was last updated.
+				LastUpdated *time.Time `json:"last_updated,omitempty"`
+
+				// Name The full name of the product.
+				Name *string `json:"name,omitempty"`
+
+				// PriceQuotation The quoted price for this product.
+				PriceQuotation *string `json:"price_quotation,omitempty"`
+
+				// ProductCode The identifier for the product.
+				ProductCode *string `json:"product_code,omitempty"`
+
+				// ProviderId A unique identifier for the product assigned by the data provider. Can be used to distinguish products that share a product code.
+				ProviderId *string `json:"provider_id,omitempty"`
+
+				// Sector The sector to which the product belongs.
+				Sector *string `json:"sector,omitempty"`
+
+				// SettlementCurrencyCode The currency in which this product settles.
+				SettlementCurrencyCode *string `json:"settlement_currency_code,omitempty"`
+
+				// SettlementMethod The method of settlement for this product (Financially Settled or Deliverable).
+				SettlementMethod *string `json:"settlement_method,omitempty"`
+
+				// SettlementType The type of settlement for this product.
+				SettlementType *string `json:"settlement_type,omitempty"`
+
+				// StrategyType The strategy type for combo products (e.g. spread, strip, pack). Null for single products.
+				StrategyType *string `json:"strategy_type,omitempty"`
+
+				// SubSector The sub-sector to which the product belongs.
+				SubSector *string `json:"sub_sector,omitempty"`
+
+				// TradeCurrencyCode The currency in which this product's contracts trade.
+				TradeCurrencyCode *string `json:"trade_currency_code,omitempty"`
+
+				// TradingVenue The trading venue (MIC) for the exchange on which this product's contracts trade.
+				TradingVenue *string `json:"trading_venue,omitempty"`
+
+				// Type The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.
+				Type *string `json:"type,omitempty"`
+
+				// UnitOfMeasure The unit of measure for this product.
+				UnitOfMeasure *string `json:"unit_of_measure,omitempty"`
+
+				// UnitOfMeasureQty The quantity of the unit of measure for this product.
+				UnitOfMeasureQty *float32 `json:"unit_of_measure_qty,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetFuturesV1ProductsNew200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetFuturesV1ProductsNew400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -73375,139 +74038,6 @@ func ParseGetStocksTradesResponse(rsp *http.Response) (*GetStocksTradesResponse,
 
 	case rsp.StatusCode == 200:
 		// Content-type (text/csv) unsupported
-
-	}
-
-	return response, nil
-}
-
-// ParseListFinancialsResponse parses an HTTP response from a ListFinancialsWithResponse call
-func ParseListFinancialsResponse(rsp *http.Response) (*ListFinancialsResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &ListFinancialsResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// Count The total number of results for this request.
-			Count int `json:"count"`
-
-			// NextUrl If present, this value can be used to fetch the next page of data.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results An array of results containing the requested data.
-			Results []struct {
-				// AcceptanceDatetime The datetime (EST timezone) the filing was accepted by EDGAR in YYYYMMDDHHMMSS format.
-				AcceptanceDatetime *string `json:"acceptance_datetime,omitempty"`
-
-				// Cik The CIK number for the company.
-				Cik string `json:"cik"`
-
-				// CompanyName The company name.
-				CompanyName string `json:"company_name"`
-
-				// EndDate The end date of the period that these financials cover in YYYYMMDD format.
-				EndDate *string `json:"end_date,omitempty"`
-
-				// FilingDate The date that the SEC filing which these financials were derived from was made available. Note that this is not necessarily the date when this information became public, as some companies may publish a press release before filing with the SEC.
-				FilingDate *string `json:"filing_date,omitempty"`
-
-				// Financials Structured financial statements with detailed data points and metadata.
-				Financials struct {
-					// BalanceSheet Balance sheet.
-					// The keys in this object can be any of the fields listed in the Balance Sheet section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-					BalanceSheet *struct {
-						// Asterisk An individual financial data point.
-						Asterisk *struct {
-							// DerivedFrom The list of report IDs (or errata) which were used to derive this data point.
-							// This value is only returned for data points taken directly from XBRL when the `include_sources` query parameter is `true` and if source is SourceInterReportDerived.
-							DerivedFrom *[]string `json:"derived_from,omitempty"`
-
-							// Formula The name of the formula used to derive this data point from other financial data points.
-							// Information about the formulas can be found <a rel="noopener noreferrer nofollow" target="_blank" href="http://xbrlsite.azurewebsites.net/2020/reporting-scheme/us-gaap/fac/documentation/ImputeRulesList.html">here</a>.
-							// This value is only returned for data points that are not explicitly expressed within the XBRL source file when the `include_sources` query parameter is `true` and if source is SourceIntraReportImpute.
-							Formula *string `json:"formula,omitempty"`
-
-							// Label A human readable label for the financial data point.
-							Label string `json:"label"`
-
-							// Order An indicator of what order within the statement that you would find this data point.
-							Order int `json:"order"`
-
-							// Source The source where this data point came from. This will be one of: SourceDirectReport, SourceIntraReportImpute or SourceInterReportDerived.
-							Source *string `json:"source,omitempty"`
-
-							// Unit The unit of the financial data point.
-							Unit string `json:"unit"`
-
-							// Value The value of the financial data point.
-							Value float32 `json:"value"`
-
-							// Xpath The <a rel="noopener noreferrer nofollow" target="_blank" href="https://en.wikipedia.org/wiki/XPath">XPath 1.0</a> query that identifies the fact from within the XBRL source file.
-							// This value is only returned for data points taken directly from XBRL when the `include_sources` query parameter is `true` and if source is SourceDirectReport.
-							Xpath *string `json:"xpath,omitempty"`
-						} `json:"*,omitempty"`
-					} `json:"balance_sheet,omitempty"`
-
-					// CashFlowStatement Cash flow statement.
-					// The keys in this object can be any of the fields listed in the Cash Flow Statement section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-					// See the attributes of the objects within `balance_sheet` for more details.
-					CashFlowStatement *map[string]interface{} `json:"cash_flow_statement,omitempty"`
-
-					// ComprehensiveIncome Comprehensive income.
-					// The keys in this object can be any of the fields listed in the Comprehensive Income section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-					// See the attributes of the objects within `balance_sheet` for more details.
-					ComprehensiveIncome *map[string]interface{} `json:"comprehensive_income,omitempty"`
-
-					// IncomeStatement Income statement.
-					// The keys in this object can be any of the fields listed in the Income Statement section of the <a target="_blank" href="https://massive.com/blog/financials-api-glossary-of-fields">financials API glossary of terms</a>.
-					// See the attributes of the objects within `balance_sheet` for more details.
-					IncomeStatement *map[string]interface{} `json:"income_statement,omitempty"`
-				} `json:"financials"`
-
-				// FiscalPeriod Fiscal period of the report according to the company (Q1, Q2, Q3, Q4, or FY).
-				FiscalPeriod string `json:"fiscal_period"`
-
-				// FiscalYear Fiscal year of the report according to the company.
-				FiscalYear *string `json:"fiscal_year,omitempty"`
-
-				// Sic The Standard Industrial Classification (SIC) code for the company.
-				Sic *string `json:"sic,omitempty"`
-
-				// SourceFilingFileUrl The URL of the specific XBRL instance document within the SEC filing that these financials were derived from.
-				SourceFilingFileUrl *string `json:"source_filing_file_url,omitempty"`
-
-				// SourceFilingUrl The URL of the SEC filing that these financials were derived from.
-				SourceFilingUrl *string `json:"source_filing_url,omitempty"`
-
-				// StartDate The start date of the period that these financials cover in YYYYMMDD format.
-				StartDate *string `json:"start_date,omitempty"`
-
-				// Tickers The list of ticker symbols for the company.
-				Tickers *[]string `json:"tickers,omitempty"`
-
-				// Timeframe The timeframe of the report (quarterly, annual or ttm).
-				Timeframe string `json:"timeframe"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status string `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
 
 	}
 
