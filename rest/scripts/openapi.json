@@ -7036,7 +7036,7 @@
             }
           },
           {
-            "description": "The percentage difference between the actual and estimated EPS. Value must be a floating point number.",
+            "description": "The EPS surprise relative to the estimate, as a decimal fraction (0.75 = 75%), calculated as eps_surprise divided by the absolute value of estimated_eps. Positive is a beat and negative a miss, even when the estimate is negative. When the estimate is 0 the value is 1 or -1, and estimates near 0 give very large values. Value must be a floating point number.",
             "in": "query",
             "name": "eps_surprise_percent",
             "schema": {
@@ -7089,7 +7089,7 @@
             }
           },
           {
-            "description": "The percentage difference between the actual and estimated revenue. Value must be a floating point number.",
+            "description": "The revenue surprise relative to the estimate, as a decimal fraction (0.126 = 12.6%), calculated as revenue_surprise divided by the absolute value of estimated_revenue. Positive is a beat and negative a miss. Value must be a floating point number.",
             "in": "query",
             "name": "revenue_surprise_percent",
             "schema": {
@@ -7347,7 +7347,7 @@
                             "type": "number"
                           },
                           "eps_surprise_percent": {
-                            "description": "The percentage difference between the actual and estimated EPS.",
+                            "description": "The EPS surprise relative to the estimate, as a decimal fraction (0.75 = 75%), calculated as eps_surprise divided by the absolute value of estimated_eps. Positive is a beat and negative a miss, even when the estimate is negative. When the estimate is 0 the value is 1 or -1, and estimates near 0 give very large values.",
                             "format": "double",
                             "type": "number"
                           },
@@ -7404,7 +7404,7 @@
                             "type": "number"
                           },
                           "revenue_surprise_percent": {
-                            "description": "The percentage difference between the actual and estimated revenue.",
+                            "description": "The revenue surprise relative to the estimate, as a decimal fraction (0.126 = 12.6%), calculated as revenue_surprise divided by the absolute value of estimated_revenue. Positive is a beat and negative a miss.",
                             "format": "double",
                             "type": "number"
                           },
@@ -15020,6 +15020,22 @@
             }
           },
           {
+            "description": "A unique identifier for the contract assigned by the data provider. Note that this value is null for historical data (pre-2025-03-12).",
+            "in": "query",
+            "name": "provider_id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "A unique identifier for the product to which a contract, or contracts, belongs. Note that this value is null for historical data (pre-2025-03-12).",
+            "in": "query",
+            "name": "provider_product_id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "description": "The ticker for the contract.",
             "in": "query",
             "name": "ticker",
@@ -15210,21 +15226,23 @@
                   "results": [
                     {
                       "active": true,
-                      "date": "2025-02-26",
-                      "days_to_maturity": 138,
-                      "first_trade_date": "2025-01-15",
-                      "group_code": "CN",
-                      "last_trade_date": "2025-07-14",
-                      "max_order_quantity": 1999,
+                      "date": "2026-10-07",
+                      "days_to_maturity": 72,
+                      "first_trade_date": "2021-09-17",
+                      "group_code": "ES",
+                      "last_trade_date": "2026-12-18",
+                      "max_order_quantity": 3000,
                       "min_order_quantity": 1,
-                      "name": "00CN5 Future",
-                      "product_code": "00C",
-                      "settlement_date": "2025-07-14",
+                      "name": "ESZ6 Future",
+                      "product_code": "ES",
+                      "provider_id": "H3ZLPMESGCUM",
+                      "provider_product_id": "VGQ4V6NVXLBW",
+                      "settlement_date": "2026-12-18",
                       "settlement_tick_size": 0.0025,
-                      "spread_tick_size": 0.0025,
-                      "ticker": "00CN5",
-                      "trade_tick_size": 0.0025,
-                      "trading_venue": "XCBT",
+                      "spread_tick_size": 0.01,
+                      "ticker": "ESZ6",
+                      "trade_tick_size": 0.25,
+                      "trading_venue": "XCME",
                       "type": "single"
                     }
                   ],
@@ -15288,6 +15306,14 @@
                           },
                           "product_code": {
                             "description": "The identifier for the contract's product.",
+                            "type": "string"
+                          },
+                          "provider_id": {
+                            "description": "A unique identifier for the contract assigned by the data provider. Note that this value is null for historical data (pre-2025-03-12).",
+                            "type": "string"
+                          },
+                          "provider_product_id": {
+                            "description": "A unique identifier for the product to which a contract, or contracts, belongs. Note that this value is null for historical data (pre-2025-03-12).",
                             "type": "string"
                           },
                           "settlement_date": {
@@ -15827,674 +15853,9 @@
             }
           },
           {
-            "description": "A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day. Value must be formatted 'yyyy-mm-dd'.",
-            "in": "query",
-            "name": "date",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.",
-            "in": "query",
-            "name": "date.gt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.",
-            "in": "query",
-            "name": "date.gte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than the value. Value must be formatted 'yyyy-mm-dd'.",
-            "in": "query",
-            "name": "date.lt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.",
-            "in": "query",
-            "name": "date.lte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "The trading venue (MIC) for the exchange on which this product's contracts trade.",
-            "in": "query",
-            "name": "trading_venue",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "trading_venue.any_of",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than the value.",
-            "in": "query",
-            "name": "trading_venue.gt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than or equal to the value.",
-            "in": "query",
-            "name": "trading_venue.gte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than the value.",
-            "in": "query",
-            "name": "trading_venue.lt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than or equal to the value.",
-            "in": "query",
-            "name": "trading_venue.lte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "The sector to which the product belongs.",
-            "in": "query",
-            "name": "sector",
-            "schema": {
-              "enum": [
-                "asia",
-                "base",
-                "biofuels",
-                "coal",
-                "cross_rates",
-                "crude_oil",
-                "custom_index",
-                "dairy",
-                "dj_ubs_ci",
-                "electricity",
-                "emissions",
-                "europe",
-                "fertilizer",
-                "forestry",
-                "grains_and_oilseeds",
-                "intl_index",
-                "liq_nat_gas_lng",
-                "livestock",
-                "long_term_gov",
-                "long_term_non_gov",
-                "majors",
-                "minors",
-                "nat_gas",
-                "nat_gas_liq_petro",
-                "precious",
-                "refined_products",
-                "s_and_p_gsci",
-                "sel_sector_index",
-                "short_term_gov",
-                "short_term_non_gov",
-                "softs",
-                "us",
-                "us_index",
-                "wet_bulk"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "sector.any_of",
-            "schema": {
-              "enum": [
-                "asia",
-                "base",
-                "biofuels",
-                "coal",
-                "cross_rates",
-                "crude_oil",
-                "custom_index",
-                "dairy",
-                "dj_ubs_ci",
-                "electricity",
-                "emissions",
-                "europe",
-                "fertilizer",
-                "forestry",
-                "grains_and_oilseeds",
-                "intl_index",
-                "liq_nat_gas_lng",
-                "livestock",
-                "long_term_gov",
-                "long_term_non_gov",
-                "majors",
-                "minors",
-                "nat_gas",
-                "nat_gas_liq_petro",
-                "precious",
-                "refined_products",
-                "s_and_p_gsci",
-                "sel_sector_index",
-                "short_term_gov",
-                "short_term_non_gov",
-                "softs",
-                "us",
-                "us_index",
-                "wet_bulk"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "The sub-sector to which the product belongs.",
-            "in": "query",
-            "name": "sub_sector",
-            "schema": {
-              "enum": [
-                "asian",
-                "canadian",
-                "cat",
-                "cooling_degree_days",
-                "ercot",
-                "european",
-                "gulf",
-                "heating_degree_days",
-                "iso_ne",
-                "large_cap_index",
-                "mid_cap_index",
-                "miso",
-                "north_american",
-                "nyiso",
-                "pjm",
-                "small_cap_index",
-                "west",
-                "western_power"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "sub_sector.any_of",
-            "schema": {
-              "enum": [
-                "asian",
-                "canadian",
-                "cat",
-                "cooling_degree_days",
-                "ercot",
-                "european",
-                "gulf",
-                "heating_degree_days",
-                "iso_ne",
-                "large_cap_index",
-                "mid_cap_index",
-                "miso",
-                "north_american",
-                "nyiso",
-                "pjm",
-                "small_cap_index",
-                "west",
-                "western_power"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "The asset class to which the product belongs.",
-            "in": "query",
-            "name": "asset_class",
-            "schema": {
-              "enum": [
-                "alt_investment",
-                "commodity",
-                "financials"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "asset_class.any_of",
-            "schema": {
-              "enum": [
-                "alt_investment",
-                "commodity",
-                "financials"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "The asset sub-class to which the product belongs.",
-            "in": "query",
-            "name": "asset_sub_class",
-            "schema": {
-              "enum": [
-                "agricultural",
-                "commodity_index",
-                "energy",
-                "equity",
-                "foreign_exchange",
-                "freight",
-                "housing",
-                "interest_rate",
-                "metals",
-                "weather"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "asset_sub_class.any_of",
-            "schema": {
-              "enum": [
-                "agricultural",
-                "commodity_index",
-                "energy",
-                "equity",
-                "foreign_exchange",
-                "freight",
-                "housing",
-                "interest_rate",
-                "metals",
-                "weather"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.",
-            "in": "query",
-            "name": "type",
-            "schema": {
-              "enum": [
-                "single",
-                "combo"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "type.any_of",
-            "schema": {
-              "enum": [
-                "single",
-                "combo"
-              ],
-              "type": "string"
-            }
-          },
-          {
-            "description": "Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.",
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "default": 100,
-              "maximum": 50000,
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "description": "A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'asc' if not specified.",
-            "in": "query",
-            "name": "sort",
-            "schema": {
-              "default": "date.asc",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "example": {
-                  "next_url": "https://api.massive.com/futures/v1/products?cursor=YXA9MTAwJmFzPSZhc19vZj0yMDI1LTA3LTA3JmxpbWl0PTEwMCZzb3J0PW5hbWUuYXNj",
-                  "request_id": "000a000a0a0a000a0a0aa00a0a0000a0",
-                  "results": [
-                    {
-                      "asset_class": "commodity",
-                      "asset_sub_class": "energy",
-                      "date": "2025-07-07",
-                      "last_updated": "2025-02-22",
-                      "name": "1% Fuel Oil Barges FOB Rdam (Platts) vs. 1% Fuel Oil Cargoes FOB NWE (Platts) BALMO Futures",
-                      "price_quotation": "U.S. dollars and cents per metric ton",
-                      "product_code": "EBE",
-                      "sector": "refined_products",
-                      "settlement_currency_code": "USD",
-                      "settlement_method": "financially_settled",
-                      "settlement_type": "cash",
-                      "sub_sector": "european",
-                      "trade_currency_code": "USD",
-                      "trading_venue": "XNYM",
-                      "type": "single",
-                      "unit_of_measure": "MTONS",
-                      "unit_of_measure_qty": 1000
-                    }
-                  ],
-                  "status": "OK"
-                },
-                "schema": {
-                  "properties": {
-                    "next_url": {
-                      "description": "If present, this value can be used to fetch the next page.",
-                      "type": "string"
-                    },
-                    "request_id": {
-                      "description": "A request id assigned by the server.",
-                      "type": "string"
-                    },
-                    "results": {
-                      "description": "The results for this request.",
-                      "items": {
-                        "properties": {
-                          "asset_class": {
-                            "description": "The asset class to which the product belongs.",
-                            "type": "string"
-                          },
-                          "asset_sub_class": {
-                            "description": "The asset sub-class to which the product belongs.",
-                            "type": "string"
-                          },
-                          "date": {
-                            "description": "A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.",
-                            "format": "date",
-                            "type": "string"
-                          },
-                          "last_updated": {
-                            "description": "The date and time at which this product was last updated.",
-                            "format": "date-time",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "The full name of the product.",
-                            "type": "string"
-                          },
-                          "price_quotation": {
-                            "description": "The quoted price for this product.",
-                            "type": "string"
-                          },
-                          "product_code": {
-                            "description": "The identifier for the product.",
-                            "type": "string"
-                          },
-                          "sector": {
-                            "description": "The sector to which the product belongs.",
-                            "type": "string"
-                          },
-                          "settlement_currency_code": {
-                            "description": "The currency in which this product settles.",
-                            "type": "string"
-                          },
-                          "settlement_method": {
-                            "description": "The method of settlement for this product (Financially Settled or Deliverable).",
-                            "type": "string"
-                          },
-                          "settlement_type": {
-                            "description": "The type of settlement for this product.",
-                            "type": "string"
-                          },
-                          "sub_sector": {
-                            "description": "The sub-sector to which the product belongs.",
-                            "type": "string"
-                          },
-                          "trade_currency_code": {
-                            "description": "The currency in which this product's contracts trade.",
-                            "type": "string"
-                          },
-                          "trading_venue": {
-                            "description": "The trading venue (MIC) for the exchange on which this product's contracts trade.",
-                            "type": "string"
-                          },
-                          "type": {
-                            "description": "The type of product, one of 'single' or 'combo'. Leaving this filter blank will query for both 'single' and 'combo' types.",
-                            "type": "string"
-                          },
-                          "unit_of_measure": {
-                            "description": "The unit of measure for this product.",
-                            "type": "string"
-                          },
-                          "unit_of_measure_qty": {
-                            "description": "The quantity of the unit of measure for this product.",
-                            "format": "float",
-                            "type": "number"
-                          }
-                        },
-                        "required": [
-                          "date"
-                        ],
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "status": {
-                      "description": "The status of this request's response.",
-                      "enum": [
-                        "OK"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "status",
-                    "request_id",
-                    "results"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "A list of results."
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "error": {
-                      "description": "A message describing the source of the error.",
-                      "type": "string"
-                    },
-                    "request_id": {
-                      "description": "A request id assigned by the server.",
-                      "type": "string"
-                    },
-                    "status": {
-                      "description": "The status of this request's response.",
-                      "enum": [
-                        "ERROR"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "status",
-                    "request_id",
-                    "error"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "An error message."
-          }
-        },
-        "summary": "Futures Products API",
-        "tags": [
-          "default"
-        ]
-      }
-    },
-    "/futures/v1/products/new": {
-      "get": {
-        "description": "The Products API is a unified source for discovering all supported futures products and retrieving full product specifications. It returns the complete product universe with product codes, names, exchange identifiers, sector and asset class classifications, product type, settlement method, and pricing and quotation details. You can filter by name, exchange, sector, asset class, product type, or date to capture the product set or product definition that existed at a specific point in time. It also retrieves the full specification for a single product, supporting accurate system configuration, analytics, trading workflows, and historical reconciliation.\n\nUse Cases: Product specification, historical product checks, risk management, trading system integration.",
-        "operationId": "get_futures_v1_products_new",
-        "parameters": [
-          {
-            "description": "The full name of the product.",
-            "in": "query",
-            "name": "name",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "name.any_of",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than the value.",
-            "in": "query",
-            "name": "name.gt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than or equal to the value.",
-            "in": "query",
-            "name": "name.gte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than the value.",
-            "in": "query",
-            "name": "name.lt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than or equal to the value.",
-            "in": "query",
-            "name": "name.lte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "The identifier for the product.",
-            "in": "query",
-            "name": "product_code",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "product_code.any_of",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than the value.",
-            "in": "query",
-            "name": "product_code.gt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than or equal to the value.",
-            "in": "query",
-            "name": "product_code.gte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than the value.",
-            "in": "query",
-            "name": "product_code.lt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than or equal to the value.",
-            "in": "query",
-            "name": "product_code.lte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "description": "A unique identifier for the product assigned by the data provider. Can be used to distinguish products that share a product code.",
             "in": "query",
             "name": "provider_id",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
-            "in": "query",
-            "name": "provider_id.any_of",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than the value.",
-            "in": "query",
-            "name": "provider_id.gt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter greater than or equal to the value.",
-            "in": "query",
-            "name": "provider_id.gte",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than the value.",
-            "in": "query",
-            "name": "provider_id.lt",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Filter less than or equal to the value.",
-            "in": "query",
-            "name": "provider_id.lte",
             "schema": {
               "type": "string"
             }
@@ -18739,7 +18100,7 @@
                       "items": {
                         "properties": {
                           "conditions": {
-                            "description": "A list of condition codes.",
+                            "description": "A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.",
                             "items": {
                               "format": "int32",
                               "type": "integer"
@@ -18942,7 +18303,7 @@
                       "items": {
                         "properties": {
                           "conditions": {
-                            "description": "A list of condition codes.",
+                            "description": "A list of condition codes. See [Stocks Condition Codes](https://massive.com/docs/rest/stocks/market-operations/condition-codes) for what each code means.",
                             "items": {
                               "format": "int32",
                               "type": "integer"
@@ -21525,6 +20886,482 @@
                           },
                           "underlying_security_title": {
                             "description": "Title of the underlying security for derivative transactions.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "status": {
+                      "description": "The status of this request's response.",
+                      "enum": [
+                        "OK"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "request_id",
+                    "results"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A list of results."
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "A message describing the source of the error.",
+                      "type": "string"
+                    },
+                    "request_id": {
+                      "description": "A request id assigned by the server.",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The status of this request's response.",
+                      "enum": [
+                        "ERROR"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "request_id",
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "An error message."
+          }
+        },
+        "tags": [
+          "default"
+        ]
+      }
+    },
+    "/stocks/filings/vX/form-5": {
+      "get": {
+        "description": "SEC Form 5 filings: annual statements of changes in beneficial ownership of securities. Filed by corporate insiders (directors, officers, and 10%+ shareholders) within 45 days of the issuer's fiscal year end to report transactions that were exempt from or deferred from Form 4, and any Form 4 transactions that were not reported on time. A filing with several reporting owners has one row per owner for each transaction or holding.",
+        "operationId": "get_stocks_filings_vX_form-5",
+        "parameters": [
+          {
+            "description": "SEC Central Index Key of the issuer company (10 digits, zero-padded).",
+            "in": "query",
+            "name": "issuer_cik",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
+            "in": "query",
+            "name": "issuer_cik.any_of",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "SEC Central Index Key of the reporting owner (10 digits, zero-padded).",
+            "in": "query",
+            "name": "owner_cik",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter equal to any of the values. Multiple values can be specified by using a comma separated list.",
+            "in": "query",
+            "name": "owner_cik.any_of",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter for arrays that contain the value.",
+            "in": "query",
+            "name": "tickers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter for arrays that contain all of the values. Multiple values can be specified by using a comma separated list.",
+            "in": "query",
+            "name": "tickers.all_of",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.",
+            "in": "query",
+            "name": "tickers.any_of",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "SEC form type ('5' for standard filing, '5/A' for amendments).",
+            "in": "query",
+            "name": "form_type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.",
+            "in": "query",
+            "name": "filing_date",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.",
+            "in": "query",
+            "name": "filing_date.gt",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.",
+            "in": "query",
+            "name": "filing_date.gte",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter less than the value. Value must be formatted 'yyyy-mm-dd'.",
+            "in": "query",
+            "name": "filing_date.lt",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.",
+            "in": "query",
+            "name": "filing_date.lte",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "SEC transaction code indicating the type of transaction (e.g., 'G' for gift, 'J' for other acquisition or disposition, 'A' for grant/award, 'S' for sale). Null for holdings.",
+            "in": "query",
+            "name": "transaction_code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.",
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 100,
+              "maximum": 10000,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'filing_date' if not specified. The sort order defaults to 'desc' if not specified.",
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "default": "filing_date.desc",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "next_url": "https://api.massive.com/stocks/filings/vX/form-5?cursor=eyJsaW1pd...",
+                  "request_id": "047c7035a86042b1925118e5f68d81b0",
+                  "results": [
+                    {
+                      "accession_number": "0001045810-25-000070",
+                      "aff_10b5_one": false,
+                      "date_of_original_submission": "2025-03-12",
+                      "deemed_execution_date": null,
+                      "direct_or_indirect": "I",
+                      "equity_swap_involved": false,
+                      "exercise_date": null,
+                      "exercise_price": null,
+                      "expiration_date": null,
+                      "filing_date": "2025-03-21",
+                      "filing_url": "https://www.sec.gov/Archives/edgar/data/1045810/0001045810-25-000070.txt",
+                      "footnotes": [
+                        {
+                          "description": "Adjusted to reflect a ten-for-one forward split of the Issuer's common stock effective after market close on June 7, 2024.",
+                          "id": "F1"
+                        }
+                      ],
+                      "form3_holdings_reported": false,
+                      "form4_transactions_reported": true,
+                      "form_type": "5/A",
+                      "is_director": true,
+                      "is_officer": false,
+                      "is_other": false,
+                      "is_ten_percent_owner": false,
+                      "issuer_cik": "0001045810",
+                      "issuer_name": "NVIDIA CORP",
+                      "nature_of_ownership": "The Welch-Drell 2009 Revocable Trust",
+                      "not_subject_to_section_16": false,
+                      "officer_title": null,
+                      "owner_cik": "0001636665",
+                      "owner_name": "Drell Persis",
+                      "period_of_report": "2025-01-26",
+                      "record_type": "transaction",
+                      "remarks": "This amendment is being filed solely to add footnote 4 to reflect that the sales price of the June 14, 2024 transaction represents the weighted average sales price per share. This amended report does not report any new transactions or otherwise modify the transaction details that were previously reported.",
+                      "security_title": "Common Stock",
+                      "security_type": "non_derivative",
+                      "shares_owned_following_transaction": 212740,
+                      "tickers": [
+                        "NVDA"
+                      ],
+                      "transaction_acquired_disposed": "D",
+                      "transaction_code": "S",
+                      "transaction_date": "2023-12-13",
+                      "transaction_form_type": "4",
+                      "transaction_price_per_share": 48.2582,
+                      "transaction_shares": 65000,
+                      "transaction_timeliness": "L",
+                      "transaction_value": 3136783,
+                      "underlying_security_shares": null,
+                      "underlying_security_title": null
+                    }
+                  ],
+                  "status": "OK"
+                },
+                "schema": {
+                  "properties": {
+                    "next_url": {
+                      "description": "If present, this value can be used to fetch the next page.",
+                      "type": "string"
+                    },
+                    "request_id": {
+                      "description": "A request id assigned by the server.",
+                      "type": "string"
+                    },
+                    "results": {
+                      "description": "The results for this request.",
+                      "items": {
+                        "properties": {
+                          "accession_number": {
+                            "description": "Unique SEC accession number for the filing (e.g., '0001209191-25-012345').",
+                            "type": "string"
+                          },
+                          "aff_10b5_one": {
+                            "description": "Whether the filing indicates a transaction made pursuant to a Rule 10b5-1 trading plan. Filing-level; null on filings before the checkbox was introduced (2023).",
+                            "type": "boolean"
+                          },
+                          "date_of_original_submission": {
+                            "description": "Date of the original filing submission for amendment filings (5/A). Null for standard filings (formatted as YYYY-MM-DD).",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "deemed_execution_date": {
+                            "description": "Deemed execution date if different from transaction date (formatted as YYYY-MM-DD).",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "direct_or_indirect": {
+                            "description": "Whether ownership is direct ('D') or indirect ('I').",
+                            "type": "string"
+                          },
+                          "equity_swap_involved": {
+                            "description": "Whether an equity swap was involved in the transaction.",
+                            "type": "boolean"
+                          },
+                          "exercise_date": {
+                            "description": "Date exercisable for derivative securities (formatted as YYYY-MM-DD).",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "exercise_price": {
+                            "description": "Exercise or conversion price of derivative securities in USD.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "expiration_date": {
+                            "description": "Expiration date for derivative securities (formatted as YYYY-MM-DD).",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "filing_date": {
+                            "description": "Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "filing_url": {
+                            "description": "Direct URL to the filing on the SEC EDGAR website.",
+                            "type": "string"
+                          },
+                          "footnotes": {
+                            "description": "List of footnotes from the filing that are relevant to this row, each with an id and description.",
+                            "items": {
+                              "properties": {
+                                "description": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "form3_holdings_reported": {
+                            "description": "Whether the filing reports holdings that should have been reported on a Form 3. Filing-level, repeated on every row of the filing. Null if not stated.",
+                            "type": "boolean"
+                          },
+                          "form4_transactions_reported": {
+                            "description": "Whether the filing reports transactions that should have been reported on a Form 4. Filing-level, repeated on every row of the filing. Null if not stated.",
+                            "type": "boolean"
+                          },
+                          "form_type": {
+                            "description": "SEC form type ('5' for standard filing, '5/A' for amendments).",
+                            "type": "string"
+                          },
+                          "is_director": {
+                            "description": "Whether the reporting owner is a director of the issuer.",
+                            "type": "boolean"
+                          },
+                          "is_officer": {
+                            "description": "Whether the reporting owner is an officer of the issuer.",
+                            "type": "boolean"
+                          },
+                          "is_other": {
+                            "description": "Whether the reporting owner has another relationship with the issuer.",
+                            "type": "boolean"
+                          },
+                          "is_ten_percent_owner": {
+                            "description": "Whether the reporting owner holds 10% or more of a class of equity securities.",
+                            "type": "boolean"
+                          },
+                          "issuer_cik": {
+                            "description": "SEC Central Index Key of the issuer company (10 digits, zero-padded).",
+                            "type": "string"
+                          },
+                          "issuer_name": {
+                            "description": "Name of the issuer company as reported in the filing.",
+                            "type": "string"
+                          },
+                          "nature_of_ownership": {
+                            "description": "Nature of indirect ownership (e.g., 'By Trust', 'By Spouse').",
+                            "type": "string"
+                          },
+                          "not_subject_to_section_16": {
+                            "description": "Whether the reporting owner is no longer subject to Section 16 of the Securities Exchange Act.",
+                            "type": "boolean"
+                          },
+                          "officer_title": {
+                            "description": "Title of the officer, if the reporting owner is an officer.",
+                            "type": "string"
+                          },
+                          "owner_cik": {
+                            "description": "SEC Central Index Key of the reporting owner (10 digits, zero-padded).",
+                            "type": "string"
+                          },
+                          "owner_name": {
+                            "description": "Name of the reporting owner (individual or entity).",
+                            "type": "string"
+                          },
+                          "period_of_report": {
+                            "description": "End of the fiscal year the filing covers (formatted as YYYY-MM-DD).",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "record_type": {
+                            "description": "Type of record in the filing ('transaction' or 'holding').",
+                            "type": "string"
+                          },
+                          "remarks": {
+                            "description": "Additional remarks included in the filing.",
+                            "type": "string"
+                          },
+                          "security_title": {
+                            "description": "Title or description of the security (e.g., 'Common Stock', 'Stock Option').",
+                            "type": "string"
+                          },
+                          "security_type": {
+                            "description": "Type of security ('non_derivative' or 'derivative').",
+                            "type": "string"
+                          },
+                          "shares_owned_following_transaction": {
+                            "description": "Total shares beneficially owned after the transaction, or currently held for holdings.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "tickers": {
+                            "description": "A list of ticker symbols for the issuer company. Multiple symbols may indicate different share classes.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "transaction_acquired_disposed": {
+                            "description": "Whether shares were acquired ('A') or disposed of ('D').",
+                            "type": "string"
+                          },
+                          "transaction_code": {
+                            "description": "SEC transaction code indicating the type of transaction (e.g., 'G' for gift, 'J' for other acquisition or disposition, 'A' for grant/award, 'S' for sale). Null for holdings.",
+                            "type": "string"
+                          },
+                          "transaction_date": {
+                            "description": "Date of the transaction, formatted as YYYY-MM-DD. Null for holdings.",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "transaction_form_type": {
+                            "description": "Form the transaction belongs to: '5' for a Form 5 transaction, or '4' for a Form 4 transaction reported late on this Form 5. Null for holdings.",
+                            "type": "string"
+                          },
+                          "transaction_price_per_share": {
+                            "description": "Price per share of the transaction in USD.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "transaction_shares": {
+                            "description": "Number of shares involved in the transaction.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "transaction_timeliness": {
+                            "description": "Timeliness of the transaction: 'E' (early), 'L' (late), or 'O' (on time, or not stated). Always 'O' for holdings.",
+                            "type": "string"
+                          },
+                          "transaction_value": {
+                            "description": "Total value of the transaction in USD (transaction_shares x transaction_price_per_share). Null when shares or price is not reported, and for holdings.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "underlying_security_shares": {
+                            "description": "Number of underlying shares for derivative securities.",
+                            "format": "double",
+                            "type": "number"
+                          },
+                          "underlying_security_title": {
+                            "description": "Title of the underlying security for derivative securities.",
                             "type": "string"
                           }
                         },
@@ -35665,9 +35502,9 @@
                       "description": "Contains the requested trade data for the specified cryptocurrency pair.",
                       "properties": {
                         "conditions": {
-                          "description": "A list of condition codes.",
+                          "description": "A list of condition codes. See [Crypto Condition Codes](https://massive.com/docs/rest/crypto/market-operations/condition-codes) for what each code means.",
                           "items": {
-                            "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                            "description": "The condition code.",
                             "format": "int32",
                             "type": "integer"
                           },
@@ -40661,9 +40498,9 @@
                           "type": "integer"
                         },
                         "c": {
-                          "description": "A list of condition codes.",
+                          "description": "A list of condition codes. See [Stocks Condition Codes](https://massive.com/docs/rest/stocks/market-operations/condition-codes) for what each code means.",
                           "items": {
-                            "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                            "description": "The condition code.",
                             "format": "int32",
                             "type": "integer"
                           },
@@ -40677,9 +40514,9 @@
                           "type": "integer"
                         },
                         "i": {
-                          "description": "A list of indicator codes.",
+                          "description": "A list of indicator codes. See the [Conditions and Indicators](https://massive.com/glossary/conditions-indicators) glossary for what each code means.",
                           "items": {
-                            "description": "The indicator codes. For more information, see our glossary of [Conditions and\nIndicators](https://massive.com/glossary/conditions-indicators).",
+                            "description": "The indicator code.",
                             "format": "int32",
                             "type": "integer"
                           },
@@ -40834,9 +40671,9 @@
                           "type": "string"
                         },
                         "c": {
-                          "description": "A list of condition codes.",
+                          "description": "A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.",
                           "items": {
-                            "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                            "description": "The condition code.",
                             "format": "int32",
                             "type": "integer"
                           },
@@ -41015,9 +40852,9 @@
                           "type": "string"
                         },
                         "c": {
-                          "description": "A list of condition codes.",
+                          "description": "A list of condition codes. See [Stocks Condition Codes](https://massive.com/docs/rest/stocks/market-operations/condition-codes) for what each code means.",
                           "items": {
-                            "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                            "description": "The condition code.",
                             "format": "int32",
                             "type": "integer"
                           },
@@ -46372,9 +46209,9 @@
                             "type": "number"
                           },
                           "conditions": {
-                            "description": "A list of condition codes.",
+                            "description": "A list of condition codes. See [Stocks Condition Codes](https://massive.com/docs/rest/stocks/market-operations/condition-codes) for what each code means.",
                             "items": {
-                              "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                              "description": "The condition code.",
                               "format": "int32",
                               "type": "integer"
                             },
@@ -46384,9 +46221,9 @@
                             }
                           },
                           "indicators": {
-                            "description": "A list of indicator codes.",
+                            "description": "A list of indicator codes. See the [Conditions and Indicators](https://massive.com/glossary/conditions-indicators) glossary for what each code means.",
                             "items": {
-                              "description": "The indicator codes. For more information, see our glossary of [Conditions and\nIndicators](https://massive.com/glossary/conditions-indicators).",
+                              "description": "The indicator code.",
                               "format": "int32",
                               "type": "integer"
                             },
@@ -52205,9 +52042,9 @@
                       "items": {
                         "properties": {
                           "conditions": {
-                            "description": "A list of condition codes.",
+                            "description": "A list of condition codes. See [Crypto Condition Codes](https://massive.com/docs/rest/crypto/market-operations/condition-codes) for what each code means.",
                             "items": {
-                              "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                              "description": "The condition code.",
                               "format": "int32",
                               "type": "integer"
                             },
@@ -52465,9 +52302,9 @@
                       "items": {
                         "properties": {
                           "conditions": {
-                            "description": "A list of condition codes.",
+                            "description": "A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.",
                             "items": {
-                              "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                              "description": "The condition code.",
                               "format": "int32",
                               "type": "integer"
                             },
@@ -52739,9 +52576,9 @@
                       "items": {
                         "properties": {
                           "conditions": {
-                            "description": "A list of condition codes.",
+                            "description": "A list of condition codes. See [Stocks Condition Codes](https://massive.com/docs/rest/stocks/market-operations/condition-codes) for what each code means.",
                             "items": {
-                              "description": "The condition code. These are the conditions of this message. See\n[Condition Mappings](https://massive.com/docs/rest/stocks/market-operations/condition-codes)\nfor a mapping to exchange conditions.",
+                              "description": "The condition code.",
                               "format": "int32",
                               "type": "integer"
                             },
