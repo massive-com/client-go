@@ -4902,6 +4902,90 @@ type GetStocksFinancialsV1RatiosParams struct {
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
+// GetStocksInsidersVXActivityParams defines parameters for GetStocksInsidersVXActivity.
+type GetStocksInsidersVXActivityParams struct {
+	// Tickers Filter for arrays that contain the value.
+	Tickers *string `form:"tickers,omitempty" json:"tickers,omitempty"`
+
+	// TickersAllOf Filter for arrays that contain all of the values. Multiple values can be specified by using a comma separated list.
+	TickersAllOf *string `form:"tickers.all_of,omitempty" json:"tickers.all_of,omitempty"`
+
+	// TickersAnyOf Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.
+	TickersAnyOf *string `form:"tickers.any_of,omitempty" json:"tickers.any_of,omitempty"`
+
+	// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+	IssuerCik *string `form:"issuer_cik,omitempty" json:"issuer_cik,omitempty"`
+
+	// IssuerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	IssuerCikAnyOf *string `form:"issuer_cik.any_of,omitempty" json:"issuer_cik.any_of,omitempty"`
+
+	// TransactionDate Date of the transactions (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	TransactionDate *string `form:"transaction_date,omitempty" json:"transaction_date,omitempty"`
+
+	// TransactionDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	TransactionDateGt *string `form:"transaction_date.gt,omitempty" json:"transaction_date.gt,omitempty"`
+
+	// TransactionDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	TransactionDateGte *string `form:"transaction_date.gte,omitempty" json:"transaction_date.gte,omitempty"`
+
+	// TransactionDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	TransactionDateLt *string `form:"transaction_date.lt,omitempty" json:"transaction_date.lt,omitempty"`
+
+	// TransactionDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	TransactionDateLte *string `form:"transaction_date.lte,omitempty" json:"transaction_date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'transaction_date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetStocksInsidersVXHoldingsParams defines parameters for GetStocksInsidersVXHoldings.
+type GetStocksInsidersVXHoldingsParams struct {
+	// Tickers Filter for arrays that contain the value.
+	Tickers *string `form:"tickers,omitempty" json:"tickers,omitempty"`
+
+	// TickersAllOf Filter for arrays that contain all of the values. Multiple values can be specified by using a comma separated list.
+	TickersAllOf *string `form:"tickers.all_of,omitempty" json:"tickers.all_of,omitempty"`
+
+	// TickersAnyOf Filter for arrays that contain any of the values. Multiple values can be specified by using a comma separated list.
+	TickersAnyOf *string `form:"tickers.any_of,omitempty" json:"tickers.any_of,omitempty"`
+
+	// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+	IssuerCik *string `form:"issuer_cik,omitempty" json:"issuer_cik,omitempty"`
+
+	// IssuerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	IssuerCikAnyOf *string `form:"issuer_cik.any_of,omitempty" json:"issuer_cik.any_of,omitempty"`
+
+	// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded). Stable across issuers and years; use it to follow a person through the Form 3, 4, and 5 endpoints.
+	OwnerCik *string `form:"owner_cik,omitempty" json:"owner_cik,omitempty"`
+
+	// OwnerCikAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	OwnerCikAnyOf *string `form:"owner_cik.any_of,omitempty" json:"owner_cik.any_of,omitempty"`
+
+	// LastFilingDate Date of the owner's most recent Form 3, 4, or 5 filing for this issuer (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	LastFilingDate *string `form:"last_filing_date,omitempty" json:"last_filing_date,omitempty"`
+
+	// LastFilingDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	LastFilingDateGt *string `form:"last_filing_date.gt,omitempty" json:"last_filing_date.gt,omitempty"`
+
+	// LastFilingDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	LastFilingDateGte *string `form:"last_filing_date.gte,omitempty" json:"last_filing_date.gte,omitempty"`
+
+	// LastFilingDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	LastFilingDateLt *string `form:"last_filing_date.lt,omitempty" json:"last_filing_date.lt,omitempty"`
+
+	// LastFilingDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	LastFilingDateLte *string `form:"last_filing_date.lte,omitempty" json:"last_filing_date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '10000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'last_filing_date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
 // GetStocksTaxonomiesVXDisclosuresParams defines parameters for GetStocksTaxonomiesVXDisclosures.
 type GetStocksTaxonomiesVXDisclosuresParams struct {
 	// Taxonomy Taxonomy version that defines this classification (e.g., '1.0').
@@ -8013,6 +8097,12 @@ type ClientInterface interface {
 	// GetStocksFinancialsV1Ratios request
 	GetStocksFinancialsV1Ratios(ctx context.Context, params *GetStocksFinancialsV1RatiosParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetStocksInsidersVXActivity request
+	GetStocksInsidersVXActivity(ctx context.Context, params *GetStocksInsidersVXActivityParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetStocksInsidersVXHoldings request
+	GetStocksInsidersVXHoldings(ctx context.Context, params *GetStocksInsidersVXHoldingsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetStocksTaxonomiesVXDisclosures request
 	GetStocksTaxonomiesVXDisclosures(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8883,6 +8973,30 @@ func (c *Client) GetStocksFinancialsV1IncomeStatements(ctx context.Context, para
 
 func (c *Client) GetStocksFinancialsV1Ratios(ctx context.Context, params *GetStocksFinancialsV1RatiosParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetStocksFinancialsV1RatiosRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksInsidersVXActivity(ctx context.Context, params *GetStocksInsidersVXActivityParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksInsidersVXActivityRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetStocksInsidersVXHoldings(ctx context.Context, params *GetStocksInsidersVXHoldingsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStocksInsidersVXHoldingsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -29612,6 +29726,488 @@ func NewGetStocksFinancialsV1RatiosRequest(server string, params *GetStocksFinan
 	return req, nil
 }
 
+// NewGetStocksInsidersVXActivityRequest generates requests for GetStocksInsidersVXActivity
+func NewGetStocksInsidersVXActivityRequest(server string, params *GetStocksInsidersVXActivityParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/insiders/vX/activity")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Tickers != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers", runtime.ParamLocationQuery, *params.Tickers); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAllOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.all_of", runtime.ParamLocationQuery, *params.TickersAllOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.any_of", runtime.ParamLocationQuery, *params.TickersAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IssuerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik", runtime.ParamLocationQuery, *params.IssuerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IssuerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik.any_of", runtime.ParamLocationQuery, *params.IssuerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TransactionDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_date", runtime.ParamLocationQuery, *params.TransactionDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TransactionDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_date.gt", runtime.ParamLocationQuery, *params.TransactionDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TransactionDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_date.gte", runtime.ParamLocationQuery, *params.TransactionDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TransactionDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_date.lt", runtime.ParamLocationQuery, *params.TransactionDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TransactionDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "transaction_date.lte", runtime.ParamLocationQuery, *params.TransactionDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetStocksInsidersVXHoldingsRequest generates requests for GetStocksInsidersVXHoldings
+func NewGetStocksInsidersVXHoldingsRequest(server string, params *GetStocksInsidersVXHoldingsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/stocks/insiders/vX/holdings")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Tickers != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers", runtime.ParamLocationQuery, *params.Tickers); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAllOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.all_of", runtime.ParamLocationQuery, *params.TickersAllOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickersAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "tickers.any_of", runtime.ParamLocationQuery, *params.TickersAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IssuerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik", runtime.ParamLocationQuery, *params.IssuerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.IssuerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "issuer_cik.any_of", runtime.ParamLocationQuery, *params.IssuerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OwnerCik != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "owner_cik", runtime.ParamLocationQuery, *params.OwnerCik); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OwnerCikAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "owner_cik.any_of", runtime.ParamLocationQuery, *params.OwnerCikAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.LastFilingDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_filing_date", runtime.ParamLocationQuery, *params.LastFilingDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.LastFilingDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_filing_date.gt", runtime.ParamLocationQuery, *params.LastFilingDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.LastFilingDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_filing_date.gte", runtime.ParamLocationQuery, *params.LastFilingDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.LastFilingDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_filing_date.lt", runtime.ParamLocationQuery, *params.LastFilingDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.LastFilingDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "last_filing_date.lte", runtime.ParamLocationQuery, *params.LastFilingDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetStocksTaxonomiesVXDisclosuresRequest generates requests for GetStocksTaxonomiesVXDisclosures
 func NewGetStocksTaxonomiesVXDisclosuresRequest(server string, params *GetStocksTaxonomiesVXDisclosuresParams) (*http.Request, error) {
 	var err error
@@ -44979,6 +45575,12 @@ type ClientWithResponsesInterface interface {
 	// GetStocksFinancialsV1RatiosWithResponse request
 	GetStocksFinancialsV1RatiosWithResponse(ctx context.Context, params *GetStocksFinancialsV1RatiosParams, reqEditors ...RequestEditorFn) (*GetStocksFinancialsV1RatiosResponse, error)
 
+	// GetStocksInsidersVXActivityWithResponse request
+	GetStocksInsidersVXActivityWithResponse(ctx context.Context, params *GetStocksInsidersVXActivityParams, reqEditors ...RequestEditorFn) (*GetStocksInsidersVXActivityResponse, error)
+
+	// GetStocksInsidersVXHoldingsWithResponse request
+	GetStocksInsidersVXHoldingsWithResponse(ctx context.Context, params *GetStocksInsidersVXHoldingsParams, reqEditors ...RequestEditorFn) (*GetStocksInsidersVXHoldingsResponse, error)
+
 	// GetStocksTaxonomiesVXDisclosuresWithResponse request
 	GetStocksTaxonomiesVXDisclosuresWithResponse(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*GetStocksTaxonomiesVXDisclosuresResponse, error)
 
@@ -50135,6 +50737,197 @@ func (r GetStocksFinancialsV1RatiosResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetStocksFinancialsV1RatiosResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksInsidersVXActivityResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+			IssuerCik *string `json:"issuer_cik,omitempty"`
+
+			// IssuerName Name of the issuer company as reported in the filings.
+			IssuerName *string `json:"issuer_name,omitempty"`
+
+			// LastFilingDate Filing date of the latest filing that reported one of these transactions (formatted as YYYY-MM-DD). Transactions are usually filed within two business days.
+			LastFilingDate *openapi_types.Date `json:"last_filing_date,omitempty"`
+
+			// NetShares Shares purchased minus shares sold.
+			NetShares float64 `json:"net_shares"`
+
+			// NetValue Value purchased minus value sold in USD.
+			NetValue float64 `json:"net_value"`
+
+			// PlannedPurchaseValue Value of shares purchased under a Rule 10b5-1 trading plan in USD. Zero on filings before the plan checkbox was introduced in 2023.
+			PlannedPurchaseValue float64 `json:"planned_purchase_value"`
+
+			// PlannedSaleValue Value of shares sold under a Rule 10b5-1 trading plan in USD. Zero on filings before the plan checkbox was introduced in 2023.
+			PlannedSaleValue float64 `json:"planned_sale_value"`
+
+			// PurchaseCount Number of open-market purchase transactions.
+			PurchaseCount int64 `json:"purchase_count"`
+
+			// PurchaseShares Shares purchased.
+			PurchaseShares float64 `json:"purchase_shares"`
+
+			// PurchaseValue Value of shares purchased in USD.
+			PurchaseValue float64 `json:"purchase_value"`
+
+			// PurchaserCount Number of distinct insiders who purchased.
+			PurchaserCount int64 `json:"purchaser_count"`
+
+			// SaleCount Number of open-market sale transactions.
+			SaleCount int64 `json:"sale_count"`
+
+			// SaleShares Shares sold.
+			SaleShares float64 `json:"sale_shares"`
+
+			// SaleValue Value of shares sold in USD.
+			SaleValue float64 `json:"sale_value"`
+
+			// SellerCount Number of distinct insiders who sold.
+			SellerCount int64 `json:"seller_count"`
+
+			// Tickers Ticker symbols of the issuer as of the transaction date. Multiple symbols may indicate different share classes; the totals cover the issuer, not each ticker.
+			Tickers *[]string `json:"tickers,omitempty"`
+
+			// TransactionDate Date of the transactions (formatted as YYYY-MM-DD).
+			TransactionDate *openapi_types.Date `json:"transaction_date,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksInsidersVXActivity200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksInsidersVXActivity400Status `json:"status"`
+	}
+}
+type GetStocksInsidersVXActivity200Status string
+type GetStocksInsidersVXActivity400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksInsidersVXActivityResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksInsidersVXActivityResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetStocksInsidersVXHoldingsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// FilingCount Number of Form 3, 4, and 5 filings by the owner for this issuer.
+			FilingCount int64 `json:"filing_count"`
+
+			// FirstFilingDate Date of the owner's first Form 3, 4, or 5 filing for this issuer (formatted as YYYY-MM-DD). Filings begin in 2003.
+			FirstFilingDate *openapi_types.Date `json:"first_filing_date,omitempty"`
+
+			// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+			IssuerCik *string `json:"issuer_cik,omitempty"`
+
+			// IssuerName Name of the issuer company as reported in the most recent filing.
+			IssuerName *string `json:"issuer_name,omitempty"`
+
+			// LastFilingDate Date of the owner's most recent Form 3, 4, or 5 filing for this issuer (formatted as YYYY-MM-DD).
+			LastFilingDate *openapi_types.Date `json:"last_filing_date,omitempty"`
+
+			// OfficerTitle Title of the officer in the most recent filing, if the reporting owner is an officer.
+			OfficerTitle *string `json:"officer_title,omitempty"`
+
+			// OldestPositionDate Earliest as_of_date among the summed positions (formatted as YYYY-MM-DD). A date far behind last_filing_date means at least one position has not been restated recently and may be stale.
+			OldestPositionDate *openapi_types.Date `json:"oldest_position_date,omitempty"`
+
+			// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded). Stable across issuers and years; use it to follow a person through the Form 3, 4, and 5 endpoints.
+			OwnerCik *string `json:"owner_cik,omitempty"`
+
+			// OwnerName Name of the reporting owner (individual or entity) as reported in the most recent filing.
+			OwnerName *string `json:"owner_name,omitempty"`
+
+			// OwnershipPct shares_owned as a percentage of the issuer's shares outstanding (largest share class) as of last_filing_date. Absent when shares outstanding is not available for the issuer.
+			OwnershipPct *float64 `json:"ownership_pct,omitempty"`
+
+			// PositionCount Number of positions summed into shares_owned: one for direct holdings plus one per indirect vehicle.
+			PositionCount *int64 `json:"position_count,omitempty"`
+
+			// Roles Relationships of the reporting owner to the issuer in the most recent filing. Possible values: director, officer, ten_percent_owner, other.
+			Roles *[]string `json:"roles,omitempty"`
+
+			// SharesOwned Shares of the issuer's non-derivative securities the owner holds: the sum of the latest reported balance of each position (direct, and each indirect vehicle) across their Form 3, 4, and 5 filings. As filed, not adjusted for splits. Unexercised options and other derivative securities are not included. Absent when the owner has never reported a share balance.
+			SharesOwned *float64 `json:"shares_owned,omitempty"`
+
+			// SharesOwnedDirect Shares held directly, in the owner's own name.
+			SharesOwnedDirect *float64 `json:"shares_owned_direct,omitempty"`
+
+			// SharesOwnedIndirect Shares held indirectly through trusts, LLCs, family members, and other vehicles.
+			SharesOwnedIndirect *float64 `json:"shares_owned_indirect,omitempty"`
+
+			// Tickers Ticker symbols of the issuer as of the owner's most recent filing. Multiple symbols may indicate different share classes.
+			Tickers *[]string `json:"tickers,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetStocksInsidersVXHoldings200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetStocksInsidersVXHoldings400Status `json:"status"`
+	}
+}
+type GetStocksInsidersVXHoldings200Status string
+type GetStocksInsidersVXHoldings400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetStocksInsidersVXHoldingsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetStocksInsidersVXHoldingsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -58828,6 +59621,24 @@ func (c *ClientWithResponses) GetStocksFinancialsV1RatiosWithResponse(ctx contex
 	return ParseGetStocksFinancialsV1RatiosResponse(rsp)
 }
 
+// GetStocksInsidersVXActivityWithResponse request returning *GetStocksInsidersVXActivityResponse
+func (c *ClientWithResponses) GetStocksInsidersVXActivityWithResponse(ctx context.Context, params *GetStocksInsidersVXActivityParams, reqEditors ...RequestEditorFn) (*GetStocksInsidersVXActivityResponse, error) {
+	rsp, err := c.GetStocksInsidersVXActivity(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksInsidersVXActivityResponse(rsp)
+}
+
+// GetStocksInsidersVXHoldingsWithResponse request returning *GetStocksInsidersVXHoldingsResponse
+func (c *ClientWithResponses) GetStocksInsidersVXHoldingsWithResponse(ctx context.Context, params *GetStocksInsidersVXHoldingsParams, reqEditors ...RequestEditorFn) (*GetStocksInsidersVXHoldingsResponse, error) {
+	rsp, err := c.GetStocksInsidersVXHoldings(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetStocksInsidersVXHoldingsResponse(rsp)
+}
+
 // GetStocksTaxonomiesVXDisclosuresWithResponse request returning *GetStocksTaxonomiesVXDisclosuresResponse
 func (c *ClientWithResponses) GetStocksTaxonomiesVXDisclosuresWithResponse(ctx context.Context, params *GetStocksTaxonomiesVXDisclosuresParams, reqEditors ...RequestEditorFn) (*GetStocksTaxonomiesVXDisclosuresResponse, error) {
 	rsp, err := c.GetStocksTaxonomiesVXDisclosures(ctx, params, reqEditors...)
@@ -64932,6 +65743,213 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 
 			// Status The status of this request's response.
 			Status GetStocksFinancialsV1Ratios400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksInsidersVXActivityResponse parses an HTTP response from a GetStocksInsidersVXActivityWithResponse call
+func ParseGetStocksInsidersVXActivityResponse(rsp *http.Response) (*GetStocksInsidersVXActivityResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksInsidersVXActivityResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+				IssuerCik *string `json:"issuer_cik,omitempty"`
+
+				// IssuerName Name of the issuer company as reported in the filings.
+				IssuerName *string `json:"issuer_name,omitempty"`
+
+				// LastFilingDate Filing date of the latest filing that reported one of these transactions (formatted as YYYY-MM-DD). Transactions are usually filed within two business days.
+				LastFilingDate *openapi_types.Date `json:"last_filing_date,omitempty"`
+
+				// NetShares Shares purchased minus shares sold.
+				NetShares float64 `json:"net_shares"`
+
+				// NetValue Value purchased minus value sold in USD.
+				NetValue float64 `json:"net_value"`
+
+				// PlannedPurchaseValue Value of shares purchased under a Rule 10b5-1 trading plan in USD. Zero on filings before the plan checkbox was introduced in 2023.
+				PlannedPurchaseValue float64 `json:"planned_purchase_value"`
+
+				// PlannedSaleValue Value of shares sold under a Rule 10b5-1 trading plan in USD. Zero on filings before the plan checkbox was introduced in 2023.
+				PlannedSaleValue float64 `json:"planned_sale_value"`
+
+				// PurchaseCount Number of open-market purchase transactions.
+				PurchaseCount int64 `json:"purchase_count"`
+
+				// PurchaseShares Shares purchased.
+				PurchaseShares float64 `json:"purchase_shares"`
+
+				// PurchaseValue Value of shares purchased in USD.
+				PurchaseValue float64 `json:"purchase_value"`
+
+				// PurchaserCount Number of distinct insiders who purchased.
+				PurchaserCount int64 `json:"purchaser_count"`
+
+				// SaleCount Number of open-market sale transactions.
+				SaleCount int64 `json:"sale_count"`
+
+				// SaleShares Shares sold.
+				SaleShares float64 `json:"sale_shares"`
+
+				// SaleValue Value of shares sold in USD.
+				SaleValue float64 `json:"sale_value"`
+
+				// SellerCount Number of distinct insiders who sold.
+				SellerCount int64 `json:"seller_count"`
+
+				// Tickers Ticker symbols of the issuer as of the transaction date. Multiple symbols may indicate different share classes; the totals cover the issuer, not each ticker.
+				Tickers *[]string `json:"tickers,omitempty"`
+
+				// TransactionDate Date of the transactions (formatted as YYYY-MM-DD).
+				TransactionDate *openapi_types.Date `json:"transaction_date,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksInsidersVXActivity200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksInsidersVXActivity400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetStocksInsidersVXHoldingsResponse parses an HTTP response from a GetStocksInsidersVXHoldingsWithResponse call
+func ParseGetStocksInsidersVXHoldingsResponse(rsp *http.Response) (*GetStocksInsidersVXHoldingsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetStocksInsidersVXHoldingsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// FilingCount Number of Form 3, 4, and 5 filings by the owner for this issuer.
+				FilingCount int64 `json:"filing_count"`
+
+				// FirstFilingDate Date of the owner's first Form 3, 4, or 5 filing for this issuer (formatted as YYYY-MM-DD). Filings begin in 2003.
+				FirstFilingDate *openapi_types.Date `json:"first_filing_date,omitempty"`
+
+				// IssuerCik SEC Central Index Key of the issuer company (10 digits, zero-padded).
+				IssuerCik *string `json:"issuer_cik,omitempty"`
+
+				// IssuerName Name of the issuer company as reported in the most recent filing.
+				IssuerName *string `json:"issuer_name,omitempty"`
+
+				// LastFilingDate Date of the owner's most recent Form 3, 4, or 5 filing for this issuer (formatted as YYYY-MM-DD).
+				LastFilingDate *openapi_types.Date `json:"last_filing_date,omitempty"`
+
+				// OfficerTitle Title of the officer in the most recent filing, if the reporting owner is an officer.
+				OfficerTitle *string `json:"officer_title,omitempty"`
+
+				// OldestPositionDate Earliest as_of_date among the summed positions (formatted as YYYY-MM-DD). A date far behind last_filing_date means at least one position has not been restated recently and may be stale.
+				OldestPositionDate *openapi_types.Date `json:"oldest_position_date,omitempty"`
+
+				// OwnerCik SEC Central Index Key of the reporting owner (10 digits, zero-padded). Stable across issuers and years; use it to follow a person through the Form 3, 4, and 5 endpoints.
+				OwnerCik *string `json:"owner_cik,omitempty"`
+
+				// OwnerName Name of the reporting owner (individual or entity) as reported in the most recent filing.
+				OwnerName *string `json:"owner_name,omitempty"`
+
+				// OwnershipPct shares_owned as a percentage of the issuer's shares outstanding (largest share class) as of last_filing_date. Absent when shares outstanding is not available for the issuer.
+				OwnershipPct *float64 `json:"ownership_pct,omitempty"`
+
+				// PositionCount Number of positions summed into shares_owned: one for direct holdings plus one per indirect vehicle.
+				PositionCount *int64 `json:"position_count,omitempty"`
+
+				// Roles Relationships of the reporting owner to the issuer in the most recent filing. Possible values: director, officer, ten_percent_owner, other.
+				Roles *[]string `json:"roles,omitempty"`
+
+				// SharesOwned Shares of the issuer's non-derivative securities the owner holds: the sum of the latest reported balance of each position (direct, and each indirect vehicle) across their Form 3, 4, and 5 filings. As filed, not adjusted for splits. Unexercised options and other derivative securities are not included. Absent when the owner has never reported a share balance.
+				SharesOwned *float64 `json:"shares_owned,omitempty"`
+
+				// SharesOwnedDirect Shares held directly, in the owner's own name.
+				SharesOwnedDirect *float64 `json:"shares_owned_direct,omitempty"`
+
+				// SharesOwnedIndirect Shares held indirectly through trusts, LLCs, family members, and other vehicles.
+				SharesOwnedIndirect *float64 `json:"shares_owned_indirect,omitempty"`
+
+				// Tickers Ticker symbols of the issuer as of the owner's most recent filing. Multiple symbols may indicate different share classes.
+				Tickers *[]string `json:"tickers,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetStocksInsidersVXHoldings200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetStocksInsidersVXHoldings400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
