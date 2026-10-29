@@ -3137,7 +3137,7 @@ type GetFuturesV1ContractsParams struct {
 	// TickerLte Filter less than or equal to the value.
 	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
 
-	// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
+	// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date <= last_trade_date) and false otherwise.
 	Active *bool `form:"active,omitempty" json:"active,omitempty"`
 
 	// Type The type of contract, one of 'single' or 'combo'. Leaving this filter blank will query for contracts where type is 'single', 'combo' or empty. This field only exists on contracts as of 2025-03-12 and later. It will be null when date < 2025-03-12.
@@ -6762,14 +6762,6 @@ type GetV1ReferenceIposParamsIpoStatus string
 // GetV1ReferenceIposParamsIpoStatusAnyOf defines parameters for GetV1ReferenceIpos.
 type GetV1ReferenceIposParamsIpoStatusAnyOf string
 
-// GetSnapshotSummaryParams defines parameters for GetSnapshotSummary.
-type GetSnapshotSummaryParams struct {
-	// TickerAnyOf Comma separated list of tickers. This API currently supports Stocks/Equities, Crypto, Options, and Forex. See <a rel="nofollow" target="_blank" href="https://massive.com/docs/rest/stocks/tickers/all-tickers">the tickers endpoint</a> for more details on supported tickers. If no tickers are passed then no results will be returned.
-	//
-	// Warning: The maximum number of characters allowed in a URL are subject to your technology stack.
-	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
-}
-
 // GetGroupedCryptoAggregatesParams defines parameters for GetGroupedCryptoAggregates.
 type GetGroupedCryptoAggregatesParams struct {
 	// Adjusted Whether or not the results are adjusted for splits.  By default, results are adjusted.
@@ -8229,9 +8221,6 @@ type ClientInterface interface {
 	// GetRelatedCompanies request
 	GetRelatedCompanies(ctx context.Context, ticker string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetSnapshotSummary request
-	GetSnapshotSummary(ctx context.Context, params *GetSnapshotSummaryParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// GetGroupedCryptoAggregates request
 	GetGroupedCryptoAggregates(ctx context.Context, date string, params *GetGroupedCryptoAggregatesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -9501,18 +9490,6 @@ func (c *Client) GetV1ReferenceIpos(ctx context.Context, params *GetV1ReferenceI
 
 func (c *Client) GetRelatedCompanies(ctx context.Context, ticker string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetRelatedCompaniesRequest(c.Server, ticker)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetSnapshotSummary(ctx context.Context, params *GetSnapshotSummaryParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetSnapshotSummaryRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -39484,55 +39461,6 @@ func NewGetRelatedCompaniesRequest(server string, ticker string) (*http.Request,
 	return req, nil
 }
 
-// NewGetSnapshotSummaryRequest generates requests for GetSnapshotSummary
-func NewGetSnapshotSummaryRequest(server string, params *GetSnapshotSummaryParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/v1/summaries")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.TickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
 // NewGetGroupedCryptoAggregatesRequest generates requests for GetGroupedCryptoAggregates
 func NewGetGroupedCryptoAggregatesRequest(server string, date string, params *GetGroupedCryptoAggregatesParams) (*http.Request, error) {
 	var err error
@@ -45707,9 +45635,6 @@ type ClientWithResponsesInterface interface {
 	// GetRelatedCompaniesWithResponse request
 	GetRelatedCompaniesWithResponse(ctx context.Context, ticker string, reqEditors ...RequestEditorFn) (*GetRelatedCompaniesResponse, error)
 
-	// GetSnapshotSummaryWithResponse request
-	GetSnapshotSummaryWithResponse(ctx context.Context, params *GetSnapshotSummaryParams, reqEditors ...RequestEditorFn) (*GetSnapshotSummaryResponse, error)
-
 	// GetGroupedCryptoAggregatesWithResponse request
 	GetGroupedCryptoAggregatesWithResponse(ctx context.Context, date string, params *GetGroupedCryptoAggregatesParams, reqEditors ...RequestEditorFn) (*GetGroupedCryptoAggregatesResponse, error)
 
@@ -48175,7 +48100,7 @@ type GetFuturesV1ContractsResponse struct {
 
 		// Results The results for this request.
 		Results []struct {
-			// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
+			// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date <= last_trade_date) and false otherwise.
 			Active bool `json:"active"`
 
 			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
@@ -48421,7 +48346,7 @@ type GetFuturesV1ProductsResponse struct {
 			// ClearingSymbol The clearing symbol assigned to this product by the exchange's clearing house.
 			ClearingSymbol *string `json:"clearing_symbol,omitempty"`
 
-			// ClearingVenue The trading venue (MIC) for the clearing house that clears this product's contracts.
+			// ClearingVenue The exchange identifier for the clearing house that clears this product's contracts.
 			ClearingVenue *string `json:"clearing_venue,omitempty"`
 
 			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
@@ -48454,7 +48379,7 @@ type GetFuturesV1ProductsResponse struct {
 			// SettlementType The type of settlement for this product.
 			SettlementType *string `json:"settlement_type,omitempty"`
 
-			// StrategyType The strategy type for combo products (e.g. spread, strip, pack). Null for single products.
+			// StrategyType The strategy type for combo products (e.g. calendar, butterfly, strip). Null for single products.
 			StrategyType *string `json:"strategy_type,omitempty"`
 
 			// SubSector The sub-sector to which the product belongs.
@@ -53966,144 +53891,6 @@ func (r GetRelatedCompaniesResponse) StatusCode() int {
 	return 0
 }
 
-type GetSnapshotSummaryResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results An array of results containing the requested data.
-		Results *[]struct {
-			Branding *struct {
-				// IconUrl A link to this ticker's company's icon. Icon's are generally smaller, square images that represent the company at a glance.
-				// Note that you must provide an API key when accessing this URL. See the "Authentication" section at the top of this page for more details.
-				IconUrl *string `json:"icon_url,omitempty"`
-
-				// LogoUrl A link to this ticker's company's logo.
-				// Note that you must provide an API key when accessing this URL. See the "Authentication" section at the top of this page for more details.
-				LogoUrl *string `json:"logo_url,omitempty"`
-			} `json:"branding,omitempty"`
-
-			// Error The error while looking for this ticker.
-			Error *string `json:"error,omitempty"`
-
-			// LastUpdated The nanosecond timestamp of when this information was updated.
-			LastUpdated *int64 `json:"last_updated,omitempty"`
-
-			// MarketStatus The market status for the market that trades this ticker.
-			MarketStatus *string `json:"market_status,omitempty"`
-
-			// Message The error message while looking for this ticker.
-			Message *string `json:"message,omitempty"`
-
-			// Name Name of ticker, forex, or crypto asset.
-			Name    *string `json:"name,omitempty"`
-			Options *struct {
-				// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
-				ContractType GetSnapshotSummary200ResultsOptionsContractType `json:"contract_type"`
-
-				// ExerciseStyle The exercise style of this contract. See <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Option_style">this link</a> for more details on exercise styles.
-				ExerciseStyle GetSnapshotSummary200ResultsOptionsExerciseStyle `json:"exercise_style"`
-
-				// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
-				ExpirationDate openapi_types.Date `json:"expiration_date"`
-
-				// SharesPerContract The number of shares per contract for this contract.
-				SharesPerContract float64 `json:"shares_per_contract"`
-
-				// StrikePrice The strike price of the option contract.
-				StrikePrice float64 `json:"strike_price"`
-
-				// UnderlyingTicker The ticker for the option contract.
-				UnderlyingTicker string `json:"underlying_ticker"`
-			} `json:"options,omitempty"`
-
-			// Price The most up to date ticker price.
-			Price *float64 `json:"price,omitempty"`
-
-			// Session Comprehensive trading session metrics, detailing price changes, trading volume, and key price points (open, close, high, low) for the asset within the current trading day. Includes specific changes during early, regular, and late trading periods to enable detailed performance analysis and trend tracking.
-			Session *struct {
-				// Change The value of the price change for the asset from the previous trading day.
-				Change float64 `json:"change"`
-
-				// ChangePercent The percent of the price change for the asset from the previous trading day.
-				ChangePercent float64 `json:"change_percent"`
-
-				// Close The closing price of the asset for the day.
-				Close float64 `json:"close"`
-
-				// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
-				DecimalVolume *string `json:"decimal_volume,omitempty"`
-
-				// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close.
-				EarlyTradingChange *float64 `json:"early_trading_change,omitempty"`
-
-				// EarlyTradingChangePercent Today's early trading change as a percentage.
-				EarlyTradingChangePercent *float64 `json:"early_trading_change_percent,omitempty"`
-
-				// High The highest price of the asset for the day.
-				High float64 `json:"high"`
-
-				// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close.
-				LateTradingChange *float64 `json:"late_trading_change,omitempty"`
-
-				// LateTradingChangePercent Today's late trading change as a percentage.
-				LateTradingChangePercent *float64 `json:"late_trading_change_percent,omitempty"`
-
-				// Low The lowest price of the asset for the day.
-				Low float64 `json:"low"`
-
-				// Open The open price of the asset for the day.
-				Open float64 `json:"open"`
-
-				// PreviousClose The closing price of the asset for the previous trading day.
-				PreviousClose float64 `json:"previous_close"`
-
-				// Price The price of the most recent trade or bid price for this asset.
-				Price *float64 `json:"price,omitempty"`
-
-				// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
-				RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
-
-				// RegularTradingChangePercent Today's regular trading change as a percentage.
-				RegularTradingChangePercent *float64 `json:"regular_trading_change_percent,omitempty"`
-
-				// Volume The trading volume for the asset for the day.
-				Volume *float64 `json:"volume,omitempty"`
-			} `json:"session,omitempty"`
-
-			// Ticker Ticker of asset queried.
-			Ticker string `json:"ticker"`
-
-			// Type The market for this ticker of stock, crypto, fx, option.
-			Type *GetSnapshotSummary200ResultsType `json:"type,omitempty"`
-		} `json:"results,omitempty"`
-
-		// Status The status of this request's response.
-		Status string `json:"status"`
-	}
-}
-type GetSnapshotSummary200ResultsOptionsContractType string
-type GetSnapshotSummary200ResultsOptionsExerciseStyle string
-type GetSnapshotSummary200ResultsType string
-
-// Status returns HTTPResponse.Status
-func (r GetSnapshotSummaryResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetSnapshotSummaryResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
 type GetGroupedCryptoAggregatesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -58168,7 +57955,7 @@ type GetSnapshotsResponse struct {
 
 			// LastTrade The most recent quote for this contract. This is only returned if your current plan includes trades.
 			LastTrade *struct {
-				// Conditions A list of condition codes.
+				// Conditions A list of condition codes. The codes depend on the asset type; see the condition codes for [stocks](https://massive.com/docs/rest/stocks/market-operations/condition-codes), [options](https://massive.com/docs/rest/options/market-operations/condition-codes), or [crypto](https://massive.com/docs/rest/crypto/market-operations/condition-codes).
 				Conditions *[]int32 `json:"conditions,omitempty"`
 
 				// DecimalSize The size of a trade, including fractional shares, represented as a decimal string where the fractional part is expressed in millionths. This field is only returned for stocks snapshots.
@@ -58218,15 +58005,19 @@ type GetSnapshotsResponse struct {
 			OpenInterest *float64 `json:"open_interest,omitempty"`
 
 			// Session Comprehensive trading session metrics, detailing price changes, trading volume, and key price points (open, close, high, low) for the asset within the current trading day. Includes specific changes during early, regular, and late trading periods to enable detailed performance analysis and trend tracking.
+			//
+			// Values describe the current trading session only; nothing carries over from the previous session apart from `previous_close`. For stocks snapshots, an asset that has not traded yet this session reports `volume: 0` with the price and change fields omitted rather than reported as 0.
+			//
+			// During early trading on stocks snapshots, `volume` and `price` track the session as it happens, but `open`, `high`, `low`, `close` and `vwap` are omitted until the regular session opens, as those report official session prices. They appear from the open and remain through late trading.
 			Session *struct {
 				// Change The value of the price change for the asset from the previous trading day.
-				Change float64 `json:"change"`
+				Change *float64 `json:"change,omitempty"`
 
 				// ChangePercent The percent of the price change for the asset from the previous trading day.
-				ChangePercent float64 `json:"change_percent"`
+				ChangePercent *float64 `json:"change_percent,omitempty"`
 
 				// Close The closing price of the asset for the day.
-				Close float64 `json:"close"`
+				Close *float64 `json:"close,omitempty"`
 
 				// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
 				DecimalVolume *string `json:"decimal_volume,omitempty"`
@@ -58238,7 +58029,7 @@ type GetSnapshotsResponse struct {
 				EarlyTradingChangePercent *float64 `json:"early_trading_change_percent,omitempty"`
 
 				// High The highest price of the asset for the day.
-				High float64 `json:"high"`
+				High *float64 `json:"high,omitempty"`
 
 				// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close.
 				LateTradingChange *float64 `json:"late_trading_change,omitempty"`
@@ -58247,13 +58038,13 @@ type GetSnapshotsResponse struct {
 				LateTradingChangePercent *float64 `json:"late_trading_change_percent,omitempty"`
 
 				// Low The lowest price of the asset for the day.
-				Low float64 `json:"low"`
+				Low *float64 `json:"low,omitempty"`
 
 				// Open The open price of the asset for the day.
-				Open float64 `json:"open"`
+				Open *float64 `json:"open,omitempty"`
 
-				// PreviousClose The closing price of the asset for the previous trading day.
-				PreviousClose float64 `json:"previous_close"`
+				// PreviousClose The closing price of the asset for the previous trading day. This is the correct field for the prior session's reference price, and it is retained across the daily session rollover. It is absent only for an asset with no completed prior session, such as a newly listed ticker or option contract.
+				PreviousClose *float64 `json:"previous_close,omitempty"`
 
 				// Price The price of the most recent trade or bid price for this asset.
 				Price *float64 `json:"price,omitempty"`
@@ -58264,7 +58055,7 @@ type GetSnapshotsResponse struct {
 				// RegularTradingChangePercent Today's regular trading change as a percentage.
 				RegularTradingChangePercent *float64 `json:"regular_trading_change_percent,omitempty"`
 
-				// Volume The trading volume for the asset for the day.
+				// Volume The trading volume for the asset for the day. A value of 0 means no trades have occurred yet in the current session.
 				Volume *float64 `json:"volume,omitempty"`
 			} `json:"session,omitempty"`
 
@@ -58546,7 +58337,7 @@ type GetOptionsChainResponse struct {
 
 			// LastTrade The most recent trade for this contract. This is only returned if your current plan includes trades.
 			LastTrade *struct {
-				// Conditions A list of condition codes.
+				// Conditions A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.
 				Conditions *[]int32 `json:"conditions,omitempty"`
 
 				// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -58747,7 +58538,7 @@ type GetOptionContractResponse struct {
 
 			// LastTrade The most recent trade for this contract. This is only returned if your current plan includes trades.
 			LastTrade *struct {
-				// Conditions A list of condition codes.
+				// Conditions A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.
 				Conditions *[]int32 `json:"conditions,omitempty"`
 
 				// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -60015,15 +59806,6 @@ func (c *ClientWithResponses) GetRelatedCompaniesWithResponse(ctx context.Contex
 		return nil, err
 	}
 	return ParseGetRelatedCompaniesResponse(rsp)
-}
-
-// GetSnapshotSummaryWithResponse request returning *GetSnapshotSummaryResponse
-func (c *ClientWithResponses) GetSnapshotSummaryWithResponse(ctx context.Context, params *GetSnapshotSummaryParams, reqEditors ...RequestEditorFn) (*GetSnapshotSummaryResponse, error) {
-	rsp, err := c.GetSnapshotSummary(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetSnapshotSummaryResponse(rsp)
 }
 
 // GetGroupedCryptoAggregatesWithResponse request returning *GetGroupedCryptoAggregatesResponse
@@ -62990,7 +62772,7 @@ func ParseGetFuturesV1ContractsResponse(rsp *http.Response) (*GetFuturesV1Contra
 
 			// Results The results for this request.
 			Results []struct {
-				// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date >= last_trade_date) and false otherwise.
+				// Active Whether or not a given contract was tradeable at the given point in time. Active is true when (first_trade_date <= date <= last_trade_date) and false otherwise.
 				Active bool `json:"active"`
 
 				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about contracts for the specified day.
@@ -63260,7 +63042,7 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 				// ClearingSymbol The clearing symbol assigned to this product by the exchange's clearing house.
 				ClearingSymbol *string `json:"clearing_symbol,omitempty"`
 
-				// ClearingVenue The trading venue (MIC) for the clearing house that clears this product's contracts.
+				// ClearingVenue The exchange identifier for the clearing house that clears this product's contracts.
 				ClearingVenue *string `json:"clearing_venue,omitempty"`
 
 				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
@@ -63293,7 +63075,7 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 				// SettlementType The type of settlement for this product.
 				SettlementType *string `json:"settlement_type,omitempty"`
 
-				// StrategyType The strategy type for combo products (e.g. spread, strip, pack). Null for single products.
+				// StrategyType The strategy type for combo products (e.g. calendar, butterfly, strip). Null for single products.
 				StrategyType *string `json:"strategy_type,omitempty"`
 
 				// SubSector The sub-sector to which the product belongs.
@@ -69270,145 +69052,6 @@ func ParseGetRelatedCompaniesResponse(rsp *http.Response) (*GetRelatedCompaniesR
 	return response, nil
 }
 
-// ParseGetSnapshotSummaryResponse parses an HTTP response from a GetSnapshotSummaryWithResponse call
-func ParseGetSnapshotSummaryResponse(rsp *http.Response) (*GetSnapshotSummaryResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetSnapshotSummaryResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results An array of results containing the requested data.
-			Results *[]struct {
-				Branding *struct {
-					// IconUrl A link to this ticker's company's icon. Icon's are generally smaller, square images that represent the company at a glance.
-					// Note that you must provide an API key when accessing this URL. See the "Authentication" section at the top of this page for more details.
-					IconUrl *string `json:"icon_url,omitempty"`
-
-					// LogoUrl A link to this ticker's company's logo.
-					// Note that you must provide an API key when accessing this URL. See the "Authentication" section at the top of this page for more details.
-					LogoUrl *string `json:"logo_url,omitempty"`
-				} `json:"branding,omitempty"`
-
-				// Error The error while looking for this ticker.
-				Error *string `json:"error,omitempty"`
-
-				// LastUpdated The nanosecond timestamp of when this information was updated.
-				LastUpdated *int64 `json:"last_updated,omitempty"`
-
-				// MarketStatus The market status for the market that trades this ticker.
-				MarketStatus *string `json:"market_status,omitempty"`
-
-				// Message The error message while looking for this ticker.
-				Message *string `json:"message,omitempty"`
-
-				// Name Name of ticker, forex, or crypto asset.
-				Name    *string `json:"name,omitempty"`
-				Options *struct {
-					// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
-					ContractType GetSnapshotSummary200ResultsOptionsContractType `json:"contract_type"`
-
-					// ExerciseStyle The exercise style of this contract. See <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Option_style">this link</a> for more details on exercise styles.
-					ExerciseStyle GetSnapshotSummary200ResultsOptionsExerciseStyle `json:"exercise_style"`
-
-					// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
-					ExpirationDate openapi_types.Date `json:"expiration_date"`
-
-					// SharesPerContract The number of shares per contract for this contract.
-					SharesPerContract float64 `json:"shares_per_contract"`
-
-					// StrikePrice The strike price of the option contract.
-					StrikePrice float64 `json:"strike_price"`
-
-					// UnderlyingTicker The ticker for the option contract.
-					UnderlyingTicker string `json:"underlying_ticker"`
-				} `json:"options,omitempty"`
-
-				// Price The most up to date ticker price.
-				Price *float64 `json:"price,omitempty"`
-
-				// Session Comprehensive trading session metrics, detailing price changes, trading volume, and key price points (open, close, high, low) for the asset within the current trading day. Includes specific changes during early, regular, and late trading periods to enable detailed performance analysis and trend tracking.
-				Session *struct {
-					// Change The value of the price change for the asset from the previous trading day.
-					Change float64 `json:"change"`
-
-					// ChangePercent The percent of the price change for the asset from the previous trading day.
-					ChangePercent float64 `json:"change_percent"`
-
-					// Close The closing price of the asset for the day.
-					Close float64 `json:"close"`
-
-					// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
-					DecimalVolume *string `json:"decimal_volume,omitempty"`
-
-					// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close.
-					EarlyTradingChange *float64 `json:"early_trading_change,omitempty"`
-
-					// EarlyTradingChangePercent Today's early trading change as a percentage.
-					EarlyTradingChangePercent *float64 `json:"early_trading_change_percent,omitempty"`
-
-					// High The highest price of the asset for the day.
-					High float64 `json:"high"`
-
-					// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close.
-					LateTradingChange *float64 `json:"late_trading_change,omitempty"`
-
-					// LateTradingChangePercent Today's late trading change as a percentage.
-					LateTradingChangePercent *float64 `json:"late_trading_change_percent,omitempty"`
-
-					// Low The lowest price of the asset for the day.
-					Low float64 `json:"low"`
-
-					// Open The open price of the asset for the day.
-					Open float64 `json:"open"`
-
-					// PreviousClose The closing price of the asset for the previous trading day.
-					PreviousClose float64 `json:"previous_close"`
-
-					// Price The price of the most recent trade or bid price for this asset.
-					Price *float64 `json:"price,omitempty"`
-
-					// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
-					RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
-
-					// RegularTradingChangePercent Today's regular trading change as a percentage.
-					RegularTradingChangePercent *float64 `json:"regular_trading_change_percent,omitempty"`
-
-					// Volume The trading volume for the asset for the day.
-					Volume *float64 `json:"volume,omitempty"`
-				} `json:"session,omitempty"`
-
-				// Ticker Ticker of asset queried.
-				Ticker string `json:"ticker"`
-
-				// Type The market for this ticker of stock, crypto, fx, option.
-				Type *GetSnapshotSummary200ResultsType `json:"type,omitempty"`
-			} `json:"results,omitempty"`
-
-			// Status The status of this request's response.
-			Status string `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	}
-
-	return response, nil
-}
-
 // ParseGetGroupedCryptoAggregatesResponse parses an HTTP response from a GetGroupedCryptoAggregatesWithResponse call
 func ParseGetGroupedCryptoAggregatesResponse(rsp *http.Response) (*GetGroupedCryptoAggregatesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -73780,7 +73423,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 
 				// LastTrade The most recent quote for this contract. This is only returned if your current plan includes trades.
 				LastTrade *struct {
-					// Conditions A list of condition codes.
+					// Conditions A list of condition codes. The codes depend on the asset type; see the condition codes for [stocks](https://massive.com/docs/rest/stocks/market-operations/condition-codes), [options](https://massive.com/docs/rest/options/market-operations/condition-codes), or [crypto](https://massive.com/docs/rest/crypto/market-operations/condition-codes).
 					Conditions *[]int32 `json:"conditions,omitempty"`
 
 					// DecimalSize The size of a trade, including fractional shares, represented as a decimal string where the fractional part is expressed in millionths. This field is only returned for stocks snapshots.
@@ -73830,15 +73473,19 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 				OpenInterest *float64 `json:"open_interest,omitempty"`
 
 				// Session Comprehensive trading session metrics, detailing price changes, trading volume, and key price points (open, close, high, low) for the asset within the current trading day. Includes specific changes during early, regular, and late trading periods to enable detailed performance analysis and trend tracking.
+				//
+				// Values describe the current trading session only; nothing carries over from the previous session apart from `previous_close`. For stocks snapshots, an asset that has not traded yet this session reports `volume: 0` with the price and change fields omitted rather than reported as 0.
+				//
+				// During early trading on stocks snapshots, `volume` and `price` track the session as it happens, but `open`, `high`, `low`, `close` and `vwap` are omitted until the regular session opens, as those report official session prices. They appear from the open and remain through late trading.
 				Session *struct {
 					// Change The value of the price change for the asset from the previous trading day.
-					Change float64 `json:"change"`
+					Change *float64 `json:"change,omitempty"`
 
 					// ChangePercent The percent of the price change for the asset from the previous trading day.
-					ChangePercent float64 `json:"change_percent"`
+					ChangePercent *float64 `json:"change_percent,omitempty"`
 
 					// Close The closing price of the asset for the day.
-					Close float64 `json:"close"`
+					Close *float64 `json:"close,omitempty"`
 
 					// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
 					DecimalVolume *string `json:"decimal_volume,omitempty"`
@@ -73850,7 +73497,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					EarlyTradingChangePercent *float64 `json:"early_trading_change_percent,omitempty"`
 
 					// High The highest price of the asset for the day.
-					High float64 `json:"high"`
+					High *float64 `json:"high,omitempty"`
 
 					// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close.
 					LateTradingChange *float64 `json:"late_trading_change,omitempty"`
@@ -73859,13 +73506,13 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					LateTradingChangePercent *float64 `json:"late_trading_change_percent,omitempty"`
 
 					// Low The lowest price of the asset for the day.
-					Low float64 `json:"low"`
+					Low *float64 `json:"low,omitempty"`
 
 					// Open The open price of the asset for the day.
-					Open float64 `json:"open"`
+					Open *float64 `json:"open,omitempty"`
 
-					// PreviousClose The closing price of the asset for the previous trading day.
-					PreviousClose float64 `json:"previous_close"`
+					// PreviousClose The closing price of the asset for the previous trading day. This is the correct field for the prior session's reference price, and it is retained across the daily session rollover. It is absent only for an asset with no completed prior session, such as a newly listed ticker or option contract.
+					PreviousClose *float64 `json:"previous_close,omitempty"`
 
 					// Price The price of the most recent trade or bid price for this asset.
 					Price *float64 `json:"price,omitempty"`
@@ -73876,7 +73523,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// RegularTradingChangePercent Today's regular trading change as a percentage.
 					RegularTradingChangePercent *float64 `json:"regular_trading_change_percent,omitempty"`
 
-					// Volume The trading volume for the asset for the day.
+					// Volume The trading volume for the asset for the day. A value of 0 means no trades have occurred yet in the current session.
 					Volume *float64 `json:"volume,omitempty"`
 				} `json:"session,omitempty"`
 
@@ -74157,7 +73804,7 @@ func ParseGetOptionsChainResponse(rsp *http.Response) (*GetOptionsChainResponse,
 
 				// LastTrade The most recent trade for this contract. This is only returned if your current plan includes trades.
 				LastTrade *struct {
-					// Conditions A list of condition codes.
+					// Conditions A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.
 					Conditions *[]int32 `json:"conditions,omitempty"`
 
 					// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
@@ -74357,7 +74004,7 @@ func ParseGetOptionContractResponse(rsp *http.Response) (*GetOptionContractRespo
 
 				// LastTrade The most recent trade for this contract. This is only returned if your current plan includes trades.
 				LastTrade *struct {
-					// Conditions A list of condition codes.
+					// Conditions A list of condition codes. See [Options Condition Codes](https://massive.com/docs/rest/options/market-operations/condition-codes) for what each code means.
 					Conditions *[]int32 `json:"conditions,omitempty"`
 
 					// Exchange The exchange ID. See <a href="https://massive.com/docs/rest/options/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
