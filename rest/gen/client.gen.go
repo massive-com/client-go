@@ -275,6 +275,18 @@ const (
 	GetFuturesV1ProductsParamsTypeAnyOfSingle GetFuturesV1ProductsParamsTypeAnyOf = "single"
 )
 
+// Defines values for GetOptionsVXOpenInterestParamsContractType.
+const (
+	GetOptionsVXOpenInterestParamsContractTypeCall GetOptionsVXOpenInterestParamsContractType = "call"
+	GetOptionsVXOpenInterestParamsContractTypePut  GetOptionsVXOpenInterestParamsContractType = "put"
+)
+
+// Defines values for GetOptionsVXOpenInterestParamsContractTypeAnyOf.
+const (
+	GetOptionsVXOpenInterestParamsContractTypeAnyOfCall GetOptionsVXOpenInterestParamsContractTypeAnyOf = "call"
+	GetOptionsVXOpenInterestParamsContractTypeAnyOfPut  GetOptionsVXOpenInterestParamsContractTypeAnyOf = "put"
+)
+
 // Defines values for GetStocksFilings10KVXSectionsParamsSection.
 const (
 	GetStocksFilings10KVXSectionsParamsSectionBusiness    GetStocksFilings10KVXSectionsParamsSection = "business"
@@ -3570,6 +3582,198 @@ type GetOptionsV3TradesTickerParams struct {
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsVXOpenInterestParams defines parameters for GetOptionsVXOpenInterest.
+type GetOptionsVXOpenInterestParams struct {
+	// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
+
+	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
+
+	// TickerGt Filter greater than the value.
+	TickerGt *string `form:"ticker.gt,omitempty" json:"ticker.gt,omitempty"`
+
+	// TickerGte Filter greater than or equal to the value.
+	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
+
+	// TickerLt Filter less than the value.
+	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
+
+	// TickerLte Filter less than or equal to the value.
+	TickerLte *string `form:"ticker.lte,omitempty" json:"ticker.lte,omitempty"`
+
+	// Root The OCC root symbol of the contract (e.g., SPXW). Differs from the underlying for weekly roots and for contracts adjusted after a corporate action (e.g., AMCR1).
+	Root *string `form:"root,omitempty" json:"root,omitempty"`
+
+	// RootAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	RootAnyOf *string `form:"root.any_of,omitempty" json:"root.any_of,omitempty"`
+
+	// RootGt Filter greater than the value.
+	RootGt *string `form:"root.gt,omitempty" json:"root.gt,omitempty"`
+
+	// RootGte Filter greater than or equal to the value.
+	RootGte *string `form:"root.gte,omitempty" json:"root.gte,omitempty"`
+
+	// RootLt Filter less than the value.
+	RootLt *string `form:"root.lt,omitempty" json:"root.lt,omitempty"`
+
+	// RootLte Filter less than or equal to the value.
+	RootLte *string `form:"root.lte,omitempty" json:"root.lte,omitempty"`
+
+	// UnderlyingTicker The ticker of the contract's underlying (e.g., SPX). Weekly and adjusted roots are folded in, so SPXW contracts report SPX and AMCR1 contracts report AMCR; see root to tell them apart.
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// UnderlyingTickerGt Filter greater than the value.
+	UnderlyingTickerGt *string `form:"underlying_ticker.gt,omitempty" json:"underlying_ticker.gt,omitempty"`
+
+	// UnderlyingTickerGte Filter greater than or equal to the value.
+	UnderlyingTickerGte *string `form:"underlying_ticker.gte,omitempty" json:"underlying_ticker.gte,omitempty"`
+
+	// UnderlyingTickerLt Filter less than the value.
+	UnderlyingTickerLt *string `form:"underlying_ticker.lt,omitempty" json:"underlying_ticker.lt,omitempty"`
+
+	// UnderlyingTickerLte Filter less than or equal to the value.
+	UnderlyingTickerLte *string `form:"underlying_ticker.lte,omitempty" json:"underlying_ticker.lte,omitempty"`
+
+	// ContractType The contract type. Possible values: call, put.
+	ContractType *GetOptionsVXOpenInterestParamsContractType `form:"contract_type,omitempty" json:"contract_type,omitempty"`
+
+	// ContractTypeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	ContractTypeAnyOf *GetOptionsVXOpenInterestParamsContractTypeAnyOf `form:"contract_type.any_of,omitempty" json:"contract_type.any_of,omitempty"`
+
+	// ExpirationDate The date the contract expires (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDate *string `form:"expiration_date,omitempty" json:"expiration_date,omitempty"`
+
+	// ExpirationDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateGt *string `form:"expiration_date.gt,omitempty" json:"expiration_date.gt,omitempty"`
+
+	// ExpirationDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateGte *string `form:"expiration_date.gte,omitempty" json:"expiration_date.gte,omitempty"`
+
+	// ExpirationDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateLt *string `form:"expiration_date.lt,omitempty" json:"expiration_date.lt,omitempty"`
+
+	// ExpirationDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateLte *string `form:"expiration_date.lte,omitempty" json:"expiration_date.lte,omitempty"`
+
+	// StrikePrice The strike price of the contract. Value must be a floating point number.
+	StrikePrice *float64 `form:"strike_price,omitempty" json:"strike_price,omitempty"`
+
+	// StrikePriceGt Filter greater than the value. Value must be a floating point number.
+	StrikePriceGt *float64 `form:"strike_price.gt,omitempty" json:"strike_price.gt,omitempty"`
+
+	// StrikePriceGte Filter greater than or equal to the value. Value must be a floating point number.
+	StrikePriceGte *float64 `form:"strike_price.gte,omitempty" json:"strike_price.gte,omitempty"`
+
+	// StrikePriceLt Filter less than the value. Value must be a floating point number.
+	StrikePriceLt *float64 `form:"strike_price.lt,omitempty" json:"strike_price.lt,omitempty"`
+
+	// StrikePriceLte Filter less than or equal to the value. Value must be a floating point number.
+	StrikePriceLte *float64 `form:"strike_price.lte,omitempty" json:"strike_price.lte,omitempty"`
+
+	// Date The trading date the open interest applies to (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// OpenInterest The number of outstanding contracts that have not been closed or exercised, as of the last open interest update of the day. Value must be an integer.
+	OpenInterest *int64 `form:"open_interest,omitempty" json:"open_interest,omitempty"`
+
+	// OpenInterestGt Filter greater than the value. Value must be an integer.
+	OpenInterestGt *int64 `form:"open_interest.gt,omitempty" json:"open_interest.gt,omitempty"`
+
+	// OpenInterestGte Filter greater than or equal to the value. Value must be an integer.
+	OpenInterestGte *int64 `form:"open_interest.gte,omitempty" json:"open_interest.gte,omitempty"`
+
+	// OpenInterestLt Filter less than the value. Value must be an integer.
+	OpenInterestLt *int64 `form:"open_interest.lt,omitempty" json:"open_interest.lt,omitempty"`
+
+	// OpenInterestLte Filter less than or equal to the value. Value must be an integer.
+	OpenInterestLte *int64 `form:"open_interest.lte,omitempty" json:"open_interest.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsVXOpenInterestParamsContractType defines parameters for GetOptionsVXOpenInterest.
+type GetOptionsVXOpenInterestParamsContractType string
+
+// GetOptionsVXOpenInterestParamsContractTypeAnyOf defines parameters for GetOptionsVXOpenInterest.
+type GetOptionsVXOpenInterestParamsContractTypeAnyOf string
+
+// GetOptionsVXOpenInterestUnderlyingParams defines parameters for GetOptionsVXOpenInterestUnderlying.
+type GetOptionsVXOpenInterestUnderlyingParams struct {
+	// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// UnderlyingTickerGt Filter greater than the value.
+	UnderlyingTickerGt *string `form:"underlying_ticker.gt,omitempty" json:"underlying_ticker.gt,omitempty"`
+
+	// UnderlyingTickerGte Filter greater than or equal to the value.
+	UnderlyingTickerGte *string `form:"underlying_ticker.gte,omitempty" json:"underlying_ticker.gte,omitempty"`
+
+	// UnderlyingTickerLt Filter less than the value.
+	UnderlyingTickerLt *string `form:"underlying_ticker.lt,omitempty" json:"underlying_ticker.lt,omitempty"`
+
+	// UnderlyingTickerLte Filter less than or equal to the value.
+	UnderlyingTickerLte *string `form:"underlying_ticker.lte,omitempty" json:"underlying_ticker.lte,omitempty"`
+
+	// Date The trading date the open interest applies to (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// OpenInterest Total open interest across every contract on the underlying. Value must be an integer.
+	OpenInterest *int64 `form:"open_interest,omitempty" json:"open_interest,omitempty"`
+
+	// OpenInterestGt Filter greater than the value. Value must be an integer.
+	OpenInterestGt *int64 `form:"open_interest.gt,omitempty" json:"open_interest.gt,omitempty"`
+
+	// OpenInterestGte Filter greater than or equal to the value. Value must be an integer.
+	OpenInterestGte *int64 `form:"open_interest.gte,omitempty" json:"open_interest.gte,omitempty"`
+
+	// OpenInterestLt Filter less than the value. Value must be an integer.
+	OpenInterestLt *int64 `form:"open_interest.lt,omitempty" json:"open_interest.lt,omitempty"`
+
+	// OpenInterestLte Filter less than or equal to the value. Value must be an integer.
+	OpenInterestLte *int64 `form:"open_interest.lte,omitempty" json:"open_interest.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
@@ -8044,6 +8248,12 @@ type ClientInterface interface {
 	// GetOptionsV3TradesTicker request
 	GetOptionsV3TradesTicker(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetOptionsVXOpenInterest request
+	GetOptionsVXOpenInterest(ctx context.Context, params *GetOptionsVXOpenInterestParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetOptionsVXOpenInterestUnderlying request
+	GetOptionsVXOpenInterestUnderlying(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetStocksDevTradesTicker request
 	GetStocksDevTradesTicker(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8782,6 +8992,30 @@ func (c *Client) GetOptionsV3QuotesTicker(ctx context.Context, ticker string, pa
 
 func (c *Client) GetOptionsV3TradesTicker(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetOptionsV3TradesTickerRequest(c.Server, ticker, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsVXOpenInterest(ctx context.Context, params *GetOptionsVXOpenInterestParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsVXOpenInterestRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsVXOpenInterestUnderlying(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsVXOpenInterestUnderlyingRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -22361,6 +22595,1032 @@ func NewGetOptionsV3TradesTickerRequest(server string, ticker string, params *Ge
 		if params.TimestampLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsVXOpenInterestRequest generates requests for GetOptionsVXOpenInterest
+func NewGetOptionsVXOpenInterestRequest(server string, params *GetOptionsVXOpenInterestParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/vX/open-interest")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Ticker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gt", runtime.ParamLocationQuery, *params.TickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.gte", runtime.ParamLocationQuery, *params.TickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lt", runtime.ParamLocationQuery, *params.TickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.lte", runtime.ParamLocationQuery, *params.TickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Root != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "root", runtime.ParamLocationQuery, *params.Root); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.RootAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "root.any_of", runtime.ParamLocationQuery, *params.RootAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.RootGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "root.gt", runtime.ParamLocationQuery, *params.RootGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.RootGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "root.gte", runtime.ParamLocationQuery, *params.RootGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.RootLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "root.lt", runtime.ParamLocationQuery, *params.RootLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.RootLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "root.lte", runtime.ParamLocationQuery, *params.RootLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gt", runtime.ParamLocationQuery, *params.UnderlyingTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gte", runtime.ParamLocationQuery, *params.UnderlyingTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lt", runtime.ParamLocationQuery, *params.UnderlyingTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lte", runtime.ParamLocationQuery, *params.UnderlyingTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ContractType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "contract_type", runtime.ParamLocationQuery, *params.ContractType); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ContractTypeAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "contract_type.any_of", runtime.ParamLocationQuery, *params.ContractTypeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date", runtime.ParamLocationQuery, *params.ExpirationDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.gt", runtime.ParamLocationQuery, *params.ExpirationDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.gte", runtime.ParamLocationQuery, *params.ExpirationDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.lt", runtime.ParamLocationQuery, *params.ExpirationDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.lte", runtime.ParamLocationQuery, *params.ExpirationDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePrice != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price", runtime.ParamLocationQuery, *params.StrikePrice); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.gt", runtime.ParamLocationQuery, *params.StrikePriceGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.gte", runtime.ParamLocationQuery, *params.StrikePriceGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.lt", runtime.ParamLocationQuery, *params.StrikePriceLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.lte", runtime.ParamLocationQuery, *params.StrikePriceLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterest != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest", runtime.ParamLocationQuery, *params.OpenInterest); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gt", runtime.ParamLocationQuery, *params.OpenInterestGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gte", runtime.ParamLocationQuery, *params.OpenInterestGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lt", runtime.ParamLocationQuery, *params.OpenInterestLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lte", runtime.ParamLocationQuery, *params.OpenInterestLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsVXOpenInterestUnderlyingRequest generates requests for GetOptionsVXOpenInterestUnderlying
+func NewGetOptionsVXOpenInterestUnderlyingRequest(server string, params *GetOptionsVXOpenInterestUnderlyingParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/vX/open-interest/underlying")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gt", runtime.ParamLocationQuery, *params.UnderlyingTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gte", runtime.ParamLocationQuery, *params.UnderlyingTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lt", runtime.ParamLocationQuery, *params.UnderlyingTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lte", runtime.ParamLocationQuery, *params.UnderlyingTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterest != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest", runtime.ParamLocationQuery, *params.OpenInterest); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gt", runtime.ParamLocationQuery, *params.OpenInterestGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gte", runtime.ParamLocationQuery, *params.OpenInterestGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lt", runtime.ParamLocationQuery, *params.OpenInterestLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.OpenInterestLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lte", runtime.ParamLocationQuery, *params.OpenInterestLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -45458,6 +46718,12 @@ type ClientWithResponsesInterface interface {
 	// GetOptionsV3TradesTickerWithResponse request
 	GetOptionsV3TradesTickerWithResponse(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*GetOptionsV3TradesTickerResponse, error)
 
+	// GetOptionsVXOpenInterestWithResponse request
+	GetOptionsVXOpenInterestWithResponse(ctx context.Context, params *GetOptionsVXOpenInterestParams, reqEditors ...RequestEditorFn) (*GetOptionsVXOpenInterestResponse, error)
+
+	// GetOptionsVXOpenInterestUnderlyingWithResponse request
+	GetOptionsVXOpenInterestUnderlyingWithResponse(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsVXOpenInterestUnderlyingResponse, error)
+
 	// GetStocksDevTradesTickerWithResponse request
 	GetStocksDevTradesTickerWithResponse(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*GetStocksDevTradesTickerResponse, error)
 
@@ -49002,6 +50268,155 @@ func (r GetOptionsV3TradesTickerResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetOptionsV3TradesTickerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsVXOpenInterestResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// ContractType The contract type. Possible values: call, put.
+			ContractType *string `json:"contract_type,omitempty"`
+
+			// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
+			Date openapi_types.Date `json:"date"`
+
+			// ExpirationDate The date the contract expires (formatted as YYYY-MM-DD).
+			ExpirationDate *openapi_types.Date `json:"expiration_date,omitempty"`
+
+			// OpenInterest The number of outstanding contracts that have not been closed or exercised, as of the last open interest update of the day.
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OpenInterestChange The change in open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
+			OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
+
+			// PreviousOpenInterest The contract's open interest on the previous trading day. Null if the contract had no open interest reported that day, such as a new listing.
+			PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
+
+			// Root The OCC root symbol of the contract (e.g., SPXW). Differs from the underlying for weekly roots and for contracts adjusted after a corporate action (e.g., AMCR1).
+			Root *string `json:"root,omitempty"`
+
+			// StrikePrice The strike price of the contract.
+			StrikePrice *float64 `json:"strike_price,omitempty"`
+
+			// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+			Ticker string `json:"ticker"`
+
+			// UnderlyingTicker The ticker of the contract's underlying (e.g., SPX). Weekly and adjusted roots are folded in, so SPXW contracts report SPX and AMCR1 contracts report AMCR; see root to tell them apart.
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsVXOpenInterest200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsVXOpenInterest400Status `json:"status"`
+	}
+}
+type GetOptionsVXOpenInterest200Status string
+type GetOptionsVXOpenInterest400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsVXOpenInterestResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsVXOpenInterestResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsVXOpenInterestUnderlyingResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
+			Date openapi_types.Date `json:"date"`
+
+			// OpenInterest Total open interest across every contract on the underlying.
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OpenInterestCalls Total open interest across the underlying's call contracts.
+			OpenInterestCalls int64 `json:"open_interest_calls"`
+
+			// OpenInterestChange The change in total open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
+			OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
+
+			// OpenInterestChangeCalls The change in call open interest from the previous trading day, including call contracts that have since expired. Null when previous_open_interest is null.
+			OpenInterestChangeCalls *int64 `json:"open_interest_change_calls,omitempty"`
+
+			// OpenInterestChangePuts The change in put open interest from the previous trading day, including put contracts that have since expired. Null when previous_open_interest is null.
+			OpenInterestChangePuts *int64 `json:"open_interest_change_puts,omitempty"`
+
+			// OpenInterestPuts Total open interest across the underlying's put contracts.
+			OpenInterestPuts int64 `json:"open_interest_puts"`
+
+			// PreviousOpenInterest Total open interest on the underlying on the previous trading day, including contracts that have since expired. Null if the underlying had no open interest reported that day.
+			PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
+
+			// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsVXOpenInterestUnderlying200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsVXOpenInterestUnderlying400Status `json:"status"`
+	}
+}
+type GetOptionsVXOpenInterestUnderlying200Status string
+type GetOptionsVXOpenInterestUnderlying400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsVXOpenInterestUnderlyingResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsVXOpenInterestUnderlyingResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -59277,6 +60692,24 @@ func (c *ClientWithResponses) GetOptionsV3TradesTickerWithResponse(ctx context.C
 	return ParseGetOptionsV3TradesTickerResponse(rsp)
 }
 
+// GetOptionsVXOpenInterestWithResponse request returning *GetOptionsVXOpenInterestResponse
+func (c *ClientWithResponses) GetOptionsVXOpenInterestWithResponse(ctx context.Context, params *GetOptionsVXOpenInterestParams, reqEditors ...RequestEditorFn) (*GetOptionsVXOpenInterestResponse, error) {
+	rsp, err := c.GetOptionsVXOpenInterest(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsVXOpenInterestResponse(rsp)
+}
+
+// GetOptionsVXOpenInterestUnderlyingWithResponse request returning *GetOptionsVXOpenInterestUnderlyingResponse
+func (c *ClientWithResponses) GetOptionsVXOpenInterestUnderlyingWithResponse(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsVXOpenInterestUnderlyingResponse, error) {
+	rsp, err := c.GetOptionsVXOpenInterestUnderlying(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsVXOpenInterestUnderlyingResponse(rsp)
+}
+
 // GetStocksDevTradesTickerWithResponse request returning *GetStocksDevTradesTickerResponse
 func (c *ClientWithResponses) GetStocksDevTradesTickerWithResponse(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*GetStocksDevTradesTickerResponse, error) {
 	rsp, err := c.GetStocksDevTradesTicker(ctx, ticker, params, reqEditors...)
@@ -63745,6 +65178,171 @@ func ParseGetOptionsV3TradesTickerResponse(rsp *http.Response) (*GetOptionsV3Tra
 
 			// Status The status of this request's response.
 			Status GetOptionsV3TradesTicker400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsVXOpenInterestResponse parses an HTTP response from a GetOptionsVXOpenInterestWithResponse call
+func ParseGetOptionsVXOpenInterestResponse(rsp *http.Response) (*GetOptionsVXOpenInterestResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsVXOpenInterestResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// ContractType The contract type. Possible values: call, put.
+				ContractType *string `json:"contract_type,omitempty"`
+
+				// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
+				Date openapi_types.Date `json:"date"`
+
+				// ExpirationDate The date the contract expires (formatted as YYYY-MM-DD).
+				ExpirationDate *openapi_types.Date `json:"expiration_date,omitempty"`
+
+				// OpenInterest The number of outstanding contracts that have not been closed or exercised, as of the last open interest update of the day.
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OpenInterestChange The change in open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
+				OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
+
+				// PreviousOpenInterest The contract's open interest on the previous trading day. Null if the contract had no open interest reported that day, such as a new listing.
+				PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
+
+				// Root The OCC root symbol of the contract (e.g., SPXW). Differs from the underlying for weekly roots and for contracts adjusted after a corporate action (e.g., AMCR1).
+				Root *string `json:"root,omitempty"`
+
+				// StrikePrice The strike price of the contract.
+				StrikePrice *float64 `json:"strike_price,omitempty"`
+
+				// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
+				Ticker string `json:"ticker"`
+
+				// UnderlyingTicker The ticker of the contract's underlying (e.g., SPX). Weekly and adjusted roots are folded in, so SPXW contracts report SPX and AMCR1 contracts report AMCR; see root to tell them apart.
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsVXOpenInterest200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsVXOpenInterest400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsVXOpenInterestUnderlyingResponse parses an HTTP response from a GetOptionsVXOpenInterestUnderlyingWithResponse call
+func ParseGetOptionsVXOpenInterestUnderlyingResponse(rsp *http.Response) (*GetOptionsVXOpenInterestUnderlyingResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsVXOpenInterestUnderlyingResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
+				Date openapi_types.Date `json:"date"`
+
+				// OpenInterest Total open interest across every contract on the underlying.
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OpenInterestCalls Total open interest across the underlying's call contracts.
+				OpenInterestCalls int64 `json:"open_interest_calls"`
+
+				// OpenInterestChange The change in total open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
+				OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
+
+				// OpenInterestChangeCalls The change in call open interest from the previous trading day, including call contracts that have since expired. Null when previous_open_interest is null.
+				OpenInterestChangeCalls *int64 `json:"open_interest_change_calls,omitempty"`
+
+				// OpenInterestChangePuts The change in put open interest from the previous trading day, including put contracts that have since expired. Null when previous_open_interest is null.
+				OpenInterestChangePuts *int64 `json:"open_interest_change_puts,omitempty"`
+
+				// OpenInterestPuts Total open interest across the underlying's put contracts.
+				OpenInterestPuts int64 `json:"open_interest_puts"`
+
+				// PreviousOpenInterest Total open interest on the underlying on the previous trading day, including contracts that have since expired. Null if the underlying had no open interest reported that day.
+				PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
+
+				// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsVXOpenInterestUnderlying200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsVXOpenInterestUnderlying400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
