@@ -58769,6 +58769,9 @@ type ListOptionsContractsResponse struct {
 			// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 			Cfi *string `json:"cfi,omitempty"`
 
+			// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+			CompanyTicker *string `json:"company_ticker,omitempty"`
+
 			// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 			ContractType *string `json:"contract_type,omitempty"`
 
@@ -58781,8 +58784,20 @@ type ListOptionsContractsResponse struct {
 			// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 			ExpirationDate *string `json:"expiration_date,omitempty"`
 
+			// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+			Metric *string `json:"metric,omitempty"`
+
 			// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 			PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+			// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+			ReportTime *ListOptionsContracts200ResultsReportTime `json:"report_time,omitempty"`
+
+			// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+			ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+			// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+			Scale *int `json:"scale,omitempty"`
 
 			// SharesPerContract The number of shares per contract for this contract.
 			SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -58793,8 +58808,14 @@ type ListOptionsContractsResponse struct {
 			// Ticker The ticker for the option contract.
 			Ticker *string `json:"ticker,omitempty"`
 
+			// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+			Type *ListOptionsContracts200ResultsType `json:"type,omitempty"`
+
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
 		// Status The status of this request's response.
@@ -58802,6 +58823,9 @@ type ListOptionsContractsResponse struct {
 	}
 }
 type ListOptionsContracts200ResultsExerciseStyle string
+type ListOptionsContracts200ResultsReportTime string
+type ListOptionsContracts200ResultsType string
+type ListOptionsContracts200ResultsUnderlyingType string
 
 // Status returns HTTPResponse.Status
 func (r ListOptionsContractsResponse) Status() string {
@@ -58844,6 +58868,9 @@ type GetOptionsContractResponse struct {
 			// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 			Cfi *string `json:"cfi,omitempty"`
 
+			// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+			CompanyTicker *string `json:"company_ticker,omitempty"`
+
 			// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 			ContractType *string `json:"contract_type,omitempty"`
 
@@ -58856,8 +58883,20 @@ type GetOptionsContractResponse struct {
 			// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 			ExpirationDate *string `json:"expiration_date,omitempty"`
 
+			// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+			Metric *string `json:"metric,omitempty"`
+
 			// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 			PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+			// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+			ReportTime *GetOptionsContract200ResultsReportTime `json:"report_time,omitempty"`
+
+			// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+			ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+			// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+			Scale *int `json:"scale,omitempty"`
 
 			// SharesPerContract The number of shares per contract for this contract.
 			SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -58868,8 +58907,14 @@ type GetOptionsContractResponse struct {
 			// Ticker The ticker for the option contract.
 			Ticker *string `json:"ticker,omitempty"`
 
+			// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+			Type *GetOptionsContract200ResultsType `json:"type,omitempty"`
+
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
 		// Status The status of this request's response.
@@ -58877,6 +58922,9 @@ type GetOptionsContractResponse struct {
 	}
 }
 type GetOptionsContract200ResultsExerciseStyle string
+type GetOptionsContract200ResultsReportTime string
+type GetOptionsContract200ResultsType string
+type GetOptionsContract200ResultsUnderlyingType string
 
 // Status returns HTTPResponse.Status
 func (r GetOptionsContractResponse) Status() string {
@@ -74374,6 +74422,9 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 				Cfi *string `json:"cfi,omitempty"`
 
+				// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+				CompanyTicker *string `json:"company_ticker,omitempty"`
+
 				// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 				ContractType *string `json:"contract_type,omitempty"`
 
@@ -74386,8 +74437,20 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 				ExpirationDate *string `json:"expiration_date,omitempty"`
 
+				// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+				Metric *string `json:"metric,omitempty"`
+
 				// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 				PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+				// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+				ReportTime *ListOptionsContracts200ResultsReportTime `json:"report_time,omitempty"`
+
+				// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+				ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+				// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+				Scale *int `json:"scale,omitempty"`
 
 				// SharesPerContract The number of shares per contract for this contract.
 				SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -74398,8 +74461,14 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// Ticker The ticker for the option contract.
 				Ticker *string `json:"ticker,omitempty"`
 
+				// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+				Type *ListOptionsContracts200ResultsType `json:"type,omitempty"`
+
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
 			// Status The status of this request's response.
@@ -74455,6 +74524,9 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 				Cfi *string `json:"cfi,omitempty"`
 
+				// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+				CompanyTicker *string `json:"company_ticker,omitempty"`
+
 				// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 				ContractType *string `json:"contract_type,omitempty"`
 
@@ -74467,8 +74539,20 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 				ExpirationDate *string `json:"expiration_date,omitempty"`
 
+				// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+				Metric *string `json:"metric,omitempty"`
+
 				// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 				PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+				// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+				ReportTime *GetOptionsContract200ResultsReportTime `json:"report_time,omitempty"`
+
+				// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+				ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+				// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+				Scale *int `json:"scale,omitempty"`
 
 				// SharesPerContract The number of shares per contract for this contract.
 				SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -74479,8 +74563,14 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// Ticker The ticker for the option contract.
 				Ticker *string `json:"ticker,omitempty"`
 
+				// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+				Type *GetOptionsContract200ResultsType `json:"type,omitempty"`
+
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
 			// Status The status of this request's response.
