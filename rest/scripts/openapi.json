@@ -49228,6 +49228,10 @@
                             "description": "The 6 letter CFI code of the contract (defined in <a rel=\"nofollow\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/ISO_10962\">ISO 10962</a>)",
                             "type": "string"
                           },
+                          "company_ticker": {
+                            "description": "KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.",
+                            "type": "string"
+                          },
                           "contract_type": {
                             "description": "The type of contract. Can be \"put\", \"call\", or in some rare cases, \"other\".",
                             "type": "string"
@@ -49253,9 +49257,29 @@
                               "path": "github.com/polygon-io/ptime"
                             }
                           },
+                          "metric": {
+                            "description": "KPI binary options only. The KPI the contract settles on, like \"Earnings Per Share ($/share)\".",
+                            "type": "string"
+                          },
                           "primary_exchange": {
                             "description": "The MIC code of the primary exchange that this contract is listed on.",
                             "type": "string"
+                          },
+                          "report_time": {
+                            "description": "KPI binary options only. AM if the company reports before the market opens, PM if after it closes.",
+                            "enum": [
+                              "AM",
+                              "PM"
+                            ],
+                            "type": "string"
+                          },
+                          "reporting_period": {
+                            "description": "KPI binary options only. The fiscal period the KPI is for, like 2026Q3.",
+                            "type": "string"
+                          },
+                          "scale": {
+                            "description": "KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.",
+                            "type": "integer"
                           },
                           "shares_per_contract": {
                             "description": "The number of shares per contract for this contract.",
@@ -49269,8 +49293,23 @@
                             "description": "The ticker for the option contract.",
                             "type": "string"
                           },
+                          "type": {
+                            "description": "The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.",
+                            "enum": [
+                              "standard",
+                              "binary"
+                            ],
+                            "type": "string"
+                          },
                           "underlying_ticker": {
                             "description": "The underlying ticker that the option contract relates to.",
+                            "type": "string"
+                          },
+                          "underlying_type": {
+                            "description": "What the contract is based on. For now only set on KPI binary options, as kpi.",
+                            "enum": [
+                              "kpi"
+                            ],
                             "type": "string"
                           }
                         },
@@ -49419,6 +49458,10 @@
                           "description": "The 6 letter CFI code of the contract (defined in <a rel=\"nofollow\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/ISO_10962\">ISO 10962</a>)",
                           "type": "string"
                         },
+                        "company_ticker": {
+                          "description": "KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.",
+                          "type": "string"
+                        },
                         "contract_type": {
                           "description": "The type of contract. Can be \"put\", \"call\", or in some rare cases, \"other\".",
                           "type": "string"
@@ -49444,9 +49487,29 @@
                             "path": "github.com/polygon-io/ptime"
                           }
                         },
+                        "metric": {
+                          "description": "KPI binary options only. The KPI the contract settles on, like \"Earnings Per Share ($/share)\".",
+                          "type": "string"
+                        },
                         "primary_exchange": {
                           "description": "The MIC code of the primary exchange that this contract is listed on.",
                           "type": "string"
+                        },
+                        "report_time": {
+                          "description": "KPI binary options only. AM if the company reports before the market opens, PM if after it closes.",
+                          "enum": [
+                            "AM",
+                            "PM"
+                          ],
+                          "type": "string"
+                        },
+                        "reporting_period": {
+                          "description": "KPI binary options only. The fiscal period the KPI is for, like 2026Q3.",
+                          "type": "string"
+                        },
+                        "scale": {
+                          "description": "KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.",
+                          "type": "integer"
                         },
                         "shares_per_contract": {
                           "description": "The number of shares per contract for this contract.",
@@ -49460,8 +49523,23 @@
                           "description": "The ticker for the option contract.",
                           "type": "string"
                         },
+                        "type": {
+                          "description": "The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.",
+                          "enum": [
+                            "standard",
+                            "binary"
+                          ],
+                          "type": "string"
+                        },
                         "underlying_ticker": {
                           "description": "The underlying ticker that the option contract relates to.",
+                          "type": "string"
+                        },
+                        "underlying_type": {
+                          "description": "What the contract is based on. For now only set on KPI binary options, as kpi.",
+                          "enum": [
+                            "kpi"
+                          ],
                           "type": "string"
                         }
                       },
