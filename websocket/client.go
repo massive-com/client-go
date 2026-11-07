@@ -467,6 +467,9 @@ func (c *Client) handleStatus(msg json.RawMessage) error {
 		c.log.Debugf("authentication successful")
 	case "auth_failed":
 		// this is a fatal error so need to close the connection
+		if message := sanitize(cm.Message); message != "" {
+			return fmt.Errorf("authentication failed: %s: closing connection", message)
+		}
 		return errors.New("authentication failed: closing connection")
 	case "success":
 		c.log.Debugf("received a successful status message: %v", sanitize(cm.Message))

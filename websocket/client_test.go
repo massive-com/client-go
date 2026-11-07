@@ -35,7 +35,7 @@ func connect(w http.ResponseWriter, r *http.Request) {
 			data, _ := json.Marshal(res)
 			err = c.WriteMessage(mt, data)
 		} else {
-			res := []models.ControlMessage{{EventType: models.EventType{EventType: "status"}, Status: "auth_failed"}}
+			res := []models.ControlMessage{{EventType: models.EventType{EventType: "status"}, Status: "auth_failed", Message: "missing entitlement"}}
 			data, _ := json.Marshal(res)
 			err = c.WriteMessage(mt, data)
 		}
@@ -127,8 +127,29 @@ func TestConnectAuthFailure(t *testing.T) {
 	err = c.Connect()
 	assert.Nil(t, err)
 
-	err = <-c.Error()
-	assert.NotNil(t, err)
+	select {
+	case err = <-c.Error():
+		assert.EqualError(t, err, "authentication failed: missing entitlement: closing connection")
+	case <-time.After(5 * time.Second):
+		t.Fatal("timed out waiting for authentication error")
+	}
+}
+
+func TestHandleStatusAuthFailure(t *testing.T) {
+	for _, tc := range []struct {
+		name, message, want string
+	}{
+		{"reason", "missing entitlement", "authentication failed: missing entitlement: closing connection"},
+		{"empty", "", "authentication failed: closing connection"},
+		{"newline", "invalid\n credentials", "authentication failed: invalid credentials: closing connection"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			msg, err := json.Marshal(models.ControlMessage{Status: "auth_failed", Message: tc.message})
+			assert.NoError(t, err)
+			c := &Client{log: &nopLogger{}}
+			assert.EqualError(t, c.handleStatus(msg), tc.want)
+		})
+	}
 }
 
 func TestConnectRetryFailure(t *testing.T) {
