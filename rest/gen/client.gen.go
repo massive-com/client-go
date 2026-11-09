@@ -3623,24 +3623,6 @@ type GetOptionsVXOpenInterestParams struct {
 	// RootLte Filter less than or equal to the value.
 	RootLte *string `form:"root.lte,omitempty" json:"root.lte,omitempty"`
 
-	// UnderlyingTicker The ticker of the contract's underlying (e.g., SPX). Weekly and adjusted roots are folded in, so SPXW contracts report SPX and AMCR1 contracts report AMCR; see root to tell them apart.
-	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
-
-	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
-
-	// UnderlyingTickerGt Filter greater than the value.
-	UnderlyingTickerGt *string `form:"underlying_ticker.gt,omitempty" json:"underlying_ticker.gt,omitempty"`
-
-	// UnderlyingTickerGte Filter greater than or equal to the value.
-	UnderlyingTickerGte *string `form:"underlying_ticker.gte,omitempty" json:"underlying_ticker.gte,omitempty"`
-
-	// UnderlyingTickerLt Filter less than the value.
-	UnderlyingTickerLt *string `form:"underlying_ticker.lt,omitempty" json:"underlying_ticker.lt,omitempty"`
-
-	// UnderlyingTickerLte Filter less than or equal to the value.
-	UnderlyingTickerLte *string `form:"underlying_ticker.lte,omitempty" json:"underlying_ticker.lte,omitempty"`
-
 	// ContractType The contract type. Possible values: call, put.
 	ContractType *GetOptionsVXOpenInterestParamsContractType `form:"contract_type,omitempty" json:"contract_type,omitempty"`
 
@@ -3662,21 +3644,6 @@ type GetOptionsVXOpenInterestParams struct {
 	// ExpirationDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	ExpirationDateLte *string `form:"expiration_date.lte,omitempty" json:"expiration_date.lte,omitempty"`
 
-	// StrikePrice The strike price of the contract. Value must be a floating point number.
-	StrikePrice *float64 `form:"strike_price,omitempty" json:"strike_price,omitempty"`
-
-	// StrikePriceGt Filter greater than the value. Value must be a floating point number.
-	StrikePriceGt *float64 `form:"strike_price.gt,omitempty" json:"strike_price.gt,omitempty"`
-
-	// StrikePriceGte Filter greater than or equal to the value. Value must be a floating point number.
-	StrikePriceGte *float64 `form:"strike_price.gte,omitempty" json:"strike_price.gte,omitempty"`
-
-	// StrikePriceLt Filter less than the value. Value must be a floating point number.
-	StrikePriceLt *float64 `form:"strike_price.lt,omitempty" json:"strike_price.lt,omitempty"`
-
-	// StrikePriceLte Filter less than or equal to the value. Value must be a floating point number.
-	StrikePriceLte *float64 `form:"strike_price.lte,omitempty" json:"strike_price.lte,omitempty"`
-
 	// Date The trading date the open interest applies to (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
 	Date *string `form:"date,omitempty" json:"date,omitempty"`
 
@@ -3691,21 +3658,6 @@ type GetOptionsVXOpenInterestParams struct {
 
 	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
 	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
-
-	// OpenInterest The number of outstanding contracts that have not been closed or exercised, as of the last open interest update of the day. Value must be an integer.
-	OpenInterest *int64 `form:"open_interest,omitempty" json:"open_interest,omitempty"`
-
-	// OpenInterestGt Filter greater than the value. Value must be an integer.
-	OpenInterestGt *int64 `form:"open_interest.gt,omitempty" json:"open_interest.gt,omitempty"`
-
-	// OpenInterestGte Filter greater than or equal to the value. Value must be an integer.
-	OpenInterestGte *int64 `form:"open_interest.gte,omitempty" json:"open_interest.gte,omitempty"`
-
-	// OpenInterestLt Filter less than the value. Value must be an integer.
-	OpenInterestLt *int64 `form:"open_interest.lt,omitempty" json:"open_interest.lt,omitempty"`
-
-	// OpenInterestLte Filter less than or equal to the value. Value must be an integer.
-	OpenInterestLte *int64 `form:"open_interest.lte,omitempty" json:"open_interest.lte,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
@@ -22865,102 +22817,6 @@ func NewGetOptionsVXOpenInterestRequest(server string, params *GetOptionsVXOpenI
 
 		}
 
-		if params.UnderlyingTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gt", runtime.ParamLocationQuery, *params.UnderlyingTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gte", runtime.ParamLocationQuery, *params.UnderlyingTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lt", runtime.ParamLocationQuery, *params.UnderlyingTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lte", runtime.ParamLocationQuery, *params.UnderlyingTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
 		if params.ContractType != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "contract_type", runtime.ParamLocationQuery, *params.ContractType); err != nil {
@@ -23073,86 +22929,6 @@ func NewGetOptionsVXOpenInterestRequest(server string, params *GetOptionsVXOpenI
 
 		}
 
-		if params.StrikePrice != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price", runtime.ParamLocationQuery, *params.StrikePrice); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.StrikePriceGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.gt", runtime.ParamLocationQuery, *params.StrikePriceGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.StrikePriceGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.gte", runtime.ParamLocationQuery, *params.StrikePriceGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.StrikePriceLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.lt", runtime.ParamLocationQuery, *params.StrikePriceLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.StrikePriceLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.lte", runtime.ParamLocationQuery, *params.StrikePriceLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
 		if params.Date != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
@@ -23220,86 +22996,6 @@ func NewGetOptionsVXOpenInterestRequest(server string, params *GetOptionsVXOpenI
 		if params.DateLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterest != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest", runtime.ParamLocationQuery, *params.OpenInterest); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gt", runtime.ParamLocationQuery, *params.OpenInterestGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gte", runtime.ParamLocationQuery, *params.OpenInterestGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lt", runtime.ParamLocationQuery, *params.OpenInterestLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lte", runtime.ParamLocationQuery, *params.OpenInterestLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -50298,12 +49994,6 @@ type GetOptionsVXOpenInterestResponse struct {
 			// OpenInterest The number of outstanding contracts that have not been closed or exercised, as of the last open interest update of the day.
 			OpenInterest *int64 `json:"open_interest,omitempty"`
 
-			// OpenInterestChange The change in open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
-			OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
-
-			// PreviousOpenInterest The contract's open interest on the previous trading day. Null if the contract had no open interest reported that day, such as a new listing.
-			PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
-
 			// Root The OCC root symbol of the contract (e.g., SPXW). Differs from the underlying for weekly roots and for contracts adjusted after a corporate action (e.g., AMCR1).
 			Root *string `json:"root,omitempty"`
 
@@ -58769,6 +58459,9 @@ type ListOptionsContractsResponse struct {
 			// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 			Cfi *string `json:"cfi,omitempty"`
 
+			// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+			CompanyTicker *string `json:"company_ticker,omitempty"`
+
 			// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 			ContractType *string `json:"contract_type,omitempty"`
 
@@ -58781,8 +58474,20 @@ type ListOptionsContractsResponse struct {
 			// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 			ExpirationDate *string `json:"expiration_date,omitempty"`
 
+			// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+			Metric *string `json:"metric,omitempty"`
+
 			// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 			PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+			// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+			ReportTime *ListOptionsContracts200ResultsReportTime `json:"report_time,omitempty"`
+
+			// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+			ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+			// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+			Scale *int `json:"scale,omitempty"`
 
 			// SharesPerContract The number of shares per contract for this contract.
 			SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -58793,8 +58498,14 @@ type ListOptionsContractsResponse struct {
 			// Ticker The ticker for the option contract.
 			Ticker *string `json:"ticker,omitempty"`
 
+			// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+			Type *ListOptionsContracts200ResultsType `json:"type,omitempty"`
+
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
 		// Status The status of this request's response.
@@ -58802,6 +58513,9 @@ type ListOptionsContractsResponse struct {
 	}
 }
 type ListOptionsContracts200ResultsExerciseStyle string
+type ListOptionsContracts200ResultsReportTime string
+type ListOptionsContracts200ResultsType string
+type ListOptionsContracts200ResultsUnderlyingType string
 
 // Status returns HTTPResponse.Status
 func (r ListOptionsContractsResponse) Status() string {
@@ -58844,6 +58558,9 @@ type GetOptionsContractResponse struct {
 			// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 			Cfi *string `json:"cfi,omitempty"`
 
+			// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+			CompanyTicker *string `json:"company_ticker,omitempty"`
+
 			// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 			ContractType *string `json:"contract_type,omitempty"`
 
@@ -58856,8 +58573,20 @@ type GetOptionsContractResponse struct {
 			// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 			ExpirationDate *string `json:"expiration_date,omitempty"`
 
+			// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+			Metric *string `json:"metric,omitempty"`
+
 			// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 			PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+			// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+			ReportTime *GetOptionsContract200ResultsReportTime `json:"report_time,omitempty"`
+
+			// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+			ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+			// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+			Scale *int `json:"scale,omitempty"`
 
 			// SharesPerContract The number of shares per contract for this contract.
 			SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -58868,8 +58597,14 @@ type GetOptionsContractResponse struct {
 			// Ticker The ticker for the option contract.
 			Ticker *string `json:"ticker,omitempty"`
 
+			// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+			Type *GetOptionsContract200ResultsType `json:"type,omitempty"`
+
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
 		// Status The status of this request's response.
@@ -58877,6 +58612,9 @@ type GetOptionsContractResponse struct {
 	}
 }
 type GetOptionsContract200ResultsExerciseStyle string
+type GetOptionsContract200ResultsReportTime string
+type GetOptionsContract200ResultsType string
+type GetOptionsContract200ResultsUnderlyingType string
 
 // Status returns HTTPResponse.Status
 func (r GetOptionsContractResponse) Status() string {
@@ -59424,6 +59162,8 @@ type GetSnapshotsResponse struct {
 			// Values describe the current trading session only; nothing carries over from the previous session apart from `previous_close`. For stocks snapshots, an asset that has not traded yet this session reports `volume: 0` with the price and change fields omitted rather than reported as 0.
 			//
 			// During early trading on stocks snapshots, `volume` and `price` track the session as it happens, but `open`, `high`, `low`, `close` and `vwap` are omitted until the regular session opens, as those report official session prices. They appear from the open and remain through late trading.
+			//
+			// For options snapshots, the early, regular and late trading changes use these sessions: early trading from 7:30 to 9:30 AM ET, the regular session from 9:30 AM to 4:00 PM ET (4:15 PM ET for some products, such as SPY and SPX options), and late trading from the end of the regular session to 5:00 PM ET. Only trades marked with the extended hours condition (EXHT, 248) count as early or late trading. Cboe's extended trading hours program covers selected equity options, so other contracts do not get an early or late trading change. Index options, such as SPX, SPXW and XSP, get the regular trading change only. A change field is omitted when the contract has no trade in that session on the current trading day, or when the price it is measured against is missing. A change of 0 is returned as 0.
 			Session *struct {
 				// Change The value of the price change for the asset from the previous trading day.
 				Change *float64 `json:"change,omitempty"`
@@ -59437,19 +59177,22 @@ type GetSnapshotsResponse struct {
 				// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
 				DecimalVolume *string `json:"decimal_volume,omitempty"`
 
-				// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close.
+				// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close. For options, this is the price of the contract's last early trading trade today (7:30 to 9:30 AM ET, with the EXHT condition) minus `previous_close`.
 				EarlyTradingChange *float64 `json:"early_trading_change,omitempty"`
 
-				// EarlyTradingChangePercent Today's early trading change as a percentage.
+				// EarlyTradingChangePercent Today's early trading change as a percentage of `previous_close`.
 				EarlyTradingChangePercent *float64 `json:"early_trading_change_percent,omitempty"`
 
 				// High The highest price of the asset for the day.
 				High *float64 `json:"high,omitempty"`
 
-				// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close.
+				// LastUpdated The nanosecond timestamp of the last update to the session data. For stocks, it's set when the session resets at the start of each trading session and then advances with each trade; quotes don't update it. Returned for stocks, crypto, and forex snapshots, though it may be absent for inactive tickers.
+				LastUpdated *int64 `json:"last_updated,omitempty"`
+
+				// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close. For options, this is the price of the contract's last late trading trade today (after the regular session and before 5:00 PM ET, with the EXHT condition) minus today's `close`.
 				LateTradingChange *float64 `json:"late_trading_change,omitempty"`
 
-				// LateTradingChangePercent Today's late trading change as a percentage.
+				// LateTradingChangePercent Today's late trading change as a percentage of today's `close`.
 				LateTradingChangePercent *float64 `json:"late_trading_change_percent,omitempty"`
 
 				// Low The lowest price of the asset for the day.
@@ -59464,14 +59207,17 @@ type GetSnapshotsResponse struct {
 				// Price The price of the most recent trade or bid price for this asset.
 				Price *float64 `json:"price,omitempty"`
 
-				// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
+				// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close. For options, while `market_status` is `open` this is the price of the contract's last regular session trade today minus `previous_close`. During late trading and after the close, it is today's `close` minus `previous_close`. It is omitted during early trading.
 				RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
 
-				// RegularTradingChangePercent Today's regular trading change as a percentage.
+				// RegularTradingChangePercent Today's regular trading change as a percentage of `previous_close`.
 				RegularTradingChangePercent *float64 `json:"regular_trading_change_percent,omitempty"`
 
 				// Volume The trading volume for the asset for the day. A value of 0 means no trades have occurred yet in the current session.
 				Volume *float64 `json:"volume,omitempty"`
+
+				// Vwap The volume weighted average price of the asset for the day. Only returned for stocks, crypto, and forex snapshots, and omitted when there's no day bar yet, such as for stocks before the regular market open or for tickers that haven't traded today.
+				Vwap *float64 `json:"vwap,omitempty"`
 			} `json:"session,omitempty"`
 
 			// Ticker The ticker symbol for the asset.
@@ -61776,6 +61522,9 @@ func ParseGetBenzingaV1AnalystInsightsResponse(rsp *http.Response) (*GetBenzinga
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -61863,6 +61612,9 @@ func ParseGetBenzingaV1AnalystsResponse(rsp *http.Response) (*GetBenzingaV1Analy
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -61931,6 +61683,9 @@ func ParseGetBenzingaV1BullsBearsSayResponse(rsp *http.Response) (*GetBenzingaV1
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -62024,6 +61779,9 @@ func ParseGetBenzingaV1ConsensusRatingsTickerResponse(rsp *http.Response) (*GetB
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -62151,6 +61909,9 @@ func ParseGetBenzingaV1EarningsResponse(rsp *http.Response) (*GetBenzingaV1Earni
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -62216,6 +61977,9 @@ func ParseGetBenzingaV1FirmsResponse(rsp *http.Response) (*GetBenzingaV1FirmsRes
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -62346,6 +62110,9 @@ func ParseGetBenzingaV1GuidanceResponse(rsp *http.Response) (*GetBenzingaV1Guida
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -62472,6 +62239,9 @@ func ParseGetBenzingaV1RatingsResponse(rsp *http.Response) (*GetBenzingaV1Rating
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -62561,6 +62331,9 @@ func ParseGetBenzingaV2NewsResponse(rsp *http.Response) (*GetBenzingaV2NewsRespo
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -62691,6 +62464,9 @@ func ParseGetConsumerSpendingEuV1MerchantAggregatesResponse(rsp *http.Response) 
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -62796,6 +62572,9 @@ func ParseGetConsumerSpendingEuV1MerchantHierarchyResponse(rsp *http.Response) (
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -62861,6 +62640,9 @@ func ParseGetCryptoV1ExchangesResponse(rsp *http.Response) (*GetCryptoV1Exchange
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -63018,6 +62800,9 @@ func ParseGetEtfGlobalV1AnalyticsResponse(rsp *http.Response) (*GetEtfGlobalV1An
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -63126,6 +62911,9 @@ func ParseGetEtfGlobalV1ConstituentsResponse(rsp *http.Response) (*GetEtfGlobalV
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -63197,6 +62985,9 @@ func ParseGetEtfGlobalV1FundFlowsResponse(rsp *http.Response) (*GetEtfGlobalV1Fu
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -63444,6 +63235,9 @@ func ParseGetEtfGlobalV1ProfilesResponse(rsp *http.Response) (*GetEtfGlobalV1Pro
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -63615,6 +63409,9 @@ func ParseGetEtfGlobalV1TaxonomiesResponse(rsp *http.Response) (*GetEtfGlobalV1T
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -63735,6 +63532,9 @@ func ParseGetFedV1FundingConditionsResponse(rsp *http.Response) (*GetFedV1Fundin
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -63809,6 +63609,9 @@ func ParseGetFedV1InflationResponse(rsp *http.Response) (*GetFedV1InflationRespo
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -63888,6 +63691,9 @@ func ParseGetFedV1InflationExpectationsResponse(rsp *http.Response) (*GetFedV1In
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -63956,6 +63762,9 @@ func ParseGetFedV1LaborMarketResponse(rsp *http.Response) (*GetFedV1LaborMarketR
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -64047,6 +63856,9 @@ func ParseGetFedV1TreasuryYieldsResponse(rsp *http.Response) (*GetFedV1TreasuryY
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -64109,6 +63921,9 @@ func ParseGetForexV1ExchangesResponse(rsp *http.Response) (*GetForexV1ExchangesR
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -64287,6 +64102,9 @@ func ParseGetFuturesV1ContractsResponse(rsp *http.Response) (*GetFuturesV1Contra
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -64365,6 +64183,9 @@ func ParseGetFuturesV1ExchangesResponse(rsp *http.Response) (*GetFuturesV1Exchan
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -64436,6 +64257,9 @@ func ParseGetFuturesV1MarketStatusResponse(rsp *http.Response) (*GetFuturesV1Mar
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -64554,6 +64378,9 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -64644,6 +64471,9 @@ func ParseGetFuturesV1QuotesTickerResponse(rsp *http.Response) (*GetFuturesV1Quo
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -64715,6 +64545,9 @@ func ParseGetFuturesV1SchedulesResponse(rsp *http.Response) (*GetFuturesV1Schedu
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -64866,6 +64699,9 @@ func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1Snapsho
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -64943,6 +64779,9 @@ func ParseGetFuturesV1TradesTickerResponse(rsp *http.Response) (*GetFuturesV1Tra
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -65025,6 +64864,9 @@ func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1Exchan
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -65106,6 +64948,9 @@ func ParseGetOptionsV3QuotesTickerResponse(rsp *http.Response) (*GetOptionsV3Quo
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -65184,6 +65029,9 @@ func ParseGetOptionsV3TradesTickerResponse(rsp *http.Response) (*GetOptionsV3Tra
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -65225,12 +65073,6 @@ func ParseGetOptionsVXOpenInterestResponse(rsp *http.Response) (*GetOptionsVXOpe
 				// OpenInterest The number of outstanding contracts that have not been closed or exercised, as of the last open interest update of the day.
 				OpenInterest *int64 `json:"open_interest,omitempty"`
 
-				// OpenInterestChange The change in open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
-				OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
-
-				// PreviousOpenInterest The contract's open interest on the previous trading day. Null if the contract had no open interest reported that day, such as a new listing.
-				PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
-
 				// Root The OCC root symbol of the contract (e.g., SPXW). Differs from the underlying for weekly roots and for contracts adjusted after a corporate action (e.g., AMCR1).
 				Root *string `json:"root,omitempty"`
 
@@ -65267,6 +65109,9 @@ func ParseGetOptionsVXOpenInterestResponse(rsp *http.Response) (*GetOptionsVXOpe
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -65348,6 +65193,9 @@ func ParseGetOptionsVXOpenInterestUnderlyingResponse(rsp *http.Response) (*GetOp
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -65455,6 +65303,9 @@ func ParseGetStocksDevTradesTickerResponse(rsp *http.Response) (*GetStocksDevTra
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -65530,6 +65381,9 @@ func ParseGetStocksFilings10KVXSectionsResponse(rsp *http.Response) (*GetStocksF
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -65604,6 +65458,9 @@ func ParseGetStocksFilings10KVX0SectionsResponse(rsp *http.Response) (*GetStocks
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -65686,6 +65543,9 @@ func ParseGetStocksFilings8KVXDisclosuresResponse(rsp *http.Response) (*GetStock
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -65760,6 +65620,9 @@ func ParseGetStocksFilings8KVXTextResponse(rsp *http.Response) (*GetStocksFiling
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -65874,6 +65737,9 @@ func ParseGetStocksFilingsVX13FResponse(rsp *http.Response) (*GetStocksFilingsVX
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -66018,6 +65884,9 @@ func ParseGetStocksFilingsVXForm3Response(rsp *http.Response) (*GetStocksFilings
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -66195,6 +66064,9 @@ func ParseGetStocksFilingsVXForm4Response(rsp *http.Response) (*GetStocksFilings
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -66382,6 +66254,9 @@ func ParseGetStocksFilingsVXForm5Response(rsp *http.Response) (*GetStocksFilings
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -66457,6 +66332,9 @@ func ParseGetStocksFilingsVXIndexResponse(rsp *http.Response) (*GetStocksFilings
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -66531,6 +66409,9 @@ func ParseGetStocksFilingsVXRiskFactorsResponse(rsp *http.Response) (*GetStocksF
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -66700,6 +66581,9 @@ func ParseGetStocksFinancialsV1BalanceSheetsResponse(rsp *http.Response) (*GetSt
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -66849,6 +66733,9 @@ func ParseGetStocksFinancialsV1CashFlowStatementsResponse(rsp *http.Response) (*
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -67006,6 +66893,9 @@ func ParseGetStocksFinancialsV1IncomeStatementsResponse(rsp *http.Response) (*Ge
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67129,6 +67019,9 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67234,6 +67127,9 @@ func ParseGetStocksInsidersVXActivityResponse(rsp *http.Response) (*GetStocksIns
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67336,6 +67232,9 @@ func ParseGetStocksInsidersVXHoldingsResponse(rsp *http.Response) (*GetStocksIns
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67405,6 +67304,9 @@ func ParseGetStocksTaxonomiesVXDisclosuresResponse(rsp *http.Response) (*GetStoc
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67473,6 +67375,9 @@ func ParseGetStocksTaxonomiesVXRiskFactorsResponse(rsp *http.Response) (*GetStoc
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -67564,6 +67469,9 @@ func ParseGetStocksV1DividendsResponse(rsp *http.Response) (*GetStocksV1Dividend
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67645,6 +67553,9 @@ func ParseGetStocksV1ExchangesResponse(rsp *http.Response) (*GetStocksV1Exchange
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67713,6 +67624,9 @@ func ParseGetStocksV1ShortInterestResponse(rsp *http.Response) (*GetStocksV1Shor
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -67813,6 +67727,9 @@ func ParseGetStocksV1ShortVolumeResponse(rsp *http.Response) (*GetStocksV1ShortV
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67888,6 +67805,9 @@ func ParseGetStocksV1SplitsResponse(rsp *http.Response) (*GetStocksV1SplitsRespo
 		}
 		response.JSON400 = &dest
 
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
 	}
 
 	return response, nil
@@ -67953,6 +67873,9 @@ func ParseGetStocksVXFloatResponse(rsp *http.Response) (*GetStocksVXFloatRespons
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -68040,6 +67963,9 @@ func ParseGetTmxV1CorporateEventsResponse(rsp *http.Response) (*GetTmxV1Corporat
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -70603,6 +70529,9 @@ func ParseGetV1ReferenceIposResponse(rsp *http.Response) (*GetV1ReferenceIposRes
 			return nil, err
 		}
 		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
 
 	}
 
@@ -74374,6 +74303,9 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 				Cfi *string `json:"cfi,omitempty"`
 
+				// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+				CompanyTicker *string `json:"company_ticker,omitempty"`
+
 				// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 				ContractType *string `json:"contract_type,omitempty"`
 
@@ -74386,8 +74318,20 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 				ExpirationDate *string `json:"expiration_date,omitempty"`
 
+				// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+				Metric *string `json:"metric,omitempty"`
+
 				// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 				PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+				// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+				ReportTime *ListOptionsContracts200ResultsReportTime `json:"report_time,omitempty"`
+
+				// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+				ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+				// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+				Scale *int `json:"scale,omitempty"`
 
 				// SharesPerContract The number of shares per contract for this contract.
 				SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -74398,8 +74342,14 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// Ticker The ticker for the option contract.
 				Ticker *string `json:"ticker,omitempty"`
 
+				// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+				Type *ListOptionsContracts200ResultsType `json:"type,omitempty"`
+
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
 			// Status The status of this request's response.
@@ -74455,6 +74405,9 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// Cfi The 6 letter CFI code of the contract (defined in <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/ISO_10962">ISO 10962</a>)
 				Cfi *string `json:"cfi,omitempty"`
 
+				// CompanyTicker KPI binary options only. The ticker of the company the KPI belongs to, like NFLX.
+				CompanyTicker *string `json:"company_ticker,omitempty"`
+
 				// ContractType The type of contract. Can be "put", "call", or in some rare cases, "other".
 				ContractType *string `json:"contract_type,omitempty"`
 
@@ -74467,8 +74420,20 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// ExpirationDate The contract's expiration date in YYYY-MM-DD format.
 				ExpirationDate *string `json:"expiration_date,omitempty"`
 
+				// Metric KPI binary options only. The KPI the contract settles on, like "Earnings Per Share ($/share)".
+				Metric *string `json:"metric,omitempty"`
+
 				// PrimaryExchange The MIC code of the primary exchange that this contract is listed on.
 				PrimaryExchange *string `json:"primary_exchange,omitempty"`
+
+				// ReportTime KPI binary options only. AM if the company reports before the market opens, PM if after it closes.
+				ReportTime *GetOptionsContract200ResultsReportTime `json:"report_time,omitempty"`
+
+				// ReportingPeriod KPI binary options only. The fiscal period the KPI is for, like 2026Q3.
+				ReportingPeriod *string `json:"reporting_period,omitempty"`
+
+				// Scale KPI binary options only. The KPI value divided by scale gives the strike price, like 1000000000 for a KPI in billions. A negative scale means an inverted KPI, like Loss Per Share.
+				Scale *int `json:"scale,omitempty"`
 
 				// SharesPerContract The number of shares per contract for this contract.
 				SharesPerContract *float32 `json:"shares_per_contract,omitempty"`
@@ -74479,8 +74444,14 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// Ticker The ticker for the option contract.
 				Ticker *string `json:"ticker,omitempty"`
 
+				// Type The type of option contract: standard or binary. It can be missing, for example on contracts listed before this field was added, so a missing type says nothing about the contract.
+				Type *GetOptionsContract200ResultsType `json:"type,omitempty"`
+
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
 			// Status The status of this request's response.
@@ -75075,6 +75046,8 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 				// Values describe the current trading session only; nothing carries over from the previous session apart from `previous_close`. For stocks snapshots, an asset that has not traded yet this session reports `volume: 0` with the price and change fields omitted rather than reported as 0.
 				//
 				// During early trading on stocks snapshots, `volume` and `price` track the session as it happens, but `open`, `high`, `low`, `close` and `vwap` are omitted until the regular session opens, as those report official session prices. They appear from the open and remain through late trading.
+				//
+				// For options snapshots, the early, regular and late trading changes use these sessions: early trading from 7:30 to 9:30 AM ET, the regular session from 9:30 AM to 4:00 PM ET (4:15 PM ET for some products, such as SPY and SPX options), and late trading from the end of the regular session to 5:00 PM ET. Only trades marked with the extended hours condition (EXHT, 248) count as early or late trading. Cboe's extended trading hours program covers selected equity options, so other contracts do not get an early or late trading change. Index options, such as SPX, SPXW and XSP, get the regular trading change only. A change field is omitted when the contract has no trade in that session on the current trading day, or when the price it is measured against is missing. A change of 0 is returned as 0.
 				Session *struct {
 					// Change The value of the price change for the asset from the previous trading day.
 					Change *float64 `json:"change,omitempty"`
@@ -75088,19 +75061,22 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
 					DecimalVolume *string `json:"decimal_volume,omitempty"`
 
-					// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close.
+					// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close. For options, this is the price of the contract's last early trading trade today (7:30 to 9:30 AM ET, with the EXHT condition) minus `previous_close`.
 					EarlyTradingChange *float64 `json:"early_trading_change,omitempty"`
 
-					// EarlyTradingChangePercent Today's early trading change as a percentage.
+					// EarlyTradingChangePercent Today's early trading change as a percentage of `previous_close`.
 					EarlyTradingChangePercent *float64 `json:"early_trading_change_percent,omitempty"`
 
 					// High The highest price of the asset for the day.
 					High *float64 `json:"high,omitempty"`
 
-					// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close.
+					// LastUpdated The nanosecond timestamp of the last update to the session data. For stocks, it's set when the session resets at the start of each trading session and then advances with each trade; quotes don't update it. Returned for stocks, crypto, and forex snapshots, though it may be absent for inactive tickers.
+					LastUpdated *int64 `json:"last_updated,omitempty"`
+
+					// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close. For options, this is the price of the contract's last late trading trade today (after the regular session and before 5:00 PM ET, with the EXHT condition) minus today's `close`.
 					LateTradingChange *float64 `json:"late_trading_change,omitempty"`
 
-					// LateTradingChangePercent Today's late trading change as a percentage.
+					// LateTradingChangePercent Today's late trading change as a percentage of today's `close`.
 					LateTradingChangePercent *float64 `json:"late_trading_change_percent,omitempty"`
 
 					// Low The lowest price of the asset for the day.
@@ -75115,14 +75091,17 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// Price The price of the most recent trade or bid price for this asset.
 					Price *float64 `json:"price,omitempty"`
 
-					// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
+					// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close. For options, while `market_status` is `open` this is the price of the contract's last regular session trade today minus `previous_close`. During late trading and after the close, it is today's `close` minus `previous_close`. It is omitted during early trading.
 					RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
 
-					// RegularTradingChangePercent Today's regular trading change as a percentage.
+					// RegularTradingChangePercent Today's regular trading change as a percentage of `previous_close`.
 					RegularTradingChangePercent *float64 `json:"regular_trading_change_percent,omitempty"`
 
 					// Volume The trading volume for the asset for the day. A value of 0 means no trades have occurred yet in the current session.
 					Volume *float64 `json:"volume,omitempty"`
+
+					// Vwap The volume weighted average price of the asset for the day. Only returned for stocks, crypto, and forex snapshots, and omitted when there's no day bar yet, such as for stocks before the regular market open or for tickers that haven't traded today.
+					Vwap *float64 `json:"vwap,omitempty"`
 				} `json:"session,omitempty"`
 
 				// Ticker The ticker symbol for the asset.
