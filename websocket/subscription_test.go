@@ -17,6 +17,8 @@ func TestSupportsTopic(t *testing.T) {
 	assert.Equal(t, false, Forex.supports(OptionsQuotes))
 	assert.Equal(t, true, Crypto.supports(CryptoL2Book))
 	assert.Equal(t, false, Crypto.supports(cryptoMin))
+	assert.Equal(t, true, Options.supports(OptionsAdmin))
+	assert.Equal(t, false, Stocks.supports(OptionsAdmin))
 	assert.Equal(t, true, Market("testMarket").supports(StocksImbalances))
 }
 
@@ -63,6 +65,12 @@ func TestGetSub(t *testing.T) {
 	sub, err := json.Marshal(models.ControlMessage{Action: models.Subscribe, Params: "AM.AAPL,AM.GME,AM.HOOD"})
 	assert.Nil(t, err)
 	assert.Equal(t, json.RawMessage(sub), submsg)
+
+	adminmsg, err := getSub(models.Subscribe, OptionsAdmin, "302", "323")
+	assert.Nil(t, err)
+	admin, err := json.Marshal(models.ControlMessage{Action: models.Subscribe, Params: "AD.302,AD.323"})
+	assert.Nil(t, err)
+	assert.Equal(t, json.RawMessage(admin), adminmsg)
 
 	unsubmsg, err := getSub(models.Unsubscribe, StocksSecAggs)
 	assert.Nil(t, err)

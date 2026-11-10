@@ -140,7 +140,8 @@ const (
 	OptionsQuotes           Topic = 34
 	OptionsLaunchpadMinAggs Topic = 35
 	OptionsLaunchpadValue   Topic = 36
-	optionsMax              Topic = 37
+	OptionsAdmin            Topic = 37
+	optionsMax              Topic = 38
 
 	forexMin              Topic = 50
 	ForexSecAggs          Topic = 51
@@ -204,6 +205,8 @@ func (t Topic) prefix() string {
 		return "AM"
 	case OptionsLaunchpadValue:
 		return "LV"
+	case OptionsAdmin:
+		return "AD"
 	case ForexSecAggs:
 		return "CAS"
 	case ForexMinAggs:
