@@ -353,6 +353,31 @@ type LimitUpLimitDown struct {
 	SequenceNumber int64 `json:"q,omitempty"`
 }
 
+// OptionsAdmin is an administrative message (e.g. a FLEX trade report) for the options market.
+type OptionsAdmin struct {
+	// The event type.
+	EventType
+
+	// The unique ID of the message, in the format "<sip_timestamp>-<sequence_number>".
+	ID string `json:"i,omitempty"`
+
+	// The exchange ID.
+	Exchange int32 `json:"x,omitempty"`
+
+	// The raw OPRA administrative message text. The format varies by exchange and may contain significant runs of
+	// spaces, so it is passed through unmodified.
+	Message string `json:"m,omitempty"`
+
+	// The SIP Timestamp in Unix nanoseconds.
+	Timestamp int64 `json:"t,omitempty"`
+
+	// The sequence number represents the sequence in which message events happened.
+	SequenceNumber int64 `json:"q,omitempty"`
+
+	// Whether or not this message is a retransmission. This field will be left off if false.
+	Retransmission bool `json:"rt,omitempty"`
+}
+
 // Level2Book is level 2 book data for a given crypto pair.
 type Level2Book struct {
 	// The event type.

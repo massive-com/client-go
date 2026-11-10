@@ -577,6 +577,13 @@ func (c *Client) handleData(eventType string, msg json.RawMessage) {
 				return
 			}
 			c.output <- out
+		case "AD":
+			var out models.OptionsAdmin
+			if err := json.Unmarshal(msg, &out); err != nil {
+				c.log.Errorf("failed to unmarshal message: %v", err)
+				return
+			}
+			c.output <- out
 		default:
 			c.log.Infof("unknown message type '%s' for market %s", sanitize(eventType), c.market)
 		}
