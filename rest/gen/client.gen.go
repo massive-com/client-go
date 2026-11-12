@@ -59521,7 +59521,12 @@ type GetSnapshotsResponse struct {
 			// LastUpdated The nanosecond timestamp of when this information was updated.
 			LastUpdated *int64 `json:"last_updated,omitempty"`
 
-			// MarketStatus The market status for the market that trades this ticker. Possible values for stocks, options, crypto, and forex snapshots are open, closed, early_trading, or late_trading.
+			// MarketStatus The market status for the market that trades this ticker.
+			//
+			// Possible values for Stocks are overnight_trading, open, closed, early_trading, and late_trading. Note that the overnight_trading session is new as of 2026-12-07 for SIP 23/5 extended hours.
+			//
+			// Possible values for options, crypto, and forex snapshots are open, closed, early_trading, or late_trading.
+			//
 			// Possible values for indices snapshots are regular_trading, closed, early_trading, and late_trading.
 			MarketStatus *string `json:"market_status,omitempty"`
 
@@ -75501,7 +75506,12 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 				// LastUpdated The nanosecond timestamp of when this information was updated.
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
-				// MarketStatus The market status for the market that trades this ticker. Possible values for stocks, options, crypto, and forex snapshots are open, closed, early_trading, or late_trading.
+				// MarketStatus The market status for the market that trades this ticker.
+				//
+				// Possible values for Stocks are overnight_trading, open, closed, early_trading, and late_trading. Note that the overnight_trading session is new as of 2026-12-07 for SIP 23/5 extended hours.
+				//
+				// Possible values for options, crypto, and forex snapshots are open, closed, early_trading, or late_trading.
+				//
 				// Possible values for indices snapshots are regular_trading, closed, early_trading, and late_trading.
 				MarketStatus *string `json:"market_status,omitempty"`
 
