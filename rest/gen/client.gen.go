@@ -3531,6 +3531,30 @@ type GetFuturesV1TradesTickerParams struct {
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
+// GetOptionsV1AdminMessagesParams defines parameters for GetOptionsV1AdminMessages.
+type GetOptionsV1AdminMessagesParams struct {
+	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
+
+	// TimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGte *string `form:"timestamp.gte,omitempty" json:"timestamp.gte,omitempty"`
+
+	// TimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLt *string `form:"timestamp.lt,omitempty" json:"timestamp.lt,omitempty"`
+
+	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
+
+	// Exchange The exchange ID. See Exchanges mapping for details. Value must be an integer.
+	Exchange *int64 `form:"exchange,omitempty" json:"exchange,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'asc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
 // GetOptionsV1ExchangesParams defines parameters for GetOptionsV1Exchanges.
 type GetOptionsV1ExchangesParams struct {
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '1000'.
@@ -8233,6 +8257,9 @@ type ClientInterface interface {
 	// GetFuturesV1TradesTicker request
 	GetFuturesV1TradesTicker(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetOptionsV1AdminMessages request
+	GetOptionsV1AdminMessages(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetOptionsV1Exchanges request
 	GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8953,6 +8980,18 @@ func (c *Client) GetFuturesV1Snapshot(ctx context.Context, params *GetFuturesV1S
 
 func (c *Client) GetFuturesV1TradesTicker(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetFuturesV1TradesTickerRequest(c.Server, ticker, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV1AdminMessages(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1AdminMessagesRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -22251,6 +22290,151 @@ func NewGetFuturesV1TradesTickerRequest(server string, ticker string, params *Ge
 		if params.SessionEndDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date", runtime.ParamLocationQuery, *params.SessionEndDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV1AdminMessagesRequest generates requests for GetOptionsV1AdminMessages
+func NewGetOptionsV1AdminMessagesRequest(server string, params *GetOptionsV1AdminMessagesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/admin-messages")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.TimestampGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gte", runtime.ParamLocationQuery, *params.TimestampGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lt", runtime.ParamLocationQuery, *params.TimestampLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Exchange != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "exchange", runtime.ParamLocationQuery, *params.Exchange); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -46703,6 +46887,9 @@ type ClientWithResponsesInterface interface {
 	// GetFuturesV1TradesTickerWithResponse request
 	GetFuturesV1TradesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesTickerResponse, error)
 
+	// GetOptionsV1AdminMessagesWithResponse request
+	GetOptionsV1AdminMessagesWithResponse(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AdminMessagesResponse, error)
+
 	// GetOptionsV1ExchangesWithResponse request
 	GetOptionsV1ExchangesWithResponse(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1ExchangesResponse, error)
 
@@ -50049,6 +50236,70 @@ func (r GetFuturesV1TradesTickerResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetFuturesV1TradesTickerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsV1AdminMessagesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Exchange The exchange ID. See Exchanges mapping for details.
+			Exchange int32 `json:"exchange"`
+
+			// Id The unique identifier for this admin message, composed of the SIP timestamp and the sequence number.
+			Id string `json:"id"`
+
+			// Message The administrative message text as distributed by OPRA.
+			Message string `json:"message"`
+
+			// Retransmission True if this record was retransmitted. Omitted when false.
+			Retransmission *bool `json:"retransmission,omitempty"`
+
+			// SequenceNumber The sequence number represents the sequence in which admin events happened. These are increasing and unique, but will not always be sequential.
+			SequenceNumber int64 `json:"sequence_number"`
+
+			// Timestamp The SIP timestamp in Unix nanoseconds.
+			Timestamp int64 `json:"timestamp"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AdminMessages200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AdminMessages400Status `json:"status"`
+	}
+}
+type GetOptionsV1AdminMessages200Status string
+type GetOptionsV1AdminMessages400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1AdminMessagesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1AdminMessagesResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -58881,7 +59132,7 @@ type ListOptionsContractsResponse struct {
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 			UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
@@ -58980,7 +59231,7 @@ type GetOptionsContractResponse struct {
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 			UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
@@ -60791,6 +61042,15 @@ func (c *ClientWithResponses) GetFuturesV1TradesTickerWithResponse(ctx context.C
 		return nil, err
 	}
 	return ParseGetFuturesV1TradesTickerResponse(rsp)
+}
+
+// GetOptionsV1AdminMessagesWithResponse request returning *GetOptionsV1AdminMessagesResponse
+func (c *ClientWithResponses) GetOptionsV1AdminMessagesWithResponse(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AdminMessagesResponse, error) {
+	rsp, err := c.GetOptionsV1AdminMessages(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1AdminMessagesResponse(rsp)
 }
 
 // GetOptionsV1ExchangesWithResponse request returning *GetOptionsV1ExchangesResponse
@@ -65165,6 +65425,81 @@ func ParseGetFuturesV1TradesTickerResponse(rsp *http.Response) (*GetFuturesV1Tra
 
 			// Status The status of this request's response.
 			Status GetFuturesV1TradesTicker400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsV1AdminMessagesResponse parses an HTTP response from a GetOptionsV1AdminMessagesWithResponse call
+func ParseGetOptionsV1AdminMessagesResponse(rsp *http.Response) (*GetOptionsV1AdminMessagesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1AdminMessagesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Exchange The exchange ID. See Exchanges mapping for details.
+				Exchange int32 `json:"exchange"`
+
+				// Id The unique identifier for this admin message, composed of the SIP timestamp and the sequence number.
+				Id string `json:"id"`
+
+				// Message The administrative message text as distributed by OPRA.
+				Message string `json:"message"`
+
+				// Retransmission True if this record was retransmitted. Omitted when false.
+				Retransmission *bool `json:"retransmission,omitempty"`
+
+				// SequenceNumber The sequence number represents the sequence in which admin events happened. These are increasing and unique, but will not always be sequential.
+				SequenceNumber int64 `json:"sequence_number"`
+
+				// Timestamp The SIP timestamp in Unix nanoseconds.
+				Timestamp int64 `json:"timestamp"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AdminMessages200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AdminMessages400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -74826,7 +75161,7 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 				UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
@@ -74928,7 +75263,7 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 				UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
