@@ -275,6 +275,18 @@ const (
 	GetFuturesV1ProductsParamsTypeAnyOfSingle GetFuturesV1ProductsParamsTypeAnyOf = "single"
 )
 
+// Defines values for GetOptionsV1AnalyticsParamsContractType.
+const (
+	GetOptionsV1AnalyticsParamsContractTypeCall GetOptionsV1AnalyticsParamsContractType = "call"
+	GetOptionsV1AnalyticsParamsContractTypePut  GetOptionsV1AnalyticsParamsContractType = "put"
+)
+
+// Defines values for GetOptionsV1AnalyticsParamsContractTypeAnyOf.
+const (
+	GetOptionsV1AnalyticsParamsContractTypeAnyOfCall GetOptionsV1AnalyticsParamsContractTypeAnyOf = "call"
+	GetOptionsV1AnalyticsParamsContractTypeAnyOfPut  GetOptionsV1AnalyticsParamsContractTypeAnyOf = "put"
+)
+
 // Defines values for GetOptionsV1OpenInterestParamsContractType.
 const (
 	GetOptionsV1OpenInterestParamsContractTypeCall GetOptionsV1OpenInterestParamsContractType = "call"
@@ -3530,6 +3542,81 @@ type GetFuturesV1TradesTickerParams struct {
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
+
+// GetOptionsV1AdminMessagesParams defines parameters for GetOptionsV1AdminMessages.
+type GetOptionsV1AdminMessagesParams struct {
+	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
+
+	// TimestampGte Filter greater than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampGte *string `form:"timestamp.gte,omitempty" json:"timestamp.gte,omitempty"`
+
+	// TimestampLt Filter less than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLt *string `form:"timestamp.lt,omitempty" json:"timestamp.lt,omitempty"`
+
+	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
+
+	// Exchange The exchange ID. See Exchanges mapping for details. Value must be an integer.
+	Exchange *int64 `form:"exchange,omitempty" json:"exchange,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'asc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsV1AnalyticsParams defines parameters for GetOptionsV1Analytics.
+type GetOptionsV1AnalyticsParams struct {
+	// Ticker Options contract ticker in Massive format (e.g. O:AMD261121C00220000)
+	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
+
+	// TickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	TickerAnyOf *string `form:"ticker.any_of,omitempty" json:"ticker.any_of,omitempty"`
+
+	// UnderlyingTicker Underlying symbol
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// ExpirationDate Contract expiration date Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDate *string `form:"expiration_date,omitempty" json:"expiration_date,omitempty"`
+
+	// ContractType call or put
+	ContractType *GetOptionsV1AnalyticsParamsContractType `form:"contract_type,omitempty" json:"contract_type,omitempty"`
+
+	// ContractTypeAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	ContractTypeAnyOf *GetOptionsV1AnalyticsParamsContractTypeAnyOf `form:"contract_type.any_of,omitempty" json:"contract_type.any_of,omitempty"`
+
+	// Date The trading date the values reflect Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsV1AnalyticsParamsContractType defines parameters for GetOptionsV1Analytics.
+type GetOptionsV1AnalyticsParamsContractType string
+
+// GetOptionsV1AnalyticsParamsContractTypeAnyOf defines parameters for GetOptionsV1Analytics.
+type GetOptionsV1AnalyticsParamsContractTypeAnyOf string
 
 // GetOptionsV1ExchangesParams defines parameters for GetOptionsV1Exchanges.
 type GetOptionsV1ExchangesParams struct {
@@ -8233,6 +8320,12 @@ type ClientInterface interface {
 	// GetFuturesV1TradesTicker request
 	GetFuturesV1TradesTicker(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetOptionsV1AdminMessages request
+	GetOptionsV1AdminMessages(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetOptionsV1Analytics request
+	GetOptionsV1Analytics(ctx context.Context, params *GetOptionsV1AnalyticsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetOptionsV1Exchanges request
 	GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8953,6 +9046,30 @@ func (c *Client) GetFuturesV1Snapshot(ctx context.Context, params *GetFuturesV1S
 
 func (c *Client) GetFuturesV1TradesTicker(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetFuturesV1TradesTickerRequest(c.Server, ticker, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV1AdminMessages(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1AdminMessagesRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV1Analytics(ctx context.Context, params *GetOptionsV1AnalyticsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1AnalyticsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -22251,6 +22368,408 @@ func NewGetFuturesV1TradesTickerRequest(server string, ticker string, params *Ge
 		if params.SessionEndDate != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "session_end_date", runtime.ParamLocationQuery, *params.SessionEndDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV1AdminMessagesRequest generates requests for GetOptionsV1AdminMessages
+func NewGetOptionsV1AdminMessagesRequest(server string, params *GetOptionsV1AdminMessagesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/admin-messages")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.TimestampGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gte", runtime.ParamLocationQuery, *params.TimestampGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lt", runtime.ParamLocationQuery, *params.TimestampLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TimestampLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Exchange != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "exchange", runtime.ParamLocationQuery, *params.Exchange); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV1AnalyticsRequest generates requests for GetOptionsV1Analytics
+func NewGetOptionsV1AnalyticsRequest(server string, params *GetOptionsV1AnalyticsParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/analytics")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Ticker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker", runtime.ParamLocationQuery, *params.Ticker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.TickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "ticker.any_of", runtime.ParamLocationQuery, *params.TickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date", runtime.ParamLocationQuery, *params.ExpirationDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ContractType != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "contract_type", runtime.ParamLocationQuery, *params.ContractType); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ContractTypeAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "contract_type.any_of", runtime.ParamLocationQuery, *params.ContractTypeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -46703,6 +47222,12 @@ type ClientWithResponsesInterface interface {
 	// GetFuturesV1TradesTickerWithResponse request
 	GetFuturesV1TradesTickerWithResponse(ctx context.Context, ticker string, params *GetFuturesV1TradesTickerParams, reqEditors ...RequestEditorFn) (*GetFuturesV1TradesTickerResponse, error)
 
+	// GetOptionsV1AdminMessagesWithResponse request
+	GetOptionsV1AdminMessagesWithResponse(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AdminMessagesResponse, error)
+
+	// GetOptionsV1AnalyticsWithResponse request
+	GetOptionsV1AnalyticsWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsResponse, error)
+
 	// GetOptionsV1ExchangesWithResponse request
 	GetOptionsV1ExchangesWithResponse(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1ExchangesResponse, error)
 
@@ -50055,6 +50580,191 @@ func (r GetFuturesV1TradesTickerResponse) StatusCode() int {
 	return 0
 }
 
+type GetOptionsV1AdminMessagesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Exchange The exchange ID. See Exchanges mapping for details.
+			Exchange int32 `json:"exchange"`
+
+			// Id The unique identifier for this admin message, composed of the SIP timestamp and the sequence number.
+			Id string `json:"id"`
+
+			// Message The administrative message text as distributed by OPRA.
+			Message string `json:"message"`
+
+			// Retransmission True if this record was retransmitted. Omitted when false.
+			Retransmission *bool `json:"retransmission,omitempty"`
+
+			// SequenceNumber The sequence number represents the sequence in which admin events happened. These are increasing and unique, but will not always be sequential.
+			SequenceNumber int64 `json:"sequence_number"`
+
+			// Timestamp The SIP timestamp in Unix nanoseconds.
+			Timestamp int64 `json:"timestamp"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AdminMessages200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AdminMessages400Status `json:"status"`
+	}
+}
+type GetOptionsV1AdminMessages200Status string
+type GetOptionsV1AdminMessages400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1AdminMessagesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1AdminMessagesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsV1AnalyticsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Ask NBBO ask 15 minutes before the close
+			Ask *float64 `json:"ask,omitempty"`
+
+			// Bid NBBO bid 15 minutes before the close
+			Bid *float64 `json:"bid,omitempty"`
+
+			// ContractType call or put
+			ContractType string `json:"contract_type"`
+
+			// Date The trading date the values reflect
+			Date openapi_types.Date `json:"date"`
+
+			// Delta Change in option price per $1 move in the underlying
+			Delta *float64 `json:"delta,omitempty"`
+
+			// DividendYield The most recent regular dividend by ex-date times its yearly frequency, divided by underlying_price, as a decimal. 0 if none
+			DividendYield float64 `json:"dividend_yield"`
+
+			// ExerciseStyle american or european
+			ExerciseStyle string `json:"exercise_style"`
+
+			// ExpirationDate Contract expiration date
+			ExpirationDate openapi_types.Date `json:"expiration_date"`
+
+			// Gamma Change in delta per $1 move in the underlying
+			Gamma *float64 `json:"gamma,omitempty"`
+
+			// ImpliedVolatility Annualized implied volatility solved against option_price, as a decimal (0.48 means 48%). Null when the solver cannot produce a value
+			ImpliedVolatility *float64 `json:"implied_volatility,omitempty"`
+
+			// Model Pricing model: binomial
+			Model string `json:"model"`
+
+			// OpenInterest Open interest as published the morning of date, for the prior trading day's close
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OptionPrice The option price the solver used: the NBBO midpoint 15 minutes before the close
+			OptionPrice *float64 `json:"option_price,omitempty"`
+
+			// QuoteTimestamp Nanosecond timestamp of the NBBO used
+			QuoteTimestamp *int64 `json:"quote_timestamp,omitempty"`
+
+			// Rho Change in option price per 1 percentage point move in the risk-free rate
+			Rho *float64 `json:"rho,omitempty"`
+
+			// RiskFreeRate Annualized Treasury yield at the option's maturity, interpolated on the curve published before date, as a decimal
+			RiskFreeRate *float64 `json:"risk_free_rate,omitempty"`
+
+			// Root Option root symbol
+			Root *string `json:"root,omitempty"`
+
+			// StrikePrice Contract strike price
+			StrikePrice float64 `json:"strike_price"`
+
+			// Theta Change in option price per calendar day
+			Theta *float64 `json:"theta,omitempty"`
+
+			// Ticker Options contract ticker in Massive format (e.g. O:AMD261121C00220000)
+			Ticker string `json:"ticker"`
+
+			// UnderlyingPrice Underlying price used by the solver: the last SIP trade, or the last published index value, at or before 15 minutes before the close
+			UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+			// UnderlyingTicker Underlying symbol
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+			// UnderlyingTimestamp Nanosecond timestamp of the underlying price used
+			UnderlyingTimestamp *int64 `json:"underlying_timestamp,omitempty"`
+
+			// Vega Change in option price per 1 point move in implied volatility
+			Vega *float64 `json:"vega,omitempty"`
+
+			// Volume Contracts traded on date
+			Volume int64 `json:"volume"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1Analytics200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1Analytics400Status `json:"status"`
+	}
+}
+type GetOptionsV1Analytics200Status string
+type GetOptionsV1Analytics400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1AnalyticsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1AnalyticsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetOptionsV1ExchangesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -50438,20 +51148,8 @@ type GetOptionsVXOpenInterestUnderlyingResponse struct {
 			// OpenInterestCalls Total open interest across the underlying's call contracts.
 			OpenInterestCalls int64 `json:"open_interest_calls"`
 
-			// OpenInterestChange The change in total open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
-			OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
-
-			// OpenInterestChangeCalls The change in call open interest from the previous trading day, including call contracts that have since expired. Null when previous_open_interest is null.
-			OpenInterestChangeCalls *int64 `json:"open_interest_change_calls,omitempty"`
-
-			// OpenInterestChangePuts The change in put open interest from the previous trading day, including put contracts that have since expired. Null when previous_open_interest is null.
-			OpenInterestChangePuts *int64 `json:"open_interest_change_puts,omitempty"`
-
 			// OpenInterestPuts Total open interest across the underlying's put contracts.
 			OpenInterestPuts int64 `json:"open_interest_puts"`
-
-			// PreviousOpenInterest Total open interest on the underlying on the previous trading day, including contracts that have since expired. Null if the underlying had no open interest reported that day.
-			PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
 
 			// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
@@ -58881,7 +59579,7 @@ type ListOptionsContractsResponse struct {
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 			UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
@@ -58980,7 +59678,7 @@ type GetOptionsContractResponse struct {
 			// UnderlyingTicker The underlying ticker that the option contract relates to.
 			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-			// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+			// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 			UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 		} `json:"results,omitempty"`
 
@@ -60791,6 +61489,24 @@ func (c *ClientWithResponses) GetFuturesV1TradesTickerWithResponse(ctx context.C
 		return nil, err
 	}
 	return ParseGetFuturesV1TradesTickerResponse(rsp)
+}
+
+// GetOptionsV1AdminMessagesWithResponse request returning *GetOptionsV1AdminMessagesResponse
+func (c *ClientWithResponses) GetOptionsV1AdminMessagesWithResponse(ctx context.Context, params *GetOptionsV1AdminMessagesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AdminMessagesResponse, error) {
+	rsp, err := c.GetOptionsV1AdminMessages(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1AdminMessagesResponse(rsp)
+}
+
+// GetOptionsV1AnalyticsWithResponse request returning *GetOptionsV1AnalyticsResponse
+func (c *ClientWithResponses) GetOptionsV1AnalyticsWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsResponse, error) {
+	rsp, err := c.GetOptionsV1Analytics(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1AnalyticsResponse(rsp)
 }
 
 // GetOptionsV1ExchangesWithResponse request returning *GetOptionsV1ExchangesResponse
@@ -65179,6 +65895,213 @@ func ParseGetFuturesV1TradesTickerResponse(rsp *http.Response) (*GetFuturesV1Tra
 	return response, nil
 }
 
+// ParseGetOptionsV1AdminMessagesResponse parses an HTTP response from a GetOptionsV1AdminMessagesWithResponse call
+func ParseGetOptionsV1AdminMessagesResponse(rsp *http.Response) (*GetOptionsV1AdminMessagesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1AdminMessagesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Exchange The exchange ID. See Exchanges mapping for details.
+				Exchange int32 `json:"exchange"`
+
+				// Id The unique identifier for this admin message, composed of the SIP timestamp and the sequence number.
+				Id string `json:"id"`
+
+				// Message The administrative message text as distributed by OPRA.
+				Message string `json:"message"`
+
+				// Retransmission True if this record was retransmitted. Omitted when false.
+				Retransmission *bool `json:"retransmission,omitempty"`
+
+				// SequenceNumber The sequence number represents the sequence in which admin events happened. These are increasing and unique, but will not always be sequential.
+				SequenceNumber int64 `json:"sequence_number"`
+
+				// Timestamp The SIP timestamp in Unix nanoseconds.
+				Timestamp int64 `json:"timestamp"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AdminMessages200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AdminMessages400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsV1AnalyticsResponse parses an HTTP response from a GetOptionsV1AnalyticsWithResponse call
+func ParseGetOptionsV1AnalyticsResponse(rsp *http.Response) (*GetOptionsV1AnalyticsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1AnalyticsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Ask NBBO ask 15 minutes before the close
+				Ask *float64 `json:"ask,omitempty"`
+
+				// Bid NBBO bid 15 minutes before the close
+				Bid *float64 `json:"bid,omitempty"`
+
+				// ContractType call or put
+				ContractType string `json:"contract_type"`
+
+				// Date The trading date the values reflect
+				Date openapi_types.Date `json:"date"`
+
+				// Delta Change in option price per $1 move in the underlying
+				Delta *float64 `json:"delta,omitempty"`
+
+				// DividendYield The most recent regular dividend by ex-date times its yearly frequency, divided by underlying_price, as a decimal. 0 if none
+				DividendYield float64 `json:"dividend_yield"`
+
+				// ExerciseStyle american or european
+				ExerciseStyle string `json:"exercise_style"`
+
+				// ExpirationDate Contract expiration date
+				ExpirationDate openapi_types.Date `json:"expiration_date"`
+
+				// Gamma Change in delta per $1 move in the underlying
+				Gamma *float64 `json:"gamma,omitempty"`
+
+				// ImpliedVolatility Annualized implied volatility solved against option_price, as a decimal (0.48 means 48%). Null when the solver cannot produce a value
+				ImpliedVolatility *float64 `json:"implied_volatility,omitempty"`
+
+				// Model Pricing model: binomial
+				Model string `json:"model"`
+
+				// OpenInterest Open interest as published the morning of date, for the prior trading day's close
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OptionPrice The option price the solver used: the NBBO midpoint 15 minutes before the close
+				OptionPrice *float64 `json:"option_price,omitempty"`
+
+				// QuoteTimestamp Nanosecond timestamp of the NBBO used
+				QuoteTimestamp *int64 `json:"quote_timestamp,omitempty"`
+
+				// Rho Change in option price per 1 percentage point move in the risk-free rate
+				Rho *float64 `json:"rho,omitempty"`
+
+				// RiskFreeRate Annualized Treasury yield at the option's maturity, interpolated on the curve published before date, as a decimal
+				RiskFreeRate *float64 `json:"risk_free_rate,omitempty"`
+
+				// Root Option root symbol
+				Root *string `json:"root,omitempty"`
+
+				// StrikePrice Contract strike price
+				StrikePrice float64 `json:"strike_price"`
+
+				// Theta Change in option price per calendar day
+				Theta *float64 `json:"theta,omitempty"`
+
+				// Ticker Options contract ticker in Massive format (e.g. O:AMD261121C00220000)
+				Ticker string `json:"ticker"`
+
+				// UnderlyingPrice Underlying price used by the solver: the last SIP trade, or the last published index value, at or before 15 minutes before the close
+				UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+				// UnderlyingTicker Underlying symbol
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+
+				// UnderlyingTimestamp Nanosecond timestamp of the underlying price used
+				UnderlyingTimestamp *int64 `json:"underlying_timestamp,omitempty"`
+
+				// Vega Change in option price per 1 point move in implied volatility
+				Vega *float64 `json:"vega,omitempty"`
+
+				// Volume Contracts traded on date
+				Volume int64 `json:"volume"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1Analytics200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1Analytics400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
 // ParseGetOptionsV1ExchangesResponse parses an HTTP response from a GetOptionsV1ExchangesWithResponse call
 func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1ExchangesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -65629,20 +66552,8 @@ func ParseGetOptionsVXOpenInterestUnderlyingResponse(rsp *http.Response) (*GetOp
 				// OpenInterestCalls Total open interest across the underlying's call contracts.
 				OpenInterestCalls int64 `json:"open_interest_calls"`
 
-				// OpenInterestChange The change in total open interest from the previous trading day (open_interest - previous_open_interest). Null when previous_open_interest is null.
-				OpenInterestChange *int64 `json:"open_interest_change,omitempty"`
-
-				// OpenInterestChangeCalls The change in call open interest from the previous trading day, including call contracts that have since expired. Null when previous_open_interest is null.
-				OpenInterestChangeCalls *int64 `json:"open_interest_change_calls,omitempty"`
-
-				// OpenInterestChangePuts The change in put open interest from the previous trading day, including put contracts that have since expired. Null when previous_open_interest is null.
-				OpenInterestChangePuts *int64 `json:"open_interest_change_puts,omitempty"`
-
 				// OpenInterestPuts Total open interest across the underlying's put contracts.
 				OpenInterestPuts int64 `json:"open_interest_puts"`
-
-				// PreviousOpenInterest Total open interest on the underlying on the previous trading day, including contracts that have since expired. Null if the underlying had no open interest reported that day.
-				PreviousOpenInterest *int64 `json:"previous_open_interest,omitempty"`
 
 				// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
@@ -74826,7 +75737,7 @@ func ParseListOptionsContractsResponse(rsp *http.Response) (*ListOptionsContract
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 				UnderlyingType *ListOptionsContracts200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
@@ -74928,7 +75839,7 @@ func ParseGetOptionsContractResponse(rsp *http.Response) (*GetOptionsContractRes
 				// UnderlyingTicker The underlying ticker that the option contract relates to.
 				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
 
-				// UnderlyingType What the contract is based on. For now only set on KPI binary options, as kpi.
+				// UnderlyingType What the contract is based on: kpi on Cboe KPI binary options, equity on NYSE American equity binary options (roots that start with B1). Missing on other contracts for now.
 				UnderlyingType *GetOptionsContract200ResultsUnderlyingType `json:"underlying_type,omitempty"`
 			} `json:"results,omitempty"`
 
