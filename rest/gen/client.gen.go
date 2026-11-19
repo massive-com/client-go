@@ -60257,7 +60257,7 @@ type GetSnapshotsResponse struct {
 				// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
 				DecimalVolume *string `json:"decimal_volume,omitempty"`
 
-				// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close. For options, this is the price of the contract's last early trading trade today (7:30 to 9:30 AM ET, with the EXHT condition) minus `previous_close`.
+				// EarlyTradingChange Today's early trading change amount. The difference between the price and previous close if in early trading hours, otherwise the difference between the last price during early trading and previous close. For options, this is the price of the contract's last early trading trade today (7:30 to 9:30 AM ET, with the EXHT condition) minus `previous_close`.
 				EarlyTradingChange *float64 `json:"early_trading_change,omitempty"`
 
 				// EarlyTradingChangePercent Today's early trading change as a percentage of `previous_close`.
@@ -60269,7 +60269,7 @@ type GetSnapshotsResponse struct {
 				// LastUpdated The nanosecond timestamp of the last update to the session data. For stocks, it's set when the session resets at the start of each trading session and then advances with each trade; quotes don't update it. Returned for stocks, crypto, and forex snapshots, though it may be absent for inactive tickers.
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
-				// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close. For options, this is the price of the contract's last late trading trade today (after the regular session and before 5:00 PM ET, with the EXHT condition) minus today's `close`.
+				// LateTradingChange Today's late trading change amount. The difference between the price and today's close if in late trading hours, otherwise the difference between the last price during late trading and today's close. For options, this is the price of the contract's last late trading trade today (after the regular session and before 5:00 PM ET, with the EXHT condition) minus today's `close`.
 				LateTradingChange *float64 `json:"late_trading_change,omitempty"`
 
 				// LateTradingChangePercent Today's late trading change as a percentage of today's `close`.
@@ -60281,13 +60281,19 @@ type GetSnapshotsResponse struct {
 				// Open The open price of the asset for the day.
 				Open *float64 `json:"open,omitempty"`
 
+				// OvernightTradingChange Today's overnight trading change amount. The difference between the last overnight trade price and `previous_close`. Only present for stocks. The overnight session runs from 9:00 PM ET on the prior calendar day to 4:00 AM ET on the trade date, starting 2026-12-07 with SIP 23/5 extended hours.
+				OvernightTradingChange *float64 `json:"overnight_trading_change,omitempty"`
+
+				// OvernightTradingChangePercent Today's overnight trading change as a percentage of `previous_close`.
+				OvernightTradingChangePercent *float64 `json:"overnight_trading_change_percent,omitempty"`
+
 				// PreviousClose The closing price of the asset for the previous trading day. This is the correct field for the prior session's reference price, and it is retained across the daily session rollover. It is absent only for an asset with no completed prior session, such as a newly listed ticker or option contract.
 				PreviousClose *float64 `json:"previous_close,omitempty"`
 
 				// Price The price of the most recent trade or bid price for this asset.
 				Price *float64 `json:"price,omitempty"`
 
-				// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close. For options, while `market_status` is `open` this is the price of the contract's last regular session trade today minus `previous_close`. During late trading and after the close, it is today's `close` minus `previous_close`. It is omitted during early trading.
+				// RegularTradingChange Today's change in regular trading hours. The difference between current price and the previous trading day's close, otherwise the difference between today's close and the previous day's close. For options, while `market_status` is `open` this is the price of the contract's last regular session trade today minus `previous_close`. During late trading and after the close, it is today's `close` minus `previous_close`. It is omitted during early trading.
 				RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
 
 				// RegularTradingChangePercent Today's regular trading change as a percentage of `previous_close`.
@@ -76455,7 +76461,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// DecimalVolume The trading volume for the asset for the day with decimal precision. This field provides support for fractional shares, representing volume as a decimal string. This field is only returned for stocks snapshots.
 					DecimalVolume *string `json:"decimal_volume,omitempty"`
 
-					// EarlyTradingChange Today's early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close. For options, this is the price of the contract's last early trading trade today (7:30 to 9:30 AM ET, with the EXHT condition) minus `previous_close`.
+					// EarlyTradingChange Today's early trading change amount. The difference between the price and previous close if in early trading hours, otherwise the difference between the last price during early trading and previous close. For options, this is the price of the contract's last early trading trade today (7:30 to 9:30 AM ET, with the EXHT condition) minus `previous_close`.
 					EarlyTradingChange *float64 `json:"early_trading_change,omitempty"`
 
 					// EarlyTradingChangePercent Today's early trading change as a percentage of `previous_close`.
@@ -76467,7 +76473,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// LastUpdated The nanosecond timestamp of the last update to the session data. For stocks, it's set when the session resets at the start of each trading session and then advances with each trade; quotes don't update it. Returned for stocks, crypto, and forex snapshots, though it may be absent for inactive tickers.
 					LastUpdated *int64 `json:"last_updated,omitempty"`
 
-					// LateTradingChange Today's late trading change amount, difference between price and today's close if in late trading hours, otherwise difference between last price during late trading and today's close. For options, this is the price of the contract's last late trading trade today (after the regular session and before 5:00 PM ET, with the EXHT condition) minus today's `close`.
+					// LateTradingChange Today's late trading change amount. The difference between the price and today's close if in late trading hours, otherwise the difference between the last price during late trading and today's close. For options, this is the price of the contract's last late trading trade today (after the regular session and before 5:00 PM ET, with the EXHT condition) minus today's `close`.
 					LateTradingChange *float64 `json:"late_trading_change,omitempty"`
 
 					// LateTradingChangePercent Today's late trading change as a percentage of today's `close`.
@@ -76479,13 +76485,19 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// Open The open price of the asset for the day.
 					Open *float64 `json:"open,omitempty"`
 
+					// OvernightTradingChange Today's overnight trading change amount. The difference between the last overnight trade price and `previous_close`. Only present for stocks. The overnight session runs from 9:00 PM ET on the prior calendar day to 4:00 AM ET on the trade date, starting 2026-12-07 with SIP 23/5 extended hours.
+					OvernightTradingChange *float64 `json:"overnight_trading_change,omitempty"`
+
+					// OvernightTradingChangePercent Today's overnight trading change as a percentage of `previous_close`.
+					OvernightTradingChangePercent *float64 `json:"overnight_trading_change_percent,omitempty"`
+
 					// PreviousClose The closing price of the asset for the previous trading day. This is the correct field for the prior session's reference price, and it is retained across the daily session rollover. It is absent only for an asset with no completed prior session, such as a newly listed ticker or option contract.
 					PreviousClose *float64 `json:"previous_close,omitempty"`
 
 					// Price The price of the most recent trade or bid price for this asset.
 					Price *float64 `json:"price,omitempty"`
 
-					// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close. For options, while `market_status` is `open` this is the price of the contract's last regular session trade today minus `previous_close`. During late trading and after the close, it is today's `close` minus `previous_close`. It is omitted during early trading.
+					// RegularTradingChange Today's change in regular trading hours. The difference between current price and the previous trading day's close, otherwise the difference between today's close and the previous day's close. For options, while `market_status` is `open` this is the price of the contract's last regular session trade today minus `previous_close`. During late trading and after the close, it is today's `close` minus `previous_close`. It is omitted during early trading.
 					RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
 
 					// RegularTradingChangePercent Today's regular trading change as a percentage of `previous_close`.
