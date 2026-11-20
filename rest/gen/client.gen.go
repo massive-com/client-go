@@ -3545,6 +3545,9 @@ type GetFuturesV1TradesTickerParams struct {
 
 // GetOptionsV1AdminMessagesParams defines parameters for GetOptionsV1AdminMessages.
 type GetOptionsV1AdminMessagesParams struct {
+	// Timestamp The SIP timestamp in Unix nanoseconds. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
+	Timestamp *string `form:"timestamp,omitempty" json:"timestamp,omitempty"`
+
 	// TimestampGt Filter greater than the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	TimestampGt *string `form:"timestamp.gt,omitempty" json:"timestamp.gt,omitempty"`
 
@@ -3617,6 +3620,126 @@ type GetOptionsV1AnalyticsParamsContractType string
 
 // GetOptionsV1AnalyticsParamsContractTypeAnyOf defines parameters for GetOptionsV1Analytics.
 type GetOptionsV1AnalyticsParamsContractTypeAnyOf string
+
+// GetOptionsV1AnalyticsExpirationParams defines parameters for GetOptionsV1AnalyticsExpiration.
+type GetOptionsV1AnalyticsExpirationParams struct {
+	// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// ExpirationDate The expiration date of the contracts (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDate *string `form:"expiration_date,omitempty" json:"expiration_date,omitempty"`
+
+	// ExpirationDateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateGt *string `form:"expiration_date.gt,omitempty" json:"expiration_date.gt,omitempty"`
+
+	// ExpirationDateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateGte *string `form:"expiration_date.gte,omitempty" json:"expiration_date.gte,omitempty"`
+
+	// ExpirationDateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateLt *string `form:"expiration_date.lt,omitempty" json:"expiration_date.lt,omitempty"`
+
+	// ExpirationDateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	ExpirationDateLte *string `form:"expiration_date.lte,omitempty" json:"expiration_date.lte,omitempty"`
+
+	// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date. Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsV1AnalyticsStrikeParams defines parameters for GetOptionsV1AnalyticsStrike.
+type GetOptionsV1AnalyticsStrikeParams struct {
+	// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// StrikePrice The strike price. The values sum the contracts of all expiration dates at this strike price. Value must be a floating point number.
+	StrikePrice *float64 `form:"strike_price,omitempty" json:"strike_price,omitempty"`
+
+	// StrikePriceGt Filter greater than the value. Value must be a floating point number.
+	StrikePriceGt *float64 `form:"strike_price.gt,omitempty" json:"strike_price.gt,omitempty"`
+
+	// StrikePriceGte Filter greater than or equal to the value. Value must be a floating point number.
+	StrikePriceGte *float64 `form:"strike_price.gte,omitempty" json:"strike_price.gte,omitempty"`
+
+	// StrikePriceLt Filter less than the value. Value must be a floating point number.
+	StrikePriceLt *float64 `form:"strike_price.lt,omitempty" json:"strike_price.lt,omitempty"`
+
+	// StrikePriceLte Filter less than or equal to the value. Value must be a floating point number.
+	StrikePriceLte *float64 `form:"strike_price.lte,omitempty" json:"strike_price.lte,omitempty"`
+
+	// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date. Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '1000' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
+// GetOptionsV1AnalyticsUnderlyingParams defines parameters for GetOptionsV1AnalyticsUnderlying.
+type GetOptionsV1AnalyticsUnderlyingParams struct {
+	// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date. Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
 
 // GetOptionsV1ExchangesParams defines parameters for GetOptionsV1Exchanges.
 type GetOptionsV1ExchangesParams struct {
@@ -3711,6 +3834,48 @@ type GetOptionsV1OpenInterestParamsContractType string
 // GetOptionsV1OpenInterestParamsContractTypeAnyOf defines parameters for GetOptionsV1OpenInterest.
 type GetOptionsV1OpenInterestParamsContractTypeAnyOf string
 
+// GetOptionsV1OpenInterestUnderlyingParams defines parameters for GetOptionsV1OpenInterestUnderlying.
+type GetOptionsV1OpenInterestUnderlyingParams struct {
+	// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
+	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
+
+	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
+	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
+
+	// UnderlyingTickerGt Filter greater than the value.
+	UnderlyingTickerGt *string `form:"underlying_ticker.gt,omitempty" json:"underlying_ticker.gt,omitempty"`
+
+	// UnderlyingTickerGte Filter greater than or equal to the value.
+	UnderlyingTickerGte *string `form:"underlying_ticker.gte,omitempty" json:"underlying_ticker.gte,omitempty"`
+
+	// UnderlyingTickerLt Filter less than the value.
+	UnderlyingTickerLt *string `form:"underlying_ticker.lt,omitempty" json:"underlying_ticker.lt,omitempty"`
+
+	// UnderlyingTickerLte Filter less than or equal to the value.
+	UnderlyingTickerLte *string `form:"underlying_ticker.lte,omitempty" json:"underlying_ticker.lte,omitempty"`
+
+	// Date The trading date the open interest applies to (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
+	Date *string `form:"date,omitempty" json:"date,omitempty"`
+
+	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
+
+	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
+
+	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
+
+	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
+	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
+
+	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
+	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
+
+	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
+	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
+}
+
 // GetOptionsV1UnusualTradesParams defines parameters for GetOptionsV1UnusualTrades.
 type GetOptionsV1UnusualTradesParams struct {
 	// Ticker The options ticker symbol (e.g., O:SPY260123C00687000).
@@ -3798,63 +3963,6 @@ type GetOptionsV3TradesTickerParams struct {
 	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
 
 	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'timestamp' if not specified. The sort order defaults to 'desc' if not specified.
-	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
-}
-
-// GetOptionsVXOpenInterestUnderlyingParams defines parameters for GetOptionsVXOpenInterestUnderlying.
-type GetOptionsVXOpenInterestUnderlyingParams struct {
-	// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
-	UnderlyingTicker *string `form:"underlying_ticker,omitempty" json:"underlying_ticker,omitempty"`
-
-	// UnderlyingTickerAnyOf Filter equal to any of the values. Multiple values can be specified by using a comma separated list.
-	UnderlyingTickerAnyOf *string `form:"underlying_ticker.any_of,omitempty" json:"underlying_ticker.any_of,omitempty"`
-
-	// UnderlyingTickerGt Filter greater than the value.
-	UnderlyingTickerGt *string `form:"underlying_ticker.gt,omitempty" json:"underlying_ticker.gt,omitempty"`
-
-	// UnderlyingTickerGte Filter greater than or equal to the value.
-	UnderlyingTickerGte *string `form:"underlying_ticker.gte,omitempty" json:"underlying_ticker.gte,omitempty"`
-
-	// UnderlyingTickerLt Filter less than the value.
-	UnderlyingTickerLt *string `form:"underlying_ticker.lt,omitempty" json:"underlying_ticker.lt,omitempty"`
-
-	// UnderlyingTickerLte Filter less than or equal to the value.
-	UnderlyingTickerLte *string `form:"underlying_ticker.lte,omitempty" json:"underlying_ticker.lte,omitempty"`
-
-	// Date The trading date the open interest applies to (formatted as YYYY-MM-DD). Value must be formatted 'yyyy-mm-dd'.
-	Date *string `form:"date,omitempty" json:"date,omitempty"`
-
-	// DateGt Filter greater than the value. Value must be formatted 'yyyy-mm-dd'.
-	DateGt *string `form:"date.gt,omitempty" json:"date.gt,omitempty"`
-
-	// DateGte Filter greater than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	DateGte *string `form:"date.gte,omitempty" json:"date.gte,omitempty"`
-
-	// DateLt Filter less than the value. Value must be formatted 'yyyy-mm-dd'.
-	DateLt *string `form:"date.lt,omitempty" json:"date.lt,omitempty"`
-
-	// DateLte Filter less than or equal to the value. Value must be formatted 'yyyy-mm-dd'.
-	DateLte *string `form:"date.lte,omitempty" json:"date.lte,omitempty"`
-
-	// OpenInterest Total open interest across every contract on the underlying. Value must be an integer.
-	OpenInterest *int64 `form:"open_interest,omitempty" json:"open_interest,omitempty"`
-
-	// OpenInterestGt Filter greater than the value. Value must be an integer.
-	OpenInterestGt *int64 `form:"open_interest.gt,omitempty" json:"open_interest.gt,omitempty"`
-
-	// OpenInterestGte Filter greater than or equal to the value. Value must be an integer.
-	OpenInterestGte *int64 `form:"open_interest.gte,omitempty" json:"open_interest.gte,omitempty"`
-
-	// OpenInterestLt Filter less than the value. Value must be an integer.
-	OpenInterestLt *int64 `form:"open_interest.lt,omitempty" json:"open_interest.lt,omitempty"`
-
-	// OpenInterestLte Filter less than or equal to the value. Value must be an integer.
-	OpenInterestLte *int64 `form:"open_interest.lte,omitempty" json:"open_interest.lte,omitempty"`
-
-	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
-	Limit *int `form:"limit,omitempty" json:"limit,omitempty"`
-
-	// Sort A comma separated list of sort columns. For each column, append '.asc' or '.desc' to specify the sort direction. The sort column defaults to 'date' if not specified. The sort order defaults to 'desc' if not specified.
 	Sort *string `form:"sort,omitempty" json:"sort,omitempty"`
 }
 
@@ -8326,11 +8434,23 @@ type ClientInterface interface {
 	// GetOptionsV1Analytics request
 	GetOptionsV1Analytics(ctx context.Context, params *GetOptionsV1AnalyticsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetOptionsV1AnalyticsExpiration request
+	GetOptionsV1AnalyticsExpiration(ctx context.Context, params *GetOptionsV1AnalyticsExpirationParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetOptionsV1AnalyticsStrike request
+	GetOptionsV1AnalyticsStrike(ctx context.Context, params *GetOptionsV1AnalyticsStrikeParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetOptionsV1AnalyticsUnderlying request
+	GetOptionsV1AnalyticsUnderlying(ctx context.Context, params *GetOptionsV1AnalyticsUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetOptionsV1Exchanges request
 	GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetOptionsV1OpenInterest request
 	GetOptionsV1OpenInterest(ctx context.Context, params *GetOptionsV1OpenInterestParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetOptionsV1OpenInterestUnderlying request
+	GetOptionsV1OpenInterestUnderlying(ctx context.Context, params *GetOptionsV1OpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetOptionsV1UnusualTrades request
 	GetOptionsV1UnusualTrades(ctx context.Context, params *GetOptionsV1UnusualTradesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8340,9 +8460,6 @@ type ClientInterface interface {
 
 	// GetOptionsV3TradesTicker request
 	GetOptionsV3TradesTicker(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
-	// GetOptionsVXOpenInterestUnderlying request
-	GetOptionsVXOpenInterestUnderlying(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetStocksDevTradesTicker request
 	GetStocksDevTradesTicker(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9080,6 +9197,42 @@ func (c *Client) GetOptionsV1Analytics(ctx context.Context, params *GetOptionsV1
 	return c.Client.Do(req)
 }
 
+func (c *Client) GetOptionsV1AnalyticsExpiration(ctx context.Context, params *GetOptionsV1AnalyticsExpirationParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1AnalyticsExpirationRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV1AnalyticsStrike(ctx context.Context, params *GetOptionsV1AnalyticsStrikeParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1AnalyticsStrikeRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV1AnalyticsUnderlying(ctx context.Context, params *GetOptionsV1AnalyticsUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1AnalyticsUnderlyingRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetOptionsV1ExchangesRequest(c.Server, params)
 	if err != nil {
@@ -9094,6 +9247,18 @@ func (c *Client) GetOptionsV1Exchanges(ctx context.Context, params *GetOptionsV1
 
 func (c *Client) GetOptionsV1OpenInterest(ctx context.Context, params *GetOptionsV1OpenInterestParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetOptionsV1OpenInterestRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetOptionsV1OpenInterestUnderlying(ctx context.Context, params *GetOptionsV1OpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetOptionsV1OpenInterestUnderlyingRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9130,18 +9295,6 @@ func (c *Client) GetOptionsV3QuotesTicker(ctx context.Context, ticker string, pa
 
 func (c *Client) GetOptionsV3TradesTicker(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetOptionsV3TradesTickerRequest(c.Server, ticker, params)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetOptionsVXOpenInterestUnderlying(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetOptionsVXOpenInterestUnderlyingRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -22446,6 +22599,22 @@ func NewGetOptionsV1AdminMessagesRequest(server string, params *GetOptionsV1Admi
 	if params != nil {
 		queryValues := queryURL.Query()
 
+		if params.Timestamp != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp", runtime.ParamLocationQuery, *params.Timestamp); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
 		if params.TimestampGt != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.gt", runtime.ParamLocationQuery, *params.TimestampGt); err != nil {
@@ -22690,6 +22859,697 @@ func NewGetOptionsV1AnalyticsRequest(server string, params *GetOptionsV1Analytic
 		if params.ContractTypeAnyOf != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "contract_type.any_of", runtime.ParamLocationQuery, *params.ContractTypeAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV1AnalyticsExpirationRequest generates requests for GetOptionsV1AnalyticsExpiration
+func NewGetOptionsV1AnalyticsExpirationRequest(server string, params *GetOptionsV1AnalyticsExpirationParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/analytics/expiration")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDate != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date", runtime.ParamLocationQuery, *params.ExpirationDate); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.gt", runtime.ParamLocationQuery, *params.ExpirationDateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.gte", runtime.ParamLocationQuery, *params.ExpirationDateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.lt", runtime.ParamLocationQuery, *params.ExpirationDateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.ExpirationDateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "expiration_date.lte", runtime.ParamLocationQuery, *params.ExpirationDateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV1AnalyticsStrikeRequest generates requests for GetOptionsV1AnalyticsStrike
+func NewGetOptionsV1AnalyticsStrikeRequest(server string, params *GetOptionsV1AnalyticsStrikeParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/analytics/strike")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePrice != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price", runtime.ParamLocationQuery, *params.StrikePrice); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.gt", runtime.ParamLocationQuery, *params.StrikePriceGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.gte", runtime.ParamLocationQuery, *params.StrikePriceGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.lt", runtime.ParamLocationQuery, *params.StrikePriceLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.StrikePriceLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "strike_price.lte", runtime.ParamLocationQuery, *params.StrikePriceLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetOptionsV1AnalyticsUnderlyingRequest generates requests for GetOptionsV1AnalyticsUnderlying
+func NewGetOptionsV1AnalyticsUnderlyingRequest(server string, params *GetOptionsV1AnalyticsUnderlyingParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/analytics/underlying")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -23324,6 +24184,247 @@ func NewGetOptionsV1OpenInterestRequest(server string, params *GetOptionsV1OpenI
 	return req, nil
 }
 
+// NewGetOptionsV1OpenInterestUnderlyingRequest generates requests for GetOptionsV1OpenInterestUnderlying
+func NewGetOptionsV1OpenInterestUnderlyingRequest(server string, params *GetOptionsV1OpenInterestUnderlyingParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/options/v1/open-interest/underlying")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.UnderlyingTicker != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerAnyOf != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gt", runtime.ParamLocationQuery, *params.UnderlyingTickerGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gte", runtime.ParamLocationQuery, *params.UnderlyingTickerGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lt", runtime.ParamLocationQuery, *params.UnderlyingTickerLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.UnderlyingTickerLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lte", runtime.ParamLocationQuery, *params.UnderlyingTickerLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Date != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateGte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLt != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.DateLte != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Limit != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetOptionsV1UnusualTradesRequest generates requests for GetOptionsV1UnusualTrades
 func NewGetOptionsV1UnusualTradesRequest(server string, params *GetOptionsV1UnusualTradesParams) (*http.Request, error) {
 	var err error
@@ -23813,327 +24914,6 @@ func NewGetOptionsV3TradesTickerRequest(server string, ticker string, params *Ge
 		if params.TimestampLte != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "timestamp.lte", runtime.ParamLocationQuery, *params.TimestampLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Limit != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "limit", runtime.ParamLocationQuery, *params.Limit); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Sort != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
-// NewGetOptionsVXOpenInterestUnderlyingRequest generates requests for GetOptionsVXOpenInterestUnderlying
-func NewGetOptionsVXOpenInterestUnderlyingRequest(server string, params *GetOptionsVXOpenInterestUnderlyingParams) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/options/vX/open-interest/underlying")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.UnderlyingTicker != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker", runtime.ParamLocationQuery, *params.UnderlyingTicker); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerAnyOf != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.any_of", runtime.ParamLocationQuery, *params.UnderlyingTickerAnyOf); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gt", runtime.ParamLocationQuery, *params.UnderlyingTickerGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.gte", runtime.ParamLocationQuery, *params.UnderlyingTickerGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lt", runtime.ParamLocationQuery, *params.UnderlyingTickerLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.UnderlyingTickerLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "underlying_ticker.lte", runtime.ParamLocationQuery, *params.UnderlyingTickerLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Date != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date", runtime.ParamLocationQuery, *params.Date); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gt", runtime.ParamLocationQuery, *params.DateGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.gte", runtime.ParamLocationQuery, *params.DateGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lt", runtime.ParamLocationQuery, *params.DateLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.DateLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "date.lte", runtime.ParamLocationQuery, *params.DateLte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterest != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest", runtime.ParamLocationQuery, *params.OpenInterest); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestGt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gt", runtime.ParamLocationQuery, *params.OpenInterestGt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestGte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.gte", runtime.ParamLocationQuery, *params.OpenInterestGte); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestLt != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lt", runtime.ParamLocationQuery, *params.OpenInterestLt); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.OpenInterestLte != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "open_interest.lte", runtime.ParamLocationQuery, *params.OpenInterestLte); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -47228,11 +48008,23 @@ type ClientWithResponsesInterface interface {
 	// GetOptionsV1AnalyticsWithResponse request
 	GetOptionsV1AnalyticsWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsResponse, error)
 
+	// GetOptionsV1AnalyticsExpirationWithResponse request
+	GetOptionsV1AnalyticsExpirationWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsExpirationParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsExpirationResponse, error)
+
+	// GetOptionsV1AnalyticsStrikeWithResponse request
+	GetOptionsV1AnalyticsStrikeWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsStrikeParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsStrikeResponse, error)
+
+	// GetOptionsV1AnalyticsUnderlyingWithResponse request
+	GetOptionsV1AnalyticsUnderlyingWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsUnderlyingResponse, error)
+
 	// GetOptionsV1ExchangesWithResponse request
 	GetOptionsV1ExchangesWithResponse(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1ExchangesResponse, error)
 
 	// GetOptionsV1OpenInterestWithResponse request
 	GetOptionsV1OpenInterestWithResponse(ctx context.Context, params *GetOptionsV1OpenInterestParams, reqEditors ...RequestEditorFn) (*GetOptionsV1OpenInterestResponse, error)
+
+	// GetOptionsV1OpenInterestUnderlyingWithResponse request
+	GetOptionsV1OpenInterestUnderlyingWithResponse(ctx context.Context, params *GetOptionsV1OpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsV1OpenInterestUnderlyingResponse, error)
 
 	// GetOptionsV1UnusualTradesWithResponse request
 	GetOptionsV1UnusualTradesWithResponse(ctx context.Context, params *GetOptionsV1UnusualTradesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1UnusualTradesResponse, error)
@@ -47242,9 +48034,6 @@ type ClientWithResponsesInterface interface {
 
 	// GetOptionsV3TradesTickerWithResponse request
 	GetOptionsV3TradesTickerWithResponse(ctx context.Context, ticker string, params *GetOptionsV3TradesTickerParams, reqEditors ...RequestEditorFn) (*GetOptionsV3TradesTickerResponse, error)
-
-	// GetOptionsVXOpenInterestUnderlyingWithResponse request
-	GetOptionsVXOpenInterestUnderlyingWithResponse(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsVXOpenInterestUnderlyingResponse, error)
 
 	// GetStocksDevTradesTickerWithResponse request
 	GetStocksDevTradesTickerWithResponse(ctx context.Context, ticker string, params *GetStocksDevTradesTickerParams, reqEditors ...RequestEditorFn) (*GetStocksDevTradesTickerResponse, error)
@@ -50765,6 +51554,273 @@ func (r GetOptionsV1AnalyticsResponse) StatusCode() int {
 	return 0
 }
 
+type GetOptionsV1AnalyticsExpirationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date.
+			Date openapi_types.Date `json:"date"`
+
+			// DeltaExposure Delta exposure in dollars: the sum of open interest x 100 x delta x underlying_price. Put deltas are negative. Null if no contract has Greeks.
+			DeltaExposure *float64 `json:"delta_exposure,omitempty"`
+
+			// ExcludedOpenInterest Open interest of binary options and of the contracts that do not have a standard deliverable of 100 shares, for example contracts adjusted after a corporate action. These contracts are not in any other field.
+			ExcludedOpenInterest *int64 `json:"excluded_open_interest,omitempty"`
+
+			// ExpirationDate The expiration date of the contracts (formatted as YYYY-MM-DD).
+			ExpirationDate *openapi_types.Date `json:"expiration_date,omitempty"`
+
+			// GammaExposure Net gamma exposure in dollars per 1% move of the underlying price: the sum of open interest x 100 x gamma x underlying_price² x 0.01, with calls positive and puts negative. Null if no contract has Greeks.
+			GammaExposure *float64 `json:"gamma_exposure,omitempty"`
+
+			// GammaExposureCalls Gamma exposure of the call contracts (positive). Null if no call contract has Greeks.
+			GammaExposureCalls *float64 `json:"gamma_exposure_calls,omitempty"`
+
+			// GammaExposurePuts Gamma exposure of the put contracts (negative). Null if no put contract has Greeks.
+			GammaExposurePuts *float64 `json:"gamma_exposure_puts,omitempty"`
+
+			// MaxPain The strike price at which the open contracts of this expiration date have the smallest total value if the underlying asset settles there. Every strike price of the expiration date is a candidate. If strike prices tie, the lower one. Null if the expiration date has no open interest.
+			MaxPain *float64 `json:"max_pain,omitempty"`
+
+			// OpenInterest Total open interest of the standard (not binary) contracts with a standard deliverable of 100 shares.
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OpenInterestCalls Total open interest of the standard (not binary) call contracts with a standard deliverable of 100 shares.
+			OpenInterestCalls *int64 `json:"open_interest_calls,omitempty"`
+
+			// OpenInterestPuts Total open interest of the standard (not binary) put contracts with a standard deliverable of 100 shares.
+			OpenInterestPuts *int64 `json:"open_interest_puts,omitempty"`
+
+			// OpenInterestWithGreeks Open interest of the contracts that count in the exposure values: contracts with open interest above 0 and a gamma and a delta.
+			OpenInterestWithGreeks *int64 `json:"open_interest_with_greeks,omitempty"`
+
+			// UnderlyingPrice The underlying price used for the Greeks: the last SIP trade, or the last published index value, at or before 15 minutes before the close. Null if no contract of the expiration date has Greeks.
+			UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+			// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AnalyticsExpiration200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AnalyticsExpiration400Status `json:"status"`
+	}
+}
+type GetOptionsV1AnalyticsExpiration200Status string
+type GetOptionsV1AnalyticsExpiration400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1AnalyticsExpirationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1AnalyticsExpirationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsV1AnalyticsStrikeResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date.
+			Date openapi_types.Date `json:"date"`
+
+			// DeltaExposure Delta exposure in dollars: the sum of open interest x 100 x delta x underlying_price. Put deltas are negative. Null if no contract has Greeks.
+			DeltaExposure *float64 `json:"delta_exposure,omitempty"`
+
+			// ExcludedOpenInterest Open interest of binary options and of the contracts that do not have a standard deliverable of 100 shares, for example contracts adjusted after a corporate action. These contracts are not in any other field.
+			ExcludedOpenInterest *int64 `json:"excluded_open_interest,omitempty"`
+
+			// GammaExposure Net gamma exposure in dollars per 1% move of the underlying price: the sum of open interest x 100 x gamma x underlying_price² x 0.01, with calls positive and puts negative. Null if no contract has Greeks.
+			GammaExposure *float64 `json:"gamma_exposure,omitempty"`
+
+			// GammaExposureCalls Gamma exposure of the call contracts (positive). Null if no call contract has Greeks.
+			GammaExposureCalls *float64 `json:"gamma_exposure_calls,omitempty"`
+
+			// GammaExposurePuts Gamma exposure of the put contracts (negative). Null if no put contract has Greeks.
+			GammaExposurePuts *float64 `json:"gamma_exposure_puts,omitempty"`
+
+			// OpenInterest Total open interest of the standard (not binary) contracts with a standard deliverable of 100 shares.
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OpenInterestCalls Total open interest of the standard (not binary) call contracts with a standard deliverable of 100 shares.
+			OpenInterestCalls *int64 `json:"open_interest_calls,omitempty"`
+
+			// OpenInterestPuts Total open interest of the standard (not binary) put contracts with a standard deliverable of 100 shares.
+			OpenInterestPuts *int64 `json:"open_interest_puts,omitempty"`
+
+			// OpenInterestWithGreeks Open interest of the contracts that count in the exposure values: contracts with open interest above 0 and a gamma and a delta.
+			OpenInterestWithGreeks *int64 `json:"open_interest_with_greeks,omitempty"`
+
+			// StrikePrice The strike price. The values sum the contracts of all expiration dates at this strike price.
+			StrikePrice *float64 `json:"strike_price,omitempty"`
+
+			// UnderlyingPrice The underlying price used for the Greeks: the last SIP trade, or the last published index value, at or before 15 minutes before the close. Null if no contract at this strike price has Greeks.
+			UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+			// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AnalyticsStrike200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AnalyticsStrike400Status `json:"status"`
+	}
+}
+type GetOptionsV1AnalyticsStrike200Status string
+type GetOptionsV1AnalyticsStrike400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1AnalyticsStrikeResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1AnalyticsStrikeResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsV1AnalyticsUnderlyingResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// CallWall The strike price at or above underlying_price with the largest call gamma exposure, summed over all expiration dates. If strike prices tie, the one nearest underlying_price. Null if no call contract at or above underlying_price has gamma exposure.
+			CallWall *float64 `json:"call_wall,omitempty"`
+
+			// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date.
+			Date openapi_types.Date `json:"date"`
+
+			// DeltaExposure Delta exposure in dollars: the sum of open interest x 100 x delta x underlying_price. Put deltas are negative. Null if no contract has Greeks.
+			DeltaExposure *float64 `json:"delta_exposure,omitempty"`
+
+			// ExcludedOpenInterest Open interest of binary options and of the contracts that do not have a standard deliverable of 100 shares, for example contracts adjusted after a corporate action. These contracts are not in any other field.
+			ExcludedOpenInterest *int64 `json:"excluded_open_interest,omitempty"`
+
+			// GammaExposure Net gamma exposure in dollars per 1% move of the underlying price: the sum of open interest x 100 x gamma x underlying_price² x 0.01, with calls positive and puts negative. Null if no contract has Greeks.
+			GammaExposure *float64 `json:"gamma_exposure,omitempty"`
+
+			// GammaExposureCalls Gamma exposure of the call contracts (positive). Null if no call contract has Greeks.
+			GammaExposureCalls *float64 `json:"gamma_exposure_calls,omitempty"`
+
+			// GammaExposurePuts Gamma exposure of the put contracts (negative). Null if no put contract has Greeks.
+			GammaExposurePuts *float64 `json:"gamma_exposure_puts,omitempty"`
+
+			// GammaFlip The price where the running sum of net gamma exposure changes sign. The sum runs over the strike prices from the lowest up, and the price is interpolated linearly between the two adjacent strike prices. If the sum changes sign more than once, the crossing nearest underlying_price. Strike prices without gamma exposure are skipped. Null if the sum does not change sign.
+			GammaFlip *float64 `json:"gamma_flip,omitempty"`
+
+			// OpenInterest Total open interest of the standard (not binary) contracts with a standard deliverable of 100 shares.
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OpenInterestCalls Total open interest of the standard (not binary) call contracts with a standard deliverable of 100 shares.
+			OpenInterestCalls *int64 `json:"open_interest_calls,omitempty"`
+
+			// OpenInterestPuts Total open interest of the standard (not binary) put contracts with a standard deliverable of 100 shares.
+			OpenInterestPuts *int64 `json:"open_interest_puts,omitempty"`
+
+			// OpenInterestWithGreeks Open interest of the contracts that count in the exposure values: contracts with open interest above 0 and a gamma and a delta.
+			OpenInterestWithGreeks *int64 `json:"open_interest_with_greeks,omitempty"`
+
+			// PutCallRatio open_interest_puts divided by open_interest_calls. Null if there is no call open interest.
+			PutCallRatio *float64 `json:"put_call_ratio,omitempty"`
+
+			// PutWall The strike price at or below underlying_price with the most negative put gamma exposure, summed over all expiration dates. If strike prices tie, the one nearest underlying_price. Null if no put contract at or below underlying_price has gamma exposure.
+			PutWall *float64 `json:"put_wall,omitempty"`
+
+			// UnderlyingPrice The underlying price used for the Greeks: the last SIP trade, or the last published index value, at or before 15 minutes before the close. Null if no contract has Greeks.
+			UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+			// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AnalyticsUnderlying200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1AnalyticsUnderlying400Status `json:"status"`
+	}
+}
+type GetOptionsV1AnalyticsUnderlying200Status string
+type GetOptionsV1AnalyticsUnderlying400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1AnalyticsUnderlyingResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1AnalyticsUnderlyingResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetOptionsV1ExchangesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -50902,6 +51958,67 @@ func (r GetOptionsV1OpenInterestResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetOptionsV1OpenInterestResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetOptionsV1OpenInterestUnderlyingResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *struct {
+		// NextUrl If present, this value can be used to fetch the next page.
+		NextUrl *string `json:"next_url,omitempty"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Results The results for this request.
+		Results []struct {
+			// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
+			Date openapi_types.Date `json:"date"`
+
+			// OpenInterest Total open interest across every contract on the underlying.
+			OpenInterest *int64 `json:"open_interest,omitempty"`
+
+			// OpenInterestCalls Total open interest across the underlying's call contracts.
+			OpenInterestCalls int64 `json:"open_interest_calls"`
+
+			// OpenInterestPuts Total open interest across the underlying's put contracts.
+			OpenInterestPuts int64 `json:"open_interest_puts"`
+
+			// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
+			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+		} `json:"results"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1OpenInterestUnderlying200Status `json:"status"`
+	}
+	JSON400 *struct {
+		// Error A message describing the source of the error.
+		Error string `json:"error"`
+
+		// RequestId A request id assigned by the server.
+		RequestId string `json:"request_id"`
+
+		// Status The status of this request's response.
+		Status GetOptionsV1OpenInterestUnderlying400Status `json:"status"`
+	}
+}
+type GetOptionsV1OpenInterestUnderlying200Status string
+type GetOptionsV1OpenInterestUnderlying400Status string
+
+// Status returns HTTPResponse.Status
+func (r GetOptionsV1OpenInterestUnderlyingResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetOptionsV1OpenInterestUnderlyingResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -51121,67 +52238,6 @@ func (r GetOptionsV3TradesTickerResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetOptionsV3TradesTickerResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-type GetOptionsVXOpenInterestUnderlyingResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *struct {
-		// NextUrl If present, this value can be used to fetch the next page.
-		NextUrl *string `json:"next_url,omitempty"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Results The results for this request.
-		Results []struct {
-			// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
-			Date openapi_types.Date `json:"date"`
-
-			// OpenInterest Total open interest across every contract on the underlying.
-			OpenInterest *int64 `json:"open_interest,omitempty"`
-
-			// OpenInterestCalls Total open interest across the underlying's call contracts.
-			OpenInterestCalls int64 `json:"open_interest_calls"`
-
-			// OpenInterestPuts Total open interest across the underlying's put contracts.
-			OpenInterestPuts int64 `json:"open_interest_puts"`
-
-			// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
-			UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
-		} `json:"results"`
-
-		// Status The status of this request's response.
-		Status GetOptionsVXOpenInterestUnderlying200Status `json:"status"`
-	}
-	JSON400 *struct {
-		// Error A message describing the source of the error.
-		Error string `json:"error"`
-
-		// RequestId A request id assigned by the server.
-		RequestId string `json:"request_id"`
-
-		// Status The status of this request's response.
-		Status GetOptionsVXOpenInterestUnderlying400Status `json:"status"`
-	}
-}
-type GetOptionsVXOpenInterestUnderlying200Status string
-type GetOptionsVXOpenInterestUnderlying400Status string
-
-// Status returns HTTPResponse.Status
-func (r GetOptionsVXOpenInterestUnderlyingResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetOptionsVXOpenInterestUnderlyingResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -51583,6 +52639,9 @@ type GetStocksFilingsVX13FResponse struct {
 
 			// FilerCik SEC Central Index Key (10 digits, zero-padded) of the filing entity.
 			FilerCik *string `json:"filer_cik,omitempty"`
+
+			// FilerName Name of the institutional investment manager filing the report, as reported on the filing's cover page. Null for older text-format filings (before mid-2013), which do not report it in a structured field.
+			FilerName *string `json:"filer_name,omitempty"`
 
 			// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
 			FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
@@ -61515,6 +62574,33 @@ func (c *ClientWithResponses) GetOptionsV1AnalyticsWithResponse(ctx context.Cont
 	return ParseGetOptionsV1AnalyticsResponse(rsp)
 }
 
+// GetOptionsV1AnalyticsExpirationWithResponse request returning *GetOptionsV1AnalyticsExpirationResponse
+func (c *ClientWithResponses) GetOptionsV1AnalyticsExpirationWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsExpirationParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsExpirationResponse, error) {
+	rsp, err := c.GetOptionsV1AnalyticsExpiration(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1AnalyticsExpirationResponse(rsp)
+}
+
+// GetOptionsV1AnalyticsStrikeWithResponse request returning *GetOptionsV1AnalyticsStrikeResponse
+func (c *ClientWithResponses) GetOptionsV1AnalyticsStrikeWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsStrikeParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsStrikeResponse, error) {
+	rsp, err := c.GetOptionsV1AnalyticsStrike(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1AnalyticsStrikeResponse(rsp)
+}
+
+// GetOptionsV1AnalyticsUnderlyingWithResponse request returning *GetOptionsV1AnalyticsUnderlyingResponse
+func (c *ClientWithResponses) GetOptionsV1AnalyticsUnderlyingWithResponse(ctx context.Context, params *GetOptionsV1AnalyticsUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsV1AnalyticsUnderlyingResponse, error) {
+	rsp, err := c.GetOptionsV1AnalyticsUnderlying(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1AnalyticsUnderlyingResponse(rsp)
+}
+
 // GetOptionsV1ExchangesWithResponse request returning *GetOptionsV1ExchangesResponse
 func (c *ClientWithResponses) GetOptionsV1ExchangesWithResponse(ctx context.Context, params *GetOptionsV1ExchangesParams, reqEditors ...RequestEditorFn) (*GetOptionsV1ExchangesResponse, error) {
 	rsp, err := c.GetOptionsV1Exchanges(ctx, params, reqEditors...)
@@ -61531,6 +62617,15 @@ func (c *ClientWithResponses) GetOptionsV1OpenInterestWithResponse(ctx context.C
 		return nil, err
 	}
 	return ParseGetOptionsV1OpenInterestResponse(rsp)
+}
+
+// GetOptionsV1OpenInterestUnderlyingWithResponse request returning *GetOptionsV1OpenInterestUnderlyingResponse
+func (c *ClientWithResponses) GetOptionsV1OpenInterestUnderlyingWithResponse(ctx context.Context, params *GetOptionsV1OpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsV1OpenInterestUnderlyingResponse, error) {
+	rsp, err := c.GetOptionsV1OpenInterestUnderlying(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetOptionsV1OpenInterestUnderlyingResponse(rsp)
 }
 
 // GetOptionsV1UnusualTradesWithResponse request returning *GetOptionsV1UnusualTradesResponse
@@ -61558,15 +62653,6 @@ func (c *ClientWithResponses) GetOptionsV3TradesTickerWithResponse(ctx context.C
 		return nil, err
 	}
 	return ParseGetOptionsV3TradesTickerResponse(rsp)
-}
-
-// GetOptionsVXOpenInterestUnderlyingWithResponse request returning *GetOptionsVXOpenInterestUnderlyingResponse
-func (c *ClientWithResponses) GetOptionsVXOpenInterestUnderlyingWithResponse(ctx context.Context, params *GetOptionsVXOpenInterestUnderlyingParams, reqEditors ...RequestEditorFn) (*GetOptionsVXOpenInterestUnderlyingResponse, error) {
-	rsp, err := c.GetOptionsVXOpenInterestUnderlying(ctx, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetOptionsVXOpenInterestUnderlyingResponse(rsp)
 }
 
 // GetStocksDevTradesTickerWithResponse request returning *GetStocksDevTradesTickerResponse
@@ -66108,6 +67194,306 @@ func ParseGetOptionsV1AnalyticsResponse(rsp *http.Response) (*GetOptionsV1Analyt
 	return response, nil
 }
 
+// ParseGetOptionsV1AnalyticsExpirationResponse parses an HTTP response from a GetOptionsV1AnalyticsExpirationWithResponse call
+func ParseGetOptionsV1AnalyticsExpirationResponse(rsp *http.Response) (*GetOptionsV1AnalyticsExpirationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1AnalyticsExpirationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date.
+				Date openapi_types.Date `json:"date"`
+
+				// DeltaExposure Delta exposure in dollars: the sum of open interest x 100 x delta x underlying_price. Put deltas are negative. Null if no contract has Greeks.
+				DeltaExposure *float64 `json:"delta_exposure,omitempty"`
+
+				// ExcludedOpenInterest Open interest of binary options and of the contracts that do not have a standard deliverable of 100 shares, for example contracts adjusted after a corporate action. These contracts are not in any other field.
+				ExcludedOpenInterest *int64 `json:"excluded_open_interest,omitempty"`
+
+				// ExpirationDate The expiration date of the contracts (formatted as YYYY-MM-DD).
+				ExpirationDate *openapi_types.Date `json:"expiration_date,omitempty"`
+
+				// GammaExposure Net gamma exposure in dollars per 1% move of the underlying price: the sum of open interest x 100 x gamma x underlying_price² x 0.01, with calls positive and puts negative. Null if no contract has Greeks.
+				GammaExposure *float64 `json:"gamma_exposure,omitempty"`
+
+				// GammaExposureCalls Gamma exposure of the call contracts (positive). Null if no call contract has Greeks.
+				GammaExposureCalls *float64 `json:"gamma_exposure_calls,omitempty"`
+
+				// GammaExposurePuts Gamma exposure of the put contracts (negative). Null if no put contract has Greeks.
+				GammaExposurePuts *float64 `json:"gamma_exposure_puts,omitempty"`
+
+				// MaxPain The strike price at which the open contracts of this expiration date have the smallest total value if the underlying asset settles there. Every strike price of the expiration date is a candidate. If strike prices tie, the lower one. Null if the expiration date has no open interest.
+				MaxPain *float64 `json:"max_pain,omitempty"`
+
+				// OpenInterest Total open interest of the standard (not binary) contracts with a standard deliverable of 100 shares.
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OpenInterestCalls Total open interest of the standard (not binary) call contracts with a standard deliverable of 100 shares.
+				OpenInterestCalls *int64 `json:"open_interest_calls,omitempty"`
+
+				// OpenInterestPuts Total open interest of the standard (not binary) put contracts with a standard deliverable of 100 shares.
+				OpenInterestPuts *int64 `json:"open_interest_puts,omitempty"`
+
+				// OpenInterestWithGreeks Open interest of the contracts that count in the exposure values: contracts with open interest above 0 and a gamma and a delta.
+				OpenInterestWithGreeks *int64 `json:"open_interest_with_greeks,omitempty"`
+
+				// UnderlyingPrice The underlying price used for the Greeks: the last SIP trade, or the last published index value, at or before 15 minutes before the close. Null if no contract of the expiration date has Greeks.
+				UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+				// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AnalyticsExpiration200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AnalyticsExpiration400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsV1AnalyticsStrikeResponse parses an HTTP response from a GetOptionsV1AnalyticsStrikeWithResponse call
+func ParseGetOptionsV1AnalyticsStrikeResponse(rsp *http.Response) (*GetOptionsV1AnalyticsStrikeResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1AnalyticsStrikeResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date.
+				Date openapi_types.Date `json:"date"`
+
+				// DeltaExposure Delta exposure in dollars: the sum of open interest x 100 x delta x underlying_price. Put deltas are negative. Null if no contract has Greeks.
+				DeltaExposure *float64 `json:"delta_exposure,omitempty"`
+
+				// ExcludedOpenInterest Open interest of binary options and of the contracts that do not have a standard deliverable of 100 shares, for example contracts adjusted after a corporate action. These contracts are not in any other field.
+				ExcludedOpenInterest *int64 `json:"excluded_open_interest,omitempty"`
+
+				// GammaExposure Net gamma exposure in dollars per 1% move of the underlying price: the sum of open interest x 100 x gamma x underlying_price² x 0.01, with calls positive and puts negative. Null if no contract has Greeks.
+				GammaExposure *float64 `json:"gamma_exposure,omitempty"`
+
+				// GammaExposureCalls Gamma exposure of the call contracts (positive). Null if no call contract has Greeks.
+				GammaExposureCalls *float64 `json:"gamma_exposure_calls,omitempty"`
+
+				// GammaExposurePuts Gamma exposure of the put contracts (negative). Null if no put contract has Greeks.
+				GammaExposurePuts *float64 `json:"gamma_exposure_puts,omitempty"`
+
+				// OpenInterest Total open interest of the standard (not binary) contracts with a standard deliverable of 100 shares.
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OpenInterestCalls Total open interest of the standard (not binary) call contracts with a standard deliverable of 100 shares.
+				OpenInterestCalls *int64 `json:"open_interest_calls,omitempty"`
+
+				// OpenInterestPuts Total open interest of the standard (not binary) put contracts with a standard deliverable of 100 shares.
+				OpenInterestPuts *int64 `json:"open_interest_puts,omitempty"`
+
+				// OpenInterestWithGreeks Open interest of the contracts that count in the exposure values: contracts with open interest above 0 and a gamma and a delta.
+				OpenInterestWithGreeks *int64 `json:"open_interest_with_greeks,omitempty"`
+
+				// StrikePrice The strike price. The values sum the contracts of all expiration dates at this strike price.
+				StrikePrice *float64 `json:"strike_price,omitempty"`
+
+				// UnderlyingPrice The underlying price used for the Greeks: the last SIP trade, or the last published index value, at or before 15 minutes before the close. Null if no contract at this strike price has Greeks.
+				UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+				// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AnalyticsStrike200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AnalyticsStrike400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsV1AnalyticsUnderlyingResponse parses an HTTP response from a GetOptionsV1AnalyticsUnderlyingWithResponse call
+func ParseGetOptionsV1AnalyticsUnderlyingResponse(rsp *http.Response) (*GetOptionsV1AnalyticsUnderlyingResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1AnalyticsUnderlyingResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// CallWall The strike price at or above underlying_price with the largest call gamma exposure, summed over all expiration dates. If strike prices tie, the one nearest underlying_price. Null if no call contract at or above underlying_price has gamma exposure.
+				CallWall *float64 `json:"call_wall,omitempty"`
+
+				// Date The trading date the values apply to (formatted as YYYY-MM-DD). Open interest is as published the morning of date, for the prior trading day's close. Greeks are from 15 minutes before the close on date.
+				Date openapi_types.Date `json:"date"`
+
+				// DeltaExposure Delta exposure in dollars: the sum of open interest x 100 x delta x underlying_price. Put deltas are negative. Null if no contract has Greeks.
+				DeltaExposure *float64 `json:"delta_exposure,omitempty"`
+
+				// ExcludedOpenInterest Open interest of binary options and of the contracts that do not have a standard deliverable of 100 shares, for example contracts adjusted after a corporate action. These contracts are not in any other field.
+				ExcludedOpenInterest *int64 `json:"excluded_open_interest,omitempty"`
+
+				// GammaExposure Net gamma exposure in dollars per 1% move of the underlying price: the sum of open interest x 100 x gamma x underlying_price² x 0.01, with calls positive and puts negative. Null if no contract has Greeks.
+				GammaExposure *float64 `json:"gamma_exposure,omitempty"`
+
+				// GammaExposureCalls Gamma exposure of the call contracts (positive). Null if no call contract has Greeks.
+				GammaExposureCalls *float64 `json:"gamma_exposure_calls,omitempty"`
+
+				// GammaExposurePuts Gamma exposure of the put contracts (negative). Null if no put contract has Greeks.
+				GammaExposurePuts *float64 `json:"gamma_exposure_puts,omitempty"`
+
+				// GammaFlip The price where the running sum of net gamma exposure changes sign. The sum runs over the strike prices from the lowest up, and the price is interpolated linearly between the two adjacent strike prices. If the sum changes sign more than once, the crossing nearest underlying_price. Strike prices without gamma exposure are skipped. Null if the sum does not change sign.
+				GammaFlip *float64 `json:"gamma_flip,omitempty"`
+
+				// OpenInterest Total open interest of the standard (not binary) contracts with a standard deliverable of 100 shares.
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OpenInterestCalls Total open interest of the standard (not binary) call contracts with a standard deliverable of 100 shares.
+				OpenInterestCalls *int64 `json:"open_interest_calls,omitempty"`
+
+				// OpenInterestPuts Total open interest of the standard (not binary) put contracts with a standard deliverable of 100 shares.
+				OpenInterestPuts *int64 `json:"open_interest_puts,omitempty"`
+
+				// OpenInterestWithGreeks Open interest of the contracts that count in the exposure values: contracts with open interest above 0 and a gamma and a delta.
+				OpenInterestWithGreeks *int64 `json:"open_interest_with_greeks,omitempty"`
+
+				// PutCallRatio open_interest_puts divided by open_interest_calls. Null if there is no call open interest.
+				PutCallRatio *float64 `json:"put_call_ratio,omitempty"`
+
+				// PutWall The strike price at or below underlying_price with the most negative put gamma exposure, summed over all expiration dates. If strike prices tie, the one nearest underlying_price. Null if no put contract at or below underlying_price has gamma exposure.
+				PutWall *float64 `json:"put_wall,omitempty"`
+
+				// UnderlyingPrice The underlying price used for the Greeks: the last SIP trade, or the last published index value, at or before 15 minutes before the close. Null if no contract has Greeks.
+				UnderlyingPrice *float64 `json:"underlying_price,omitempty"`
+
+				// UnderlyingTicker The ticker of the underlying asset (e.g., AAPL). The values cover every root on the underlying asset.
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AnalyticsUnderlying200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1AnalyticsUnderlying400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
 // ParseGetOptionsV1ExchangesResponse parses an HTTP response from a GetOptionsV1ExchangesWithResponse call
 func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1ExchangesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -66259,6 +67645,78 @@ func ParseGetOptionsV1OpenInterestResponse(rsp *http.Response) (*GetOptionsV1Ope
 
 			// Status The status of this request's response.
 			Status GetOptionsV1OpenInterest400Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case rsp.StatusCode == 200:
+		// Content-type (application/vnd.apache.arrow.file) unsupported
+
+	}
+
+	return response, nil
+}
+
+// ParseGetOptionsV1OpenInterestUnderlyingResponse parses an HTTP response from a GetOptionsV1OpenInterestUnderlyingWithResponse call
+func ParseGetOptionsV1OpenInterestUnderlyingResponse(rsp *http.Response) (*GetOptionsV1OpenInterestUnderlyingResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetOptionsV1OpenInterestUnderlyingResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// NextUrl If present, this value can be used to fetch the next page.
+			NextUrl *string `json:"next_url,omitempty"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Results The results for this request.
+			Results []struct {
+				// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
+				Date openapi_types.Date `json:"date"`
+
+				// OpenInterest Total open interest across every contract on the underlying.
+				OpenInterest *int64 `json:"open_interest,omitempty"`
+
+				// OpenInterestCalls Total open interest across the underlying's call contracts.
+				OpenInterestCalls int64 `json:"open_interest_calls"`
+
+				// OpenInterestPuts Total open interest across the underlying's put contracts.
+				OpenInterestPuts int64 `json:"open_interest_puts"`
+
+				// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
+				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
+			} `json:"results"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1OpenInterestUnderlying200Status `json:"status"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest struct {
+			// Error A message describing the source of the error.
+			Error string `json:"error"`
+
+			// RequestId A request id assigned by the server.
+			RequestId string `json:"request_id"`
+
+			// Status The status of this request's response.
+			Status GetOptionsV1OpenInterestUnderlying400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -66511,78 +67969,6 @@ func ParseGetOptionsV3TradesTickerResponse(rsp *http.Response) (*GetOptionsV3Tra
 
 			// Status The status of this request's response.
 			Status GetOptionsV3TradesTicker400Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	case rsp.StatusCode == 200:
-		// Content-type (application/vnd.apache.arrow.file) unsupported
-
-	}
-
-	return response, nil
-}
-
-// ParseGetOptionsVXOpenInterestUnderlyingResponse parses an HTTP response from a GetOptionsVXOpenInterestUnderlyingWithResponse call
-func ParseGetOptionsVXOpenInterestUnderlyingResponse(rsp *http.Response) (*GetOptionsVXOpenInterestUnderlyingResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetOptionsVXOpenInterestUnderlyingResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			// NextUrl If present, this value can be used to fetch the next page.
-			NextUrl *string `json:"next_url,omitempty"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Results The results for this request.
-			Results []struct {
-				// Date The trading date the open interest applies to (formatted as YYYY-MM-DD).
-				Date openapi_types.Date `json:"date"`
-
-				// OpenInterest Total open interest across every contract on the underlying.
-				OpenInterest *int64 `json:"open_interest,omitempty"`
-
-				// OpenInterestCalls Total open interest across the underlying's call contracts.
-				OpenInterestCalls int64 `json:"open_interest_calls"`
-
-				// OpenInterestPuts Total open interest across the underlying's put contracts.
-				OpenInterestPuts int64 `json:"open_interest_puts"`
-
-				// UnderlyingTicker The ticker of the underlying (e.g., SPX). Totals cover every root on the underlying, so weekly roots (SPXW) and roots adjusted after a corporate action (AMCR1) are included.
-				UnderlyingTicker *string `json:"underlying_ticker,omitempty"`
-			} `json:"results"`
-
-			// Status The status of this request's response.
-			Status GetOptionsVXOpenInterestUnderlying200Status `json:"status"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest struct {
-			// Error A message describing the source of the error.
-			Error string `json:"error"`
-
-			// RequestId A request id assigned by the server.
-			RequestId string `json:"request_id"`
-
-			// Status The status of this request's response.
-			Status GetOptionsVXOpenInterestUnderlying400Status `json:"status"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -67059,6 +68445,9 @@ func ParseGetStocksFilingsVX13FResponse(rsp *http.Response) (*GetStocksFilingsVX
 
 				// FilerCik SEC Central Index Key (10 digits, zero-padded) of the filing entity.
 				FilerCik *string `json:"filer_cik,omitempty"`
+
+				// FilerName Name of the institutional investment manager filing the report, as reported on the filing's cover page. Null for older text-format filings (before mid-2013), which do not report it in a structured field.
+				FilerName *string `json:"filer_name,omitempty"`
 
 				// FilingDate Date when the filing was submitted to the SEC (formatted as YYYY-MM-DD).
 				FilingDate *openapi_types.Date `json:"filing_date,omitempty"`
