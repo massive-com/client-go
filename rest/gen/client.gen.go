@@ -56676,6 +56676,9 @@ type GetMarketStatusResponse struct {
 		// Market The status of the market as a whole.
 		Market *string `json:"market,omitempty"`
 
+		// Overnight Whether or not the market is in overnight hours (9:00 PM to 4:00 AM ET).
+		Overnight *bool `json:"overnight,omitempty"`
+
 		// ServerTime The current time of the server, returned as a date-time in RFC3339 format.
 		ServerTime *string `json:"serverTime,omitempty"`
 	}
@@ -72869,6 +72872,9 @@ func ParseGetMarketStatusResponse(rsp *http.Response) (*GetMarketStatusResponse,
 
 			// Market The status of the market as a whole.
 			Market *string `json:"market,omitempty"`
+
+			// Overnight Whether or not the market is in overnight hours (9:00 PM to 4:00 AM ET).
+			Overnight *bool `json:"overnight,omitempty"`
 
 			// ServerTime The current time of the server, returned as a date-time in RFC3339 format.
 			ServerTime *string `json:"serverTime,omitempty"`
