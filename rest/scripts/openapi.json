@@ -5372,6 +5372,18 @@
         "description": "The volume weighted average price.",
         "format": "double",
         "type": "number"
+      },
+      "DateTimeOrDate": {
+        "oneOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "format": "date",
+            "type": "string"
+          }
+        ]
       }
     },
     "securitySchemes": {
@@ -44072,16 +44084,7 @@
             "in": "query",
             "name": "published_utc",
             "schema": {
-              "oneOf": [
-                {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                {
-                  "format": "date",
-                  "type": "string"
-                }
-              ]
+              "$ref": "#/components/schemas/DateTimeOrDate"
             },
             "x-polygon-filter-field": {
               "range": true
@@ -44128,16 +44131,7 @@
             "in": "query",
             "name": "published_utc.gte",
             "schema": {
-              "oneOf": [
-                {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                {
-                  "format": "date",
-                  "type": "string"
-                }
-              ]
+              "$ref": "#/components/schemas/DateTimeOrDate"
             }
           },
           {
@@ -44145,16 +44139,7 @@
             "in": "query",
             "name": "published_utc.gt",
             "schema": {
-              "oneOf": [
-                {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                {
-                  "format": "date",
-                  "type": "string"
-                }
-              ]
+              "$ref": "#/components/schemas/DateTimeOrDate"
             }
           },
           {
@@ -44162,16 +44147,7 @@
             "in": "query",
             "name": "published_utc.lte",
             "schema": {
-              "oneOf": [
-                {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                {
-                  "format": "date",
-                  "type": "string"
-                }
-              ]
+              "$ref": "#/components/schemas/DateTimeOrDate"
             }
           },
           {
@@ -44179,16 +44155,7 @@
             "in": "query",
             "name": "published_utc.lt",
             "schema": {
-              "oneOf": [
-                {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                {
-                  "format": "date",
-                  "type": "string"
-                }
-              ]
+              "$ref": "#/components/schemas/DateTimeOrDate"
             }
           },
           {

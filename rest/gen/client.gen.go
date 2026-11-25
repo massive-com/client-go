@@ -1328,6 +1328,17 @@ const (
 	UsCode              ListIPOsParamsSort = "us_code"
 )
 
+// DateTimeOrDate defines model for DateTimeOrDate.
+type DateTimeOrDate struct {
+	union json.RawMessage
+}
+
+// DateTimeOrDate0 defines model for .
+type DateTimeOrDate0 = time.Time
+
+// DateTimeOrDate1 defines model for .
+type DateTimeOrDate1 = openapi_types.Date
+
 // GetBenzingaV1AnalystInsightsParams defines parameters for GetBenzingaV1AnalystInsights.
 type GetBenzingaV1AnalystInsightsParams struct {
 	// Date The calendar date (formatted as YYYY-MM-DD) when the rating was issued.
@@ -7309,9 +7320,7 @@ type ListNewsParams struct {
 	Ticker *string `form:"ticker,omitempty" json:"ticker,omitempty"`
 
 	// PublishedUtc Return results published on, before, or after this date.
-	PublishedUtc *struct {
-		union json.RawMessage
-	} `form:"published_utc,omitempty" json:"published_utc,omitempty"`
+	PublishedUtc *DateTimeOrDate `form:"published_utc,omitempty" json:"published_utc,omitempty"`
 
 	// TickerGte Search by ticker.
 	TickerGte *string `form:"ticker.gte,omitempty" json:"ticker.gte,omitempty"`
@@ -7326,24 +7335,16 @@ type ListNewsParams struct {
 	TickerLt *string `form:"ticker.lt,omitempty" json:"ticker.lt,omitempty"`
 
 	// PublishedUtcGte Search by published_utc.
-	PublishedUtcGte *struct {
-		union json.RawMessage
-	} `form:"published_utc.gte,omitempty" json:"published_utc.gte,omitempty"`
+	PublishedUtcGte *DateTimeOrDate `form:"published_utc.gte,omitempty" json:"published_utc.gte,omitempty"`
 
 	// PublishedUtcGt Search by published_utc.
-	PublishedUtcGt *struct {
-		union json.RawMessage
-	} `form:"published_utc.gt,omitempty" json:"published_utc.gt,omitempty"`
+	PublishedUtcGt *DateTimeOrDate `form:"published_utc.gt,omitempty" json:"published_utc.gt,omitempty"`
 
 	// PublishedUtcLte Search by published_utc.
-	PublishedUtcLte *struct {
-		union json.RawMessage
-	} `form:"published_utc.lte,omitempty" json:"published_utc.lte,omitempty"`
+	PublishedUtcLte *DateTimeOrDate `form:"published_utc.lte,omitempty" json:"published_utc.lte,omitempty"`
 
 	// PublishedUtcLt Search by published_utc.
-	PublishedUtcLt *struct {
-		union json.RawMessage
-	} `form:"published_utc.lt,omitempty" json:"published_utc.lt,omitempty"`
+	PublishedUtcLt *DateTimeOrDate `form:"published_utc.lt,omitempty" json:"published_utc.lt,omitempty"`
 
 	// Order Order results based on the `sort` field.
 	Order *ListNewsParamsOrder `form:"order,omitempty" json:"order,omitempty"`
@@ -7354,36 +7355,6 @@ type ListNewsParams struct {
 	// Sort Sort field used for ordering.
 	Sort *ListNewsParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
 }
-
-// ListNewsParamsPublishedUtc0 defines parameters for ListNews.
-type ListNewsParamsPublishedUtc0 = time.Time
-
-// ListNewsParamsPublishedUtc1 defines parameters for ListNews.
-type ListNewsParamsPublishedUtc1 = openapi_types.Date
-
-// ListNewsParamsPublishedUtcGte0 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcGte0 = time.Time
-
-// ListNewsParamsPublishedUtcGte1 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcGte1 = openapi_types.Date
-
-// ListNewsParamsPublishedUtcGt0 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcGt0 = time.Time
-
-// ListNewsParamsPublishedUtcGt1 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcGt1 = openapi_types.Date
-
-// ListNewsParamsPublishedUtcLte0 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcLte0 = time.Time
-
-// ListNewsParamsPublishedUtcLte1 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcLte1 = openapi_types.Date
-
-// ListNewsParamsPublishedUtcLt0 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcLt0 = time.Time
-
-// ListNewsParamsPublishedUtcLt1 defines parameters for ListNews.
-type ListNewsParamsPublishedUtcLt1 = openapi_types.Date
 
 // ListNewsParamsOrder defines parameters for ListNews.
 type ListNewsParamsOrder string
@@ -8257,6 +8228,68 @@ type GetEventsParams struct {
 	// Types A comma-separated list of the types of event to include. Currently ticker_change is the only supported event_type.
 	// Leave blank to return all supported event_types.
 	Types *string `form:"types,omitempty" json:"types,omitempty"`
+}
+
+// AsDateTimeOrDate0 returns the union data inside the DateTimeOrDate as a DateTimeOrDate0
+func (t DateTimeOrDate) AsDateTimeOrDate0() (DateTimeOrDate0, error) {
+	var body DateTimeOrDate0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDateTimeOrDate0 overwrites any union data inside the DateTimeOrDate as the provided DateTimeOrDate0
+func (t *DateTimeOrDate) FromDateTimeOrDate0(v DateTimeOrDate0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDateTimeOrDate0 performs a merge with any union data inside the DateTimeOrDate, using the provided DateTimeOrDate0
+func (t *DateTimeOrDate) MergeDateTimeOrDate0(v DateTimeOrDate0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDateTimeOrDate1 returns the union data inside the DateTimeOrDate as a DateTimeOrDate1
+func (t DateTimeOrDate) AsDateTimeOrDate1() (DateTimeOrDate1, error) {
+	var body DateTimeOrDate1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDateTimeOrDate1 overwrites any union data inside the DateTimeOrDate as the provided DateTimeOrDate1
+func (t *DateTimeOrDate) FromDateTimeOrDate1(v DateTimeOrDate1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDateTimeOrDate1 performs a merge with any union data inside the DateTimeOrDate, using the provided DateTimeOrDate1
+func (t *DateTimeOrDate) MergeDateTimeOrDate1(v DateTimeOrDate1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DateTimeOrDate) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DateTimeOrDate) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
 }
 
 // RequestEditorFn  is the function signature for the RequestEditor callback function
