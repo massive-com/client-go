@@ -3401,7 +3401,7 @@ type GetFuturesV1QuotesTickerParams struct {
 	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
 
-	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
+	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format. Value must be formatted 'yyyy-mm-dd'.
 	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '100' if not specified. The maximum allowed limit is '50000'.
@@ -3533,7 +3533,7 @@ type GetFuturesV1TradesTickerParams struct {
 	// TimestampLte Filter less than or equal to the value. Value must be an integer timestamp in nanoseconds, formatted 'yyyy-mm-dd', or ISO 8601/RFC 3339 (e.g. '2024-05-28T20:27:41Z').
 	TimestampLte *string `form:"timestamp.lte,omitempty" json:"timestamp.lte,omitempty"`
 
-	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
+	// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format. Value must be formatted 'yyyy-mm-dd'.
 	SessionEndDate *string `form:"session_end_date,omitempty" json:"session_end_date,omitempty"`
 
 	// Limit Limit the maximum number of results returned. Defaults to '10' if not specified. The maximum allowed limit is '50000'.
@@ -50787,7 +50787,7 @@ type GetFuturesV1ExchangesResponse struct {
 			Id string `json:"id"`
 
 			// Locale Geographic location code where the exchange operates.
-			Locale *string `json:"locale,omitempty"`
+			Locale string `json:"locale"`
 
 			// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code for the futures market.
 			Mic *string `json:"mic,omitempty"`
@@ -50927,7 +50927,7 @@ type GetFuturesV1ProductsResponse struct {
 			ClearingVenue *string `json:"clearing_venue,omitempty"`
 
 			// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
-			Date openapi_types.Date `json:"date"`
+			Date *openapi_types.Date `json:"date,omitempty"`
 
 			// LastUpdated The date and time at which this product was last updated.
 			LastUpdated *time.Time `json:"last_updated,omitempty"`
@@ -51051,7 +51051,7 @@ type GetFuturesV1QuotesTickerResponse struct {
 			SequenceNumber int64 `json:"sequence_number"`
 
 			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-			SessionEndDate *string `json:"session_end_date,omitempty"`
+			SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
 
 			// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
 			Ticker string `json:"ticker"`
@@ -51169,13 +51169,13 @@ type GetFuturesV1SnapshotResponse struct {
 
 		// Results The results for this request.
 		Results []struct {
-			Details *struct {
+			Details struct {
 				ProductCode *string `json:"product_code,omitempty"`
 
 				// SettlementDate The day that this contract is settled.
 				SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
 				Ticker         *string             `json:"ticker,omitempty"`
-			} `json:"details,omitempty"`
+			} `json:"details"`
 			LastMinute *struct {
 				// Close The price at the end of the minute bar.
 				Close *float64 `json:"close,omitempty"`
@@ -51196,7 +51196,7 @@ type GetFuturesV1SnapshotResponse struct {
 				Timeframe *string `json:"timeframe,omitempty"`
 
 				// Volume The number of contracts traded in the minute bar.
-				Volume *int64 `json:"volume,omitempty"`
+				Volume *float64 `json:"volume,omitempty"`
 			} `json:"last_minute,omitempty"`
 			LastQuote *struct {
 				// Ask The lowest price a seller is willing to accept.
@@ -51262,7 +51262,7 @@ type GetFuturesV1SnapshotResponse struct {
 				SettlementPrice *float64 `json:"settlement_price,omitempty"`
 
 				// Volume The number of contracts traded in the session.
-				Volume *int64 `json:"volume,omitempty"`
+				Volume *float64 `json:"volume,omitempty"`
 			} `json:"session,omitempty"`
 		} `json:"results"`
 
@@ -51324,7 +51324,7 @@ type GetFuturesV1TradesTickerResponse struct {
 			SequenceNumber int64 `json:"sequence_number"`
 
 			// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-			SessionEndDate *string `json:"session_end_date,omitempty"`
+			SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
 
 			// Size The total number of contracts exchanged between buyers and sellers on a given trade.
 			Size *int64 `json:"size,omitempty"`
@@ -51840,7 +51840,7 @@ type GetOptionsV1ExchangesResponse struct {
 			Id string `json:"id"`
 
 			// Locale Geographic location code.
-			Locale *string `json:"locale,omitempty"`
+			Locale string `json:"locale"`
 
 			// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code identifying the specific options market.
 			Mic *string `json:"mic,omitempty"`
@@ -54321,7 +54321,7 @@ type GetStocksV1ExchangesResponse struct {
 			Id string `json:"id"`
 
 			// Locale Geographic location code.
-			Locale *string `json:"locale,omitempty"`
+			Locale string `json:"locale"`
 
 			// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code for the market (may be empty for some venues).
 			Mic *string `json:"mic,omitempty"`
@@ -66343,7 +66343,7 @@ func ParseGetFuturesV1ExchangesResponse(rsp *http.Response) (*GetFuturesV1Exchan
 				Id string `json:"id"`
 
 				// Locale Geographic location code where the exchange operates.
-				Locale *string `json:"locale,omitempty"`
+				Locale string `json:"locale"`
 
 				// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code for the futures market.
 				Mic *string `json:"mic,omitempty"`
@@ -66505,7 +66505,7 @@ func ParseGetFuturesV1ProductsResponse(rsp *http.Response) (*GetFuturesV1Product
 				ClearingVenue *string `json:"clearing_venue,omitempty"`
 
 				// Date A date string in the format YYYY-MM-DD. This parameter will return point-in-time information about products for the specified day.
-				Date openapi_types.Date `json:"date"`
+				Date *openapi_types.Date `json:"date,omitempty"`
 
 				// LastUpdated The date and time at which this product was last updated.
 				LastUpdated *time.Time `json:"last_updated,omitempty"`
@@ -66640,7 +66640,7 @@ func ParseGetFuturesV1QuotesTickerResponse(rsp *http.Response) (*GetFuturesV1Quo
 				SequenceNumber int64 `json:"sequence_number"`
 
 				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-				SessionEndDate *string `json:"session_end_date,omitempty"`
+				SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
 
 				// Ticker The futures contract identifier, including the base symbol and contract expiration (e.g., GCJ5 for the April 2025 gold contract).
 				Ticker string `json:"ticker"`
@@ -66780,13 +66780,13 @@ func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1Snapsho
 
 			// Results The results for this request.
 			Results []struct {
-				Details *struct {
+				Details struct {
 					ProductCode *string `json:"product_code,omitempty"`
 
 					// SettlementDate The day that this contract is settled.
 					SettlementDate *openapi_types.Date `json:"settlement_date,omitempty"`
 					Ticker         *string             `json:"ticker,omitempty"`
-				} `json:"details,omitempty"`
+				} `json:"details"`
 				LastMinute *struct {
 					// Close The price at the end of the minute bar.
 					Close *float64 `json:"close,omitempty"`
@@ -66807,7 +66807,7 @@ func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1Snapsho
 					Timeframe *string `json:"timeframe,omitempty"`
 
 					// Volume The number of contracts traded in the minute bar.
-					Volume *int64 `json:"volume,omitempty"`
+					Volume *float64 `json:"volume,omitempty"`
 				} `json:"last_minute,omitempty"`
 				LastQuote *struct {
 					// Ask The lowest price a seller is willing to accept.
@@ -66873,7 +66873,7 @@ func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1Snapsho
 					SettlementPrice *float64 `json:"settlement_price,omitempty"`
 
 					// Volume The number of contracts traded in the session.
-					Volume *int64 `json:"volume,omitempty"`
+					Volume *float64 `json:"volume,omitempty"`
 				} `json:"session,omitempty"`
 			} `json:"results"`
 
@@ -66946,7 +66946,7 @@ func ParseGetFuturesV1TradesTickerResponse(rsp *http.Response) (*GetFuturesV1Tra
 				SequenceNumber int64 `json:"sequence_number"`
 
 				// SessionEndDate Also known as the trading date, the date of the end of the trading session, in YYYY-MM-DD format.
-				SessionEndDate *string `json:"session_end_date,omitempty"`
+				SessionEndDate *openapi_types.Date `json:"session_end_date,omitempty"`
 
 				// Size The total number of contracts exchanged between buyers and sellers on a given trade.
 				Size *int64 `json:"size,omitempty"`
@@ -67528,7 +67528,7 @@ func ParseGetOptionsV1ExchangesResponse(rsp *http.Response) (*GetOptionsV1Exchan
 				Id string `json:"id"`
 
 				// Locale Geographic location code.
-				Locale *string `json:"locale,omitempty"`
+				Locale string `json:"locale"`
 
 				// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code identifying the specific options market.
 				Mic *string `json:"mic,omitempty"`
@@ -70295,7 +70295,7 @@ func ParseGetStocksV1ExchangesResponse(rsp *http.Response) (*GetStocksV1Exchange
 				Id string `json:"id"`
 
 				// Locale Geographic location code.
-				Locale *string `json:"locale,omitempty"`
+				Locale string `json:"locale"`
 
 				// Mic Market Identifier Code (MIC) - ISO 10383 standard four-character code for the market (may be empty for some venues).
 				Mic *string `json:"mic,omitempty"`
